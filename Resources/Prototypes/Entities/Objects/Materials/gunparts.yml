@@ -1,0 +1,19 @@
+- type: entity
+  parent: BaseItem
+  id: GunParts
+  name: gun parts
+  description: Some thrown away gun parts. Guess what you can use them for.
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: Objects/Materials/Sheets/metal.rsi
+    state: steel_1
+  - type: StaticPrice
+    price: 100
+  - type: ItemStatus
+  - type: Tag
+    tags:
+    - GunParts
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Metallic

@@ -8,7 +8,7 @@ color = "#000000"
 type = "points"
 seed = 3909
 closecolor = "#4B5072"
-count = 1500
+count = 150
 mask = true
 masknoise_type = "fbm"
 maskoctaves = 4
@@ -23,7 +23,7 @@ maskseed = 3551
 [[layers]]
 type = "points"
 closecolor = "#7E86BF"
-count = 250
+count = 25
 seed = 6843
 mask = true
 masknoise_type = "fbm"
@@ -40,7 +40,7 @@ maskseed = 2938
 type = "points"
 closecolor = "#3D415C"
 pointsize = 2
-count = 250
+count = 25
 seed = 6843
 mask = true
 masknoise_type = "fbm"
@@ -56,7 +56,7 @@ maskseed = 2938
 [[layers]]
 type = "points"
 closecolor = "#FFD363"
-count = 15
+count = 1
 seed = 3748
 
 # And their dim edge.
@@ -64,7 +64,7 @@ seed = 3748
 type = "points"
 closecolor = "#43371A"
 pointsize = 2
-count = 15
+count = 1
 seed = 3748
 
 # Colour-to-alpha.

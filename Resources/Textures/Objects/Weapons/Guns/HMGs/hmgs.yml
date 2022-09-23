@@ -1,0 +1,70 @@
+- type: entity
+  name: BaseWeaponHeavyMachineGun
+  parent: BaseItem
+  id: BaseWeaponHeavyMachineGun
+  description: Spray and pray
+  abstract: true
+  components:
+  - type: BallisticAmmoProvider
+    autoCycle: false
+    capacity: 200
+    proto: MagazineBoxMinigun
+  - type: Sprite
+    netsync: false
+  - type: Item
+    size: 300
+  - type: Gun
+    minAngle: 4
+    maxAngle: 30
+    angleIncrease: 4
+    angleDecay: 16
+    fireRate: 20
+    selectedMode: FullAuto
+    availableModes:
+      - FullAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/minigun.ogg
+    soundEmpty:
+      path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
+  - type: ChamberMagazineAmmoProvider
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazineBoxMinigun
+        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - MagazineBoxMinigun
+      gun_chamber:
+        name: Chamber
+        startingItem: CartridgeMinigun
+        priority: 1
+        whitelist:
+          tags:
+            - CartridgeMinigun
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+
+- type: entity
+  name: minigun
+  id: WeaponMinigun
+  parent: BaseWeaponHeavyMachineGun
+  description: Vzzzzzt! Rahrahrahrah! Vrrrrr!
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/HMGs/minigun.rsi
+    layers:
+    - state: icon
+      map: ["enum.GunVisualLayers.Base"]
+  - type: Item
+    sprite: Objects/Weapons/Guns/HMGs/minigun.rsi
+  - type: MagazineVisuals
+    magState: mag
+    steps: 4
+    zeroVisible: true
+  - type: Appearance

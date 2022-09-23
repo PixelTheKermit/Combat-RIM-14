@@ -167,7 +167,7 @@
   components:
   - type: Battery
     maxCharge: 4000000
-    startingCharge: 4000000
+    startingCharge: 0
 
 - type: entity
   parent: SubstationBasic
@@ -184,7 +184,7 @@
   components:
   - type: Battery
     maxCharge: 2000000
-    startingCharge: 2000000
+    startingCharge: 0
 
 # Construction Frame
 - type: entity

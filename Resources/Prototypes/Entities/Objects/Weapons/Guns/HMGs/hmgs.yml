@@ -8,18 +8,45 @@
   - type: Sprite
     netsync: false
   - type: Item
+    size: 300
   - type: Gun
+    minAngle: 4
+    maxAngle: 30
+    angleIncrease: 4
+    angleDecay: 16
     fireRate: 20
     selectedMode: FullAuto
     availableModes:
-    - FullAuto
+      - FullAuto
     soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/lmg.ogg
+      path: /Audio/Weapons/Guns/Gunshots/minigun.ogg
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
+  - type: ChamberMagazineAmmoProvider
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazineBoxMinigun
+        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - MagazineBoxMinigun
+      gun_chamber:
+        name: Chamber
+        startingItem: CartridgeMinigun
+        priority: 1
+        whitelist:
+          tags:
+            - CartridgeHeavyRifle
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
   - type: StaticPrice
     price: 500
-  # No chamber because HMG may want its own
 
 - type: entity
   name: minigun
@@ -34,19 +61,8 @@
       map: ["enum.GunVisualLayers.Base"]
   - type: Item
     sprite: Objects/Weapons/Guns/HMGs/minigun.rsi
-  - type: Gun
-    fireRate: 15
-    soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/minigun.ogg
-  - type: BallisticAmmoProvider
-    proto: CartridgeMinigun
-    capacity: 1000
   - type: MagazineVisuals
     magState: mag
     steps: 4
     zeroVisible: true
   - type: Appearance
-  - type: ContainerContainer
-    containers:
-      ballistic-ammo: !type:Container
-        ents: []

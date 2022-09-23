@@ -1,0 +1,55 @@
+# Pain
+- type: entity
+  id: BaseMagazineBoxMinigun
+  name: ammunition box (.10 rifle)
+  parent: BaseItem
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+      - MagazineBoxMinigunBase
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+        - CartridgeMinigun
+    proto: CartridgeMinigun
+    capacity: 200
+  - type: Item
+    size: 50
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    netsync: false
+    sprite: Objects/Weapons/Guns/Ammunition/Boxes/light_rifle.rsi
+  - type: MagazineVisuals
+    magState: mag
+    steps: 2
+    zeroVisible: false
+  - type: Appearance
+
+
+# Boxes
+- type: entity
+  parent: BaseMagazineBoxMinigun
+  id: MagazineBoxMinigun
+  name: ammunition box (.10 rifle)
+  components:
+  - type: Tag
+    tags:
+      - MagazineBoxMinigun
+  - type: BallisticAmmoProvider
+    proto: CartridgeMinigun
+    capacity: 200
+  - type: Item
+  - type: Sprite
+    layers:
+    - state: base-b
+      map: ["enum.GunVisualLayers.Base"]
+    - state: magb-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: magb
+    steps: 2
+    zeroVisible: false
+  - type: Appearance

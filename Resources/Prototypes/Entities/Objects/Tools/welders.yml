@@ -78,6 +78,9 @@
   id: WelderIndustrialAdvanced
   description: "An advanced industrial welder with over double the fuel capacity and hotter flame."
   components:
+  - type: Tag
+    tags:
+      - IndustrialWelder
   - type: Sprite
     sprite: Objects/Tools/welder_industrialadv.rsi
   - type: Item

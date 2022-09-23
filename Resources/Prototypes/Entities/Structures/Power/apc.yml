@@ -158,7 +158,7 @@
   components:
   - type: Battery
     maxCharge: 50000
-    startingCharge: 50000
+    startingCharge: 0
 
 - type: entity
   parent: BaseAPC
@@ -167,7 +167,7 @@
   components:
   - type: Battery
     maxCharge: 100000
-    startingCharge: 100000
+    startingCharge: 0
 
 - type: entity
   parent: BaseAPC
@@ -176,7 +176,7 @@
   components:
   - type: Battery
     maxCharge: 150000
-    startingCharge: 150000
+    startingCharge: 0
 
 - type: entity
   parent: BaseAPC
@@ -185,4 +185,4 @@
   components:
   - type: Battery
     maxCharge: 200000
-    startingCharge: 200000
+    startingCharge: 0

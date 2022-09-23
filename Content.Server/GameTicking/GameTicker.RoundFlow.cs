@@ -25,6 +25,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Content.Server._00OuterRim.Worldgen.Systems.Overworld;
 using Robust.Shared.Players;
+using Content.Server.Database;
+using Content.Server.Station.Systems;
 
 namespace Content.Server.GameTicking
 {
@@ -109,7 +111,11 @@ namespace Content.Server.GameTicking
                     var mid = _mapManager.GetMapEntityId(DefaultMap);
                     xform.Coordinates = new EntityCoordinates(mid, offs);
                 }
-
+                var plr = shell.Player as IPlayerSession;
+                if (plr != null)
+                {
+                    MakeJoinGame(plr, _stationSystem.Stations.Last(), "Captain");
+                }
                 return;
             }
         }
@@ -182,9 +188,8 @@ namespace Content.Server.GameTicking
 
         public bool PurchaseAvailable()
         {
-            return _stationSystem.Stations.All(x => Comp<StationJobsComponent>(x).PercentJobsRemaining <= .5);
+            return true;
         }
-
 
         public void StartRound(bool force = false)
         {

@@ -76,6 +76,9 @@
       DisposalUnit: !type:Container
   - type: ApcPowerReceiver
     powerLoad: 20
+  - type: StaticPrice
+    price: 100
+
 - type: entity
   id: DisposalUnit
   parent: DisposalUnitBase
