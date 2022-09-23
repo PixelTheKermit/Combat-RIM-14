@@ -1,4 +1,3 @@
-using Content.Shared.CharacterAppearance;
 using Content.Shared.Chemistry.Reaction;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Humanoid.Markings;
