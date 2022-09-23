@@ -10,8 +10,10 @@
       - id: EmergencyOxygenTankFilled
       - id: SpaceMedipen
       - id: EmergencyMedipen
-      - id: Flare
-      - id: FoodTinMRE
+      - id: WeaponPistolLuger
+      - id: MagazinePistolLuger
+      - id: MagazinePistolLuger
+      - id: MagazinePistolLuger
       - id: CrowbarRed
   - type: Item
     size: 41
