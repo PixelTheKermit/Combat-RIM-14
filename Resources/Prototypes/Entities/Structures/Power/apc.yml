@@ -65,7 +65,7 @@
     node: apc
   - type: PowerNetworkBattery
     maxSupply: 10000
-    maxChargeRate: 5000
+    maxChargeRate: 10000
     supplyRampTolerance: 1000
     supplyRampRate: 500
   - type: WallMount
