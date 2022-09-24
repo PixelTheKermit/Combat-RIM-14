@@ -1,5 +1,5 @@
 ﻿- type: gameMap
-  id: ISVSpider
+  id: ISVSpade
   mapName: 'ISV Spade'
   mapPath: /Maps/isvspade.yml
   minPlayers: 0
