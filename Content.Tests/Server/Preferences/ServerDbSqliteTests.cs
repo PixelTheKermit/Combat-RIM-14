@@ -4,9 +4,8 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Content.Server.Database;
-using Content.Shared.CharacterAppearance;
 using Content.Shared.GameTicking;
-using Content.Shared.Markings;
+using Content.Shared.Humanoid;
 using Content.Shared.Preferences;
 using Content.Shared.Species;
 using Microsoft.Data.Sqlite;
@@ -62,7 +61,7 @@ namespace Content.Tests.Server.Preferences
                     Color.Aquamarine,
                     Color.Azure,
                     Color.Beige,
-                    new MarkingsSet()
+                    new ()
                 ),
                 ClothingPreference.Jumpskirt,
                 BackpackPreference.Backpack,
