@@ -1,0 +1,16 @@
+﻿- type: gameMap
+  id: ISVSpider
+  mapName: 'ISV Spade'
+  mapPath: /Maps/isvspade.yml
+  minPlayers: 0
+  fallback: true
+  descriptionPath: "/Server Info/ISVCobbleInfo.txt"
+  stations:
+    IsvSpade:
+      mapNameTemplate: '{0} Spade {1}'
+      nameGenerator:
+        !type:IndependentNameGenerator
+        prefixCreator: ''
+      overflowJobs: []
+      availableJobs:
+        SalvageSpecialist: [ 0, 0 ]
