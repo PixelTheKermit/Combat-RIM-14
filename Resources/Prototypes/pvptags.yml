@@ -12,7 +12,7 @@
   id: CartridgePistolLuger
   
 - type: Tag
-  id: GunParts
+  id: GunBench
   
 - type: Tag
   id: IndustrialWelder

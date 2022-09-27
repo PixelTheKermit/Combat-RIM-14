@@ -525,7 +525,7 @@
   description: Allows you to use gun parts to create guns.
   components:
     - type: Sprite
-      sprite: Structures/Machines/ore_processor.rsi
+      sprite: Structures/Machines/gunbench.rsi
       netsync: false
       layers:
         - state: icon
@@ -542,12 +542,10 @@
     - type: MaterialStorage
       whitelist:
         tags:
-          - Sheet
-          - Ingot
-          - GunParts
+          - GunBench
     - type: Lathe
       ignoreColor: true
-      staticRecipes:
+      staticRecipes: # Change these later:tm:
         - SheetSteel30
         - SheetGlass30
         - SheetRGlass30
