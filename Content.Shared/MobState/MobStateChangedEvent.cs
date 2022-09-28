@@ -1,4 +1,4 @@
-﻿using Content.Shared.MobState.Components;
+using Content.Shared.MobState.Components;
 
 namespace Content.Shared.MobState
 {
@@ -29,6 +29,12 @@ namespace Content.Shared.MobState
         public static bool IsAlive(this DamageState state)
         {
             return state == DamageState.Alive;
+        }
+
+        [Obsolete("Just check for the enum value instead")]
+        public static bool IsSoftCrit(this DamageState state)
+        {
+            return state == DamageState.SoftCrit;
         }
 
         [Obsolete("Just check for the enum value instead")]
