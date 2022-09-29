@@ -8,9 +8,9 @@
     mode: Delete
   - type: Sprite
     netsync: false
-    sprite: Objects/Materials/Sheets/metal.rsi
+    sprite: Objects/Materials/pvpparts.rsi
   - type: Item
-    sprite: Objects/Materials/Sheets/metal.rsi
+    sprite: Objects/Materials/Sheets/pvpparts.rsi
   - type: StaticPrice
     price: 0
   - type: ItemStatus
@@ -30,14 +30,13 @@
   parent: BaseParts
   id: GunParts
   name: gun parts
-  suffix: Full
   description: Some thrown away gun parts. Useful for making ranged weaponry.
   components:
   - type: Material
     materials:
       GunParts: 150
   - type: Sprite
-    state: steel
+    state: gun
   - type: Item
     heldPrefix: GunParts
   - type: Tag

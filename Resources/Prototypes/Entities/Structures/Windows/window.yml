@@ -105,6 +105,11 @@
     tags:
       - Window
       - NoBlockAnchoring # Thindows don't block structures.
+  - type: MeleeSound
+    soundGroups:
+      Brute:
+        path:
+          "/Audio/Effects/glass_hit.ogg"
   - type: Sprite
     drawdepth: Mobs
     netsync: false
