@@ -1,4 +1,4 @@
-﻿using System.Diagnostics.CodeAnalysis;
+using System.Diagnostics.CodeAnalysis;
 using Content.Client.Examine;
 using Content.Client.Guidebook.Richtext;
 using Content.Client.Verbs;
@@ -80,7 +80,7 @@ public sealed partial class GuideEntityEmbed : BoxContainer, ITag
             return;
 
         // open verb menu?
-        if (args.Function == ContentKeyFunctions.OpenContextMenu)
+        if (args.Function == ContentKeyFunctions.OpenActionsMenu)
         {
             _verbSystem.VerbMenu.OpenVerbMenu(entity.Value);
             args.Handle();
