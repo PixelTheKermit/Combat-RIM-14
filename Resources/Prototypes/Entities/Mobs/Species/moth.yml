@@ -1,0 +1,49 @@
+- type: entity
+  save: false
+  name: Urist McFluff
+  parent: BaseMobOrganic
+  id: BaseMobMoth
+  abstract: true
+  components:
+  - type: Humanoid
+    species: Moth
+  - type: Hunger
+  - type: Thirst
+  - type: Icon
+    sprite: Mobs/Species/Moth/parts.rsi
+    state: full
+  - type: Body
+    template: HumanoidTemplate
+    preset: MothPreset
+  - type: DiseaseCarrier
+    diseaseResist: 0.1
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Scale
+  - type: Temperature
+    heatDamageThreshold: 350
+    coldDamageThreshold: 265
+    currentTemperature: 310.15
+    specificHeat: 46
+    coldDamage:
+      types:
+        Cold : 0.1 #per second, scales with temperature & other constants
+    heatDamage:
+      types:
+        Heat : 0.2 #per second, scales with temperature & other constants
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 2.7
+    baseSprintSpeed : 4.5
+
+- type: entity
+  save: false
+  name: Urist McFluff
+  parent: MobHumanDummy
+  id: MobMothDummy
+  noSpawn: true
+  description: A dummy moth meant to be used in character setup.
+  components:
+  - type: Humanoid
+    species: Moth
+
+#Weh
