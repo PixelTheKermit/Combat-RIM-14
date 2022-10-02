@@ -1,4 +1,4 @@
-﻿using System.Diagnostics.CodeAnalysis;
+using System.Diagnostics.CodeAnalysis;
 using Content.Client.Examine;
 using Content.Client.Guidebook.Richtext;
 using Content.Client.Verbs;
@@ -8,6 +8,7 @@ using Robust.Client.GameObjects;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.XAML;
+using Robust.Shared.Input;
 using Robust.Shared.Map;
 
 namespace Content.Client.Guidebook;
@@ -80,7 +81,7 @@ public sealed partial class GuideEntityEmbed : BoxContainer, ITag
             return;
 
         // open verb menu?
-        if (args.Function == ContentKeyFunctions.OpenContextMenu)
+        if (args.Function == EngineKeyFunctions.UseSecondary)
         {
             _verbSystem.VerbMenu.OpenVerbMenu(entity.Value);
             args.Handle();

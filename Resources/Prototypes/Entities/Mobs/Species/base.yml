@@ -191,7 +191,8 @@
   - type: MobState
     thresholds:
       0: Alive
-      100: Critical
+      100: SoftCrit
+      150: Critical
       200: Dead
   - type: Destructible
     thresholds:
@@ -205,6 +206,7 @@
     speedModifierThresholds:
       60: 0.7
       80: 0.5
+      100: 0.25
   - type: HeatResistance
   - type: DamageVisuals
     thresholds: [ 20, 40, 100 ]
@@ -234,6 +236,7 @@
     fireStackAlternateState: 3
   - type: EnsnareableVisualizer
   - type: CombatMode
+    disarm: true
   - type: Climbing
   - type: Cuffable
   - type: Ensnareable
@@ -244,11 +247,12 @@
   - type: Buckle
   - type: MeleeWeapon
     hidden: true
-    hitSound:
+    soundHit:
       collection: Punch
-    range: 0.8
-    arcwidth: 30
-    arc: fist
+    range: 1.5
+    angle: 30
+    animation: WeaponArcFist
+    attackRate: 1
     damage:
       types:
         Blunt: 5
@@ -259,6 +263,8 @@
   - type: Strippable
   - type: UserInterface
     interfaces:
+      - key: enum.VoiceMaskUIKey.Key
+        type: VoiceMaskBoundUserInterface
       - key: enum.HumanoidMarkingModifierKey.Key
         type: HumanoidMarkingModifierBoundUserInterface
       - key: enum.StrippingUiKey.Key

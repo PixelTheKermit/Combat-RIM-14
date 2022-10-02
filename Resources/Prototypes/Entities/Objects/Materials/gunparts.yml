@@ -1,19 +1,44 @@
 - type: entity
+  abstract: true
   parent: BaseItem
-  id: GunParts
-  name: gun parts
-  description: Some thrown away gun parts. Guess what you can use them for.
+  id: BaseParts
+  description: Some thrown away parts. Useful to some.
   components:
+  - type: PersistenceControl
+    mode: Delete
   - type: Sprite
     netsync: false
-    sprite: Objects/Materials/Sheets/metal.rsi
-    state: steel_1
+    sprite: Objects/Materials/pvpparts.rsi
+  - type: Item
+    sprite: Objects/Materials/Sheets/pvpparts.rsi
   - type: StaticPrice
-    price: 100
+    price: 0
   - type: ItemStatus
-  - type: Tag
-    tags:
-    - GunParts
   - type: Damageable
     damageContainer: Inorganic
     damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+- type: entity
+  parent: BaseParts
+  id: GunParts
+  name: gun parts
+  description: Some thrown away gun parts. Useful for making ranged weaponry.
+  components:
+  - type: Material
+    materials:
+      GunParts: 150
+  - type: Sprite
+    state: gun
+  - type: Item
+    heldPrefix: GunParts
+  - type: Tag
+    tags:
+    - GunBench

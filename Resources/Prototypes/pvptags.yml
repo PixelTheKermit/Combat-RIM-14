@@ -6,13 +6,16 @@
   id: MagazineBoxMinigun
 
 - type: Tag
+  id: CartridgeMinigun
+
+- type: Tag
   id: MagazinePistolLuger
 
 - type: Tag
   id: CartridgePistolLuger
   
 - type: Tag
-  id: GunParts
+  id: GunBench
   
 - type: Tag
   id: IndustrialWelder

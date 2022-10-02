@@ -66,8 +66,8 @@
   - type: PowerNetworkBattery
     maxSupply: 10000
     maxChargeRate: 10000
-    supplyRampTolerance: 1000
-    supplyRampRate: 500
+    supplyRampTolerance: 100
+    supplyRampRate: 250
   - type: WallMount
   - type: Damageable
     damageContainer: Inorganic

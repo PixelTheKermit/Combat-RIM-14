@@ -121,6 +121,7 @@ namespace Content.Server.NPC.Systems
                 case DamageState.Alive:
                     WakeNPC(uid, component);
                     break;
+                case DamageState.SoftCrit:
                 case DamageState.Critical:
                 case DamageState.Dead:
                     SleepNPC(uid, component);

@@ -224,7 +224,7 @@ namespace Content.Server.Guardian
         {
             if (component.HostedGuardian == null) return;
 
-            if (args.CurrentMobState.IsCritical())
+            if (args.CurrentMobState.IsSoftCrit())
             {
                 _popupSystem.PopupEntity(Loc.GetString("guardian-critical-warn"), component.HostedGuardian.Value, Filter.Entities(component.HostedGuardian.Value));
                 SoundSystem.Play("/Audio/Effects/guardian_warn.ogg", Filter.Entities(component.HostedGuardian.Value), component.HostedGuardian.Value);

@@ -1,7 +1,9 @@
 using Content.Server.Mind.Components;
+using Content.Server.Revenant.Components;
 using Content.Shared.Examine;
 using Content.Shared.MobState;
 using Content.Shared.MobState.Components;
+using Content.Shared.Revenant.Components;
 using Robust.Shared.Random;
 
 namespace Content.Server.Revenant.EntitySystems;
@@ -60,6 +62,7 @@ public sealed class EssenceSystem : EntitySystem
                 else
                     component.EssenceAmount = _random.NextFloat(45f, 70f);
                 break;
+            case DamageState.SoftCrit:
             case DamageState.Critical:
                 component.EssenceAmount = _random.NextFloat(35f, 50f);
                 break;

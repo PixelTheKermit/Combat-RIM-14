@@ -137,7 +137,8 @@ namespace Content.Server.Polymorph.Systems
                     continue;
 
                 if ((entity.Prototype.RevertOnDeath && mob.IsDead()) ||
-                    (entity.Prototype.RevertOnCrit && mob.IsCritical()))
+                    (entity.Prototype.RevertOnCrit && mob.IsCritical()) ||
+                    (entity.Prototype.RevertOnCrit && mob.IsSoftCrit()))
                     Revert(entity.Owner);
             }
         }

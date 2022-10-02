@@ -1,0 +1,6 @@
+- type: material
+  id: GunParts
+  name: gun parts
+  icon: Objects/Materials/ingots.rsi/gold.png
+  color: "#FFD700"
+  price: 0.5
