@@ -38,6 +38,7 @@ namespace Content.Shared.MobState.EntitySystems
             SubscribeLocalEvent<MobStateComponent, InteractionAttemptEvent>(OnInteractAttempt);
             SubscribeLocalEvent<MobStateComponent, ThrowAttemptEvent>(OnThrowAttempt);
             SubscribeLocalEvent<MobStateComponent, SpeakAttemptEvent>(OnSpeakAttempt);
+            SubscribeLocalEvent<MobStateComponent, WhisperAttemptEvent>(OnWhisperAttempt);
             SubscribeLocalEvent<MobStateComponent, IsEquippingAttemptEvent>(OnEquipAttempt);
             SubscribeLocalEvent<MobStateComponent, EmoteAttemptEvent>(OnEmoteAttempt);
             SubscribeLocalEvent<MobStateComponent, IsUnequippingAttemptEvent>(OnUnequipAttempt);
@@ -143,6 +144,19 @@ namespace Content.Shared.MobState.EntitySystems
             CheckAct(uid, component, args);
         }
 
+        private void OnWhisperAttempt(EntityUid uid, MobStateComponent component, WhisperAttemptEvent args)
+        {
+            switch (component.CurrentState)
+            {
+                case DamageState.Critical:
+                case DamageState.Dead:
+                    args.Cancel();
+                    return;
+                default:
+                    return;
+            }
+        }
+
         private void OnEquipAttempt(EntityUid uid, MobStateComponent component, IsEquippingAttemptEvent args)
         {
             // is this a self-equip, or are they being stripped?
@@ -176,7 +190,7 @@ namespace Content.Shared.MobState.EntitySystems
 
         private void OnStartPullAttempt(EntityUid uid, MobStateComponent component, StartPullAttemptEvent args)
         {
-            if (IsIncapacitated(uid, component))
+            if (IsIncapacitated(uid, component) || IsSoftCrit(uid, component))
                 args.Cancel();
         }
 
@@ -197,10 +211,10 @@ namespace Content.Shared.MobState.EntitySystems
                     return;
             }
         }
-
+         
         private void OnStandAttempt(EntityUid uid, MobStateComponent component, StandAttemptEvent args)
         {
-            if (IsIncapacitated(uid, component))
+            if (IsIncapacitated(uid, component) || IsSoftCrit(uid, component))
                 args.Cancel();
         }
 

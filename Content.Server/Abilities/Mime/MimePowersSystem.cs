@@ -23,6 +23,7 @@ namespace Content.Server.Abilities.Mime
             base.Initialize();
             SubscribeLocalEvent<MimePowersComponent, ComponentInit>(OnComponentInit);
             SubscribeLocalEvent<MimePowersComponent, SpeakAttemptEvent>(OnSpeakAttempt);
+            SubscribeLocalEvent<MimePowersComponent, WhisperAttemptEvent>(OnWhisperAttempt);
             SubscribeLocalEvent<MimePowersComponent, InvisibleWallActionEvent>(OnInvisibleWall);
         }
         public override void Update(float frameTime)
@@ -49,6 +50,15 @@ namespace Content.Server.Abilities.Mime
             _alertsSystem.ShowAlert(uid, AlertType.VowOfSilence);
         }
         private void OnSpeakAttempt(EntityUid uid, MimePowersComponent component, SpeakAttemptEvent args)
+        {
+            if (!component.Enabled)
+                return;
+
+            _popupSystem.PopupEntity(Loc.GetString("mime-cant-speak"), uid, Filter.Entities(uid));
+            args.Cancel();
+        }
+
+        private void OnWhisperAttempt(EntityUid uid, MimePowersComponent component, WhisperAttemptEvent args)
         {
             if (!component.Enabled)
                 return;
