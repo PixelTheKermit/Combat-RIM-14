@@ -17,23 +17,37 @@
     preset: MothPreset
   - type: DiseaseCarrier
     diseaseResist: 0.1
+  - type: MobState
+    thresholds:
+      0: Alive
+      75: SoftCrit
+      125: Critical
+      150: Dead
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Scale
   - type: Temperature
-    heatDamageThreshold: 350
-    coldDamageThreshold: 265
+    heatDamageThreshold: 330
+    coldDamageThreshold: 195
     currentTemperature: 310.15
     specificHeat: 46
     coldDamage:
       types:
-        Cold : 0.1 #per second, scales with temperature & other constants
+        Cold : 0.05 #per second, scales with temperature & other constants
     heatDamage:
       types:
-        Heat : 0.2 #per second, scales with temperature & other constants
+        Heat : 0.25 #per second, scales with temperature & other constants
+  - type: Jetpack
+    toggleAction:
+      name: action-name-moth-fly
+      useDelay: 1.0
+    event: true
   - type: MovementSpeedModifier
-    baseWalkSpeed : 2.7
-    baseSprintSpeed : 4.5
+    baseWalkSpeed : 3
+    baseSprintSpeed : 5.5
+    weightlessAcceleration: 1
+    weightlessFriction: 0.3
+    weightlessModifier: 1.2 
 
 - type: entity
   save: false

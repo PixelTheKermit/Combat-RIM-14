@@ -287,7 +287,7 @@ public sealed partial class ChatSystem : SharedChatSystem
 
     private void SendEntityWhisper(EntityUid source, string originalMessage, bool hideChat = false)
     {
-        if (!_actionBlocker.CanSpeak(source))
+        if (!_actionBlocker.CanWhisper(source))
             return;
 
         var message = TransformSpeech(source, originalMessage);

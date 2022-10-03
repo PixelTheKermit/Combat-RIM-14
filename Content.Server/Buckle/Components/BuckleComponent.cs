@@ -292,7 +292,7 @@ namespace Content.Server.Buckle.Components
                 appearance.SetData(BuckleVisuals.Buckled, false);
 
             if (EntMan.HasComponent<KnockedDownComponent>(Owner)
-                | (EntMan.TryGetComponent<MobStateComponent>(Owner, out var mobState) && mobState.IsIncapacitated()))
+                | (EntMan.TryGetComponent<MobStateComponent>(Owner, out var mobState) && (mobState.IsIncapacitated() || mobState.IsSoftCrit())))
             {
                 EntitySystem.Get<StandingStateSystem>().Down(Owner);
             }

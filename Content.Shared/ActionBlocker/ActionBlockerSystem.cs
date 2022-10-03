@@ -114,6 +114,15 @@ namespace Content.Shared.ActionBlocker
             return !ev.Cancelled;
         }
 
+        public bool CanWhisper(EntityUid uid)
+        {
+            // This one is used as broadcast
+            var ev = new WhisperAttemptEvent(uid);
+            RaiseLocalEvent(uid, ev, true);
+
+            return !ev.Cancelled;
+        }
+
         public bool CanDrop(EntityUid uid)
         {
             var ev = new DropAttemptEvent(uid);
