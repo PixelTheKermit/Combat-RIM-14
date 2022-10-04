@@ -36,7 +36,7 @@
     - shape:
         !type:PhysShapeAabb
         bounds: "-1.5,-1.5,1.5,1.5"
-      mass: 500
+      density: 50
       mask:
       - LargeMobMask
       layer:
@@ -101,7 +101,7 @@
     - shape:
         !type:PhysShapeAabb
         bounds: "-0.4,-0.4,0.4,0.4"
-      mass: 500
+      density: 3125
       mask:
       - LargeMobMask
       layer:

@@ -24,7 +24,7 @@
     - shape:
         !type:PhysShapeCircle
         radius: 0.25
-      mass: 2
+      density: 10
       mask:
       - FlyingMobMask
       layer:
@@ -89,7 +89,7 @@
     - shape:
         !type:PhysShapeCircle
         radius: 0.1
-      mass: 1
+      density: 30
       mask:
       - FlyingMobMask
       layer:
@@ -167,7 +167,7 @@
     - shape:
         !type:PhysShapeCircle
         radius: 0.35
-      mass: 3
+      density: 8
       mask:
       - MobMask
       layer:
@@ -218,7 +218,7 @@
     - shape:
         !type:PhysShapeCircle
         radius: 0.35
-      mass: 2 #They actually are pretty light, I looked it up
+      density: 5 #They actually are pretty light, I looked it up
       mask:
       - MobMask
       layer:
@@ -318,7 +318,7 @@
     - shape:
         !type:PhysShapeCircle
         radius: 0.2
-      mass: 1
+      density: 7.5
       mask:
       - FlyingMobMask
       layer:
@@ -365,7 +365,7 @@
     - shape:
         !type:PhysShapeCircle
         radius: 0.40
-      mass: 700
+      density: 1400
       mask:
       - MobMask
       layer:
@@ -427,7 +427,7 @@
     - shape:
         !type:PhysShapeCircle
         radius: 0.35
-      mass: 2
+      density: 5
       mask:
       - MobMask
       layer:
@@ -469,7 +469,7 @@
     - shape:
         !type:PhysShapeCircle
         radius: 0.35
-      mass: 60
+      density: 150
       mask:
       - MobMask
       layer:
@@ -528,7 +528,7 @@
     - shape:
         !type:PhysShapeCircle
         radius: 0.35
-      mass: 10
+      density: 25
       mask:
       - MobMask
       layer:
@@ -573,7 +573,7 @@
     - shape:
         !type:PhysShapeCircle
         radius: 0.48
-      mass: 150
+      density: 200
       mask:
       - MobMask
       layer:
@@ -615,7 +615,7 @@
     - shape:
         !type:PhysShapeCircle
         radius: 0.35
-      mass: 50
+      density: 130
       mask:
       - MobMask
       layer:
@@ -691,7 +691,7 @@
     - shape:
         !type:PhysShapeCircle
         radius: 0.35
-      mass: 30
+      density: 80
       mask:
       - MobMask
       layer:
@@ -775,7 +775,7 @@
     - shape:
         !type:PhysShapeCircle
         radius: 0.2
-      mass: 10
+      density: 100
       mask:
       - SmallMobMask
       layer:
@@ -929,7 +929,7 @@
     - shape:
         !type:PhysShapeCircle
         radius: 0.2
-      mass: 5
+      density: 50
       mask:
       - MobMask
       layer:
@@ -980,7 +980,7 @@
     - shape:
         !type:PhysShapeCircle
         radius: 0.2
-      mass: 1
+      density: 5
       mask:
       - MobMask
       layer:
@@ -1026,7 +1026,7 @@
     - shape:
         !type:PhysShapeCircle
         radius: 0.2
-      mass: 1
+      density: 5
       mask:
       - SmallMobMask
       layer:
@@ -1075,7 +1075,7 @@
     - shape:
         !type:PhysShapeCircle
         radius: 0.25
-      mass: 2
+      density: 10
       mask:
       - FlyingMobMask
       layer:
@@ -1121,7 +1121,7 @@
     - shape:
         !type:PhysShapeCircle
         radius: 0.25
-      mass: 20
+      density: 100
       mask:
       - MobMask
       layer:
@@ -1174,7 +1174,7 @@
     - shape:
         !type:PhysShapeCircle
         radius: 0.25
-      mass: 5
+      density: 25
       mask:
       - MobMask
       layer:
@@ -1233,7 +1233,7 @@
     - shape:
         !type:PhysShapeCircle
         radius: 0.25
-      mass: 2
+      density: 10
       mask:
       - SmallMobMask
       layer:
@@ -1280,7 +1280,7 @@
     - shape:
         !type:PhysShapeCircle
         radius: 0.35
-      mass: 50
+      density: 130
       mask:
       - MobMask
       layer:
@@ -1347,7 +1347,7 @@
     - shape:
         !type:PhysShapeCircle
         radius: 0.35
-      mass: 20
+      density: 50
       mask:
       - MobMask
       layer:
@@ -1406,7 +1406,7 @@
     - shape:
         !type:PhysShapeCircle
         radius: 0.35
-      mass: 20
+      density: 50
       mask:
       - MobMask
       layer:
@@ -1465,7 +1465,7 @@
     - shape:
         !type:PhysShapeCircle
         radius: 0.35
-      mass: 20 #They actually are pretty light, I looked it up
+      density: 50 #They actually are pretty light, I looked it up
       mask:
       - MobMask
       layer:

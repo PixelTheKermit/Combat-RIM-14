@@ -17,8 +17,10 @@
       shader: unshaded
     - state: full
       shader: unshaded
+  - type: UpgradeBattery
+    maxChargeMultiplier: 2
+    baseMaxCharge: 2500000
   - type: Battery
-    maxCharge: 4000000
     startingCharge: 0
   - type: ExaminableBattery
   - type: PointLight
@@ -163,11 +165,12 @@
 - type: entity
   parent: BaseSubstation
   id: SubstationBasic
-  suffix: Basic, 4MW
+  suffix: Basic, 2.5MW
   components:
   - type: Battery
-    maxCharge: 4000000
+    maxCharge: 2500000
     startingCharge: 0
+>>>>>>> 28cd7dc764d9c5deb2d3312aece4b3ae9198e900
 
 - type: entity
   parent: SubstationBasic
