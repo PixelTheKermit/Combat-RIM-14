@@ -17,9 +17,6 @@
     preset: MothPreset
   - type: DiseaseCarrier
     diseaseResist: 0.1
-  - type: Damageable
-    damageContainer: Biological
-    damageModifierSet: Moff # moff
   - type: Flammable
     damage:
       types:
@@ -36,7 +33,7 @@
       175: Dead
   - type: Damageable
     damageContainer: Biological
-    damageModifierSet: Scale
+    damageModifierSet: Moff # moff
   - type: Temperature
     heatDamageThreshold: 330
     coldDamageThreshold: 195
