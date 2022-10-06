@@ -17,12 +17,23 @@
     preset: MothPreset
   - type: DiseaseCarrier
     diseaseResist: 0.1
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Moff # moff
+  - type: Flammable
+    damage:
+      types:
+        Heat: 2 # moths should burn more easily
+  - type: SlowOnDamage # Moths are weaker than everyone else, so they should take less speed penalties
+    speedModifierThresholds:
+      70: 0.8
+      85: 0.25
   - type: MobState
     thresholds:
       0: Alive
-      75: SoftCrit
+      85: SoftCrit
       125: Critical
-      150: Dead
+      175: Dead
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Scale
@@ -37,17 +48,11 @@
     heatDamage:
       types:
         Heat : 0.25 #per second, scales with temperature & other constants
-  - type: Jetpack
-    toggleAction:
-      name: action-name-moth-fly
-      useDelay: 1.0
-    event: true
+  - type: MovementAlwaysTouching
   - type: MovementSpeedModifier
-    baseWalkSpeed : 3
-    baseSprintSpeed : 5.5
-    weightlessAcceleration: 1
-    weightlessFriction: 0.3
-    weightlessModifier: 1.2 
+    baseWalkSpeed: 4
+    baseSprintSpeed: 6
+    weightlessModifier: 1.5
 
 - type: entity
   save: false

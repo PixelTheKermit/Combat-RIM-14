@@ -158,10 +158,10 @@ namespace Content.Server.Polymorph.Systems
                 if (!TryComp<MobStateComponent>(comp.Owner, out var mob))
                     continue;
 
-                if ((entity.Prototype.RevertOnDeath && mob.IsDead()) ||
-                    (entity.Prototype.RevertOnCrit && mob.IsCritical()) ||
-                    (entity.Prototype.RevertOnCrit && mob.IsSoftCrit()))
-                    Revert(entity.Owner);
+                if ((proto.RevertOnDeath && mob.IsDead()) ||
+                    (proto.RevertOnCrit && mob.IsCritical()) ||
+                    (proto.RevertOnCrit && mob.IsSoftCrit()))
+                    Revert(comp.Owner);
             }
         }
     }
