@@ -1,0 +1,42 @@
+- type: job
+  id: ShuttleCaptain
+  name: Shuttle Captain
+  playTimeTracker: JobCaptain
+  requirements:
+    - !type:DepartmentTimeRequirement
+      department: Engineering
+      time: 18000
+    - !type:DepartmentTimeRequirement
+      department: Medical
+      time: 18000
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 18000
+    - !type:OverallPlaytimeRequirement
+      time: 108000
+  weight: 20
+  startingGear: ShuttleCaptainGear
+  icon: "Captain"
+  requireAdminNotify: false
+  joinNotifyCrew: true
+  supervisors: job-supervisors-centcom
+  canBeAntag: false
+  accessGroups:
+    - AllAccess
+
+- type: startingGear
+  id: ShuttleCaptainGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitCaptain
+    back: ClothingBackpackCaptainFilled
+    shoes: ClothingShoesBootsMag
+    gloves: ClothingHandsGlovesCaptain
+    outerClothing: ClothingOuterHardsuitCap
+    id: CaptainPDA
+    ears: ClothingHeadsetAltCommand
+    belt: ClothingBeltUtilityFilled
+    pocket1: WeaponRevolverDeckard
+    pocket2: SpeedLoaderMagnum
+  innerclothingskirt: ClothingUniformJumpskirtCaptain
+  satchel: ClothingBackpackSatchelCaptainFilled
+  duffelbag: ClothingBackpackDuffelCaptainFilled

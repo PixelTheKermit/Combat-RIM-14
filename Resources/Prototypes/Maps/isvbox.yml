@@ -1,0 +1,17 @@
+﻿- type: gameMap
+  id: ISVBox
+  mapName: 'ISV Box'
+  mapPath: /Maps/isvbox.yml
+  minPlayers: 0
+  fallback: true
+  descriptionPath: "/Server Info/ISVCobbleInfo.txt"
+  stations:
+    IsvBox:
+      mapNameTemplate: '{0} Box {1}'
+      nameGenerator:
+        !type:IndependentNameGenerator
+        prefixCreator: ''
+      overflowJobs: []
+      availableJobs:
+        SalvageSpecialist: [ 2, 2 ]
+        MedicalDoctor: [ 1, 1 ]

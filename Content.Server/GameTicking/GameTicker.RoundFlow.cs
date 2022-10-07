@@ -117,7 +117,7 @@ namespace Content.Server.GameTicking
                 var plr = shell.Player as IPlayerSession;
                 if (plr != null)
                 {
-                    MakeJoinGame(plr, _stationSystem.Stations.Last(), "Captain");
+                    MakeJoinGame(plr, _stationSystem.Stations.Last(), "ShuttleCaptain");
                 }
                 return;
             }
