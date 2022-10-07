@@ -22,7 +22,7 @@
     - shape:
         !type:PhysShapeCircle
         radius: 0.2
-      mass: 10
+      density: 100
       mask:
       - TableMask
   - type: Sprite
