@@ -4,7 +4,7 @@
   roundStart: true
   prototype: MobMoth
   sprites: MobMothSprites
-  defaultSkinTone: "#34a223"
+  defaultSkinTone: "#ffda93"
   markingLimits: MobMothMarkingLimits
   dollPrototype: MobMothDummy
   skinColoration: Hues
