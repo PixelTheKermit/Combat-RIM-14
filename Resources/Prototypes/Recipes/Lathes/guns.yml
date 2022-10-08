@@ -1,0 +1,31 @@
+- type: latheRecipe
+  id: LatheRecipeLuger
+  icon:
+    sprite: Objects\Weapons\Guns\Pistols\luger.rsi
+    state: base
+  result: WeaponPistolLuger
+  completetime: 10
+  materials:
+    GunParts: 50
+    Steel: 300
+
+- type: latheRecipe
+  id: LatheRecipeLugerMag
+  icon:
+    sprite: Objects\Weapons\Guns\Ammunition\Magazine\Pistol\luger_mag.rsi
+    state: mag-1
+  result: MagazinePistolLuger
+  completetime: 5
+  materials:
+    GunParts: 10
+    Steel: 100
+
+- type: latheRecipe
+  id: LatheRecipeLugerCartridge
+  icon:
+    sprite: Objects/Weapons/Guns/Ammunition/Casings/ammo_casing.rsi
+    state: base
+  result: CartridgePistolLuger
+  completetime: 1
+  materials:
+    Steel: 8

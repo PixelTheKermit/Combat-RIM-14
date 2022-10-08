@@ -21,6 +21,9 @@
         - id: RandomArtifactSpawner
           prob: 0.005
           orGroup: Debris
+        - id: GunParts
+          prob: 0.01
+          orGroup: Debris
       Plating:
         - id: WallSolid
           prob: 0.3
@@ -34,6 +37,9 @@
         - id: RandomArtifactSpawner
           prob: 0.005
           orGroup: Debris
+        - id: GunParts
+          prob: 0.01
+          orGroup: Debris
       Lattice:
         - id: SalvageMaterialCrateSpawner
           prob: 0.05
@@ -46,6 +52,9 @@
           orGroup: Debris
         - id: Grille
           prob: 0.3
+          orGroup: Debris
+        - id: GunParts
+          prob: 0.01
           orGroup: Debris
   debrisRadarColor: "#FFFFFF"
 
@@ -73,6 +82,9 @@
         - id: RandomArtifactSpawner
           prob: 0.005
           orGroup: Debris
+        - id: GunParts
+          prob: 0.01
+          orGroup: Debris
       Plating:
         - id: WallSolid
           prob: 0.3
@@ -86,6 +98,9 @@
         - id: RandomArtifactSpawner
           prob: 0.005
           orGroup: Debris
+        - id: GunParts
+          prob: 0.01
+          orGroup: Debris
       Lattice:
         - id: SalvageMaterialCrateSpawner
           prob: 0.05
@@ -98,5 +113,8 @@
           orGroup: Debris
         - id: Grille
           prob: 0.3
+          orGroup: Debris
+        - id: GunParts
+          prob: 0.01
           orGroup: Debris
   debrisRadarColor: "#FFFFFF"
