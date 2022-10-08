@@ -127,6 +127,9 @@
   - type: Storage
     capacity: 40
     size: 10
+  - type: Tag
+    tags:
+      - BoxHug
 
 - type: entity
   name: extended-capacity survival box
