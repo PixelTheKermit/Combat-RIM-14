@@ -6,7 +6,7 @@
   fallback: true
   descriptionPath: "/Server Info/Shuttles/ISVRustInfo.txt"
   stations:
-    ISVCobble:
+    IsvCobble:
       mapNameTemplate: '{0} Rust {1}'
       nameGenerator:
         !type:IndependentNameGenerator
