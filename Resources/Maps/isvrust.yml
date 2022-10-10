@@ -112,11 +112,11 @@ entities:
     type: Gravity
   - chunkCollection:
       -1,-1:
-        1:
+        0:
           color: '#FFFFFFFF'
           id: BotRight
           coordinates: -0.056201875,-2.171176
-        2:
+        1:
           color: '#FFFFFFFF'
           id: BotRight
           coordinates: -0.015579164,-1.3181295
@@ -431,6 +431,9 @@ entities:
       -2,-4: 1
       -1,-5: 1
       -1,-4: 1
+      0,-6: 1
+      -2,-6: 1
+      -1,-6: 1
     uniqueMixes:
     - volume: 2500
       temperature: 293.15
@@ -748,11 +751,22 @@ entities:
     parent: 3
     type: Transform
 - uid: 43
-  type: Protolathe
+  type: PoweredSmallLight
   components:
-  - pos: 0.5,-4.5
+  - rot: -1.5707963267948966 rad
+    pos: 0.5,-0.5
     parent: 3
     type: Transform
+  - powerLoad: 0
+    type: ApcPowerReceiver
+  - containers:
+      light_bulb: !type:ContainerSlot {}
+    type: ContainerContainer
+  - inputs:
+      On: []
+      Off: []
+      Toggle: []
+    type: SignalReceiver
 - uid: 44
   type: MachineCryopod
   components:
@@ -910,4 +924,18 @@ entities:
     pos: -0.5,-5.5
     parent: 3
     type: Transform
+- uid: 69
+  type: OreProcessor
+  components:
+  - pos: 0.5,-1.5
+    parent: 3
+    type: Transform
+- uid: 70
+  type: Gyroscope
+  components:
+  - pos: 0.5,-4.5
+    parent: 3
+    type: Transform
+  - enabled: False
+    type: AmbientSound
 ...
