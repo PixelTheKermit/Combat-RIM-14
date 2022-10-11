@@ -19,6 +19,7 @@
         - CrateSalvageChemistry
         - CrateFoodMRE
         - CrateSalvagePlants
+        - CrateGunbenchBoard
       rareChance: 0.2
       prototypes:
         - CrateSalvageAssortedGoodies

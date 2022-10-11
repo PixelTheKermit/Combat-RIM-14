@@ -1,0 +1,16 @@
+﻿- type: gameMap
+  id: ISVRust
+  mapName: 'ISV Rust'
+  mapPath: /Maps/isvrust.yml
+  minPlayers: 0
+  fallback: true
+  descriptionPath: "/Server Info/Shuttles/ISVRustInfo.txt"
+  stations:
+    IsvCobble:
+      mapNameTemplate: '{0} Rust {1}'
+      nameGenerator:
+        !type:IndependentNameGenerator
+        prefixCreator: ''
+      overflowJobs: []
+      availableJobs:
+        ShuttleCaptain: [ 0, 1 ]

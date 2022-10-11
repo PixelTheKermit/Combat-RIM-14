@@ -1,0 +1,85 @@
+- type: latheRecipe
+  id: LatheRecipeLuger
+  icon:
+    sprite: Objects\Weapons\Guns\Pistols\luger.rsi
+    state: base
+  result: WeaponPistolLuger
+  completetime: 10
+  materials:
+    GunParts: 50
+    Steel: 300
+
+- type: latheRecipe
+  id: LatheRecipeLugerMag
+  icon:
+    sprite: Objects\Weapons\Guns\Ammunition\Magazine\Pistol\luger_mag.rsi
+    state: mag-1
+  result: MagazinePistolLuger
+  completetime: 5
+  materials:
+    GunParts: 10
+    Steel: 100
+
+- type: latheRecipe
+  id: LatheRecipeLugerCartridge
+  icon:
+    sprite: Objects/Weapons/Guns/Ammunition/Casings/ammo_casing.rsi
+    state: base
+  result: CartridgePistolLuger
+  completetime: 1
+  materials:
+    Steel: 8
+
+- type: latheRecipe
+  id: LatheRecipeViper
+  icon:
+    sprite: Objects/Weapons/Guns/Pistols/viper.rsi
+    state: base
+  result: WeaponPistolViper
+  completetime: 15
+  materials:
+    GunParts: 100
+    Steel: 300
+
+- type: latheRecipe
+  id: LatheRecipeMk58
+  icon:
+    sprite: Objects/Weapons/Guns/Pistols/viper.rsi
+    state: base
+  result: WeaponPistolMk58
+  completetime: 15
+  materials:
+    GunParts: 100
+    Steel: 300
+
+- type: latheRecipe
+  id: LatheRecipeCobra
+  icon:
+    sprite: Objects/Weapons/Guns/Pistols/viper.rsi
+    state: base
+  result: WeaponPistolCobra
+  completetime: 15
+  materials:
+    GunParts: 100
+    Steel: 300
+
+- type: latheRecipe
+  id: LatheRecipePistolMag
+  icon:
+    sprite: Objects/Weapons/Guns/Pistols/viper.rsi
+    state: base
+  result: MagazinePistol
+  completetime: 7
+  materials:
+    GunParts: 15
+    Steel: 150
+
+- type: latheRecipe
+  id: LatheRecipePistolCartridge
+  icon:
+    sprite: Objects/Weapons/Guns/Pistols/viper.rsi
+    state: base
+  result: CartridgePistol
+  completetime: 2
+  materials:
+    Steel: 10

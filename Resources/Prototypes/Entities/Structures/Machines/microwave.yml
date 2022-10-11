@@ -1,6 +1,6 @@
 ﻿- type: entity
   id: KitchenMicrowave
-  parent: BaseMachinePowered
+  parent: [ BaseMachinePowered, ConstructibleMachine ]
   name: microwave
   description: It's magic.
   components:
@@ -61,7 +61,11 @@
   - type: ApcPassiveHeater
   - type: AtmosExposed
   - type: ApcPowerReceiver
-    powerLoad: 40
+    powerLoad: 400
+  - type: Machine
+    board: MicrowaveMachineCircuitboard
   - type: ContainerContainer
     containers:
       microwave_entity_container: !type:Container
+      machine_board: !type:Container
+      machine_parts: !type:Container

@@ -152,7 +152,7 @@ public sealed class ClimbSystem : SharedClimbSystem
         _stunSystem.TryParalyze(user, TimeSpan.FromSeconds(component.BonkTime), true);
 
         if (component.BonkDamage is { } bonkDmg)
-            _damageableSystem.TryChangeDamage(user, bonkDmg, true);
+            _damageableSystem.TryChangeDamage(user, bonkDmg, true, origin: user);
 
         return true;
     }
@@ -367,8 +367,8 @@ public sealed class ClimbSystem : SharedClimbSystem
         if (TryComp<PhysicsComponent>(args.Climber, out var physics) && physics.Mass <= component.MassLimit)
             return;
 
-        _damageableSystem.TryChangeDamage(args.Climber, component.ClimberDamage);
-        _damageableSystem.TryChangeDamage(uid, component.TableDamage);
+        _damageableSystem.TryChangeDamage(args.Climber, component.ClimberDamage, origin: args.Climber);
+        _damageableSystem.TryChangeDamage(uid, component.TableDamage, origin: args.Climber);
         _stunSystem.TryParalyze(args.Climber, TimeSpan.FromSeconds(component.StunTime), true);
 
         // Not shown to the user, since they already get a 'you climb on the glass table' popup
