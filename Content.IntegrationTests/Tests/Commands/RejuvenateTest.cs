@@ -26,7 +26,7 @@ namespace Content.IntegrationTests.Tests.Commands
     thresholds:
       0: Alive
       100: SoftCrit
-      150: Critical
+      135: Critical
       200: Dead
 ";
 
