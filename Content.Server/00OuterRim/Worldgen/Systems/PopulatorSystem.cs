@@ -27,7 +27,7 @@ public class PopulatorSystem : EntitySystem
                 var startTime = _gameTiming.RealTime;
                 unpop.Populator?.Populate(grid.Owner, grid.Grid);
                 var timeSpan = _gameTiming.RealTime - startTime;
-                Logger.InfoS("worldgen", $"Populated grid {grid.GridIndex} in {timeSpan.TotalMilliseconds:N2}ms.");
+                Logger.InfoS("worldgen", $"Populated grid {grid.Grid.GridEntityId} in {timeSpan.TotalMilliseconds:N2}ms.");
                 RemComp<UnpopulatedComponent>(unpop.Owner);
             }
 
