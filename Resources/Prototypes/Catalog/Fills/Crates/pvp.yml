@@ -1,0 +1,12 @@
+- type: entity
+  id: CrateGunbenchBoard
+  name: "gunbench resources crate"
+  description: Guns... lots of guns...
+  suffix: Filled
+  parent: CrateGenericSteel
+  components:
+  - type: StorageFill
+    contents:
+      - id: GunbenchMachineCircuitboard
+      - id: GunParts
+        prob: 0.1

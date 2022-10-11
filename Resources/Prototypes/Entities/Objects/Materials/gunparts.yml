@@ -10,7 +10,6 @@
     netsync: false
     sprite: Objects/Materials/pvpparts.rsi
   - type: Item
-    sprite: Objects/Materials/Sheets/pvpparts.rsi
   - type: StaticPrice
     price: 0
   - type: ItemStatus
@@ -34,7 +33,7 @@
   components:
   - type: Material
     materials:
-      GunParts: 150
+      GunParts: 50
   - type: Sprite
     state: gun
   - type: Item
