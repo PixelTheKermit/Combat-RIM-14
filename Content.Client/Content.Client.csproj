@@ -26,6 +26,15 @@
   <ItemGroup>
     <Compile Update="Guidebook\GuidebookWindow.xaml.cs">
       <DependentUpon>GuidebookWindow.xaml</DependentUpon>
+	</Compile>
+    <Compile Update="UserInterface\Systems\MenuBar\Widgets\GameTopMenuBar.xaml.cs">
+      <DependentUpon>GameTopMenuBar.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="UserInterface\Systems\HotBar\Widgets\HotbarGui.xaml.cs">
+      <DependentUpon>HotbarGui.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="UserInterface\Systems\Inventory\Windows\StrippingWindow.xaml.cs">
+      <DependentUpon>StrippingWindow.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <Import Project="..\RobustToolbox\MSBuild\XamlIL.targets" />
