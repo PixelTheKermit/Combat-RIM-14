@@ -1,40 +1,6 @@
 Entries:
 - author: metalgearsloth
   changes:
-  - {message: Common radio now matches announcement colour., type: Tweak}
-  id: 1936
-  time: '2022-07-14T11:38:55.0000000+00:00'
-- author: lapatison
-  changes:
-  - {message: Refining reinforced glass shards now gives metal rods instead of steel
-      sheets., type: Fix}
-  id: 1937
-  time: '2022-07-14T11:42:47.0000000+00:00'
-- author: Deahaka
-  changes:
-  - {message: Added hospital curtains, type: Add}
-  id: 1938
-  time: '2022-07-14T11:53:17.0000000+00:00'
-- author: Rane
-  changes:
-  - {message: Fixed blinding., type: Fix}
-  id: 1939
-  time: '2022-07-14T11:58:24.0000000+00:00'
-- author: metalgearsloth
-  changes:
-  - {message: Recoil has been added back in., type: Tweak}
-  id: 1940
-  time: '2022-07-14T12:01:25.0000000+00:00'
-- author: Peptide90
-  changes:
-  - {message: Hardsuits and outer clothing are now larger and harder to fit in bags.,
-    type: Tweak}
-  - {message: Some outer clothing suits and armour will slow you down slightly now.,
-    type: Tweak}
-  id: 1941
-  time: '2022-07-14T12:43:54.0000000+00:00'
-- author: metalgearsloth
-  changes:
   - {message: Muzzle flashes now emit a point light., type: Tweak}
   id: 1942
   time: '2022-07-14T13:03:49.0000000+00:00'
@@ -2939,3 +2905,35 @@ Entries:
     type: Fix}
   id: 2435
   time: '2022-10-12T17:36:44.0000000+00:00'
+- author: mirrorcult
+  changes:
+  - {message: 'Players can no longer call restart votes, as a hotfix for a UI bug.
+      This functionality will come back later.', type: Remove}
+  id: 2436
+  time: '2022-10-13T00:55:42.0000000+00:00'
+- author: mirrorcult
+  changes:
+  - {message: 'The sandbox button is no longer always visible, even if you can''t
+      use it.', type: Fix}
+  id: 2437
+  time: '2022-10-13T01:21:36.0000000+00:00'
+- author: mirrorcult
+  changes:
+  - {message: The changelog button in the escape menu now functions again., type: Fix}
+  id: 2438
+  time: '2022-10-13T01:25:45.0000000+00:00'
+- author: mirrorcult
+  changes:
+  - {message: PDAs/other items can now be activated in your inventory again., type: Fix}
+  id: 2439
+  time: '2022-10-13T02:26:27.0000000+00:00'
+- author: DrSmugleaf
+  changes:
+  - {message: Fixed inventory button hover indicators not appearing anymore., type: Fix}
+  id: 2440
+  time: '2022-10-13T05:07:27.0000000+00:00'
+- author: metalgearsloth
+  changes:
+  - {message: Bandaid medibots spamming speech., type: Fix}
+  id: 2441
+  time: '2022-10-13T10:36:29.0000000+00:00'
