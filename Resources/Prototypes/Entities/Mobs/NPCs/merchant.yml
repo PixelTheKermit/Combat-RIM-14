@@ -1,0 +1,9 @@
+- type: entity
+  name: Merchant
+  parent: MobHuman
+  id: MerchantBase
+  components:
+  - type: Merchant
+    Currency: SpaceCash
+    Products:
+    - ClothingNeckGoldmedal
