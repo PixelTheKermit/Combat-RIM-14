@@ -8,7 +8,6 @@
       - id: BoxSurvival
 
 #This should be temporary, at least until briefcases can spawn in hands.
-
 - type: entity
   noSpawn: true
   parent: ClothingBackpack
