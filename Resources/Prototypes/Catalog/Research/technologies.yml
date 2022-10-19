@@ -322,6 +322,7 @@
     - GeneratorBiofuelMachineCircuitboard
     - Signaller
     - SignalTrigger
+    - VoiceTrigger
 
 - type: technology
   name: technologies-compact-power-technology

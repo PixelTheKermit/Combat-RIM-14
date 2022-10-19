@@ -10,7 +10,7 @@ using Robust.Shared.IoC;
 namespace Content.Client.UserInterface.Systems.Ghost;
 
 // TODO hud refactor BEFORE MERGE fix ghost gui being too far up
-public sealed class GhostUIController : UIController, IOnStateChanged<GameplayState>, IOnSystemChanged<GhostSystem>
+public sealed class GhostUIController : UIController, IOnSystemChanged<GhostSystem>
 {
     [Dependency] private readonly IEntityNetworkManager _net = default!;
 
@@ -38,10 +38,15 @@ public sealed class GhostUIController : UIController, IOnStateChanged<GameplaySt
         system.GhostRoleCountUpdated -= OnRoleCountUpdated;
     }
 
-
-    private void UpdateGui()
+    public void UpdateGui()
     {
-        Gui?.Update(_system?.AvailableGhostRoleCount, _system?.Player?.CanReturnToBody);
+        if (Gui == null)
+        {
+            return;
+        }
+
+        Gui.Visible = _system?.IsGhost ?? false;
+        Gui.Update(_system?.AvailableGhostRoleCount, _system?.Player?.CanReturnToBody);
     }
 
     private void UpdateRespawn()
@@ -95,7 +100,7 @@ public sealed class GhostUIController : UIController, IOnStateChanged<GameplaySt
         _net.SendSystemNetworkMessage(msg);
     }
 
-    public void OnStateEntered(GameplayState state)
+    public void LoadGui()
     {
         if (Gui == null)
             return;
@@ -106,11 +111,10 @@ public sealed class GhostUIController : UIController, IOnStateChanged<GameplaySt
         Gui.RespawnPressed += RespawnPressed;
         Gui.TargetWindow.WarpClicked += OnWarpClicked;
 
-        Gui.Visible = _system?.IsGhost ?? false;
         UpdateGui();
     }
 
-    public void OnStateExited(GameplayState state)
+    public void UnloadGui()
     {
         if (Gui == null)
             return;
