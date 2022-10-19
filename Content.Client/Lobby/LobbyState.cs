@@ -81,17 +81,7 @@ namespace Content.Client.Lobby
                 _userInterfaceManager.StateRoot.RemoveChild(_lobby);
                 _userInterfaceManager.StateRoot.AddChild(_characterSetup);
             };
-
-            _lobby.ReadyButton.OnPressed += _ =>
-            {
-                if (!_gameTicker.IsGameStarted)
-                {
-                    return;
-                }
-
-                new OuterRimLateJoinGui().OpenCentered();
-            };
-
+            
             _lobby.ReadyButton.OnToggled += args =>
             {
                 SetReady(args.Pressed);
@@ -139,7 +129,7 @@ namespace Content.Client.Lobby
                 return;
             }
 
-            new LateJoinGui().OpenCentered();
+            new OuterRimLateJoinGui().OpenCentered();
         }
 
         private void OnReadyToggled(BaseButton.ButtonToggledEventArgs args)
