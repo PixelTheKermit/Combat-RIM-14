@@ -31,12 +31,10 @@ namespace Content.Server.Merchant
             base.Initialize();
             SubscribeLocalEvent<MerchantComponent, InteractUsingEvent>(UponInteraction);
             SubscribeLocalEvent<MerchantComponent, InteractHandEvent>(UponEmptyInteraction);
-            SubscribeLocalEvent<MerchantComponent, ActivateInWorldEvent>(InteractSecond);
+            SubscribeLocalEvent<MerchantComponent, GetVerbsEvent<AlternativeVerb>>(InteractSecond); // todo: learn verbs
         }
 
-        // TODO: Do this later.
-
-        private void InteractSecond(EntityUid uid, MerchantComponent component, ActivateInWorldEvent args)
+        private void InteractSecond(EntityUid uid, MerchantComponent component, GetVerbsEvent<AlternativeVerb> args)
         {
             int price = 100;
             if (_prototypeManager.TryIndex<EntityPrototype>(component.Products[component.Index], out var proto))

@@ -1,11 +1,44 @@
 - type: entity
   name: Merchant
-  parent: MobHuman
   id: MerchantBase
   components:
+  - type: Faction
+    factions:
+    - SimpleNeutral
+  - type: Physics
+    bodyType: KinematicController # Same for all inheritors
+  - type: Fixtures
+    fixtures:
+    - shape:
+        # Circles, cuz rotation of rectangles looks very bad
+        !type:PhysShapeCircle
+        radius: 0.35
+      density: 50
+      mask:
+      - MobMask
+      layer:
+      - MobLayer
+  - type: Damageable
+  - type: Sprite
+    drawdepth: Mobs
+    netsync: false
+    sprite: Mobs/Silicon/Bots/merchantbot.rsi
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: base
+  - type: Clickable
+  - type: InteractionOutline
+  - type: MobState
+    thresholds:
+      0: Alive
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: base
   - type: Merchant
     Currency: SpaceCash
     Products:
     - ClothingNeckGoldmedal
     - WeaponPistolLuger
     - WeaponRevolverDeckard
+  

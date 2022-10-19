@@ -24,12 +24,11 @@
   - type: SlowOnDamage # Moths are weaker than everyone else, so they should take less speed penalties
     speedModifierThresholds:
       70: 0.8
-      85: 0.25
   - type: MobState
     thresholds:
       0: Alive
       85: SoftCrit
-      125: Critical
+      120: Critical
       175: Dead
   - type: Damageable
     damageContainer: Biological
@@ -49,7 +48,9 @@
   - type: MovementSpeedModifier
     baseWalkSpeed: 3.5
     baseSprintSpeed: 5.5
-    weightlessModifier: 1.5
+    weightlessAcceleration: 0.5
+    weightlessFriction: 0.75
+    weightlessModifier: 0.6
 
 - type: entity
   save: false
