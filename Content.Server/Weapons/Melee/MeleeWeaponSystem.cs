@@ -114,10 +114,9 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
     {
         base.DoLightAttack(user, ev, component, session);
 
-        // Can't attack yourself
+        // Can't attack yourselfS
         // Not in LOS.
-        if (user == ev.Target ||
-            ev.Target == null ||
+        if (ev.Target == null ||
             Deleted(ev.Target) ||
             // For consistency with wide attacks stuff needs damageable.
             !HasComp<DamageableComponent>(ev.Target) ||

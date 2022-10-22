@@ -83,3 +83,14 @@
   completetime: 2
   materials:
     Steel: 10
+    
+- type: latheRecipe
+  id: LatheRecipeCaselessPistolMag
+  icon:
+    sprite: Objects\Weapons\Guns\Ammunition\Magazine\CaselessRifle\caseless_pistol_mag.rsi
+    state: red
+  result: MagazinePistolCaselessRifle
+  completetime: 7
+  materials:
+    GunParts: 15
+    Steel: 150

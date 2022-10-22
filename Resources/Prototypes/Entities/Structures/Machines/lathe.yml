@@ -558,6 +558,7 @@
         - LatheRecipeLugerCartridge
         - LatheRecipeViper
         - LatheRecipeMk58
-        - LatheRecipeCobra
         - LatheRecipePistolMag
         - LatheRecipePistolCartridge
+        - LatheRecipeCobra
+        - LatheRecipeCaselessPistolMag
