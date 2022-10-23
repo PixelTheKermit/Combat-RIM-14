@@ -3,7 +3,6 @@
   mapName: 'ISV Arachnaphobia'
   mapPath: /Maps/isvspider.yml
   minPlayers: 0
-  fallback: true
   descriptionPath: "/Server Info/ISVCobbleInfo.txt"
   stations:
     IsvSpider:
