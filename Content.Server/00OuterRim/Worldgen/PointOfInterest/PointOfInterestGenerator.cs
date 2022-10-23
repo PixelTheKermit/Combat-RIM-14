@@ -1,4 +1,4 @@
-﻿namespace Content.Server._00OuterRim.Worldgen.PointOfInterest;
+namespace Content.Server._00OuterRim.Worldgen.PointOfInterest;
 
 [ImplicitDataDefinitionForInheritors]
 public abstract class PointOfInterestGenerator

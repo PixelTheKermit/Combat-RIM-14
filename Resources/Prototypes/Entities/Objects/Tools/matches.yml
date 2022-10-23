@@ -18,6 +18,11 @@
     tags:
     - Matchstick
     - Trash
+  - type: MeleeWeapon
+    attackRate: 2
+    damage:
+      types:
+        Heat: 0 #it's a small, unlit match, what did you expect?
   - type: Recyclable
   - type: SpaceGarbage
   - type: Sprite
@@ -30,6 +35,10 @@
     heldPrefix: unlit
     size: 1
   - type: Matchstick
+    litMeleeDamageBonus:
+      types: # When lit, should give heat damage and heal slash
+        Heat: 2
+        Slash: -3
     duration: 10
     igniteSound:
       path: /Audio/Items/match_strike.ogg

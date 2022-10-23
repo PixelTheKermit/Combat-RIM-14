@@ -1,4 +1,4 @@
-﻿using Content.Server._00OuterRim.Worldgen.PointOfInterest;
+using Content.Server._00OuterRim.Worldgen.PointOfInterest;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server._00OuterRim.Worldgen.Prototypes;

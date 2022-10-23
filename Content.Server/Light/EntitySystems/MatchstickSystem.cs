@@ -1,5 +1,6 @@
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Light.Components;
+using Content.Server.Weapons.Melee.Events;
 using Content.Shared.Audio;
 using Content.Shared.Interaction;
 using Content.Shared.Item;
@@ -7,6 +8,7 @@ using Content.Shared.Smoking;
 using Content.Shared.Temperature;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
+using Robust.Shared.Enums;
 using Robust.Shared.Player;
 
 namespace Content.Server.Light.EntitySystems
@@ -18,12 +20,22 @@ namespace Content.Server.Light.EntitySystems
         [Dependency] private readonly TransformSystem _transformSystem = default!;
         [Dependency] private readonly SharedItemSystem _item = default!;
 
+
         public override void Initialize()
         {
             base.Initialize();
             SubscribeLocalEvent<MatchstickComponent, InteractUsingEvent>(OnInteractUsing);
             SubscribeLocalEvent<MatchstickComponent, IsHotEvent>(OnIsHotEvent);
             SubscribeLocalEvent<MatchstickComponent, ComponentShutdown>(OnShutdown);
+            SubscribeLocalEvent<MatchstickComponent, ItemMeleeDamageEvent>(OnMeleeHit);
+        }
+
+        private void OnMeleeHit(EntityUid uid, MatchstickComponent component, ItemMeleeDamageEvent args)
+        {
+            if (!args.Handled && component.CurrentState == SmokableState.Lit)
+            {
+                args.BonusDamage += component.LitMeleeDamageBonus;
+            }
         }
 
         private void OnShutdown(EntityUid uid, MatchstickComponent component, ComponentShutdown args)

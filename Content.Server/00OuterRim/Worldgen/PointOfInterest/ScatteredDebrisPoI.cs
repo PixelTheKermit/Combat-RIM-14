@@ -1,4 +1,4 @@
-﻿using Content.Server._00OuterRim.Worldgen.Systems.Overworld;
+using Content.Server._00OuterRim.Worldgen.Systems.Overworld;
 using Content.Server._00OuterRim.Worldgen.Tools;
 using Content.Server.Shuttles.Systems;
 using Content.Shared.Shuttles.Components;

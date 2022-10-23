@@ -1,6 +1,7 @@
 using Content.Shared.Smoking;
 using Content.Server.Light.EntitySystems;
 using Robust.Shared.Audio;
+using Content.Shared.Damage;
 
 namespace Content.Server.Light.Components
 {
@@ -20,6 +21,12 @@ namespace Content.Server.Light.Components
         [ViewVariables(VVAccess.ReadOnly)]
         [DataField("duration")]
         public int Duration = 10;
+
+        /// <summary>
+        /// How much damage will the matchstick do when it's lit
+        /// </summary>
+        [DataField("litMeleeDamageBonus")]
+        public DamageSpecifier LitMeleeDamageBonus = new();
 
         /// <summary>
         /// Sound played when you ignite the matchstick.

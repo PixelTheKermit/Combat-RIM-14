@@ -44,7 +44,7 @@
 - type: latheRecipe
   id: LatheRecipeMk58
   icon:
-    sprite: Objects/Weapons/Guns/Pistols/viper.rsi
+    sprite: Objects/Weapons/Guns/Pistols/mk58.rsi
     state: base
   result: WeaponPistolMk58
   completetime: 15
@@ -55,7 +55,7 @@
 - type: latheRecipe
   id: LatheRecipeCobra
   icon:
-    sprite: Objects/Weapons/Guns/Pistols/viper.rsi
+    sprite: Objects/Weapons/Guns/Pistols/cobra.rsi
     state: base
   result: WeaponPistolCobra
   completetime: 15
@@ -66,8 +66,8 @@
 - type: latheRecipe
   id: LatheRecipePistolMag
   icon:
-    sprite: Objects/Weapons/Guns/Pistols/viper.rsi
-    state: base
+    sprite: Objects\Weapons\Guns\Ammunition\Magazine\Pistol\pistol_mag.rsi
+    state: red
   result: MagazinePistol
   completetime: 7
   materials:
@@ -77,9 +77,20 @@
 - type: latheRecipe
   id: LatheRecipePistolCartridge
   icon:
-    sprite: Objects/Weapons/Guns/Pistols/viper.rsi
+    sprite: Objects/Weapons/Guns/Ammunition/Casings/ammo_casing.rsi
     state: base
   result: CartridgePistol
   completetime: 2
   materials:
     Steel: 10
+    
+- type: latheRecipe
+  id: LatheRecipeCaselessPistolMag
+  icon:
+    sprite: Objects\Weapons\Guns\Ammunition\Magazine\CaselessRifle\caseless_pistol_mag.rsi
+    state: red
+  result: MagazinePistolCaselessRifle
+  completetime: 7
+  materials:
+    GunParts: 15
+    Steel: 150
