@@ -35,10 +35,31 @@
     states:
       Alive:
         Base: base
+  - type: Speech
   - type: Merchant
     Currency: SpaceCash
     Products:
     - ClothingNeckGoldmedal
     - WeaponPistolLuger
     - WeaponRevolverDeckard
+
+- type: entity
+  name: Botanist Merchant
+  description: A merchant of simple crops and simple tools
+  id: BotanistMerchant
+  parent: MerchantBase
+  components:
+  - type: Merchant
+    Currency: SpaceCash
+    Products:
+    - BananaSeeds
+    - TowercapSeeds
+    - NettleSeeds
+    - CornSeeds
+    - WheatSeeds
+    - CarrotSeeds
+    - TomatoSeeds
+    - HydroponicsToolMiniHoe
+    - HydroponicsToolClippers
+    - HydroponicsToolShovel
   

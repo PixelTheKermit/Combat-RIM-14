@@ -5,9 +5,9 @@ using Content.Shared.Shuttles.Components;
 using Robust.Server.Maps;
 using Robust.Shared.Random;
 
-namespace Content.Server._00OuterRim.Worldgen.PointOfInterest;
+namespace Content.Server._00OuterRim.Worldgen.MerchantGeneration;
 
-public sealed class ScatteredDebrisPoI : PointOfInterestGenerator
+public sealed class ScatteredMerchants : MerchantGenerator
 {
     [DataField("maps")]
     public List<string> Maps = default!;
@@ -22,14 +22,14 @@ public sealed class ScatteredDebrisPoI : PointOfInterestGenerator
         var iffSys = entityManager.EntitySysManager.GetEntitySystem<ShuttleSystem>();
 
         var density = worldChunkSys.GetChunkDensity(chunk);
-        var offs = (int)((WorldChunkSystem.ChunkSize - (density / 2)) / 2);
+        var offs = (int) ((WorldChunkSystem.ChunkSize - (density / 2)) / 2);
         var center = chunk * WorldChunkSystem.ChunkSize;
         var topLeft = (-offs, -offs);
         var lowerRight = (offs, offs);
         var debrisPoints = sampler.SampleRectangle(topLeft, lowerRight, density);
-
-        foreach (var point in debrisPoints)
+        if (debrisPoints.Count > 0)
         {
+            var point = debrisPoints[0];
             var (_, grid) = mapLoader.LoadGrid(worldChunkSys.WorldMap, random.Pick(Maps), new MapLoadOptions()
             {
                 Offset = center + point,

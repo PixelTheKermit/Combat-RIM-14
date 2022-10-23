@@ -1,4 +1,4 @@
-using Content.Server._00OuterRim.Worldgen.PointOfInterest;
+using Content.Server._00OuterRim.Worldgen.MerchantGeneration;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server._00OuterRim.Worldgen.Prototypes;
@@ -6,13 +6,13 @@ namespace Content.Server._00OuterRim.Worldgen.Prototypes;
 /// <summary>
 /// This is a prototype for...
 /// </summary>
-[Prototype("pointOfInterest")]
-public sealed class PointOfInterestPrototype : IPrototype
+[Prototype("merchantSpawner")]
+public sealed class MerchantSpawnPrototype : IPrototype
 {
     /// <inheritdoc/>
     [IdDataField]
     public string ID { get; } = default!;
 
     [DataField("generator", required: true)]
-    public PointOfInterestGenerator Generator { get; } = default!;
+    public MerchantGenerator Generator { get; } = default!;
 }
