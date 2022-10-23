@@ -45,7 +45,7 @@ namespace Content.Server.Merchant
                 objectname = proto.Name;
             }
 
-            var msg = "Currently Selling" + objectname + " For " + price + " " + component.Currency + "s."; // Fuck you localise this yourself bitch
+            var msg = "Currently Selling " + objectname + " For " + price + " " + component.Currency + "(s)."; // Fuck you localise this yourself bitch
             _chatSystem.TrySendInGameICMessage(uid, msg, InGameICChatType.Speak, true);
         }
 
@@ -63,7 +63,7 @@ namespace Content.Server.Merchant
                 price = (int) newprice;
                 objectname = proto.Name;
             }
-            var msg = "We're Also Selling" + objectname + " For " + price + " " + component.Currency + "s."; // :godo:
+            var msg = "We're Also Selling " + objectname + " For " + price + " " + component.Currency + "s."; // :godo:
             _chatSystem.TrySendInGameICMessage(uid, msg, InGameICChatType.Speak, true);
         }
 

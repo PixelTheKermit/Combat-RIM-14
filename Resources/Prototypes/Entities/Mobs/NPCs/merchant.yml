@@ -62,4 +62,54 @@
     - HydroponicsToolMiniHoe
     - HydroponicsToolClippers
     - HydroponicsToolShovel
-  
+
+- type: entity
+  name: Firearm Merchant
+  description: A merchant of certain guns and special bullets
+  id: FirearmMerchant
+  parent: MerchantBase
+  components:
+  - type: Merchant
+    Currency: SpaceCash
+    Products:
+    - WeaponAntiqueLaser
+    - WeaponLauncherChinaLake
+    - WeaponShotgunBulldog
+    - WeaponLightMachineGunL6
+    - WeaponSubMachineGunC20r
+    - WeaponSniperHristov
+    - ShellShotgunSlug
+    - ShellShotgunFlare
+    - MagazineShotgun
+    - GunParts
+
+- type: entity
+  name: Swords n stuff Merchant
+  description: A merchant that sells anything from blunt to sharp
+  id: MeleeMerchant
+  parent: MerchantBase
+  components:
+  - type: Merchant
+    Currency: SpaceCash
+    Products:
+    - CaptainSabre
+    - Stunbaton
+    - EnergySword
+    - Spear
+    - CombatKnife
+
+- type: entity
+  name: Armored Merchant
+  description: A merchant that appeals to the paranoid
+  id: ArmorMerchant
+  parent: MerchantBase
+  components:
+  - type: Merchant
+    Currency: SpaceCash
+    Products:
+    - ClothingOuterArmorReflective
+    - ClothingOuterArmorBulletproof
+    - ClothingOuterArmorHeavy
+    - ClothingOuterArmorRiot
+    - ClothingOuterArmorScaf
+    - ClothingOuterArmorCaptainCarapace

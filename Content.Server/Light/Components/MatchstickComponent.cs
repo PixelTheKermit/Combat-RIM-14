@@ -22,6 +22,10 @@ namespace Content.Server.Light.Components
         [DataField("duration")]
         public int Duration = 10;
 
+        [ViewVariables(VVAccess.ReadOnly)]
+        [DataField("delay")]
+        public int Delay = 1;
+
         /// <summary>
         /// How much damage will the matchstick do when it's lit
         /// </summary>

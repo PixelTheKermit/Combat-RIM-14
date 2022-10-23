@@ -8,6 +8,7 @@ using Content.Shared.Interaction.Events;
 using Content.Shared.Item;
 using Content.Shared.Smoking;
 using Content.Shared.Temperature;
+using Content.Shared.Popups;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Player;
@@ -22,7 +23,7 @@ namespace Content.Server.Light.EntitySystems
         [Dependency] private readonly SharedItemSystem _item = default!;
         [Dependency] private readonly DamageableSystem _damageableSystem = default!;
         [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
-
+        [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
 
         public override void Initialize()
         {
@@ -40,6 +41,7 @@ namespace Content.Server.Light.EntitySystems
             {
                 _damageableSystem.TryChangeDamage(args.User, component.LitMeleeDamageBonus);
                 _audioSystem.Play("/Audio/Effects/lightburn.ogg", Filter.Pvs(uid), uid);
+                _popupSystem.PopupEntity("You try to painfully seal your wounds!", args.User, Filter.Entities(args.User));
             }
         }
 

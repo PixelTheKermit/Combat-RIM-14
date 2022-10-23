@@ -34,6 +34,7 @@
     sprite: Objects/Tools/matches.rsi
     heldPrefix: unlit
     size: 1
+  - type: ItemCooldown
   - type: Matchstick
     litMeleeDamageBonus:
       types: # When lit, should give heat damage and heal slash

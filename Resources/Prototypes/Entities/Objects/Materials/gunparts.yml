@@ -11,7 +11,7 @@
     sprite: Objects/Materials/pvpparts.rsi
   - type: Item
   - type: StaticPrice
-    price: 0
+    price: 250
   - type: ItemStatus
   - type: Damageable
     damageContainer: Inorganic

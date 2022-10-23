@@ -106,7 +106,6 @@ public partial class WorldChunkSystem
 
     private void MakeChunk(Vector2i chunk)
     {
-        var isSpecial = false;
         if (ShouldClipChunk(chunk))
         {
             ForceEmptyChunk(chunk);
@@ -121,9 +120,8 @@ public partial class WorldChunkSystem
             return;
         }
 
-        if (_random.Prob(10f/100f))
+        else if (_random.Prob(2.5f/100f))
         {
-            isSpecial = true;
             ForceEmptyChunk(chunk);
             var poi = _random.Pick(_prototypeManager.EnumeratePrototypes<MerchantSpawnPrototype>().ToList());
             poi.Generator.Generate(chunk);

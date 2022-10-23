@@ -1,0 +1,16 @@
+﻿- type: gameMap
+  id: ISVPiracy
+  mapName: 'ISV Piracy'
+  mapPath: /Maps/isvpiracy.yml
+  minPlayers: 0
+  fallback: true
+  descriptionPath: "/Server Info/Shuttles/ISVPiracyInfo.txt"
+  stations:
+    IsvPiracy:
+      mapNameTemplate: '{0} Piracy {1}'
+      nameGenerator:
+        !type:IndependentNameGenerator
+        prefixCreator: ''
+      overflowJobs: []
+      availableJobs:
+        ShuttleCaptain: [ 0, 1 ]
