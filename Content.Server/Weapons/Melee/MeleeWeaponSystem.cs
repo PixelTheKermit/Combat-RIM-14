@@ -116,7 +116,8 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
 
         // Can't attack yourselfS
         // Not in LOS.
-        if (ev.Target == null ||
+        if (ev.Target == user ||
+            ev.Target == null ||
             Deleted(ev.Target) ||
             // For consistency with wide attacks stuff needs damageable.
             !HasComp<DamageableComponent>(ev.Target) ||
