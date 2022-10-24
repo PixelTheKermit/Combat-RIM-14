@@ -13,4 +13,4 @@
         prefixCreator: ''
       overflowJobs: []
       availableJobs:
-        SalvageSpecialist: [ 0, 0 ]
+        ShuttleCaptain: [ 0, 1 ]
