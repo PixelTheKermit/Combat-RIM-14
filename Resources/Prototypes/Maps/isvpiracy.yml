@@ -14,3 +14,6 @@
       overflowJobs: []
       availableJobs:
         ShuttleCaptain: [ 0, 1 ]
+        Botanist: [ 1, 1 ]
+        Bartender: [ 1, 1 ]
+        Chef: [ 1, 1 ]

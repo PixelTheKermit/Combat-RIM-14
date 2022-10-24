@@ -32,6 +32,32 @@ namespace Content.Server.Merchant
             SubscribeLocalEvent<MerchantComponent, GetVerbsEvent<ActivationVerb>>(AddPreviousItemVerb);
         }
 
+        /// <summary>
+        /// Tell the user about the item
+        /// </summary>
+        /// <param name="uid"></param>
+        /// <param name="user"></param>
+        /// <param name="component"></param>
+        private void GetNextItem(EntityUid uid, EntityUid user, MerchantComponent component)
+        {
+            var objectname = "Unknown (I FUCKED UP!)"; // Tells you if you fucked up
+            int price = 100;
+            if (_prototypeManager.TryIndex<EntityPrototype>(component.Products[component.Index], out var proto)) // Checks to ensure you didn't fuck up.
+            {
+                var newprice = _pricingSystem.GetEstimatedPrice(proto);
+                price = (int) newprice;
+                objectname = proto.Name;
+            }
+            var msg = "We're Also Selling " + objectname + " For " + price + " " + component.Currency + "s."; // :godo:
+            _chatSystem.TrySendInGameICMessage(uid, msg, InGameICChatType.Speak, true);
+        }
+
+        /// <summary>
+        /// Get the current item, and tell the user
+        /// </summary>
+        /// <param name="uid"></param>
+        /// <param name="user"></param>
+        /// <param name="component"></param>
         private void AttemptRespeak(EntityUid uid, EntityUid user, MerchantComponent component)
         {
             if (component.Index >= component.Products.Count) // Ensures your purchase isn't out of the list, allows for live changing (?)
@@ -49,6 +75,12 @@ namespace Content.Server.Merchant
             _chatSystem.TrySendInGameICMessage(uid, msg, InGameICChatType.Speak, true);
         }
 
+        /// <summary>
+        /// Get the previous item
+        /// </summary>
+        /// <param name="uid"></param>
+        /// <param name="user"></param>
+        /// <param name="component"></param>
         private void AttemptGetPrevItem(EntityUid uid, EntityUid user, MerchantComponent component) // Interaction with an empty hand
         {
             component.Index -= 1; // Advances the index by 1, this basically selects what to buy
@@ -57,37 +89,29 @@ namespace Content.Server.Merchant
                 component.Index = 0;
             else if (component.Index < 0)
                 component.Index = component.Products.Count - 1;
-
-            var objectname = "Unknown (I FUCKED UP!)"; // Tells you if you fucked up
-            int price = 100;
-            if (_prototypeManager.TryIndex<EntityPrototype>(component.Products[component.Index], out var proto)) // Checks to ensure you didn't fuck up.
-            {
-                var newprice = _pricingSystem.GetEstimatedPrice(proto);
-                price = (int) newprice;
-                objectname = proto.Name;
-            }
-            var msg = "We're Also Selling " + objectname + " For " + price + " " + component.Currency + "s."; // :godo:
-            _chatSystem.TrySendInGameICMessage(uid, msg, InGameICChatType.Speak, true);
+            GetNextItem(uid, user, component);
         }
 
-        private void UponEmptyInteraction(EntityUid uid, MerchantComponent component, InteractHandEvent args) // Interaction with an empty hand
+        /// <summary>
+        /// If you interact with a merchant with an empty item, get the next item
+        /// </summary>
+        /// <param name="uid"></param>
+        /// <param name="component"></param>
+        /// <param name="args"></param>
+        private void UponEmptyInteraction(EntityUid uid, MerchantComponent component, InteractHandEvent args)
         {
             component.Index += 1; // Advances the index by 1, this basically selects what to buy
             if (component.Index >= component.Products.Count) // If index exceeds the amount of products, restart
                 component.Index = 0;
-
-            var objectname = "Unknown (I FUCKED UP!)"; // Tells you if you fucked up
-            int price = 100;
-            if (_prototypeManager.TryIndex<EntityPrototype>(component.Products[component.Index], out var proto)) // Checks to ensure you didn't fuck up.
-            {
-                var newprice = _pricingSystem.GetEstimatedPrice(proto);
-                price = (int) newprice;
-                objectname = proto.Name;
-            }
-            var msg = "We're Also Selling " + objectname + " For " + price + " " + component.Currency + "s."; // :godo:
-            _chatSystem.TrySendInGameICMessage(uid, msg, InGameICChatType.Speak, true);
+            GetNextItem(uid, args.User, component);
         }
 
+        /// <summary>
+        /// Interaction with an item, this initiates the purchase process
+        /// </summary>
+        /// <param name="uid"></param>
+        /// <param name="component"></param>
+        /// <param name="args"></param>
         private void UponInteraction(EntityUid uid, MerchantComponent component, InteractUsingEvent args) // Interaction with an item
         {
             if (args.Handled)
@@ -135,7 +159,12 @@ namespace Content.Server.Merchant
             }
 
         }
-
+        /// <summary>
+        /// Adds a verb to ask for the previous item
+        /// </summary>
+        /// <param name="uid"></param>
+        /// <param name="component"></param>
+        /// <param name="args"></param>
         private void AddPreviousItemVerb(EntityUid uid, MerchantComponent component, GetVerbsEvent<ActivationVerb> args)
         {
             if (!args.CanInteract || !args.CanAccess)
@@ -152,7 +181,12 @@ namespace Content.Server.Merchant
             };
             args.Verbs.Add(verb);
         }
-
+        /// <summary>
+        /// Adds a verb to ask to repeat the item
+        /// </summary>
+        /// <param name="uid"></param>
+        /// <param name="component"></param>
+        /// <param name="args"></param>
         private void AddRespeakVerb(EntityUid uid, MerchantComponent component, GetVerbsEvent<AlternativeVerb> args)
         {
             if (!args.CanInteract || !args.CanAccess)
@@ -164,7 +198,7 @@ namespace Content.Server.Merchant
                 {
                     AttemptRespeak(uid, args.User, component);
                 },
-                Text = "Remember Item",
+                Text = "Ask to repeat item",
                 Priority = 2
             };
             args.Verbs.Add(verb);
