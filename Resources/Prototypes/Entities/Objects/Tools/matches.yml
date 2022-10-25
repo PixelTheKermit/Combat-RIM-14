@@ -79,7 +79,7 @@
         amount: 6
   - type: ItemCounter
     count:
-      tags: [Cigar]
+      tags: [Matchstick]
   - type: Appearance
     visuals:
       - type: BagOpenCloseVisualizer
