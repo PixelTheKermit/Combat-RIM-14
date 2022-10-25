@@ -28,16 +28,6 @@
     state: "torso_m"
   - type: BodyPart
     partType: Torso
-    size: 14
-    compatibility: Biological
-    mechanisms:
-    - OrganAnimalHeart
-    - OrganHumanLungs
-    - OrganHumanStomach
-    - OrganAnimalLiver
-    - OrganHumanKidneys
-#    criticalThreshold: 100
-#    deadThreshold: 150
 
 - type: entity
   id: HeadMoth
@@ -53,14 +43,7 @@
     state: "head_m"
   - type: BodyPart
     partType: Head
-    size: 7
-    compatibility: Biological
     vital: true
-    mechanisms:
-    - OrganHumanBrain
-    - OrganHumanEyes
-#    criticalThreshold: 50
-#    deadThreshold: 120
   - type: Input
     context: "ghost"
   - type: MovementSpeedModifier
@@ -68,6 +51,9 @@
     baseSprintSpeed: 0
   - type: InputMover
   - type: GhostOnMove
+  - type: Tag
+    tags:
+      - Head
 
 - type: entity
   id: LeftArmMoth
@@ -86,8 +72,6 @@
     size: 5
     compatibility: Biological
     symmetry: Left
-#    criticalThreshold: 40
-#    deadThreshold: 80
 
 - type: entity
   id: RightArmMoth
@@ -106,9 +90,6 @@
     size: 5
     compatibility: Biological
     symmetry: Right
-#    criticalThreshold: 40
-#    deadThreshold: 80
-
 - type: entity
   id: LeftHandMoth
   name: "left moth hand"
@@ -126,8 +107,6 @@
     size: 3
     compatibility: Biological
     symmetry: Left
-#    criticalThreshold: 30
-#    deadThreshold: 60
 
 - type: entity
   id: RightHandMoth
@@ -146,8 +125,6 @@
     size: 3
     compatibility: Biological
     symmetry: Right
-#    criticalThreshold: 30
-#    deadThreshold: 60
 
 - type: entity
   id: LeftLegMoth
@@ -166,8 +143,6 @@
     size: 6
     compatibility: Biological
     symmetry: Left
-#    criticalThreshold: 45
-#    deadThreshold: 90
 
 - type: entity
   id: RightLegMoth
@@ -186,8 +161,6 @@
     size: 6
     compatibility: Biological
     symmetry: Right
-#    criticalThreshold: 45
-#    deadThreshold: 90
 
 - type: entity
   id: LeftFootMoth
@@ -206,8 +179,6 @@
     size: 2
     compatibility: Biological
     symmetry: Left
-#    criticalThreshold: 30
-#    deadThreshold: 60
 
 - type: entity
   id: RightFootMoth
@@ -226,5 +197,3 @@
     size: 2
     compatibility: Biological
     symmetry: Right
-#    criticalThreshold: 30
-#    deadThreshold: 60

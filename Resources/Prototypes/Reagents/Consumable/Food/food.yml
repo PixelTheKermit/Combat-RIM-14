@@ -17,6 +17,28 @@
     amount: 0.5
 
 - type: reagent
+  id: Meat
+  name: reagent-name-meat
+  group: Foods
+  desc: reagent-desc-meat
+  physicalDesc: reagent-physical-desc-ferrous
+  flavor: meaty
+  color: "#f9906f"
+  metabolisms:
+    Food:
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 1
+        - !type:OrganType
+          type: Moth
+        damage:
+          types:
+            Poison: 4
+      - !type:SatiateHunger
+
+- type: reagent
   id: Vitamin
   name: reagent-name-vitamin
   group: Foods

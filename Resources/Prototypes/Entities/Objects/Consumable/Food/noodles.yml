@@ -94,7 +94,9 @@
         maxvol: 15
         reagents:
         - ReagentId: Nutriment
-          Quantity: 8
+          Quantity: 4
+        - ReagentId: Meat
+          Quantity: 4
         - ReagentId: Vitamin
           Quantity: 4
 # Tastes like pasta, meat.
@@ -119,7 +121,9 @@
         maxvol: 15
         reagents:
         - ReagentId: Nutriment
-          Quantity: 8
+          Quantity: 4
+        - ReagentId: Meat
+          Quantity: 4
         - ReagentId: Vitamin
           Quantity: 6
 # Tastes like pasta, meat.
