@@ -19,7 +19,7 @@
       food:
         maxVol: 20
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Meat
           Quantity: 5
         - ReagentId: UncookedAnimalProteins
           Quantity: 1
@@ -516,7 +516,7 @@
     solutions:
       food:
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Meat
           Quantity: 10
         - ReagentId: Protein
           Quantity: 5
@@ -551,7 +551,7 @@
     solutions:
       food:
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Meat
           Quantity: 5
         - ReagentId: Protein
           Quantity: 5
@@ -575,7 +575,7 @@
     solutions:
       food:
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Meat
           Quantity: 5
         - ReagentId: Protein
           Quantity: 5
@@ -602,7 +602,7 @@
     solutions:
       food:
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Meat
           Quantity: 5
         - ReagentId: Protein
           Quantity: 5
@@ -629,7 +629,7 @@
     solutions:
       food:
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Meat
           Quantity: 5
         - ReagentId: Protein
           Quantity: 5
@@ -663,7 +663,7 @@
     solutions:
       food:
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Meat
           Quantity: 5
         - ReagentId: Protein
           Quantity: 5
@@ -687,7 +687,7 @@
     solutions:
       food:
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Meat
           Quantity: 5
         - ReagentId: Protein
           Quantity: 5
@@ -714,7 +714,7 @@
     solutions:
       food:
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Meat
           Quantity: 5
         - ReagentId: Protein
           Quantity: 5
@@ -738,7 +738,7 @@
     solutions:
       food:
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Meat
           Quantity: 5
         - ReagentId: Protein
           Quantity: 5
@@ -762,7 +762,7 @@
     solutions:
       food:
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Meat
           Quantity: 5
         - ReagentId: Protein
           Quantity: 5
@@ -789,7 +789,7 @@
     solutions:
       food:
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Meat
           Quantity: 5
         - ReagentId: Protein
           Quantity: 5
@@ -809,7 +809,7 @@
     solutions:
       food:
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Meat
           Quantity: 5
         - ReagentId: Protein
           Quantity: 5
@@ -1021,7 +1021,7 @@
     solutions:
       food:
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Meat
           Quantity: 1
         - ReagentId: Protein
           Quantity: 1
@@ -1044,7 +1044,7 @@
     solutions:
       food:
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Meat
           Quantity: 2
         - ReagentId: Protein
           Quantity: 2
@@ -1068,7 +1068,7 @@
     solutions:
       food:
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Meat
           Quantity: 2
         - ReagentId: Protein
           Quantity: 2
@@ -1090,7 +1090,7 @@
     solutions:
       food:
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Meat
           Quantity: 2
         - ReagentId: Protein
           Quantity: 2
@@ -1112,7 +1112,7 @@
     solutions:
       food:
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Meat
           Quantity: 2
         - ReagentId: Protein
           Quantity: 2
@@ -1134,7 +1134,7 @@
     solutions:
       food:
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Meat
           Quantity: 2
         - ReagentId: Protein
           Quantity: 2
@@ -1157,7 +1157,7 @@
     solutions:
       food:
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Meat
           Quantity: 2
         - ReagentId: Protein
           Quantity: 2
@@ -1182,7 +1182,7 @@
     solutions:
       food:
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Meat
           Quantity: 1
         - ReagentId: Protein
           Quantity: 1
@@ -1207,7 +1207,7 @@
     solutions:
       food:
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Meat
           Quantity: 1
         - ReagentId: Protein
           Quantity: 1

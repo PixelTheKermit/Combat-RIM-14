@@ -31,6 +31,23 @@
     - Pizza
 
 - type: entity
+  parent: FoodPizzaBase
+  id: FoodMeatPizzaBase
+  abstract: true
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 40
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 20
+        - ReagentId: Meat
+          Quantity: 10
+        - ReagentId: Vitamin
+          Quantity: 5
+
+- type: entity
   parent: FoodInjectableBase # Not sliceable
   id: FoodPizzaSliceBase
   abstract: true
@@ -58,6 +75,23 @@
   - type: Tag
     tags:
     - Pizza
+
+- type: entity
+  parent: FoodPizzaSliceBase
+  id: FoodMeatPizzaSliceBase
+  abstract: true
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 6
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 3
+        - ReagentId: Meat
+          Quantity: 2
+        - ReagentId: Vitamin
+          Quantity: 0.8
 
 # Pizza
 
@@ -95,7 +129,7 @@
 
 - type: entity
   name: meat pizza
-  parent: FoodPizzaBase
+  parent: FoodMeatPizzaBase
   id: FoodPizzaMeat
   description: Greasy pizza with delicious meat.
   components:
@@ -113,7 +147,7 @@
 
 - type: entity
   name: slice of meat pizza
-  parent: FoodPizzaSliceBase
+  parent: FoodMeatPizzaSliceBase
   id: FoodPizzaMeatSlice
   description: A nutritious slice of meatpizza.
   components:
@@ -335,7 +369,7 @@
 
 - type: entity
   name: sassysage pizza
-  parent: FoodPizzaBase
+  parent: FoodMeatPizzaBase
   id: FoodPizzaSassysage
   description: You can really smell the sassiness.
   components:
@@ -353,7 +387,7 @@
 
 - type: entity
   name: slice of sassysage pizza
-  parent: FoodPizzaSliceBase
+  parent: FoodMeatPizzaSliceBase
   id: FoodPizzaSassysageSlice
   description: Deliciously sassy.
   components:
@@ -370,7 +404,7 @@
 
 - type: entity
   name: Hawaiian pizza
-  parent: FoodPizzaBase
+  parent: FoodMeatPizzaBase
   id: FoodPizzaPineapple
   description: Makes people burst into tears. Tears of joy or sadness depends on the persons fondness for pineapple.
   components:
@@ -389,7 +423,7 @@
 
 - type: entity
   name: slice of pineapple pizza
-  parent: FoodPizzaSliceBase
+  parent: FoodMeatPizzaSliceBase
   id: FoodPizzaPineappleSlice
   description: A slice of joy/sin.
   components:
@@ -408,7 +442,7 @@
 #TODO: This is a meme pizza from /tg/. It has specially coded mechanics.
 - type: entity
   name: Arnold's pizza
-  parent: FoodPizzaBase
+  parent: FoodMeatPizzaBase
   id: FoodPizzaArnold
   description: Hello, you've reached Arnold's pizza shop. I'm not here now, I'm out killing pepperoni.
   components:
@@ -430,7 +464,9 @@
         maxVol: 85
         reagents:
         - ReagentId: Nutriment
-          Quantity: 30
+          Quantity: 20
+        - ReagentId: Meat
+          Quantity: 10
         - ReagentId: Vitamin
           Quantity: 5
         - ReagentId: Iron
@@ -440,7 +476,7 @@
 
 - type: entity
   name: slice of Arnold's pizza
-  parent: FoodPizzaSliceBase
+  parent: FoodMeatPizzaSliceBase
   id: FoodPizzaArnoldSlice
   description: I come over, maybe I give you a pizza, maybe I break off your arm.
   components:
@@ -460,7 +496,9 @@
         maxVol: 15
         reagents:
         - ReagentId: Nutriment
-          Quantity: 5
+          Quantity: 3
+        - ReagentId: Meat
+          Quantity: 2
         - ReagentId: Vitamin
           Quantity: 0.8
         - ReagentId: Iron

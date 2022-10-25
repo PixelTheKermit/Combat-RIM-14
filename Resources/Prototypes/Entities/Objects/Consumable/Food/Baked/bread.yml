@@ -115,7 +115,7 @@
       food:
         maxVol: 45
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Meat
           Quantity: 30
         - ReagentId: Vitamin
           Quantity: 5
@@ -140,7 +140,7 @@
       food:
         maxVol: 10
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: Meat
           Quantity: 6
         - ReagentId: Vitamin
           Quantity: 1.2

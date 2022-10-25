@@ -14,7 +14,7 @@
     state: full
   - type: Body
     template: HumanoidTemplate
-    preset: MothPreset
+    prototype: Moth
   - type: DiseaseCarrier
     diseaseResist: 0.1
   - type: Flammable
@@ -50,6 +50,7 @@
     weightlessAcceleration: 0.5
     weightlessFriction: 0.75
     weightlessModifier: 0.6
+  - type: Perishable
 
 - type: entity
   save: false

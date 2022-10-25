@@ -107,6 +107,15 @@
       - meaty
   - type: Sprite
     state: meat
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: Meat
+          Quantity: 3
+        - ReagentId: Vitamin
+          Quantity: 1
 # Tastes like meat.
 
 - type: entity

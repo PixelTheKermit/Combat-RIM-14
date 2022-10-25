@@ -218,6 +218,17 @@
   id: FoodPieMeat
   description: An old barber recipe, very delicious!
   components:
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 6
+        - ReagentId: Meat
+          Quanity: 4
+        - ReagentId: Vitamin
+          Quanity: 5
   - type: FlavorProfile
     flavors:
       - meaty
@@ -225,6 +236,7 @@
     layers:
     - state: tin
     - state: meat
+    
   - type: SliceableFood
     slice: FoodPieMeatSlice
 
@@ -233,6 +245,17 @@
   parent: FoodPieSliceBase
   id: FoodPieMeatSlice
   components:
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 6
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 0.6
+        - ReagentId: Meat
+          Quanity: 0.6
+        - ReagentId: Vitamin
+          Quantity: 1
   - type: FlavorProfile
     flavors:
       - meaty
@@ -250,6 +273,17 @@
   parent: FoodPieBase
   id: FoodPieXeno
   components:
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 6
+        - ReagentId: Meat
+          Quanity: 4
+        - ReagentId: Vitamin
+          Quanity: 5
   - type: FlavorProfile
     flavors:
       - meaty
@@ -266,6 +300,17 @@
   parent: FoodPieSliceBase
   id: FoodPieXenoSlice
   components:
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 6
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 0.6
+        - ReagentId: Meat
+          Quanity: 0.6
+        - ReagentId: Vitamin
+          Quantity: 1
   - type: FlavorProfile
     flavors:
       - meaty
