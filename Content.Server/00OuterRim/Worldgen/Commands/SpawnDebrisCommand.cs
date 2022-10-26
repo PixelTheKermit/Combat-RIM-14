@@ -7,7 +7,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Server._00OuterRim.Worldgen.Commands;
 
 [AnyCommand]
-public class SpawnDebrisCommand : IConsoleCommand
+public sealed class SpawnDebrisCommand : IConsoleCommand
 {
     public string Command => "spawndebris";
 

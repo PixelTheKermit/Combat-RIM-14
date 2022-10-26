@@ -12,12 +12,7 @@
     drawdepth: SmallObjects
     snapCardinals: true
   - type: Charger
-    chargerSlot:
-      ejectOnInteract: true
-      name: Power cell # used for verbs: "Eject > Power cell "
-      whitelist:
-        components:
-          - PowerCell
+    slotId: charger_slot
   - type: Temperature
   - type: ApcPassiveHeater
   - type: AtmosExposed

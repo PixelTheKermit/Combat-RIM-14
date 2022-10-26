@@ -123,7 +123,7 @@ public partial class WorldChunkSystem
         else if (_random.Prob(2.5f/100f))
         {
             ForceEmptyChunk(chunk);
-            var poi = _random.Pick(_prototypeManager.EnumeratePrototypes<MerchantSpawnPrototype>().ToList());
+            var poi = _random.Pick(_prototypeManager.EnumeratePrototypes<MerchantSpawnerPrototype>().ToList());
             poi.Generator.Generate(chunk);
             return;
         }

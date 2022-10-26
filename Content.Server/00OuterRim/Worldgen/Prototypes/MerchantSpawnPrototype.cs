@@ -7,7 +7,7 @@ namespace Content.Server._00OuterRim.Worldgen.Prototypes;
 /// This is a prototype for...
 /// </summary>
 [Prototype("merchantSpawner")]
-public sealed class MerchantSpawnPrototype : IPrototype
+public sealed class MerchantSpawnerPrototype : IPrototype
 {
     /// <inheritdoc/>
     [IdDataField]
