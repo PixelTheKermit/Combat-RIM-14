@@ -53,7 +53,7 @@
   - type: ApcPassiveHeater
   - type: AtmosExposed
   - type: ApcPowerReceiver
-    powerLoad: 250
+    powerLoad: 25
   - type: Appearance
   - type: GenericVisualizer
     visuals:

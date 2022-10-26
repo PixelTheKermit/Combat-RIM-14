@@ -61,7 +61,7 @@
   - type: ApcPassiveHeater
   - type: AtmosExposed
   - type: ApcPowerReceiver
-    powerLoad: 400
+    powerLoad: 40
   - type: Machine
     board: MicrowaveMachineCircuitboard
   - type: ContainerContainer

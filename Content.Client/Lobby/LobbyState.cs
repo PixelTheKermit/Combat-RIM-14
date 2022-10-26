@@ -89,6 +89,7 @@ namespace Content.Client.Lobby
 
             _lobby.LeaveButton.OnPressed += _ => _consoleHost.ExecuteCommand("disconnect");
             _lobby.OptionsButton.OnPressed += _ => _userInterfaceManager.GetUIController<OptionsUIController>().ToggleWindow();
+			
             _lobby.CharacterPreview.CharacterSetupButton.OnPressed += OnSetupPressed;
             _lobby.ReadyButton.OnPressed += OnReadyPressed;
             _lobby.ReadyButton.OnToggled += OnReadyToggled;

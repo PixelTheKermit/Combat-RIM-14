@@ -19,7 +19,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 30
+        damage: 150
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]
@@ -51,12 +51,13 @@
   suffix: higher ore yield
   description: An asteroid. Who knows what this one's seen.
   components:
-  - type: Gatherable
-    whitelist:
-      tags:
-        - Pickaxe
-    loot:
-      Pickaxe: MiningLootTable
+    - type: Gatherable
+      whitelist:
+        tags:
+          - Pickaxe
+    - type: OreVein
+      oreChance: 0.33
+      oreRarityPrototypeId: RandomOreDistributionStandard
 
 
 - type: entity
@@ -70,10 +71,8 @@
       whitelist:
         tags:
           - Pickaxe
-      loot:
-        Pickaxe: MiningLootTable
-    - type: Sprite
-      color: "#C2E0F9"
     - type: OreVein
       oreChance: 0.33
       oreRarityPrototypeId: RandomOreDistributionStandard
+    - type: Sprite
+      color: "#C2E0F9"
