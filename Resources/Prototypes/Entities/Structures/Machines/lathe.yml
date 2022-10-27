@@ -566,7 +566,7 @@
     - type: Lathe
       ignoreColor: true
       staticRecipes: # Change these later:tm:
-        - LatheRecipeLuger
+        - LatheRecipeLuger # Pistols
         - LatheRecipeLugerMag
         - LatheRecipeLugerCartridge
         - LatheRecipeViper
@@ -575,3 +575,9 @@
         - LatheRecipePistolCartridge
         - LatheRecipeCobra
         - LatheRecipeCaselessPistolMag
+        - LatheRecipeSubMachineGunAtreides # SMGs
+        - LatheRecipeSubMachineGunWt550
+        - LatheRecipeSubMachineGunVector
+        - WeaponSubMachineGunC20r
+        - LatheRecipeSubMachineGunTopMountedMag
+        - LatheRecipeSubMachineGunMag

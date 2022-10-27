@@ -1,3 +1,4 @@
+# <Pistols>
 - type: latheRecipe
   id: LatheRecipeLuger
   icon:
@@ -88,9 +89,76 @@
   id: LatheRecipeCaselessPistolMag
   icon:
     sprite: Objects\Weapons\Guns\Ammunition\Magazine\CaselessRifle\caseless_pistol_mag.rsi
-    state: red
+    state: base
   result: MagazinePistolCaselessRifle
   completetime: 7
   materials:
     GunParts: 15
     Steel: 150
+
+# <SMGs>
+- type: latheRecipe
+  id: LatheRecipeSubMachineGunAtreides
+  icon:
+    sprite: Objects/Weapons/Guns/SMGs/atreides.rsi
+    state: base
+  result: WeaponSubMachineGunAtreides
+  completetime: 15
+  materials:
+    GunParts: 175
+    Steel: 550
+
+- type: latheRecipe
+  id: LatheRecipeSubMachineGunWt550
+  icon:
+    sprite: Objects/Weapons/Guns/SMGs/wt550.rsi
+    state: base
+  result: WeaponSubMachineGunWt550
+  completetime: 15
+  materials:
+    GunParts: 175
+    Steel: 550
+
+- type: latheRecipe
+  id: LatheRecipeSubMachineGunVector
+  icon:
+    sprite: Objects/Weapons/Guns/SMGs/vector.rsi
+    state: base
+  result: WeaponSubMachineGunVector
+  completetime: 15
+  materials:
+    GunParts: 175
+    Steel: 550
+
+- type: latheRecipe
+  id: WeaponSubMachineGunC20r
+  icon:
+    sprite: Objects/Weapons/Guns/SMGs/c20r.rsi
+    state: base
+  result: WeaponSubMachineGunC20r
+  completetime: 15
+  materials:
+    GunParts: 175
+    Steel: 550
+
+- type: latheRecipe
+  id: LatheRecipeSubMachineGunTopMountedMag
+  icon:
+    sprite: Objects\Weapons\Guns\Ammunition\Magazine\Pistol\smg_mag_top_mounted.rsi
+    state: base
+  result: MagazinePistolSubMachineGunTopMounted
+  completetime: 10
+  materials:
+    GunParts: 20
+    Steel: 250
+
+- type: latheRecipe
+  id: LatheRecipeSubMachineGunMag
+  icon:
+    sprite: Objects\Weapons\Guns\Ammunition\Magazine\Pistol\smg_mag.rsi
+    state: base
+  result: MagazinePistolSubMachineGunTopMounted
+  completetime: 10
+  materials:
+    GunParts: 20
+    Steel: 250

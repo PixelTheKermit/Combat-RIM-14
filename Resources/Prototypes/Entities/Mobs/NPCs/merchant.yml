@@ -49,6 +49,10 @@
   id: BotanistMerchant
   parent: MerchantBase
   components:
+  - type: Sprite
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: botanist
   - type: Merchant
     Currency: SpaceCash
     Products:
@@ -69,6 +73,10 @@
   id: FirearmMerchant
   parent: MerchantBase
   components:
+  - type: Sprite
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: security
   - type: Merchant
     Currency: SpaceCash
     Products:
@@ -76,7 +84,6 @@
     - WeaponLauncherChinaLake
     - WeaponShotgunBulldog
     - WeaponLightMachineGunL6
-    - WeaponSubMachineGunC20r
     - WeaponSniperHristov
     - ShellShotgunSlug
     - ShellShotgunFlare
@@ -89,6 +96,10 @@
   id: MeleeMerchant
   parent: MerchantBase
   components:
+  - type: Sprite
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: securityblue
   - type: Merchant
     Currency: SpaceCash
     Products:
@@ -97,6 +108,7 @@
     - EnergySword
     - Spear
     - CombatKnife
+    - FireAxeFlaming
 
 - type: entity
   name: Armored Merchant
@@ -104,6 +116,10 @@
   id: ArmorMerchant
   parent: MerchantBase
   components:
+  - type: Sprite
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: scaf
   - type: Merchant
     Currency: SpaceCash
     Products:
@@ -113,3 +129,26 @@
     - ClothingOuterArmorRiot
     - ClothingOuterArmorScaf
     - ClothingOuterArmorCaptainCarapace
+
+- type: entity
+  name: Demoman Merchant
+  description: A merchant that uses beer as fuel
+  id: DemomanMerchant
+  parent: MerchantBase
+  components:
+  - type: Sprite
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: demoman
+  - type: Merchant
+    Currency: SpaceCash
+    Products:
+    - GrenadeFlash # For the china lake
+    - GrenadeFrag
+    - GrenadeBaton
+    - GrenadeBlast
+    - C4 # C4
+    - GrenadeFlashBang # Normal grenades
+    - SyndieMiniBomb
+    - ExGrenade
+    - ClusterBang
