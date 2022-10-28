@@ -135,6 +135,7 @@ namespace Content.Client.Entry
             _prototypeManager.RegisterIgnore("debrisLayout");
             _prototypeManager.RegisterIgnore("biome");
             _prototypeManager.RegisterIgnore("pointOfInterest");
+            _prototypeManager.RegisterIgnore("merchantSpawner");
 
             _componentFactory.GenerateNetIds();
             _adminManager.Initialize();

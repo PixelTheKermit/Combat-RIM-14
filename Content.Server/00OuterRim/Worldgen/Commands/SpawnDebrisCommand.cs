@@ -31,6 +31,11 @@ public sealed class SpawnDebrisCommand : IConsoleCommand
             return;
         }
 
+        else
+        {
+            shell.WriteError(Loc.GetString("Command disabled due to bug where normal players can use said command"));
+            return;
+        }
         EntitySystem.Get<DebrisGenerationSystem>().GenerateDebris(proto, pos.Value);
     }
 }
