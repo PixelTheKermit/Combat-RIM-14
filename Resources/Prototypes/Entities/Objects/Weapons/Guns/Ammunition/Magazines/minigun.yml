@@ -11,7 +11,7 @@
   - type: BallisticAmmoProvider
     whitelist:
       tags:
-        - CartridgeMinigun
+        - CartridgeHeavyRifle
     proto: CartridgeMinigun
     capacity: 200
   - type: Item

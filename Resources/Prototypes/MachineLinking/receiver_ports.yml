@@ -62,3 +62,38 @@
   id: MedicalScannerReceiver
   name: signal-port-name-med-scanner-receiver
   description: signal-port-description-med-scanner-receiver
+
+- type: receiverPort
+  id: TurretClockwise
+  name: Rotate Clockwise
+  description: This will rotate the shooty part of the turret clockwise
+
+- type: receiverPort
+  id: TurretAntiClockwise
+  name: Rotate Anti-Clockwise
+  description: This will rotate the shooty part of the turret anti-clockwise
+
+- type: receiverPort
+  id: TurretStopRot
+  name: Rotate Stop Rotation
+  description: This will rotate the shooty part of the turret stop turning
+
+- type: receiverPort
+  id: TurretShootSemi
+  name: Shoot once
+  description: This will make the shooty part shoot once
+
+- type: receiverPort
+  id: TurretShootAutoToggle
+  name: Shoot Auto Toggle
+  description: This will toggle if the shooty part shoots automatically or not
+
+- type: receiverPort
+  id: TurretShootAutoOn
+  name: Shoot Auto On
+  description: This will make the shooty part shoot automatically
+
+- type: receiverPort
+  id: TurretShootAutoOff
+  name: Shoot Auto Off
+  description: This will make the shooty part no longer shoot automatically

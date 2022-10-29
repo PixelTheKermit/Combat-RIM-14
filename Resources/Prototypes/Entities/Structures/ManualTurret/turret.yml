@@ -1,0 +1,71 @@
+- type: entity
+  id: WeaponTurretManual
+  name: manualturret
+  components:
+    - type: ManualTurret # BRAND NEW COMPONENT FROM PIXEL CO. MADE FROM THE BLOOD AND SWEAT OF ONE POOR CODER!
+      soundGunshot: /Audio/Weapons/Guns/Gunshots/pistol.ogg
+      fireRate: 12
+    - type: Clickable
+    - type: InteractionOutline
+    - type: Sprite
+      netsync: false
+      sprite: Objects/Weapons/Guns/turrets.rsi
+      drawdepth: WallMountedItems
+      layers:
+        - state: syndie_lethal
+    - type: ItemSlots
+      slots:
+        turret_mag:
+          name: Magazine
+          startingItem: MagazineBoxMinigun
+          insertSound: /Audio/Weapons/Guns/MagIn/pistol_magin.ogg
+          ejectSound: /Audio/Weapons/Guns/MagOut/pistol_magout.ogg
+          priority: 1
+          whitelist:
+            tags:
+              - MagazineBoxMinigun
+    - type: ContainerContainer
+      containers:
+        turret_mag: !type:ContainerSlot
+    - type: SignalReceiver
+      inputs:
+        TurretClockwise: []
+        TurretAntiClockwise: []
+        TurretStopRot: []
+        TurretShootSemi: []
+        TurretShootAutoToggle: []
+        TurretShootAutoOn: []
+        TurretShootAutoOff: []
+    - type: CombatMode
+      combatToggleAction:
+        enabled: true
+        autoPopulate: false
+        name: action-name-combat
+    - type: Damageable
+      damageContainer: Inorganic
+    - type: Destructible
+      thresholds:
+        - trigger:
+            !type:DamageTrigger
+            damage: 300
+          # TODO: Construction graph
+          behaviors:
+            - !type:DoActsBehavior
+              acts: [ "Destruction" ]
+            - !type:PlaySoundBehavior
+              sound:
+                path: /Audio/Effects/metalbreak.ogg
+            - !type:SpawnEntitiesBehavior
+              spawn:
+                SheetSteel1:
+                  min: 3
+                  max: 5
+    - type: Gun
+      fireRate: 6
+      selectedMode: FullAuto
+      availableModes:
+        - FullAuto
+      soundGunshot: /Audio/Weapons/Guns/Gunshots/gun_sentry.ogg
+    - type: BallisticAmmoProvider
+      proto: CartridgeCaselessRifle
+      capacity: 500
