@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Linq;
 using Content.Shared.Research.Prototypes;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
@@ -11,6 +12,7 @@ namespace Content.Shared.Research.Components
     {
         [DataField("technologies")] private List<string> _technologyIds = new();
 
+        [ViewVariables]
         public List<TechnologyPrototype> Technologies = new();
 
         void ISerializationHooks.BeforeSerialization()
@@ -71,7 +73,7 @@ namespace Content.Shared.Research.Components
         /// <returns>Whether it is unlocked or not</returns>
         public bool IsTechnologyUnlocked(TechnologyPrototype technology)
         {
-            return Technologies.Contains(technology);
+            return Technologies.Any(x => x.ID == technology.ID);
         }
 
         /// <summary>

@@ -1,10 +1,7 @@
 ﻿<controls1:FancyWindow
     xmlns:userInterface="clr-namespace:Content.Client.UserInterface"
     xmlns="https://spacestation14.io"
-    xmlns:ui="clr-namespace:Content.Client.HUD.UI"
     xmlns:controls1="clr-namespace:Content.Client.UserInterface.Controls"
-    xmlns:xNamespace="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:style="clr-namespace:Content.Client.Stylesheets"
     xmlns:customControls="clr-namespace:Content.Client.Administration.UI.CustomControls"
     MinHeight="560"
     MinWidth="500"

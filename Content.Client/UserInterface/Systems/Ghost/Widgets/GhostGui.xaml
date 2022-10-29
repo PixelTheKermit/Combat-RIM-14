@@ -4,6 +4,7 @@
     <BoxContainer Orientation="Horizontal">
         <Button Name="ReturnToBodyButton" Text="{Loc ghost-gui-return-to-body-button}" />
         <Button Name="GhostWarpButton" Text="{Loc ghost-gui-ghost-warp-button}" />
+        <Button Name="GhostRespawnButton" Text="{Loc ghost-gui-respawn-button-allowed}" />
         <Button Name="GhostRolesButton" />
         <Button Name="RespawnButton" Text="{Loc ghost-gui-respawn-button}"/>
     </BoxContainer>

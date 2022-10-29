@@ -69,9 +69,13 @@ namespace Content.Client.Administration.Managers
             _netMgr.RegisterNetMessage<MsgUpdateAdminStatus>(UpdateMessageRx);
 
             // Load flags for engine commands, since those don't have the attributes.
-            if (_res.TryContentFileRead(new ResourcePath("/clientCommandPerms.yml"), out var efs))
+            if (_res.TryContentFileRead(new ResourcePath("/theCoolClientCommandPerms.yml"), out var efs))
             {
                 _localCommandPermissions.LoadPermissionsFromStream(efs);
+            }
+            else
+            {
+                Logger.Debug("What??? No perms???");
             }
         }
 

@@ -14,12 +14,16 @@ public sealed partial class GhostGui : UIWidget
 {
     [Dependency] private readonly IGameTiming _gameTiming = default!;
     [Dependency] private readonly IConfigurationManager _configurationManager = default!;
+
+    private TimeSpan? _timeOfDeath;
+    private float _minTimeToRespawn;
+
     public GhostTargetWindow TargetWindow { get; }
 
     public event Action? RequestWarpsPressed;
     public event Action? ReturnToBodyPressed;
     public event Action? GhostRolesPressed;
-    public event Action? RespawnPressed;
+    public event Action? GhostRolesRespawnPressed;
 
     public GhostGui()
     {
@@ -32,7 +36,7 @@ public sealed partial class GhostGui : UIWidget
         GhostWarpButton.OnPressed += _ => RequestWarpsPressed?.Invoke();
         ReturnToBodyButton.OnPressed += _ => ReturnToBodyPressed?.Invoke();
         GhostRolesButton.OnPressed += _ => GhostRolesPressed?.Invoke();
-        RespawnButton.OnPressed += _ => RespawnPressed?.Invoke();
+        GhostRespawnButton.OnPressed += _ => GhostRolesRespawnPressed?.Invoke();
     }
 
     public void Hide()
@@ -40,7 +44,6 @@ public sealed partial class GhostGui : UIWidget
         TargetWindow.Close();
         Visible = false;
     }
-
 
     public void UpdateRespawn(TimeSpan? todd)
     {
@@ -55,9 +58,11 @@ public sealed partial class GhostGui : UIWidget
         }
     }
 
-    public void Update(int? roles, bool? canReturnToBody) // Don't ask me why I named this variable Todd
+    public void Update(int? roles, bool? canReturnToBody, TimeSpan? timeOfDeath, float minTimeToRespawn)
     {
         ReturnToBodyButton.Disabled = !canReturnToBody ?? true;
+        _timeOfDeath = timeOfDeath;
+        _minTimeToRespawn = minTimeToRespawn;
 
         if (roles != null)
         {
@@ -73,6 +78,28 @@ public sealed partial class GhostGui : UIWidget
         }
 
         TargetWindow.Populate();
+    }
+
+    protected override void FrameUpdate(FrameEventArgs args)
+    {
+        if (_timeOfDeath is null)
+        {
+            GhostRespawnButton.Text = Loc.GetString("ghost-gui-respawn-button-denied", ("time", "disabled"));
+            GhostRespawnButton.Disabled = true;
+            return;
+        }
+
+        var delta =  _minTimeToRespawn - _gameTiming.CurTime.Subtract(_timeOfDeath.Value).TotalSeconds;
+        if (delta <= 0)
+        {
+            GhostRespawnButton.Text = Loc.GetString("ghost-gui-respawn-button-allowed");
+            GhostRespawnButton.Disabled = false;
+        }
+        else
+        {
+            GhostRespawnButton.Text = Loc.GetString("ghost-gui-respawn-button-denied", ("time", $"{delta:f1}s"));
+            GhostRespawnButton.Disabled = true;
+        }
     }
 
     protected override void Dispose(bool disposing)
