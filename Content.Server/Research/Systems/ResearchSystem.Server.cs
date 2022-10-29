@@ -2,16 +2,28 @@ using Content.Server.Power.EntitySystems;
 using Content.Server.Station.Systems;
 using Content.Server.Research.Components;
 using Content.Shared.Research.Prototypes;
+using Content.Shared.Examine;
+using Content.Shared.Radio;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.Research;
 
 public sealed partial class ResearchSystem
 {
     [Dependency] private readonly StationSystem _stationSystem = default!;
+    [Dependency] private readonly EntityManager _entityManager = default!;
     private void InitializeServer()
     {
         SubscribeLocalEvent<ResearchServerComponent, ComponentStartup>(OnServerStartup);
         SubscribeLocalEvent<ResearchServerComponent, ComponentShutdown>(OnServerShutdown);
+        SubscribeLocalEvent<ResearchServerComponent, ExaminedEvent>(OnExamined);
+    }
+
+    private void OnExamined(EntityUid uid, ResearchServerComponent component, ExaminedEvent args)
+    {
+        if (!args.IsInDetailsRange)
+            return;
+        args.PushMarkup("The ID for this server is " + component.Id);
     }
 
     private void OnServerShutdown(EntityUid uid, ResearchServerComponent component, ComponentShutdown args)

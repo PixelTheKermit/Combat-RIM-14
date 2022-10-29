@@ -49,6 +49,10 @@
   id: BotanistMerchant
   parent: MerchantBase
   components:
+  - type: Sprite
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: botanist
   - type: Merchant
     Currency: SpaceCash
     Products:
@@ -62,4 +66,89 @@
     - HydroponicsToolMiniHoe
     - HydroponicsToolClippers
     - HydroponicsToolShovel
-  
+
+- type: entity
+  name: Firearm Merchant
+  description: A merchant of certain guns and special bullets
+  id: FirearmMerchant
+  parent: MerchantBase
+  components:
+  - type: Sprite
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: security
+  - type: Merchant
+    Currency: SpaceCash
+    Products:
+    - WeaponAntiqueLaser
+    - WeaponLauncherChinaLake
+    - WeaponShotgunBulldog
+    - WeaponLightMachineGunL6
+    - WeaponSniperHristov
+    - ShellShotgunSlug
+    - ShellShotgunFlare
+    - MagazineShotgun
+    - GunParts
+
+- type: entity
+  name: Swords n stuff Merchant
+  description: A merchant that sells anything from blunt to sharp
+  id: MeleeMerchant
+  parent: MerchantBase
+  components:
+  - type: Sprite
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: securityblue
+  - type: Merchant
+    Currency: SpaceCash
+    Products:
+    - CaptainSabre
+    - Stunbaton
+    - EnergySword
+    - Spear
+    - CombatKnife
+    - FireAxeFlaming
+
+- type: entity
+  name: Armored Merchant
+  description: A merchant that appeals to the paranoid
+  id: ArmorMerchant
+  parent: MerchantBase
+  components:
+  - type: Sprite
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: scaf
+  - type: Merchant
+    Currency: SpaceCash
+    Products:
+    - ClothingOuterArmorReflective
+    - ClothingOuterArmorBulletproof
+    - ClothingOuterArmorHeavy
+    - ClothingOuterArmorRiot
+    - ClothingOuterArmorScaf
+    - ClothingOuterArmorCaptainCarapace
+
+- type: entity
+  name: Demoman Merchant
+  description: A merchant that uses beer as fuel
+  id: DemomanMerchant
+  parent: MerchantBase
+  components:
+  - type: Sprite
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: demoman
+  - type: Merchant
+    Currency: SpaceCash
+    Products:
+    - GrenadeFlash # For the china lake
+    - GrenadeFrag
+    - GrenadeBaton
+    - GrenadeBlast
+    - C4 # C4
+    - GrenadeFlashBang # Normal grenades
+    - SyndieMiniBomb
+    - ExGrenade
+    - ClusterBang

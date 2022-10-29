@@ -12,6 +12,26 @@
 	{
       "name": "base",
       "directions": 4
+	},
+	{
+      "name": "botanist",
+      "directions": 4
+	},
+	{
+      "name": "security",
+      "directions": 4
+	},
+	{
+      "name": "securityblue",
+      "directions": 4
+	},
+	{
+      "name": "scaf",
+      "directions": 4
+	},
+	{
+      "name": "demoman",
+      "directions": 4
 	}
    ],
    "version" : 1

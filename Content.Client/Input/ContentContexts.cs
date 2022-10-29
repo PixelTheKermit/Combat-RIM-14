@@ -64,6 +64,7 @@ namespace Content.Client.Input
             // actions should be common (for ghosts, mobs, etc)
             common.AddFunction(ContentKeyFunctions.OpenActionsMenu);
             common.AddFunction(ContentKeyFunctions.OpenGuidebook);
+
             foreach (var boundKey in ContentKeyFunctions.GetHotbarBoundKeys())
             {
                 common.AddFunction(boundKey);

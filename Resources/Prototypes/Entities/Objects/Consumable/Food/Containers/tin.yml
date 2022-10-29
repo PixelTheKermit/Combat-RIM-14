@@ -257,7 +257,9 @@
       food:
         reagents:
         - ReagentId: Nutriment
-          Quantity: 15
+          Quantity: 5
+        - ReagentId: Meat
+          Quantity: 10
   - type: FlavorProfile
     flavors:
       - meaty

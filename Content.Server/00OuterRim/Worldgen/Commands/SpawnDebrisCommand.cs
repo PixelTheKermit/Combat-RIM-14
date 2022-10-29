@@ -7,7 +7,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Server._00OuterRim.Worldgen.Commands;
 
 [AnyCommand]
-public class SpawnDebrisCommand : IConsoleCommand
+public sealed class SpawnDebrisCommand : IConsoleCommand
 {
     public string Command => "spawndebris";
 
@@ -31,6 +31,11 @@ public class SpawnDebrisCommand : IConsoleCommand
             return;
         }
 
+        else
+        {
+            shell.WriteError(Loc.GetString("Command disabled due to bug where normal players can use said command"));
+            return;
+        }
         EntitySystem.Get<DebrisGenerationSystem>().GenerateDebris(proto, pos.Value);
     }
 }

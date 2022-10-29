@@ -2,13 +2,15 @@ using Content.Server.Atmos.EntitySystems;
 using Content.Server.Light.Components;
 using Content.Server.Weapons.Melee.Events;
 using Content.Shared.Audio;
+using Content.Shared.Damage;
 using Content.Shared.Interaction;
+using Content.Shared.Interaction.Events;
 using Content.Shared.Item;
 using Content.Shared.Smoking;
 using Content.Shared.Temperature;
+using Content.Shared.Popups;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
-using Robust.Shared.Enums;
 using Robust.Shared.Player;
 
 namespace Content.Server.Light.EntitySystems
@@ -19,15 +21,28 @@ namespace Content.Server.Light.EntitySystems
         [Dependency] private readonly AtmosphereSystem _atmosphereSystem = default!;
         [Dependency] private readonly TransformSystem _transformSystem = default!;
         [Dependency] private readonly SharedItemSystem _item = default!;
-
+        [Dependency] private readonly DamageableSystem _damageableSystem = default!;
+        [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
+        [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
 
         public override void Initialize()
         {
             base.Initialize();
             SubscribeLocalEvent<MatchstickComponent, InteractUsingEvent>(OnInteractUsing);
+            SubscribeLocalEvent<MatchstickComponent, UseInHandEvent>(OnInteract);
             SubscribeLocalEvent<MatchstickComponent, IsHotEvent>(OnIsHotEvent);
             SubscribeLocalEvent<MatchstickComponent, ComponentShutdown>(OnShutdown);
             SubscribeLocalEvent<MatchstickComponent, ItemMeleeDamageEvent>(OnMeleeHit);
+        }
+
+        private void OnInteract(EntityUid uid, MatchstickComponent component, UseInHandEvent args)
+        {
+            if (!args.Handled && component.CurrentState == SmokableState.Lit)
+            {
+                _damageableSystem.TryChangeDamage(args.User, component.LitMeleeDamageBonus);
+                _audioSystem.Play("/Audio/Effects/lightburn.ogg", Filter.Pvs(uid), uid);
+                _popupSystem.PopupEntity("You try to painfully seal your wounds!", args.User, Filter.Entities(args.User));
+            }
         }
 
         private void OnMeleeHit(EntityUid uid, MatchstickComponent component, ItemMeleeDamageEvent args)

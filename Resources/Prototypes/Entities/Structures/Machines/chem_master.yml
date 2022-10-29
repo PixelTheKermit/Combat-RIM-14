@@ -53,7 +53,7 @@
   - type: ApcPassiveHeater
   - type: AtmosExposed
   - type: ApcPowerReceiver
-    powerLoad: 250
+    powerLoad: 25
   - type: Appearance
   - type: GenericVisualizer
     visuals:
@@ -67,7 +67,6 @@
     LayoutId: chem_master
   - type: Machine
     board: ChemMasterMachineCircuitboard
-  - type: MaterialStorage
   - type: ContainerContainer
     containers:
       beakerSlot: !type:ContainerSlot

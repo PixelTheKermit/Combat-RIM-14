@@ -41,6 +41,8 @@
     canCollide: false
   - type: Airtight
     airBlocked: false
+  - type: RadiationBlocker
+    enabled: false
 
 - type: entity
   id: BlastDoorExterior1
