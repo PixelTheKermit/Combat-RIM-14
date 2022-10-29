@@ -74,22 +74,7 @@ namespace Content.Client.Lobby
             _voteManager.SetPopupContainer(_lobby.VoteContainer);
             _lobby.ServerName.Text = _baseClient.GameInfo?.ServerName; //The eye of refactor gazes upon you...
             UpdateLobbyUi();
-			
-            _lobby.CharacterPreview.CharacterSetupButton.OnPressed += _ =>
-            {
-                SetReady(false);
-                _userInterfaceManager.StateRoot.RemoveChild(_lobby);
-                _userInterfaceManager.StateRoot.AddChild(_characterSetup);
-            };
-            
-            _lobby.ReadyButton.OnToggled += args =>
-            {
-                SetReady(args.Pressed);
-            };
 
-            _lobby.LeaveButton.OnPressed += _ => _consoleHost.ExecuteCommand("disconnect");
-            _lobby.OptionsButton.OnPressed += _ => _userInterfaceManager.GetUIController<OptionsUIController>().ToggleWindow();
-			
             _lobby.CharacterPreview.CharacterSetupButton.OnPressed += OnSetupPressed;
             _lobby.ReadyButton.OnPressed += OnReadyPressed;
             _lobby.ReadyButton.OnToggled += OnReadyToggled;
