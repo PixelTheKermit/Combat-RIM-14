@@ -56,7 +56,7 @@ public sealed partial class StationJobsSystem
         InitializeRoundStart();
 
         if (stations.Count == 0)
-            return new Dictionary<NetUserId, (string, EntityUid)>();
+            return new Dictionary<NetUserId, (string?, EntityUid)>();
 
         if (profiles.Count == 0)
             return new Dictionary<NetUserId, (string?, EntityUid)>();
