@@ -1,6 +1,7 @@
 - type: entity
   id: WeaponTurretManual
-  name: manualturret
+  name: Turret
+  description: A static, very heavy gun. You better hope it's not pointing at you!
   components:
     - type: ManualTurret # BRAND NEW COMPONENT FROM PIXEL CO. MADE FROM THE BLOOD AND SWEAT OF ONE POOR CODER!
       soundGunshot: /Audio/Weapons/Guns/Gunshots/pistol.ogg
@@ -36,11 +37,6 @@
         TurretShootAutoToggle: []
         TurretShootAutoOn: []
         TurretShootAutoOff: []
-    - type: CombatMode
-      combatToggleAction:
-        enabled: true
-        autoPopulate: false
-        name: action-name-combat
     - type: Damageable
       damageContainer: Inorganic
     - type: Destructible
@@ -60,12 +56,3 @@
                 SheetSteel1:
                   min: 3
                   max: 5
-    - type: Gun
-      fireRate: 6
-      selectedMode: FullAuto
-      availableModes:
-        - FullAuto
-      soundGunshot: /Audio/Weapons/Guns/Gunshots/gun_sentry.ogg
-    - type: BallisticAmmoProvider
-      proto: CartridgeCaselessRifle
-      capacity: 500

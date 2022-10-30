@@ -117,7 +117,6 @@ public sealed class GhostUIController : UIController, IOnSystemChanged<GhostSyst
         Gui.RequestWarpsPressed += RequestWarps;
         Gui.ReturnToBodyPressed += ReturnToBody;
         Gui.GhostRolesPressed += GhostRolesPressed;
-        Gui.RespawnPressed += RespawnPressed;
         Gui.TargetWindow.WarpClicked += OnWarpClicked;
         Gui.GhostRolesRespawnPressed += GuiOnGhostRolesRespawnPressed;
 
