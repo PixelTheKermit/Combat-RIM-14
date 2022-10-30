@@ -106,7 +106,6 @@ public sealed class PrototypeSaveTest
         "CrateArtifactContainer",
         "CloningPod",
         "DrinkColaCan",
-        "MachineFrame",
         "WeaponImprovisedPneumaticCannon",
         "LauncherCreamPie",
         "GravityGenerator",

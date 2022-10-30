@@ -62,6 +62,9 @@
   - type: AtmosExposed
   - type: ApcPowerReceiver
     powerLoad: 40
+  - type: UpgradePowerDraw
+    powerDrawMultiplier: 0.75
+    scaling: Exponential
   - type: Machine
     board: MicrowaveMachineCircuitboard
   - type: ContainerContainer
