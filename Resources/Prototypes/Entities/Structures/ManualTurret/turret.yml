@@ -8,6 +8,9 @@
       fireRate: 12
     - type: Clickable
     - type: InteractionOutline
+    - type: Transform
+      anchored: true
+    - type: Anchorable
     - type: Sprite
       netsync: false
       sprite: Objects/Weapons/Guns/turrets.rsi
@@ -37,6 +40,75 @@
         TurretShootAutoToggle: []
         TurretShootAutoOn: []
         TurretShootAutoOff: []
+    - type: Damageable
+      damageContainer: Inorganic
+    - type: Destructible
+      thresholds:
+        - trigger:
+            !type:DamageTrigger
+            damage: 300
+          # TODO: Construction graph
+          behaviors:
+            - !type:DoActsBehavior
+              acts: [ "Destruction" ]
+            - !type:PlaySoundBehavior
+              sound:
+                path: /Audio/Effects/metalbreak.ogg
+            - !type:SpawnEntitiesBehavior
+              spawn:
+                SheetSteel1:
+                  min: 3
+                  max: 5
+
+- type: entity
+  id: WeaponLaserTurretManual
+  name: Laser Turret
+  description: A static, very heavy laser gun. You better hope it doesn't fire when you look at it!
+  components:
+    - type: ManualTurret 
+      soundGunshot: /Audio/Weapons/Guns/Gunshots/pistol.ogg
+      fireRate: .5
+      isBatteryWeapon: true
+    - type: Clickable
+    - type: InteractionOutline
+    - type: Transform
+      anchored: true
+    - type: Sprite
+      netsync: false
+      sprite: Objects/Weapons/Guns/turrets.rsi
+      drawdepth: WallMountedItems
+      layers:
+        - state: syndie_lethal
+    - type: SignalReceiver
+      inputs:
+        TurretClockwise: []
+        TurretAntiClockwise: []
+        TurretStopRot: []
+        TurretShootSemi: []
+    - type: Anchorable
+    - type: ProjectileBatteryAmmoProvider
+      proto: EmitterBolt
+      fireCost: 62.5
+    - type: Battery
+      maxCharge: 500
+      startingCharge: 500
+    - type: ExaminableBattery
+    - type: NodeContainer
+      examinable: false
+      nodes:
+        input:
+          !type:CableDeviceNode
+          nodeGroupID: MVPower
+    - type: BatteryCharger
+      voltage: Medium
+    - type: PowerNetworkBattery
+      maxSupply: 50
+      maxChargeRate: 10
+      supplyRampTolerance: 10
+      supplyRampRate: 5
+    - type: Temperature
+    - type: ApcPassiveHeater
+    - type: AtmosExposed
     - type: Damageable
       damageContainer: Inorganic
     - type: Destructible
