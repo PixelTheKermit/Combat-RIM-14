@@ -17,10 +17,19 @@ public class PopulatorSystem : EntitySystem
         foreach (var (unpop, grid, transform) in EntityManager.EntityQuery<UnpopulatedComponent, IMapGridComponent, TransformComponent>())
         {
             // TODO: This could be much smarter with high player counts or large debris, but it's fine for now.
-            var nearby = _playerManager.ServerSessions.Any(x =>
-                x.AttachedEntity is not null && // Must have an entity.
-                (x.AttachedEntityTransform?.WorldPosition - transform.WorldPosition)?.Length < 64 && // Must be withing 64 units of the unpopulated debris.
-                !HasComp<GhostComponent>(x.AttachedEntity.Value)); // Must NOT be a ghost.
+            bool nearby = false;
+
+            foreach (var session in _playerManager.ServerSessions)
+            {
+                if (session.AttachedEntity is not null &&
+                    (session.AttachedEntityTransform?.WorldPosition - transform.WorldPosition)?.Length <
+                    64 && // Must be withing 64 units of the unpopulated debris.
+                    !HasComp<GhostComponent>(session.AttachedEntity.Value))
+                {
+                    nearby = true;
+                    break;
+                }
+            }
 
             if (nearby)
             {
