@@ -1,6 +1,6 @@
 - type: entity
   id: WeaponTurretManual
-  name: Turret
+  name: turret
   description: A static, very heavy gun. You better hope it's not pointing at you!
   components:
     - type: ManualTurret # BRAND NEW COMPONENT FROM PIXEL CO. MADE FROM THE BLOOD AND SWEAT OF ONE POOR CODER!
@@ -62,12 +62,12 @@
 
 - type: entity
   id: WeaponLaserTurretManual
-  name: Laser Turret
+  name: laser turret
   description: A static, very heavy laser gun. You better hope it doesn't fire when you look at it!
   components:
     - type: ManualTurret 
-      soundGunshot: /Audio/Weapons/Guns/Gunshots/pistol.ogg
-      fireRate: .5
+      soundGunshot: /Audio/Weapons/Guns/Gunshots/laser.ogg
+      fireRate: 2
       isBatteryWeapon: true
     - type: Clickable
     - type: InteractionOutline
@@ -78,7 +78,7 @@
       sprite: Objects/Weapons/Guns/turrets.rsi
       drawdepth: WallMountedItems
       layers:
-        - state: syndie_lethal
+        - state: laser
     - type: SignalReceiver
       inputs:
         TurretClockwise: []
@@ -128,3 +128,33 @@
                 SheetSteel1:
                   min: 3
                   max: 5
+
+- type: entity
+  parent: WeaponTurretManual
+  id: WeaponShotgunTurretManual
+  name: shotgun turret
+  description: A static, very heavy shotgun. You better hope none of the shots hit you!
+  components:
+    - type: ManualTurret
+      soundGunshot: /Audio/Weapons/Guns/Gunshots/shotgun.ogg
+      fireRate: 1.5
+    - type: Sprite
+      layers:
+        - state: shotgun
+    - type: SignalReceiver
+      inputs:
+        TurretClockwise: []
+        TurretAntiClockwise: []
+        TurretStopRot: []
+        TurretShootSemi: []
+    - type: ItemSlots
+      slots:
+        turret_mag:
+          name: Magazine
+          startingItem: BoxLethalshot
+          insertSound: /Audio/Weapons/Guns/MagIn/pistol_magin.ogg
+          ejectSound: /Audio/Weapons/Guns/MagOut/pistol_magout.ogg
+          priority: 1
+          whitelist:
+            tags:
+              - ShotgunAmmoBox

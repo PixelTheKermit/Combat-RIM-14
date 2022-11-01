@@ -33,6 +33,7 @@ using Content.Shared.Weapons.Melee;
 using Robust.Shared.Physics;
 using Serilog;
 using Content.Shared.Weapons.Ranged;
+using Robust.Shared.Utility;
 
 namespace Content.Server.ManualTurret
 {
@@ -143,8 +144,20 @@ namespace Content.Server.ManualTurret
                             {
                                 _audioSystem.Play(comp.SoundGunshot, Filter.Pvs(uid), uid);
                                 var rot = xform.WorldRotation;
-                                var bullet = _entityManager.GetComponent<CartridgeAmmoComponent>(cartridge).Prototype;
-                                ShootProjectile(Spawn(bullet, xform.MapPosition), rot.ToWorldVec(), uid);
+                                var cartridgeComp = _entityManager.GetComponent<CartridgeAmmoComponent>(cartridge);
+                                var bullet = cartridgeComp.Prototype;
+                                if (cartridgeComp.Count > 1)
+                                {
+                                    var angles = LinearSpread(rot - cartridgeComp.Spread / 2,
+                                        rot + cartridgeComp.Spread / 2, cartridgeComp.Count);
+
+                                    for (var i = 0; i < cartridgeComp.Count; i++)
+                                    {
+                                        ShootProjectile(Spawn(bullet, xform.MapPosition), angles[i].ToWorldVec(), uid);
+                                    }
+                                }
+                                else
+                                    ShootProjectile(Spawn(bullet, xform.MapPosition), rot.ToWorldVec(), uid);
                             }
                             _entityManager.DeleteEntity(cartridge);
                         }
@@ -200,6 +213,19 @@ namespace Content.Server.ManualTurret
             }
 
             Transform(uid).WorldRotation = direction.ToWorldAngle();
+        }
+
+        private Angle[] LinearSpread(Angle start, Angle end, int intervals)
+        {
+            var angles = new Angle[intervals];
+            DebugTools.Assert(intervals > 1);
+
+            for (var i = 0; i <= intervals - 1; i++)
+            {
+                angles[i] = new Angle(start + (end - start) * i / (intervals - 1));
+            }
+
+            return angles;
         }
     }
 }
