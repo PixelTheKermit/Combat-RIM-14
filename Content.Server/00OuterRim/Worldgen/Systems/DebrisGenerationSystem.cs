@@ -2,7 +2,9 @@ using System.Linq;
 using Content.Server._00OuterRim.Worldgen.Components;
 using Content.Server._00OuterRim.Worldgen.Prototypes;
 using Content.Server.Shuttles.Systems;
+using Content.Shared.Coordinates;
 using Content.Shared.Shuttles.Components;
+using Robust.Server.GameObjects;
 using Robust.Shared.Map;
 using Robust.Shared.Random;
 
@@ -13,7 +15,9 @@ public sealed class DebrisGenerationSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly ITileDefinitionManager _tileDefinition = default!;
     [Dependency] private readonly IMapManager _mapManager = default!;
+    [Dependency] private readonly IEntityManager _entityManager = default!;
     [Dependency] private readonly ShuttleSystem _shuttleSystem = default!;
+    [Dependency] private readonly TransformSystem _transformSystem = default!;
 
     public EntityUid GenerateDebris(DebrisPrototype proto, MapCoordinates location)
     {
@@ -33,7 +37,7 @@ public sealed class DebrisGenerationSystem : EntitySystem
     public (IMapGrid, EntityUid) GenerateFloorplan(DebrisPrototype proto, MapCoordinates location)
     {
         var grid = _mapManager.CreateGrid(location.MapId);
-        grid.WorldPosition = location.Position;
+        _transformSystem.SetWorldPosition(grid.GridEntityId, location.Position);
 
         switch (proto.FloorplanStyle)
         {

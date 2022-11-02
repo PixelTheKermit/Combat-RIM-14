@@ -164,6 +164,7 @@ public sealed class GhostUIController : UIController, IOnSystemChanged<GhostSyst
     private void RespawnPressed()
     {
         IoCManager.Resolve<IClientConsoleHost>().RemoteExecuteCommand(null, "ghostrespawn");
+    }
 
     private void ToggleGhostVisibility()
     {
