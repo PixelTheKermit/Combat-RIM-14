@@ -10,7 +10,7 @@
   icon:
     sprite: Structures/Machines/server.rsi
     state: server-on
-  requiredPoints: 2500
+  requiredPoints: 625
   unlockedRecipes:
     - FlashlightLantern
     - FireExtinguisher
@@ -33,7 +33,7 @@
   icon:
     sprite: Objects/Specific/Janitorial/janitorial.rsi
     state: mopbucket
-  requiredPoints: 5000
+  requiredPoints: 1250
   requiredTechnologies:
     - BasicResearch
   unlockedRecipes:
@@ -51,7 +51,7 @@
   icon:
     sprite: Structures/Furniture/potted_plants.rsi
     state: applebush
-  requiredPoints: 10000
+  requiredPoints: 2500
   requiredTechnologies:
     - BasicResearch
   unlockedRecipes:
@@ -71,7 +71,7 @@
   icon:
     sprite: Objects/Specific/Hydroponics/potato.rsi
     state: seed
-  requiredPoints: 15000
+  requiredPoints: 3750
   requiredTechnologies:
     - BiologicalTechnology
   unlockedRecipes:
@@ -87,7 +87,7 @@
   icon:
     sprite: Objects/Specific/Medical/Surgery/saw.rsi
     state: saw
-  requiredPoints: 15000
+  requiredPoints: 3750
   requiredTechnologies:
     - BiologicalTechnology
   unlockedRecipes:
@@ -107,7 +107,7 @@
   icon:
     sprite: Objects/Specific/Chemistry/beaker_large.rsi
     state: beakerlarge
-  requiredPoints: 10000
+  requiredPoints: 2500
   requiredTechnologies:
     - BasicResearch
   unlockedRecipes:
@@ -129,7 +129,7 @@
   icon:
     sprite: Structures/dispensers.rsi
     state: industrial-working
-  requiredPoints: 10000
+  requiredPoints: 2500
   requiredTechnologies:
     - BiologicalTechnology
     - ChemistryTechnology
@@ -149,7 +149,7 @@
   icon:
     sprite: Structures/Machines/cloning.rsi
     state: pod_0
-  requiredPoints: 20000
+  requiredPoints: 5000
   requiredTechnologies:
     - MedicalMachinery
     - AdvancedSugery
@@ -230,7 +230,7 @@
   icon:
     sprite: Structures/Machines/protolathe.rsi
     state: icon
-  requiredPoints: 10000
+  requiredPoints: 2500
   requiredTechnologies:
     - BasicResearch
   unlockedRecipes:
@@ -261,7 +261,7 @@
   id: Sheets
   description: technologies-material-sheet-printing-description
   icon: Objects/Materials/Sheets/researchicon.png
-  requiredPoints: 2500
+  requiredPoints: 625
   requiredTechnologies:
     - IndustrialEngineering
   unlockedRecipes:
@@ -277,7 +277,7 @@
   icon:
     sprite: Structures/Piping/Atmospherics/thermomachine.rsi
     state: freezer_off
-  requiredPoints: 3000
+  requiredPoints: 750
   requiredTechnologies:
   - IndustrialEngineering
   unlockedRecipes:
@@ -294,7 +294,7 @@
   icon:
     sprite: Structures/Machines/computers.rsi
     state: avionics-systems
-  requiredPoints: 10000
+  requiredPoints: 2500
   requiredTechnologies:
     - IndustrialEngineering
     - RoboticsTechnology
@@ -312,7 +312,7 @@
   icon:
     sprite: Structures/Power/apc.rsi
     state: apc0
-  requiredPoints: 10000
+  requiredPoints: 2500
   requiredTechnologies:
     - BasicResearch
   unlockedRecipes:
@@ -334,7 +334,7 @@
   icon:
     sprite: Structures/Power/apc.rsi
     state: apc0
-  requiredPoints: 5000
+  requiredPoints: 1250
   requiredTechnologies:
     - ElectromagneticTheory
   unlockedRecipes:
@@ -349,7 +349,7 @@
   icon:
     sprite: Objects/Fun/Instruments/guitar.rsi
     state: icon
-  requiredPoints: 10000
+  requiredPoints: 2500
   requiredTechnologies:
     - ElectromagneticTheory
   unlockedRecipes:
@@ -363,7 +363,7 @@
   icon:
     sprite: Objects/Power/power_cells.rsi
     state: small
-  requiredPoints: 2500
+  requiredPoints: 625
   requiredTechnologies:
     - ElectromagneticTheory
   unlockedRecipes:
@@ -376,7 +376,7 @@
   icon:
     sprite: Objects/Power/power_cells.rsi
     state: medium
-  requiredPoints: 5000
+  requiredPoints: 1250
   requiredTechnologies:
     - PowerCellBasic
   unlockedRecipes:
@@ -389,7 +389,7 @@
   icon:
     sprite: Objects/Power/power_cells.rsi
     state: high
-  requiredPoints: 10000
+  requiredPoints: 2500
   requiredTechnologies:
     - PowerCellAdvanced
   unlockedRecipes:
@@ -403,7 +403,7 @@
   icon:
     sprite: Objects/Misc/stock_parts.rsi
     state: micro_mani
-  requiredPoints: 3000
+  requiredPoints: 750
   requiredTechnologies:
     - BasicResearch
   unlockedRecipes:
@@ -420,7 +420,7 @@
   icon:
     sprite: Mobs/Silicon/Bots/honkbot.rsi
     state: honkbot
-  requiredPoints: 10000
+  requiredPoints: 2500
   requiredTechnologies:
     - CompactPowerTechnology
   unlockedRecipes:
@@ -435,7 +435,7 @@
   icon:
     sprite: Objects/Misc/stock_parts.rsi
     state: adv_capacitor
-  requiredPoints: 8000
+  requiredPoints: 2000
   requiredTechnologies:
     - BasicPartsTechnology
     - IndustrialEngineering
