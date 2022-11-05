@@ -258,8 +258,8 @@ entities:
       -2,8: 0
       -2,9: 0
       -2,10: 0
-      -2,11: 0
-      -2,12: 0
+      -2,11: 1
+      -2,12: 1
       -2,13: 0
       -1,0: 0
       -1,1: 0
@@ -299,7 +299,7 @@ entities:
       -6,-2: 0
       -6,-1: 0
       -5,-7: 0
-      -4,-9: 0
+      -4,-9: 1
       -4,-8: 0
       -3,-10: 0
       -3,-9: 0
@@ -334,6 +334,21 @@ entities:
       moles:
       - 21.824879
       - 82.10312
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    - volume: 2500
+      temperature: 293.15
+      moles:
+      - 21.213781
+      - 79.80423
       - 0
       - 0
       - 0
@@ -2376,4 +2391,12 @@ entities:
     type: Transform
   - powerLoad: 0
     type: ApcPowerReceiver
+- uid: 285
+  type: Gyroscope
+  components:
+  - pos: -1.5,-8.5
+    parent: 3
+    type: Transform
+  - enabled: False
+    type: AmbientSound
 ...
