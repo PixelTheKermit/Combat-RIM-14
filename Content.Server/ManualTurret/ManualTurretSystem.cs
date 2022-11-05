@@ -26,6 +26,14 @@ using Content.Shared.Weapons.Ranged.Components;
 using Robust.Shared.Containers;
 using Robust.Server.Containers;
 using Content.Shared.Weapons.Ranged.Systems;
+using Content.Server.Power.Components;
+using Content.Shared.Database;
+using Content.Shared.FixedPoint;
+using Content.Shared.Weapons.Melee;
+using Robust.Shared.Physics;
+using Serilog;
+using Content.Shared.Weapons.Ranged;
+using Robust.Shared.Utility;
 
 namespace Content.Server.ManualTurret
 {
@@ -114,39 +122,72 @@ namespace Content.Server.ManualTurret
             if (comp.TimeFired + fireRate <= curTime)
             {
                 comp.TimeFired = curTime;
-                var slotsComp = _entityManager.GetComponent<ItemSlotsComponent>(uid);
-                if (_containerSystem.GetAllContainers(uid).First().ContainedEntities.Count > 0)
+                if (!comp.IsBatteryWeapon)
                 {
-                    var magazine = _containerSystem.GetAllContainers(uid).First().ContainedEntities.First();
-                    var bapc = _entityManager.GetComponent<BallisticAmmoProviderComponent>(magazine);
-
-                    if (bapc.UnspawnedCount + bapc.Container.ContainedEntities.Count > 0) // TODO: cry about this fuckin shitcode
+                    var slotsComp = _entityManager.GetComponent<ItemSlotsComponent>(uid);
+                    if (_containerSystem.GetAllContainers(uid).First().ContainedEntities.Count > 0)
                     {
-                        var xform = _entityManager.GetComponent<TransformComponent>(uid);
-                        if (bapc.Container.ContainedEntities.Count == 0)
-                        {
-                            bapc.UnspawnedCount -= 1;
-                            bapc.Container.Insert(Spawn(bapc.FillProto, xform.MapPosition));
-                        }
+                        var magazine = _containerSystem.GetAllContainers(uid).First().ContainedEntities.First();
+                        var bapc = _entityManager.GetComponent<BallisticAmmoProviderComponent>(magazine);
 
-                        var cartridge = bapc.Container.ContainedEntities.First();
-                        if (!_entityManager.GetComponent<CartridgeAmmoComponent>(cartridge).Spent)
+                        if (bapc.UnspawnedCount + bapc.Container.ContainedEntities.Count > 0) // TODO: cry about this fuckin shitcode
                         {
-                            _audioSystem.Play(comp.SoundGunshot, Filter.Pvs(uid), uid);
-                            var rot = xform.WorldRotation;
-                            var bullet = _entityManager.GetComponent<CartridgeAmmoComponent>(cartridge).Prototype;
-                            ShootProjectile(Spawn(bullet, xform.MapPosition), rot.ToWorldVec(), uid);
+                            var xform = _entityManager.GetComponent<TransformComponent>(uid);
+                            if (bapc.Container.ContainedEntities.Count == 0)
+                            {
+                                bapc.UnspawnedCount -= 1;
+                                bapc.Container.Insert(Spawn(bapc.FillProto, xform.MapPosition));
+                            }
+
+                            var cartridge = bapc.Container.ContainedEntities.First();
+                            if (!_entityManager.GetComponent<CartridgeAmmoComponent>(cartridge).Spent)
+                            {
+                                _audioSystem.Play(comp.SoundGunshot, Filter.Pvs(uid), uid);
+                                var rot = xform.WorldRotation;
+                                var cartridgeComp = _entityManager.GetComponent<CartridgeAmmoComponent>(cartridge);
+                                var bullet = cartridgeComp.Prototype;
+                                if (cartridgeComp.Count > 1)
+                                {
+                                    var angles = LinearSpread(rot - cartridgeComp.Spread / 2,
+                                        rot + cartridgeComp.Spread / 2, cartridgeComp.Count);
+
+                                    for (var i = 0; i < cartridgeComp.Count; i++)
+                                    {
+                                        ShootProjectile(Spawn(bullet, xform.MapPosition), angles[i].ToWorldVec(), uid);
+                                    }
+                                }
+                                else
+                                    ShootProjectile(Spawn(bullet, xform.MapPosition), rot.ToWorldVec(), uid);
+                            }
+                            _entityManager.DeleteEntity(cartridge);
                         }
-                        _entityManager.DeleteEntity(cartridge);
+                        else
+                        {
+                            _audioSystem.Play("/Audio/Weapons/Guns/Empty/empty.ogg", Filter.Pvs(uid), uid);
+                        }
                     }
                     else
                     {
                         _audioSystem.Play("/Audio/Weapons/Guns/Empty/empty.ogg", Filter.Pvs(uid), uid);
                     }
                 }
-                else
+                else // I RETURN TO THE CODER MINES!!!!
                 {
-                    _audioSystem.Play("/Audio/Weapons/Guns/Empty/empty.ogg", Filter.Pvs(uid), uid);
+                    var batteryComp = _entityManager.GetComponent<BatteryComponent>(uid);
+                    var hitscanProjComp = _entityManager.GetComponent<ProjectileBatteryAmmoProviderComponent>(uid);
+                    if (batteryComp.CurrentCharge >= hitscanProjComp.FireCost)
+                    {
+                        batteryComp.CurrentCharge -= hitscanProjComp.FireCost;
+                        var xform = _entityManager.GetComponent<TransformComponent>(uid);
+                        _audioSystem.Play(comp.SoundGunshot, Filter.Pvs(uid), uid);
+                        var rot = xform.WorldRotation;
+                        var bullet = hitscanProjComp.Prototype;
+                        ShootProjectile(Spawn(bullet, xform.MapPosition), rot.ToWorldVec(), uid);
+                    }
+                    else
+                    {
+                        _audioSystem.Play("/Audio/Weapons/Guns/Empty/empty.ogg", Filter.Pvs(uid), uid);
+                    }
                 }
             }
         }
@@ -172,6 +213,19 @@ namespace Content.Server.ManualTurret
             }
 
             Transform(uid).WorldRotation = direction.ToWorldAngle();
+        }
+
+        private Angle[] LinearSpread(Angle start, Angle end, int intervals)
+        {
+            var angles = new Angle[intervals];
+            DebugTools.Assert(intervals > 1);
+
+            for (var i = 0; i <= intervals - 1; i++)
+            {
+                angles[i] = new Angle(start + (end - start) * i / (intervals - 1));
+            }
+
+            return angles;
         }
     }
 }

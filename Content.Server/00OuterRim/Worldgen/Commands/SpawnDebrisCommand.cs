@@ -1,13 +1,14 @@
 using Content.Server._00OuterRim.Worldgen.Prototypes;
 using Content.Server._00OuterRim.Worldgen.Systems;
+using Content.Server.Administration;
 using Content.Shared.Administration;
 using Robust.Shared.Console;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server._00OuterRim.Worldgen.Commands;
 
-[AnyCommand]
-public sealed class SpawnDebrisCommand : IConsoleCommand
+[AdminCommand(AdminFlags.Debug)]
+public class SpawnDebrisCommand : IConsoleCommand
 {
     public string Command => "spawndebris";
 
@@ -30,12 +31,7 @@ public sealed class SpawnDebrisCommand : IConsoleCommand
             shell.WriteError(Loc.GetString("shell-argument-must-be-prototype", ("index", 1), ("prototypeName", "debris prototype")));
             return;
         }
-
-        else
-        {
-            shell.WriteError(Loc.GetString("Command disabled due to bug where normal players can use said command"));
-            return;
-        }
+		
         EntitySystem.Get<DebrisGenerationSystem>().GenerateDebris(proto, pos.Value);
     }
 }

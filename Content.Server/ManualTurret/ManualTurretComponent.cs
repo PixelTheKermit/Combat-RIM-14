@@ -23,6 +23,9 @@ public sealed class ManualTurretComponent : Component
     [DataField("curRotSpeed")]
     public float CurRotSpeed = 0f;
 
+    [DataField("isBatteryWeapon")]
+    public bool IsBatteryWeapon = false;
+
     // Sounds
 
     [DataField("soundGunshot")]

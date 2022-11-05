@@ -9,8 +9,3 @@ Your navigational mass scanner will automatically color recognized objects based
 - [color=#7FFFD4]Vessels with IFF[/color] are shown as aquamarine.
 - [color=#FF00FF]Atypical structures[/color] are shown in magenta.
 
-?{|:Horizontal
-?embedEntity:AcousticGuitarInstrument:2
-Never gonna give you uuuuuuuup, never gonna let you dooooooooooooooown, never gonna turn arouuuuuuuuuuuuuuuuuund and leave you.
-?|}
-sdfahjfjh

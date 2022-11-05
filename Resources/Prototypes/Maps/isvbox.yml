@@ -4,7 +4,7 @@
   mapPath: /Maps/isvbox.yml
   minPlayers: 0
   fallback: true
-  descriptionPath: "/Server Info/ISVCobbleInfo.txt"
+  descriptionPath: "/Server Info/Shuttles/ISVBoxInfo.txt"
   stations:
     IsvBox:
       mapNameTemplate: '{0} Box {1}'
@@ -15,3 +15,4 @@
       availableJobs:
         SalvageSpecialist: [ 2, 2 ]
         MedicalDoctor: [ 1, 1 ]
+        ShuttleCaptain: [ 0, 1 ]

@@ -4,7 +4,7 @@
   mapPath: /Maps/isvspade.yml
   minPlayers: 0
   fallback: true
-  descriptionPath: "/Server Info/ISVCobbleInfo.txt"
+  descriptionPath: "/Server Info/Shuttles/ISVSpadeInfo.txt"
   stations:
     IsvSpade:
       mapNameTemplate: '{0} Spade {1}'

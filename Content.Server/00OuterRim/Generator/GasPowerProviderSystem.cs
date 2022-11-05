@@ -78,7 +78,8 @@ public sealed class GasPowerProviderSystem : EntitySystem
         if (state != comp.Powered)
         {
             comp.Powered = state;
-            RaiseLocalEvent(uid, new PowerChangedEvent(state, 0));
+            var ev = new PowerChangedEvent(state, 0);
+            RaiseLocalEvent(uid, ref ev);
         }
 
         return;

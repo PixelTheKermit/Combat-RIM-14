@@ -21,6 +21,18 @@
     {
       "name": "syndie_stun",
       "directions": 8
+    },
+	{
+      "name": "laser",
+      "directions": 8
+    },
+	{
+      "name": "rocket",
+      "directions": 8
+    },
+	{
+      "name": "shotgun",
+      "directions": 8
     }
   ]
 }
