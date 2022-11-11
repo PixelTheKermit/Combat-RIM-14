@@ -38,6 +38,9 @@
   - type: AtmosExposed
   - type: ApcPowerReceiver
     powerLoad: 30
+  - type: UpgradePowerDraw
+    powerDrawMultiplier: 0.75
+    scaling: Exponential
   - type: ItemSlots
     slots:
       beakerSlot:

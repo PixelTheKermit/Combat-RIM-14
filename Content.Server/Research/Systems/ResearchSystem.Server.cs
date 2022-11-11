@@ -1,6 +1,6 @@
 using Content.Server.Power.EntitySystems;
-using Content.Server.Station.Systems;
 using Content.Server.Research.Components;
+using Content.Server.Station.Systems;
 using Content.Shared.Research.Prototypes;
 using Content.Shared.Examine;
 using Content.Shared.Radio;
@@ -82,7 +82,7 @@ public sealed partial class ResearchSystem
         TechnologyDatabaseComponent? databaseComponent = null)
     {
         if (!Resolve(component.Owner, ref databaseComponent, false)) return false;
-        return databaseComponent.IsTechnologyUnlocked(prototype);
+        return databaseComponent.IsTechnologyUnlocked(prototype.ID);
     }
 
     public bool CanUnlockTechnology(ResearchServerComponent component, TechnologyPrototype technology, TechnologyDatabaseComponent? databaseComponent = null)

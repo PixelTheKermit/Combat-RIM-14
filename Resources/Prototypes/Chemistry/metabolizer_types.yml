@@ -21,3 +21,6 @@
 
 - type: metabolizerType
   id: Rat
+
+- type: metabolizerType
+  id: Plant

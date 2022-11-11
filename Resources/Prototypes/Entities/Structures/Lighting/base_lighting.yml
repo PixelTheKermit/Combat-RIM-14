@@ -251,6 +251,9 @@
   - type: PointLight
     enabled: false
     offset: "0, -0.5"
+  - type: ContainerContainer
+    containers:
+      light_bulb: !type:ContainerSlot
   - type: PoweredLight
     bulb: Bulb
     damage:
@@ -268,6 +271,11 @@
   - type: Appearance
     visuals:
     - type: PoweredLightVisualizer
+  - type: SignalReceiver
+    inputs:
+      On: []
+      Off: []
+      Toggle: []
 
 - type: entity
   id: PoweredSmallLight

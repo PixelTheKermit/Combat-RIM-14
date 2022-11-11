@@ -97,3 +97,8 @@
   id: TurretShootAutoOff
   name: Shoot Auto Off
   description: This will make the shooty part no longer shoot automatically
+
+- type: receiverPort
+  id: ArtifactAnalyzerReceiver
+  name: signal-port-name-artifact-analyzer-receiver
+  description: signal-port-description-artifact-analyzer-receiver

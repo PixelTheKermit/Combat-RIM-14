@@ -7,6 +7,7 @@
     mode: AlignTileAny
   components:
   - type: AmbientSound
+    enabled: false
     volume: -6
     range: 7
     sound:
@@ -28,6 +29,7 @@
   - type: ApcPassiveHeater
   - type: AtmosExposed
   - type: ApcPowerReceiver
+    powerLoad: 2500
   - type: ExtensionCableReceiver
   - type: Physics
     bodyType: Static
@@ -70,6 +72,7 @@
         off: "off"
         on: "on"
   - type: PointLight
+    radius: 2.5
     energy: 0.5
     # Gravity generator is a large machine, not casting shadows is fine within the radius set above.
     castShadows: false
@@ -106,6 +109,8 @@
       - LargeMobMask
       layer:
       - WallLayer
+  - type: ApcPowerReceiver
+    powerLoad: 500
   - type: GravityGenerator
     idlePower: 15
     activePower: 50

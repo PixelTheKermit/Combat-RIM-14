@@ -140,6 +140,9 @@
         reagents:
         - ReagentId: Epinephrine
           Quantity: 30
+  - type: Tag
+    tags:
+    - Bottle
 
 - type: entity
   id: CarbonChemistryBottle
@@ -377,6 +380,9 @@
         reagents:
         - ReagentId: RobustHarvest
           Quantity: 30
+  - type: Tag
+    tags:
+    - Bottle
 
 - type: entity
   id: UnstableMutagenChemistryBottle
@@ -408,6 +414,9 @@
         reagents:
         - ReagentId: Nocturine
           Quantity: 30
+  - type: Tag
+    tags:
+    - Bottle
 
 - type: entity
   id: EphedrineChemistryBottle
@@ -421,6 +430,9 @@
         reagents:
         - ReagentId: Ephedrine
           Quantity: 30
+  - type: Tag
+    tags:
+    - Bottle
 
 - type: entity
   id: OmnizineChemistryBottle
@@ -434,3 +446,6 @@
         reagents:
         - ReagentId: Omnizine
           Quantity: 30
+  - type: Tag
+    tags:
+    - Bottle

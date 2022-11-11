@@ -14,7 +14,6 @@
       - SpaceCash
   - type: Stack
     stackType: Credit
-    max: 1000000 # if you somehow get this rich consider buying a second station
     count: 1
   - type: Sprite
     sprite: Objects/Economy/cash.rsi

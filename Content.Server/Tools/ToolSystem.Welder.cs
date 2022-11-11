@@ -3,7 +3,6 @@ using Content.Server.Chemistry.Components;
 using Content.Server.Chemistry.Components.SolutionManager;
 using Content.Server.Chemistry.EntitySystems;
 using Content.Server.Tools.Components;
-using Content.Server.Weapons.Melee.Events;
 using Content.Shared.Examine;
 using Content.Shared.FixedPoint;
 using Content.Shared.Interaction;
@@ -11,6 +10,7 @@ using Content.Shared.Item;
 using Content.Shared.Temperature;
 using Content.Shared.Toggleable;
 using Content.Shared.Tools.Components;
+using Content.Shared.Weapons.Melee.Events;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
@@ -42,10 +42,10 @@ namespace Content.Server.Tools
             SubscribeLocalEvent<WelderComponent, ToolUseFinishAttemptEvent>(OnWelderToolUseFinishAttempt);
             SubscribeLocalEvent<WelderComponent, ComponentShutdown>(OnWelderShutdown);
             SubscribeLocalEvent<WelderComponent, ComponentGetState>(OnWelderGetState);
-            SubscribeLocalEvent<WelderComponent, ItemMeleeDamageEvent>(OnMeleeHit);
+            SubscribeLocalEvent<WelderComponent, MeleeHitEvent>(OnMeleeHit);
         }
 
-        private void OnMeleeHit(EntityUid uid, WelderComponent component, ItemMeleeDamageEvent args)
+        private void OnMeleeHit(EntityUid uid, WelderComponent component, MeleeHitEvent args)
         {
             if (!args.Handled && component.Lit)
                 args.BonusDamage += component.LitMeleeDamageBonus;

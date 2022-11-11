@@ -46,6 +46,12 @@
   - type: AtmosExposed
   - type: ApcPowerReceiver
   - type: ExtensionCableReceiver
+  - type: DoorSignalControl
+  - type: SignalReceiver
+    inputs:
+      Open: []
+      Close: []
+      Toggle: []
   - type: Damageable
     damageContainer: Inorganic
     damageModifierSet: Glass
@@ -98,7 +104,7 @@
     usesApcPower: true
   - type: Wires
     BoardName: "Windoor Control"
-    LayoutId: Windoors
+    LayoutId: Airlock
   - type: UserInterface
     interfaces:
     - key: enum.WiresUiKey.Key
@@ -150,8 +156,6 @@
     - state: panel_open
       map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
       visible: false
-  - type: Wires
-    LayoutId: Secure Windoors
   - type: Destructible
     thresholds:
     - trigger:

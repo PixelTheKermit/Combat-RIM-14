@@ -136,10 +136,29 @@ namespace Content.Server.GameTicking
             DefaultMap = _mapManager.CreateMap();
             _mapManager.AddUninitializedMap(DefaultMap);
             var startTime = _gameTiming.RealTime;
-            var maps = new List<GameMapPrototype>() { };
 
-            if (!LobbyEnabled)
-                maps.Add(_gameMapManager.GetSelectedMapChecked(true, true));
+            var maps = new List<GameMapPrototype>();
+
+            // the map might have been force-set by something
+            // (i.e. votemap or forcemap)
+            var mainStationMap = _gameMapManager.GetSelectedMap();
+            if (mainStationMap == null)
+            {
+                // otherwise set the map using the config rules
+                _gameMapManager.SelectMapByConfigRules();
+                mainStationMap = _gameMapManager.GetSelectedMap();
+            }
+
+            // Small chance the above could return no map.
+            // ideally SelectMapByConfigRules will always find a valid map
+            if (mainStationMap != null)
+            {
+                maps.Add(mainStationMap);
+            }
+            else
+            {
+                throw new Exception("invalid config; couldn't select a valid station map!");
+            }
 
             // Let game rules dictate what maps we should load.
             RaiseLocalEvent(new LoadingMapsEvent(maps));
@@ -213,6 +232,10 @@ namespace Content.Server.GameTicking
 
             LoadMaps();
 
+            // map has been selected so update the lobby info text
+            // applies to players who didn't ready up
+            UpdateInfoText();
+
             StartGamePresetRules();
 
             RoundLengthMetric.Set(0);
@@ -281,6 +304,7 @@ namespace Content.Server.GameTicking
             ReqWindowAttentionAll();
             UpdateLateJoinStatus();
             AnnounceRound();
+            UpdateInfoText();
 
 #if EXCEPTION_TOLERANCE
             }
@@ -486,6 +510,8 @@ namespace Content.Server.GameTicking
             _mapManager.Restart();
 
             _roleBanManager.Restart();
+
+            _gameMapManager.ClearSelectedMap();
 
             // Clear up any game rules.
             ClearGameRules();

@@ -21,6 +21,7 @@
     - type: ApcPassiveHeater
     - type: AtmosExposed
     - type: ApcPowerReceiver
+      powerLoad: 250
     - type: ExtensionCableReceiver
     - type: ParticleAcceleratorControlBox
     - type: Construction
