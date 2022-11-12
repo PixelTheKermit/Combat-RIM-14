@@ -44,9 +44,13 @@ namespace Content.Server.Atmos.Miasma
         public readonly IReadOnlyList<string> MiasmaDiseasePool = new[]
         {
             "VentCough",
+            "AMIV",
             "SpaceCold",
             "SpaceFlu",
             "BirdFlew",
+            "VanAusdallsRobovirus",
+            "BleedersBite",
+            "Plague",
             "TongueTwister",
             "MemeticAmirmir"
         };
@@ -114,6 +118,10 @@ namespace Content.Server.Atmos.Miasma
 
                 float molRate = perishable.MolsPerSecondPerUnitMass * _rotUpdateRate;
 
+                var transform = Transform(perishable.Owner);
+                var indices = _transformSystem.GetGridOrMapTilePosition(perishable.Owner);
+
+                var tileMix = _atmosphereSystem.GetTileMixture(transform.GridUid, null, indices, true);
                 tileMix?.AdjustMoles(Gas.Miasma, molRate * physics.FixturesMass);
             }
         }
@@ -188,7 +196,7 @@ namespace Content.Server.Atmos.Miasma
             if (!IsRotting(component))
                 return;
 
-            var molsToDump = (component.MolsPerSecondPerUnitMass * physics.FixturesMass) * (float)(_timing.CurTime - component.TimeOfDeath).TotalSeconds;
+            var molsToDump = (component.MolsPerSecondPerUnitMass * physics.FixturesMass) * (float) (_timing.CurTime - component.TimeOfDeath).TotalSeconds;
             var transform = Transform(uid);
             var indices = _transformSystem.GetGridOrMapTilePosition(uid, transform);
             var tileMix = _atmosphereSystem.GetTileMixture(transform.GridUid, null, indices, true);
@@ -205,10 +213,12 @@ namespace Content.Server.Atmos.Miasma
                 return;
 
             var stage = (_timing.CurTime - component.TimeOfDeath).TotalSeconds / component.RotAfter.TotalSeconds;
-            var description = stage switch {
+            var description = stage switch
+            {
                 >= 3 => "miasma-extremely-bloated",
                 >= 2 => "miasma-bloated",
-                   _ => "miasma-rotting"};
+                _ => "miasma-rotting"
+            };
             args.PushMarkup(Loc.GetString(description));
         }
 

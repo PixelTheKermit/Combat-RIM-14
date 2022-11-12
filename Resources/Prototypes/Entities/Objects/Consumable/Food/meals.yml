@@ -7,24 +7,6 @@
   parent: FoodInjectableBase
   id: FoodMealBase
   abstract: true
-  description: A delicious meal, cooked with love.
-  components:
-  - type: Food
-  - type: Sprite
-    sprite: Objects/Consumable/Food/meals.rsi
-    netsync: false
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 26
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 20
-
-- type: entity
-  parent: FoodInjectableBase
-  id: FoodMealBase
-  abstract: true
   description: A delicious meaty meal, cooked with love.
   components:
   - type: Food
