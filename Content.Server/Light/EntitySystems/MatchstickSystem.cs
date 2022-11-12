@@ -1,6 +1,6 @@
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Light.Components;
-using Content.Server.Weapons.Melee.Events;
+using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Audio;
 using Content.Shared.Damage;
 using Content.Shared.Interaction;
@@ -32,7 +32,7 @@ namespace Content.Server.Light.EntitySystems
             SubscribeLocalEvent<MatchstickComponent, UseInHandEvent>(OnInteract);
             SubscribeLocalEvent<MatchstickComponent, IsHotEvent>(OnIsHotEvent);
             SubscribeLocalEvent<MatchstickComponent, ComponentShutdown>(OnShutdown);
-            SubscribeLocalEvent<MatchstickComponent, ItemMeleeDamageEvent>(OnMeleeHit);
+            SubscribeLocalEvent<MatchstickComponent, MeleeHitEvent>(OnMeleeHit);
         }
 
         private void OnInteract(EntityUid uid, MatchstickComponent component, UseInHandEvent args)
@@ -45,7 +45,7 @@ namespace Content.Server.Light.EntitySystems
             }
         }
 
-        private void OnMeleeHit(EntityUid uid, MatchstickComponent component, ItemMeleeDamageEvent args)
+        private void OnMeleeHit(EntityUid uid, MatchstickComponent component, MeleeHitEvent args)
         {
             if (!args.Handled && component.CurrentState == SmokableState.Lit)
             {

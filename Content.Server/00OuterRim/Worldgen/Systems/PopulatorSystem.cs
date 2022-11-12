@@ -14,7 +14,7 @@ public class PopulatorSystem : EntitySystem
     public override void Update(float frameTime)
     {
 
-        foreach (var (unpop, grid, transform) in EntityManager.EntityQuery<UnpopulatedComponent, IMapGridComponent, TransformComponent>())
+        foreach (var (unpop, grid, transform) in EntityManager.EntityQuery<UnpopulatedComponent, MapGridComponent, TransformComponent>())
         {
             // TODO: This could be much smarter with high player counts or large debris, but it's fine for now.
             bool nearby = false;

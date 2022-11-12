@@ -15,7 +15,7 @@ public sealed class GameMapManager : IGameMapManager
     [Dependency] private readonly IConfigurationManager _configurationManager = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
-    
+
     [ViewVariables(VVAccess.ReadOnly)]
     private readonly Queue<string> _previousMaps = new();
     [ViewVariables(VVAccess.ReadOnly)]
@@ -31,17 +31,10 @@ public sealed class GameMapManager : IGameMapManager
     {
         _configurationManager.OnValueChanged(CCVars.GameMap, value =>
         {
-            if (string.IsNullOrEmpty(value))
-            {
-                SelectRandomMap();
-                return;
-            }
-			
             if (TryLookupMap(value, out GameMapPrototype? map))
             {
                 _configSelectedMap = map;
-			}
-			
+            }
             else
             {
                 if (string.IsNullOrEmpty(value))
@@ -95,7 +88,8 @@ public sealed class GameMapManager : IGameMapManager
 
                 yield return mapProto;
             }
-        } else
+        }
+        else
         {
             throw new Exception("Could not index map pool prototype " + _configurationManager.GetCVar(CCVars.GameMapPool) + "!");
         }
