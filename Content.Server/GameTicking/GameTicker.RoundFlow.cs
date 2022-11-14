@@ -200,12 +200,13 @@ namespace Content.Server.GameTicking
             var ev = new PreGameMapLoad(targetMapId, map, loadOpts);
             RaiseLocalEvent(ev);
 
-            var (entities, gridIds) = _mapLoader.LoadMap(targetMapId, ev.GameMap.MapPath.ToString(), ev.Options);
+            var gridIds = _map.LoadMap(targetMapId, ev.GameMap.MapPath.ToString(), ev.Options);
 
             var gridUids = gridIds.ToList();
+			
             RaiseLocalEvent(new PostGameMapLoad(map, targetMapId, entities, gridUids, stationName));
 
-            return (entities, gridUids);
+            return gridUids;
         }
 
         public bool PurchaseAvailable()
@@ -662,15 +663,13 @@ namespace Content.Server.GameTicking
     {
         public readonly GameMapPrototype GameMap;
         public readonly MapId Map;
-        public readonly IReadOnlyList<EntityUid> Entities;
         public readonly IReadOnlyList<EntityUid> Grids;
         public readonly string? StationName;
 
-        public PostGameMapLoad(GameMapPrototype gameMap, MapId map, IReadOnlyList<EntityUid> entities, IReadOnlyList<EntityUid> grids, string? stationName)
+        public PostGameMapLoad(GameMapPrototype gameMap, MapId map, IReadOnlyList<EntityUid> grids, string? stationName)
         {
             GameMap = gameMap;
             Map = map;
-            Entities = entities;
             Grids = grids;
             StationName = stationName;
         }
