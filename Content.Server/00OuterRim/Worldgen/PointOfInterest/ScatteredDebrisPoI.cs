@@ -11,6 +11,7 @@ namespace Content.Server._00OuterRim.Worldgen.PointOfInterest;
 
 public sealed class ScatteredDebrisPoI : PointOfInterestGenerator
 {
+
     [DataField("maps")]
     public List<string> Maps = default!;
 
@@ -18,10 +19,10 @@ public sealed class ScatteredDebrisPoI : PointOfInterestGenerator
     {
         var sampler = IoCManager.Resolve<PoissonDiskSampler>();
         var random = IoCManager.Resolve<IRobustRandom>();
-        var mapLoader = IoCManager.Resolve<MapLoaderSystem>();
         var entityManager = IoCManager.Resolve<IEntityManager>();
         var worldChunkSys = entityManager.EntitySysManager.GetEntitySystem<WorldChunkSystem>();
         var iffSys = entityManager.EntitySysManager.GetEntitySystem<ShuttleSystem>();
+        var mapLoader = entityManager.System<MapLoaderSystem>();
 
         var density = worldChunkSys.GetChunkDensity(chunk);
         var offs = (int)((WorldChunkSystem.ChunkSize - (density / 2)) / 2);
@@ -32,13 +33,12 @@ public sealed class ScatteredDebrisPoI : PointOfInterestGenerator
 
         foreach (var point in debrisPoints)
         {
-            var _ = mapLoader.TryLoad(worldChunkSys.WorldMap, random.Pick(Maps), out var grid, new MapLoadOptions()
+            mapLoader.TryLoad(worldChunkSys.WorldMap, random.Pick(Maps), out var grid, new MapLoadOptions()
             {
                 Offset = center + point,
                 Rotation = random.NextAngle()
             });
-            if (_)
-                iffSys.AddIFFFlag(grid!.FirstOrDefault(), IFFFlags.HideLabel);
+            iffSys.AddIFFFlag(grid!.FirstOrDefault(), IFFFlags.HideLabel);
 
         }
 
