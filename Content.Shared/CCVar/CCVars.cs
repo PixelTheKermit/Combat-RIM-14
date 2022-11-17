@@ -188,7 +188,7 @@ namespace Content.Shared.CCVar
         ///     Controls the game map prototype to load. SS14 stores these prototypes in Prototypes/Maps.
         /// </summary>
         public static readonly CVarDef<string>
-            GameMap = CVarDef.Create("game.map", string.Empty, CVar.SERVERONLY);
+            GameMap = CVarDef.Create("game.map", "", CVar.SERVERONLY);
 
         /// <summary>
         ///     Prototype to use for map pool.
@@ -1195,7 +1195,6 @@ namespace Content.Shared.CCVar
             SalvageForced = CVarDef.Create("salvage.forced", "", CVar.SERVERONLY);
 
         /*
-
          * Flavor
          */
 
