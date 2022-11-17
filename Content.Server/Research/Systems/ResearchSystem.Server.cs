@@ -49,10 +49,6 @@ public sealed partial class ResearchSystem
 
     public bool RegisterServerClient(ResearchServerComponent component, ResearchClientComponent clientComponent)
     {
-        // Has to be on the same station
-        if (_stationSystem.GetOwningStation(component.Owner) != _stationSystem.GetOwningStation(clientComponent.Owner))
-            return false;
-
         // TODO: This is shit but I'm just trying to fix RND for now until it gets bulldozed
         if (TryComp<ResearchPointSourceComponent>(clientComponent.Owner, out var source))
         {
@@ -114,8 +110,7 @@ public sealed partial class ResearchSystem
     {
         var points = 0;
 
-        // Is our machine powered, and are we below our limit of passive point gain?
-        if (CanRun(component) && component.Points < (component.PassiveLimitPerSource * component.PointSources.Count))
+        if (CanRun(component))
         {
             foreach (var source in component.PointSources)
             {
