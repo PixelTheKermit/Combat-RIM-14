@@ -116,13 +116,15 @@ namespace Content.Server.ManualTurret
                             var xform = _entityManager.GetComponent<TransformComponent>(uid);
                             var rot = xform.WorldRotation;
 
+                            var cartridge = EntityUid.Invalid;
+
                             if (ammoComp.Entities.Count == 0)
                             {
                                 ammoComp.UnspawnedCount -= 1;
-                                ammoComp.Container.Insert(Spawn(ammoComp.FillProto, xform.MapPosition));
+                                cartridge = Spawn(ammoComp.FillProto, xform.MapPosition);
                             }
-
-                            var cartridge = ammoComp.Entities.Last(); // Is it better to do last or first? fuck it we're doing last.
+                            else
+                                cartridge = ammoComp.Entities.Last(); // Is it better to do last or first? fuck it we're doing last.
 
                             if (_entityManager.TryGetComponent<CartridgeAmmoComponent>(cartridge, out var cartridgeComp))
                             {
@@ -143,18 +145,22 @@ namespace Content.Server.ManualTurret
                                     }
                                     else
                                         ShootProjectile(Spawn(bullet, xform.MapPosition), rot.ToWorldVec(), uid);
-                                    cartridgeComp.Spent = true;
+                                    _entityManager.DeleteEntity(cartridge); // This is better for performance, for both the client and the server.
+                                    //Dirty(cartridge);
+                                    //cartridgeComp.Spent = true;
+                                    //_appearanceSystem.SetData(cartridge, AmmoVisuals.Spent, true);
                                 }
-                                ammoComp.Entities.Remove(cartridge);
+                                if (ammoComp.Entities.Count > 0)
+                                    ammoComp.Entities.Remove(cartridge);
                             }
                             else // This is for fun, mostly. Could see some good use later maybe (Spear launcher, anyone?)
                             {
                                 _audioSystem.Play(comp.SoundGunshot, Filter.Pvs(uid), uid);
-
                                 var bullet = cartridge;
                                 ammoComp.Entities.Remove(cartridge);
                                 ShootProjectile(bullet, rot.ToWorldVec(), uid);
                             }
+                            Dirty(magazine);
                             UpdateAppearance(ammoComp);
                         }
                         else
