@@ -31,6 +31,9 @@ public sealed class ManualTurretComponent : Component
     [DataField("soundGunshot")]
     public string SoundGunshot = "/Audio/Weapons/Guns/Gunshots/pistol.ogg";
 
+    [DataField("soundEmpty")]
+    public string SoundEmpty = "/Audio/Weapons/Guns/Empty/empty.ogg";
+
     // SIGNALS PAST THIS POINT
 
     [DataField("clockwiseRot", customTypeSerializer: typeof(PrototypeIdSerializer<ReceiverPortPrototype>))]
