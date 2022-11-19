@@ -1,0 +1,93 @@
+- type: entity
+  id: WeaponTurretManualCircuitboard
+  parent: BaseMachineCircuitboard
+  name: manual turret machine board
+  description: A machine printed circuit board for a turret
+  components:
+    - type: MachineBoard
+      prototype: WeaponTurretManual
+      tagRequirements:
+        GunBench:
+          Amount: 4
+          DefaultPrototype: GunParts
+          ExamineName: GunParts
+        Pipe:
+          Amount: 2
+          DefaultPrototype: GasPipeStraight
+          ExamineName: pipe
+      requirements:
+        Laser: 1
+        Manipulator: 4
+        Capacitor: 4
+      materialRequirements:
+        CableMV: 7
+        Steel: 15
+        Plasteel: 20
+
+- type: entity
+  id: WeaponShotgunTurretManualCircuitboard
+  parent: BaseMachineCircuitboard
+  name: manual shotgun turret machine board
+  description: A machine printed circuit board for a shotgun turret
+  components:
+    - type: MachineBoard
+      prototype: WeaponShotgunTurretManual
+      tagRequirements:
+        GunBench:
+          Amount: 6
+          DefaultPrototype: GunParts
+          ExamineName: GunParts
+        Pipe:
+          Amount: 4
+          DefaultPrototype: GasPipeStraight
+          ExamineName: pipe
+      requirements:
+        Capacitor: 4
+        Manipulator: 2
+      materialRequirements:
+        CableMV: 10
+        Steel: 20
+        Plasteel: 25
+
+- type: entity
+  id: WeaponRocketTurretManualCircuitboard
+  parent: BaseMachineCircuitboard
+  name: manual rocket turret machine board
+  description: A machine printed circuit board for a health hazard
+  components:
+    - type: MachineBoard
+      prototype: WeaponRocketTurretManual
+      tagRequirements:
+        GunBench:
+          Amount: 10
+          DefaultPrototype: GunParts
+          ExamineName: GunParts
+        Pipe:
+          Amount: 1
+          DefaultPrototype: GasPipeStraight
+          ExamineName: pipe
+      requirements:
+        Laser: 2
+        Capacitor: 6
+        Manipulator: 1
+      materialRequirements:
+        CableMV: 15
+        Steel: 30
+        Plasteel: 45
+
+- type: entity
+  id: WeaponLaserTurretManualCircuitboard
+  parent: BaseMachineCircuitboard
+  name: manual laser turret machine board
+  description: A machine printed circuit board for an eye hazard
+  components:
+    - type: MachineBoard
+      prototype: WeaponLaserTurretManual
+      requirements:
+        Laser: 4
+        Capacitor: 4
+      materialRequirements:
+        CableMV: 15
+        Steel: 20
+        Plasteel: 10
+        Glass: 5

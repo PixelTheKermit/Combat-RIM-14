@@ -1,0 +1,15 @@
+- type: entity
+  name: box of rockets
+  parent: BoxAmmoProvider
+  id: BoxRockets
+  description: A box full of lethal rockets, designed for RPGs.
+  components:
+    - type: Tag
+      tags:
+      - RocketAmmoBox
+    - type: BallisticAmmoProvider
+      proto: CartridgeRocket
+      capacity: 6
+    - type: Sprite
+      layers:
+        - state: boxwide

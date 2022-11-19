@@ -1,8 +1,11 @@
 - type: entity
+  parent: ConstructibleMachine
   id: WeaponTurretManual
   name: turret
   description: A static, very heavy gun. You better hope it's not pointing at you!
   components:
+    - type: Machine
+      board: WeaponTurretManualCircuitboard
     - type: ManualTurret # BRAND NEW COMPONENT FROM PIXEL CO. MADE FROM THE BLOOD AND SWEAT OF ONE POOR CODER!
       soundGunshot: /Audio/Weapons/Guns/Gunshots/pistol.ogg
       fireRate: 12
@@ -11,6 +14,19 @@
     - type: Transform
       anchored: true
     - type: Anchorable
+      delay: 2
+    - type: Physics
+    - type: Pullable
+    - type: Fixtures
+      fixtures:
+      - shape:
+          !type:PhysShapeAabb
+          bounds: "-0.15,-0.10,0.15,0.20"
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+      density: 200
     - type: Sprite
       netsync: false
       sprite: Objects/Weapons/Guns/turrets.rsi
@@ -21,7 +37,6 @@
       slots:
         turret_mag:
           name: Magazine
-          startingItem: MagazineBoxMinigun
           insertSound: /Audio/Weapons/Guns/MagIn/pistol_magin.ogg
           ejectSound: /Audio/Weapons/Guns/MagOut/pistol_magout.ogg
           priority: 1
@@ -61,16 +76,21 @@
                   max: 5
 
 - type: entity
+  parent: ConstructibleMachine
   id: WeaponLaserTurretManual
   name: laser turret
   description: A static, very heavy laser gun. You better hope it doesn't fire when you look at it!
   components:
+    - type: Machine
+      board: WeaponLaserTurretManualCircuitboard
     - type: ManualTurret 
       soundGunshot: /Audio/Weapons/Guns/Gunshots/laser.ogg
       fireRate: 2
       isBatteryWeapon: true
+      machinePartFiringSpeed: Laser
     - type: Clickable
     - type: InteractionOutline
+    - type: Pullable
     - type: Transform
       anchored: true
     - type: Sprite
@@ -86,12 +106,24 @@
         TurretStopRot: []
         TurretShootSemi: []
     - type: Anchorable
+      delay: 2
+    - type: Physics
+    - type: Fixtures
+      fixtures:
+      - shape:
+          !type:PhysShapeAabb
+          bounds: "-0.15,-0.10,0.15,0.20"
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+      density: 200
     - type: ProjectileBatteryAmmoProvider
       proto: EmitterBolt
       fireCost: 62.5
     - type: Battery
       maxCharge: 500
-      startingCharge: 500
+      startingCharge: 0
     - type: ExaminableBattery
     - type: NodeContainer
       examinable: false
@@ -111,6 +143,9 @@
     - type: AtmosExposed
     - type: Damageable
       damageContainer: Inorganic
+    - type: UpgradePowerDraw
+      powerDrawMultiplier: 0.75
+      scaling: Exponential
     - type: Destructible
       thresholds:
         - trigger:
@@ -131,10 +166,43 @@
 
 - type: entity
   parent: WeaponTurretManual
+  id: WeaponRocketTurretManual
+  name: rocket launcher turret
+  description: A very dangerous gun. Don't point this at your own shuttle
+  components:
+    - type: Machine
+      board: WeaponRocketTurretManualCircuitboard
+    - type: ManualTurret
+      soundGunshot: /Audio/Weapons/Guns/Gunshots/rpgfire.ogg
+      fireRate: 0.25
+    - type: Sprite
+      layers:
+        - state: rocket
+    - type: SignalReceiver
+      inputs:
+        TurretClockwise: []
+        TurretAntiClockwise: []
+        TurretStopRot: []
+        TurretShootSemi: []
+    - type: ItemSlots
+      slots:
+        turret_mag:
+          name: Magazine
+          insertSound: /Audio/Weapons/Guns/MagIn/pistol_magin.ogg
+          ejectSound: /Audio/Weapons/Guns/MagOut/pistol_magout.ogg
+          priority: 1
+          whitelist:
+            tags:
+              - RocketAmmoBox
+
+- type: entity
+  parent: WeaponTurretManual
   id: WeaponShotgunTurretManual
   name: shotgun turret
   description: A static, very heavy shotgun. You better hope none of the shots hit you!
   components:
+    - type: Machine
+      board: WeaponShotgunTurretManualCircuitboard
     - type: ManualTurret
       soundGunshot: /Audio/Weapons/Guns/Gunshots/shotgun.ogg
       fireRate: 1.5
@@ -151,7 +219,6 @@
       slots:
         turret_mag:
           name: Magazine
-          startingItem: BoxLethalshot
           insertSound: /Audio/Weapons/Guns/MagIn/pistol_magin.ogg
           ejectSound: /Audio/Weapons/Guns/MagOut/pistol_magout.ogg
           priority: 1

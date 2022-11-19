@@ -12,6 +12,7 @@ using Content.Shared.Weapons.Ranged.Systems;
 using Content.Server.Power.Components;
 using Robust.Shared.Utility;
 using Robust.Shared.Containers;
+using Content.Server.Construction;
 
 namespace Content.Server.ManualTurret
 {
@@ -31,6 +32,8 @@ namespace Content.Server.ManualTurret
         {
             base.Initialize();
             SubscribeLocalEvent<ManualTurretComponent, SignalReceivedEvent>(Signal);
+            SubscribeLocalEvent<ManualTurretComponent, RefreshPartsEvent>(PartsRefresh);
+            SubscribeLocalEvent<ManualTurretComponent, UpgradeExamineEvent>(OnUpgradeExamine);
         }
 
         /// <summary>
@@ -48,6 +51,24 @@ namespace Content.Server.ManualTurret
                     TryShooting(turret, turret.Owner);
                 }
             }
+        }
+
+        /// <summary>
+        /// Changes the efficiency to match the parts inserted into it
+        /// </summary>
+        /// <param name="uid"></param>
+        /// <param name="component"></param>
+        /// <param name="args"></param>
+        private void PartsRefresh(EntityUid uid, ManualTurretComponent component, RefreshPartsEvent args)
+        {
+            var firingTimeRating = args.PartRatings[component.MachinePartFiringSpeed];
+            component.FireRateMultiplier = MathF.Pow(component.PartRatingFireRateMultiplier, firingTimeRating - 1);
+            Dirty(component);
+        }
+
+        private void OnUpgradeExamine(EntityUid uid, ManualTurretComponent component, UpgradeExamineEvent args)
+        {
+            args.AddPercentageUpgrade("turret-component-upgrade-speed", 1 / component.FireRateMultiplier);
         }
 
         /// <summary>
@@ -99,7 +120,7 @@ namespace Content.Server.ManualTurret
             var curTime = _gameTiming.CurTime;
             var fireRate = TimeSpan.FromSeconds(1f / comp.FireRate);
 
-            if (comp.TimeFired + fireRate <= curTime)
+            if (comp.TimeFired + fireRate * comp.FireRateMultiplier <= curTime)
             {
                 comp.TimeFired = curTime;
                 if (!comp.IsBatteryWeapon)

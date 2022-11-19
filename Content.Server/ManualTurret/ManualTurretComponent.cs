@@ -1,3 +1,4 @@
+using Content.Shared.Construction.Prototypes;
 using Content.Shared.MachineLinking;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 using Robust.Shared.Timing;
@@ -56,4 +57,14 @@ public sealed class ManualTurretComponent : Component
 
     [DataField("turretShootAutoOff", customTypeSerializer: typeof(PrototypeIdSerializer<ReceiverPortPrototype>))]
     public string TurretAutoOff = "TurretShootAutoOff";
+
+    // Part stuff past this point
+    [DataField("machinePartFiringSpeed", customTypeSerializer: typeof(PrototypeIdSerializer<MachinePartPrototype>))]
+    public string MachinePartFiringSpeed = "Manipulator";
+
+    [DataField("partRatingFiringSpeedMultiplier")]
+    public float PartRatingFireRateMultiplier = 0.5f;
+
+    [ViewVariables(VVAccess.ReadWrite)]
+    public float FireRateMultiplier = 1;
 }
