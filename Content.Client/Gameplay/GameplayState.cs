@@ -127,7 +127,7 @@ namespace Content.Client.Gameplay
 
             switch (screenType)
             {
-                case ScreenType.Default:
+                case ScreenType.Modern:
                     _uiManager.LoadScreen<DefaultGameScreen>();
                     break;
                 case ScreenType.Separated:
