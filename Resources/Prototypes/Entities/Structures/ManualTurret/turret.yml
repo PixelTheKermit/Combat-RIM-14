@@ -1,12 +1,14 @@
 - type: entity
+  abstract: true
   parent: ConstructibleMachine
-  id: WeaponTurretManual
+  id: WeaponBaseTurretManual
   name: turret
-  description: A static, very heavy gun. You better hope it's not pointing at you!
+  description: A static, non-existent gun. Why are you praying?
+  placement:
+    mode: SnapgridCenter
   components:
-    - type: Machine
-      board: WeaponTurretManualCircuitboard
     - type: ManualTurret # BRAND NEW COMPONENT FROM PIXEL CO. MADE FROM THE BLOOD AND SWEAT OF ONE POOR CODER!
+      fireCost: 2.5
       soundGunshot: /Audio/Weapons/Guns/Gunshots/pistol.ogg
       fireRate: 12
     - type: Clickable
@@ -16,36 +18,24 @@
     - type: Anchorable
       delay: 2
     - type: Physics
+      bodyType: Dynamic
     - type: Pullable
     - type: Fixtures
       fixtures:
       - shape:
           !type:PhysShapeAabb
           bounds: "-0.15,-0.10,0.15,0.20"
+        density: 1800
         mask:
         - MachineMask
         layer:
         - MachineLayer
-      density: 200
     - type: Sprite
       netsync: false
       sprite: Objects/Weapons/Guns/turrets.rsi
       drawdepth: WallMountedItems
       layers:
         - state: syndie_lethal
-    - type: ItemSlots
-      slots:
-        turret_mag:
-          name: Magazine
-          insertSound: /Audio/Weapons/Guns/MagIn/pistol_magin.ogg
-          ejectSound: /Audio/Weapons/Guns/MagOut/pistol_magout.ogg
-          priority: 1
-          whitelist:
-            tags:
-              - MagazineBoxMinigun
-    - type: ContainerContainer
-      containers:
-        turret_mag: !type:ContainerSlot
     - type: SignalReceiver
       inputs:
         TurretClockwise: []
@@ -74,53 +64,13 @@
                 SheetSteel1:
                   min: 3
                   max: 5
-
 - type: entity
-  parent: ConstructibleMachine
-  id: WeaponLaserTurretManual
-  name: laser turret
-  description: A static, very heavy laser gun. You better hope it doesn't fire when you look at it!
+  abstract: true
+  parent: WeaponBaseTurretManual
+  id: WeaponBasePoweredTurretManual
+  name: powered turret
+  description: A static, non-existent powered gun. What are you hoping for?
   components:
-    - type: Machine
-      board: WeaponLaserTurretManualCircuitboard
-    - type: ManualTurret 
-      soundGunshot: /Audio/Weapons/Guns/Gunshots/laser.ogg
-      fireRate: 2
-      isBatteryWeapon: true
-      machinePartFiringSpeed: Laser
-    - type: Clickable
-    - type: InteractionOutline
-    - type: Pullable
-    - type: Transform
-      anchored: true
-    - type: Sprite
-      netsync: false
-      sprite: Objects/Weapons/Guns/turrets.rsi
-      drawdepth: WallMountedItems
-      layers:
-        - state: laser
-    - type: SignalReceiver
-      inputs:
-        TurretClockwise: []
-        TurretAntiClockwise: []
-        TurretStopRot: []
-        TurretShootSemi: []
-    - type: Anchorable
-      delay: 2
-    - type: Physics
-    - type: Fixtures
-      fixtures:
-      - shape:
-          !type:PhysShapeAabb
-          bounds: "-0.15,-0.10,0.15,0.20"
-        mask:
-        - MachineMask
-        layer:
-        - MachineLayer
-      density: 200
-    - type: ProjectileBatteryAmmoProvider
-      proto: EmitterBolt
-      fireCost: 62.5
     - type: Battery
       maxCharge: 500
       startingCharge: 0
@@ -141,31 +91,57 @@
     - type: Temperature
     - type: ApcPassiveHeater
     - type: AtmosExposed
-    - type: Damageable
-      damageContainer: Inorganic
-    - type: UpgradePowerDraw
-      powerDrawMultiplier: 0.75
-      scaling: Exponential
-    - type: Destructible
-      thresholds:
-        - trigger:
-            !type:DamageTrigger
-            damage: 300
-          # TODO: Construction graph
-          behaviors:
-            - !type:DoActsBehavior
-              acts: [ "Destruction" ]
-            - !type:PlaySoundBehavior
-              sound:
-                path: /Audio/Effects/metalbreak.ogg
-            - !type:SpawnEntitiesBehavior
-              spawn:
-                SheetSteel1:
-                  min: 3
-                  max: 5
 
 - type: entity
-  parent: WeaponTurretManual
+  parent: WeaponBasePoweredTurretManual
+  id: WeaponTurretManual
+  name: turret
+  description: A static, very heavy gun. You better hope it's not pointing at you!
+  components:
+    - type: Machine
+      board: WeaponTurretManualCircuitboard
+    - type: ItemSlots
+      slots:
+        turret_mag:
+          name: Magazine
+          insertSound: /Audio/Weapons/Guns/MagIn/pistol_magin.ogg
+          ejectSound: /Audio/Weapons/Guns/MagOut/pistol_magout.ogg
+          priority: 1
+          whitelist:
+            tags:
+              - MagazineBoxMinigun
+    - type: ContainerContainer
+      containers:
+        turret_mag: !type:ContainerSlot
+
+- type: entity
+  parent: WeaponBasePoweredTurretManual
+  id: WeaponLaserTurretManual
+  name: laser turret
+  description: A static, very heavy laser gun. You better hope it doesn't fire when you look at it!
+  components:
+    - type: Machine
+      board: WeaponLaserTurretManualCircuitboard
+    - type: ManualTurret 
+      fireCost: 62.5
+      soundGunshot: /Audio/Weapons/Guns/Gunshots/laser.ogg
+      fireRate: 1
+      isBatteryWeapon: true
+      machinePartFiringSpeed: Laser
+    - type: Sprite
+      layers:
+        - state: laser
+    - type: SignalReceiver
+      inputs:
+        TurretClockwise: []
+        TurretAntiClockwise: []
+        TurretStopRot: []
+        TurretShootSemi: []
+    - type: ProjectileBatteryAmmoProvider
+      proto: EmitterBolt
+
+- type: entity
+  parent: WeaponBasePoweredTurretManual
   id: WeaponRocketTurretManual
   name: rocket launcher turret
   description: A very dangerous gun. Don't point this at your own shuttle
@@ -173,6 +149,7 @@
     - type: Machine
       board: WeaponRocketTurretManualCircuitboard
     - type: ManualTurret
+      fireCost: 125
       soundGunshot: /Audio/Weapons/Guns/Gunshots/rpgfire.ogg
       fireRate: 0.25
     - type: Sprite
@@ -196,7 +173,7 @@
               - RocketAmmoBox
 
 - type: entity
-  parent: WeaponTurretManual
+  parent: WeaponBasePoweredTurretManual
   id: WeaponShotgunTurretManual
   name: shotgun turret
   description: A static, very heavy shotgun. You better hope none of the shots hit you!
@@ -204,6 +181,7 @@
     - type: Machine
       board: WeaponShotgunTurretManualCircuitboard
     - type: ManualTurret
+      fireCost: 7.5
       soundGunshot: /Audio/Weapons/Guns/Gunshots/shotgun.ogg
       fireRate: 1.5
     - type: Sprite

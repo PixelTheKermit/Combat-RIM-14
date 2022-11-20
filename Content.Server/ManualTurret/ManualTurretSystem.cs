@@ -62,13 +62,16 @@ namespace Content.Server.ManualTurret
         private void PartsRefresh(EntityUid uid, ManualTurretComponent component, RefreshPartsEvent args)
         {
             var firingTimeRating = args.PartRatings[component.MachinePartFiringSpeed];
+            var chargeNeededRating = args.PartRatings[component.MachinePartChargeNeeded];
             component.FireRateMultiplier = MathF.Pow(component.PartRatingFireRateMultiplier, firingTimeRating - 1);
+            component.ChargeNeededMultiplier = MathF.Pow(component.PartRatingChargeNeededMultiplier, chargeNeededRating - 1);
             Dirty(component);
         }
 
         private void OnUpgradeExamine(EntityUid uid, ManualTurretComponent component, UpgradeExamineEvent args)
         {
             args.AddPercentageUpgrade("turret-component-upgrade-speed", 1 / component.FireRateMultiplier);
+            args.AddPercentageUpgrade("turret-component-upgrade-charge", 1 / component.ChargeNeededMultiplier);
         }
 
         /// <summary>
@@ -130,9 +133,21 @@ namespace Content.Server.ManualTurret
                     {
                         var magazine = container.ContainedEntities.First(); // There's probably a better way of doing this but it's good for now
                         var ammoComp = _entityManager.GetComponent<BallisticAmmoProviderComponent>(magazine); // This prays on the fact that the thing you're trying to insert is a mag.
+                        var hasBatteryComp = _entityManager.TryGetComponent<BatteryComponent>(uid, out var batteryComp);
 
                         if (ammoComp.UnspawnedCount + ammoComp.Entities.Count > 0) // TODO: cry about this fuckin shitcode
                         {
+                            if (hasBatteryComp)
+                            {
+                                if (batteryComp!.CurrentCharge >= comp.FireCost * comp.ChargeNeededMultiplier)
+                                    batteryComp.CurrentCharge -= comp.FireCost * comp.ChargeNeededMultiplier;
+                                else
+                                {
+                                    _audioSystem.Play(comp.SoundEmpty, Filter.Pvs(uid), uid);
+                                    return;
+                                }
+                            }
+                            
                             // Some positional data, so we know where to shoot.
                             var xform = _entityManager.GetComponent<TransformComponent>(uid);
                             var rot = xform.WorldRotation;
@@ -197,15 +212,15 @@ namespace Content.Server.ManualTurret
                 else // Does not support hitscan or shotgun-like patterns YET
                 { // This was actually easier to implement, says a lot about containers.
                     var batteryComp = _entityManager.GetComponent<BatteryComponent>(uid); 
-                    var hitscanProjComp = _entityManager.GetComponent<ProjectileBatteryAmmoProviderComponent>(uid);
 
-                    if (batteryComp.CurrentCharge >= hitscanProjComp.FireCost) 
+                    if (batteryComp.CurrentCharge >= comp.FireCost * comp.ChargeNeededMultiplier) 
                     {
-                        batteryComp.CurrentCharge -= hitscanProjComp.FireCost;
+                        var projComp = _entityManager.GetComponent<ProjectileBatteryAmmoProviderComponent>(uid);
+                        batteryComp.CurrentCharge -= comp.FireCost * comp.ChargeNeededMultiplier;
                         var xform = _entityManager.GetComponent<TransformComponent>(uid);
                         _audioSystem.Play(comp.SoundGunshot, Filter.Pvs(uid), uid);
                         var rot = xform.WorldRotation;
-                        var bullet = hitscanProjComp.Prototype;
+                        var bullet = projComp.Prototype;
                         ShootProjectile(Spawn(bullet, xform.MapPosition), rot.ToWorldVec(), uid);
                     }
                     else

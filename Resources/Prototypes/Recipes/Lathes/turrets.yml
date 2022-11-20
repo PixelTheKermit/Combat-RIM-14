@@ -1,0 +1,39 @@
+- type: latheRecipe
+  id: ManualTurretMachineCircuitboard
+  icon: Objects/Misc/module.rsi/id_mod.png
+  result: ManualTurretMachineCircuitboard
+  completetime: 8
+  materials:
+     Steel: 100
+     Glass: 150
+     Gold: 100
+
+- type: latheRecipe
+  id: ManualTurretMachineCircuitboard
+  icon: Objects/Misc/module.rsi/id_mod.png
+  result: ManualTurretMachineCircuitboard
+  completetime: 8
+  materials:
+     Steel: 100
+     Glass: 150
+     Gold: 100
+
+- type: latheRecipe
+  id: ManualTurretMachineCircuitboard
+  icon: Objects/Misc/module.rsi/id_mod.png
+  result: ManualTurretMachineCircuitboard
+  completetime: 8
+  materials:
+     Steel: 100
+     Glass: 150
+     Gold: 100
+
+- type: latheRecipe
+  id: ManualTurretMachineCircuitboard
+  icon: Objects/Misc/module.rsi/id_mod.png
+  result: ManualTurretMachineCircuitboard
+  completetime: 8
+  materials:
+     Steel: 100
+     Glass: 150
+     Gold: 100

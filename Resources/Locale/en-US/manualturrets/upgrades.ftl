@@ -1,3 +1,4 @@
 ﻿## Turret stuff
 
-Turret-component-firing-speed = Firerate
+turret-component-upgrade-speed = Firerate
+turret-component-upgrade-charge = Charge efficiency

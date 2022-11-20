@@ -27,6 +27,9 @@ public sealed class ManualTurretComponent : Component
     [DataField("isBatteryWeapon")]
     public bool IsBatteryWeapon = false;
 
+    [DataField("fireCost")]
+    public float FireCost = 0f;
+
     // Sounds
 
     [DataField("soundGunshot")]
@@ -67,4 +70,13 @@ public sealed class ManualTurretComponent : Component
 
     [ViewVariables(VVAccess.ReadWrite)]
     public float FireRateMultiplier = 1;
+
+    [DataField("machinePartChargeNeeded", customTypeSerializer: typeof(PrototypeIdSerializer<MachinePartPrototype>))]
+    public string MachinePartChargeNeeded = "Capacitor";
+
+    [DataField("partRatingChargeNeededMultiplier")]
+    public float PartRatingChargeNeededMultiplier = 0.75f;
+
+    [ViewVariables(VVAccess.ReadWrite)]
+    public float ChargeNeededMultiplier = 1;
 }
