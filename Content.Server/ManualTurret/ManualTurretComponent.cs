@@ -1,3 +1,4 @@
+using Content.Shared.Construction.Prototypes;
 using Content.Shared.MachineLinking;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 using Robust.Shared.Timing;
@@ -26,10 +27,16 @@ public sealed class ManualTurretComponent : Component
     [DataField("isBatteryWeapon")]
     public bool IsBatteryWeapon = false;
 
+    [DataField("fireCost")]
+    public float FireCost = 0f;
+
     // Sounds
 
     [DataField("soundGunshot")]
     public string SoundGunshot = "/Audio/Weapons/Guns/Gunshots/pistol.ogg";
+
+    [DataField("soundEmpty")]
+    public string SoundEmpty = "/Audio/Weapons/Guns/Empty/empty.ogg";
 
     // SIGNALS PAST THIS POINT
 
@@ -53,4 +60,23 @@ public sealed class ManualTurretComponent : Component
 
     [DataField("turretShootAutoOff", customTypeSerializer: typeof(PrototypeIdSerializer<ReceiverPortPrototype>))]
     public string TurretAutoOff = "TurretShootAutoOff";
+
+    // Part stuff past this point
+    [DataField("machinePartFiringSpeed", customTypeSerializer: typeof(PrototypeIdSerializer<MachinePartPrototype>))]
+    public string MachinePartFiringSpeed = "Manipulator";
+
+    [DataField("partRatingFiringSpeedMultiplier")]
+    public float PartRatingFireRateMultiplier = 0.5f;
+
+    [ViewVariables(VVAccess.ReadWrite)]
+    public float FireRateMultiplier = 1;
+
+    [DataField("machinePartChargeNeeded", customTypeSerializer: typeof(PrototypeIdSerializer<MachinePartPrototype>))]
+    public string MachinePartChargeNeeded = "Capacitor";
+
+    [DataField("partRatingChargeNeededMultiplier")]
+    public float PartRatingChargeNeededMultiplier = 0.75f;
+
+    [ViewVariables(VVAccess.ReadWrite)]
+    public float ChargeNeededMultiplier = 1;
 }

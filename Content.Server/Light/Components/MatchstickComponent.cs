@@ -1,5 +1,5 @@
-using Content.Shared.Smoking;
 using Content.Server.Light.EntitySystems;
+using Content.Shared.Smoking;
 using Robust.Shared.Audio;
 using Content.Shared.Damage;
 
@@ -12,7 +12,6 @@ namespace Content.Server.Light.Components
         /// <summary>
         /// Current state to matchstick. Can be <code>Unlit</code>, <code>Lit</code> or <code>Burnt</code>.
         /// </summary>
-        [ViewVariables]
         [DataField("state")]
         public SmokableState CurrentState = SmokableState.Unlit;
 

@@ -300,6 +300,10 @@
       - SeedExtractorMachineCircuitboard
       - AnalysisComputerCircuitboard
       - ArtifactAnalyzerMachineCircuitboard
+      - ManualTurretMachineCircuitboard
+      - ManualLaserTurretMachineCircuitboard
+      - ManualShotgunTurretMachineCircuitboard
+      - ManualRocketTurretMachineCircuitboard
   - type: MaterialStorage
     whitelist:
       tags:

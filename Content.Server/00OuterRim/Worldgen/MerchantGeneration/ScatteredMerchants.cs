@@ -2,13 +2,16 @@ using Content.Server._00OuterRim.Worldgen.Systems.Overworld;
 using Content.Server._00OuterRim.Worldgen.Tools;
 using Content.Server.Shuttles.Systems;
 using Content.Shared.Shuttles.Components;
+using Robust.Server.GameObjects;
 using Robust.Server.Maps;
 using Robust.Shared.Random;
+using System.Linq;
 
 namespace Content.Server._00OuterRim.Worldgen.MerchantGeneration;
 
 public sealed class ScatteredMerchants : MerchantGenerator
 {
+
     [DataField("maps")]
     public List<string> Maps = default!;
 
@@ -16,8 +19,8 @@ public sealed class ScatteredMerchants : MerchantGenerator
     {
         var sampler = IoCManager.Resolve<PoissonDiskSampler>();
         var random = IoCManager.Resolve<IRobustRandom>();
-        var mapLoader = IoCManager.Resolve<IMapLoader>();
         var entityManager = IoCManager.Resolve<IEntityManager>();
+        var mapLoader = entityManager.System<MapLoaderSystem>();
         var worldChunkSys = entityManager.EntitySysManager.GetEntitySystem<WorldChunkSystem>();
         var iffSys = entityManager.EntitySysManager.GetEntitySystem<ShuttleSystem>();
 
@@ -30,12 +33,12 @@ public sealed class ScatteredMerchants : MerchantGenerator
         if (debrisPoints.Count > 0)
         {
             var point = debrisPoints[0];
-            var (_, grid) = mapLoader.LoadGrid(worldChunkSys.WorldMap, random.Pick(Maps), new MapLoadOptions()
+            mapLoader.TryLoad(worldChunkSys.WorldMap, random.Pick(Maps), out var grid, new MapLoadOptions()
             {
                 Offset = center + point,
                 Rotation = random.NextAngle()
             });
-            iffSys.AddIFFFlag(grid!.Value, IFFFlags.HideLabel);
+            iffSys.AddIFFFlag(grid!.FirstOrDefault(), IFFFlags.HideLabel);
         }
 
 
