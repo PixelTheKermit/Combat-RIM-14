@@ -125,6 +125,21 @@ namespace Content.Server.ManualTurret
 
             if (comp.TimeFired + fireRate * comp.FireRateMultiplier <= curTime)
             {
+                if (_entityManager.TryGetComponent<BatteryComponent>(uid, out var batteryComp))
+                {
+                    if (batteryComp!.CurrentCharge >= comp.FireCost * comp.ChargeNeededMultiplier)
+                        batteryComp.CurrentCharge -= comp.FireCost * comp.ChargeNeededMultiplier;
+                    else
+                    {
+                        _audioSystem.Play(comp.SoundEmpty, Filter.Pvs(uid), uid);
+                        return;
+                    }
+                }
+
+                // Some positional data, so we know where to shoot.
+                var xform = _entityManager.GetComponent<TransformComponent>(uid);
+                var rot = xform.WorldRotation;
+
                 comp.TimeFired = curTime;
                 if (!comp.IsBatteryWeapon)
                 {
@@ -133,25 +148,9 @@ namespace Content.Server.ManualTurret
                     {
                         var magazine = container.ContainedEntities.First(); // There's probably a better way of doing this but it's good for now
                         var ammoComp = _entityManager.GetComponent<BallisticAmmoProviderComponent>(magazine); // This prays on the fact that the thing you're trying to insert is a mag.
-                        var hasBatteryComp = _entityManager.TryGetComponent<BatteryComponent>(uid, out var batteryComp);
 
                         if (ammoComp.UnspawnedCount + ammoComp.Entities.Count > 0) // TODO: cry about this fuckin shitcode
                         {
-                            if (hasBatteryComp)
-                            {
-                                if (batteryComp!.CurrentCharge >= comp.FireCost * comp.ChargeNeededMultiplier)
-                                    batteryComp.CurrentCharge -= comp.FireCost * comp.ChargeNeededMultiplier;
-                                else
-                                {
-                                    _audioSystem.Play(comp.SoundEmpty, Filter.Pvs(uid), uid);
-                                    return;
-                                }
-                            }
-                            
-                            // Some positional data, so we know where to shoot.
-                            var xform = _entityManager.GetComponent<TransformComponent>(uid);
-                            var rot = xform.WorldRotation;
-
                             var cartridge = EntityUid.Invalid;
 
                             if (ammoComp.Entities.Count == 0)
@@ -186,8 +185,8 @@ namespace Content.Server.ManualTurret
                                     //cartridgeComp.Spent = true;
                                     //_appearanceSystem.SetData(cartridge, AmmoVisuals.Spent, true);
                                 }
-                                if (ammoComp.Entities.Count > 0)
-                                    ammoComp.Entities.Remove(cartridge);
+                                //if (ammoComp.Entities.Count > 0)
+                                    //ammoComp.Entities.Remove(cartridge);
                             }
                             else // This is for fun, mostly. Could see some good use later maybe (Spear launcher, anyone?)
                             {
@@ -211,22 +210,11 @@ namespace Content.Server.ManualTurret
                 }
                 else // Does not support hitscan or shotgun-like patterns YET
                 { // This was actually easier to implement, says a lot about containers.
-                    var batteryComp = _entityManager.GetComponent<BatteryComponent>(uid); 
-
-                    if (batteryComp.CurrentCharge >= comp.FireCost * comp.ChargeNeededMultiplier) 
-                    {
-                        var projComp = _entityManager.GetComponent<ProjectileBatteryAmmoProviderComponent>(uid);
-                        batteryComp.CurrentCharge -= comp.FireCost * comp.ChargeNeededMultiplier;
-                        var xform = _entityManager.GetComponent<TransformComponent>(uid);
-                        _audioSystem.Play(comp.SoundGunshot, Filter.Pvs(uid), uid);
-                        var rot = xform.WorldRotation;
-                        var bullet = projComp.Prototype;
-                        ShootProjectile(Spawn(bullet, xform.MapPosition), rot.ToWorldVec(), uid);
-                    }
-                    else
-                    {
-                        _audioSystem.Play(comp.SoundEmpty, Filter.Pvs(uid), uid);
-                    }
+                    var projComp = _entityManager.GetComponent<ProjectileBatteryAmmoProviderComponent>(uid);
+                    batteryComp!.CurrentCharge -= comp.FireCost * comp.ChargeNeededMultiplier;
+                    _audioSystem.Play(comp.SoundGunshot, Filter.Pvs(uid), uid);
+                    var bullet = projComp.Prototype;
+                    ShootProjectile(Spawn(bullet, xform.MapPosition), rot.ToWorldVec(), uid);
                 }
             }
         }
