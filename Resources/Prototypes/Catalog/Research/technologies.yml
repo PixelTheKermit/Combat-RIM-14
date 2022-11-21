@@ -397,6 +397,23 @@
     - PowerCellAdvanced
   unlockedRecipes:
     - PowerCellHigh
+
+- type: technology
+  name: technologies-turret-technology
+  id: TurretTechnology
+  description: technologies-turret-technology-description
+  icon:
+    sprite: Objects/Misc/stock_parts.rsi
+    state: micro_mani
+  requiredPoints: 750
+  requiredTechnologies:
+    - BasicResearch
+  unlockedRecipes:
+    - ManualTurretMachineCircuitboard
+    - ManualLaserTurretMachineCircuitboard
+    - ManualShotgunTurretMachineCircuitboard
+    - ManualRocketTurretMachineCircuitboard
+
 # Basic Parts Technology Tree
 
 - type: technology

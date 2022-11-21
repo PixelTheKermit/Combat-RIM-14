@@ -9,9 +9,9 @@
      Gold: 100
 
 - type: latheRecipe
-  id: ManualTurretMachineCircuitboard
+  id: ManualLaserTurretMachineCircuitboard
   icon: Objects/Misc/module.rsi/id_mod.png
-  result: ManualTurretMachineCircuitboard
+  result: ManualLaserTurretMachineCircuitboard
   completetime: 8
   materials:
      Steel: 100
@@ -19,9 +19,9 @@
      Gold: 100
 
 - type: latheRecipe
-  id: ManualTurretMachineCircuitboard
+  id: ManualShotgunTurretMachineCircuitboard
   icon: Objects/Misc/module.rsi/id_mod.png
-  result: ManualTurretMachineCircuitboard
+  result: ManualShotgunTurretMachineCircuitboard
   completetime: 8
   materials:
      Steel: 100
@@ -29,9 +29,9 @@
      Gold: 100
 
 - type: latheRecipe
-  id: ManualTurretMachineCircuitboard
+  id: ManualRocketTurretMachineCircuitboard
   icon: Objects/Misc/module.rsi/id_mod.png
-  result: ManualTurretMachineCircuitboard
+  result: ManualRocketTurretMachineCircuitboard
   completetime: 8
   materials:
      Steel: 100
