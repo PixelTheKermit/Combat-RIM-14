@@ -17,6 +17,8 @@
   - type: Damageable
   - type: Physics
     bodyType: Dynamic
+  - type: CollisionWake
+    enabled: false
   - type: InteractionOutline
   - type: Artifact
   - type: RandomArtifactSprite
@@ -26,9 +28,19 @@
     available:
     - enum.ArtifactsVisualLayers.Effect:
         ano01_on: Rainbow
+  - type: UserInterface #needs to be here for certain effects
+    interfaces:
+    - key: enum.StorageUiKey.Key
+      type: StorageBoundUserInterface
+    - key: enum.TransferAmountUiKey.Key
+      type: TransferAmountBoundUserInterface
   - type: Appearance
   - type: StaticPrice
     price: 500
+  - type: Item
+    size: 40
+    sprite: Objects/Specific/Xenoarchaeology/item_artifacts.rsi
+    heldPrefix: ano01
 
 - type: entity
   parent: BaseXenoArtifactItem

@@ -28,6 +28,6 @@
   generator:
     !type:ScatteredMerchants
     maps:
-      - /Maps/Merchants/BotanistIsland.yml
-      - /Maps/Merchants/gunsRus.yml
-      - /Maps/Merchants/destroyedshop.yml
+      - /Maps/Merchants/botanist.yml
+      - /Maps/Merchants/dangerous.yml
+      - /Maps/Merchants/demoman.yml

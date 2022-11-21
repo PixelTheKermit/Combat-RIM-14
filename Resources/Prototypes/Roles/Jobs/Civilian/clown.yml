@@ -17,6 +17,8 @@
           Piercing: 4
         groups:
           Burn: 3
+  - !type:AddImplantSpecial
+    implants: [ SadTromboneImplant ]
 
 - type: startingGear
   id: ClownGear

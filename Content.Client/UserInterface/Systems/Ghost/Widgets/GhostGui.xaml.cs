@@ -24,7 +24,6 @@ public sealed partial class GhostGui : UIWidget
     public event Action? ReturnToBodyPressed;
     public event Action? GhostRolesPressed;
     public event Action? GhostRolesRespawnPressed;
-    public event Action? ToggleGhostVisibility;
 
     public GhostGui()
     {
@@ -38,7 +37,6 @@ public sealed partial class GhostGui : UIWidget
         ReturnToBodyButton.OnPressed += _ => ReturnToBodyPressed?.Invoke();
         GhostRolesButton.OnPressed += _ => GhostRolesPressed?.Invoke();
         GhostRespawnButton.OnPressed += _ => GhostRolesRespawnPressed?.Invoke();
-        ToggleGhostVisibilityButton.OnPressed += _ => ToggleGhostVisibility?.Invoke();
     }
 
     public void Hide()
