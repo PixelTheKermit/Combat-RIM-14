@@ -1,7 +1,8 @@
 - type: latheRecipe
+  name: manual turret
   id: ManualTurretMachineCircuitboard
   icon: Objects/Misc/module.rsi/id_mod.png
-  result: ManualTurretMachineCircuitboard
+  result: WeaponTurretManualCircuitboard
   completetime: 8
   materials:
      Steel: 100
@@ -9,9 +10,10 @@
      Gold: 100
 
 - type: latheRecipe
+  name: manual laser turret
   id: ManualLaserTurretMachineCircuitboard
   icon: Objects/Misc/module.rsi/id_mod.png
-  result: ManualLaserTurretMachineCircuitboard
+  result: WeaponLaserTurretManualCircuitboard
   completetime: 8
   materials:
      Steel: 100
@@ -19,9 +21,10 @@
      Gold: 100
 
 - type: latheRecipe
+  name: manual shotgun turret
   id: ManualShotgunTurretMachineCircuitboard
   icon: Objects/Misc/module.rsi/id_mod.png
-  result: ManualShotgunTurretMachineCircuitboard
+  result: WeaponShotgunTurretManualCircuitboard
   completetime: 8
   materials:
      Steel: 100
@@ -29,9 +32,10 @@
      Gold: 100
 
 - type: latheRecipe
+  name: manual rocket turret
   id: ManualRocketTurretMachineCircuitboard
   icon: Objects/Misc/module.rsi/id_mod.png
-  result: ManualRocketTurretMachineCircuitboard
+  result: WeaponRocketTurretManualCircuitboard
   completetime: 8
   materials:
      Steel: 100

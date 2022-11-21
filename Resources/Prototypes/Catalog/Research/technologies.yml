@@ -403,11 +403,11 @@
   id: TurretTechnology
   description: technologies-turret-technology-description
   icon:
-    sprite: Objects/Misc/stock_parts.rsi
-    state: micro_mani
-  requiredPoints: 750
+    sprite: Objects/Weapons/Guns/turrets.rsi
+    state: shotgun
+  requiredPoints: 2500
   requiredTechnologies:
-    - BasicResearch
+    - BasicPartsTechnology
   unlockedRecipes:
     - ManualTurretMachineCircuitboard
     - ManualLaserTurretMachineCircuitboard
