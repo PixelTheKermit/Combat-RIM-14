@@ -1,22 +1,4 @@
 Entries:
-- author: ElectroJr
-  changes:
-  - {message: Removed ratatouille (held mice and holo parasites no longer affect what
-      direction a player is facing), type: Fix}
-  id: 2191
-  time: '2022-08-25T23:39:25.0000000+00:00'
-- author: Myctai
-  changes:
-  - {message: nonlethals crate icon no longer suggests that crate contains tasers
-      (crate actually contains disablers), type: Fix}
-  id: 2192
-  time: '2022-08-27T05:54:24.0000000+00:00'
-- author: FunkySphere
-  changes:
-  - {message: Margherita pizza slice is no longer sliceable into multiple meat pizza
-      slices., type: Fix}
-  id: 2193
-  time: '2022-08-27T09:59:16.0000000+00:00'
 - author: biometricPsychography
   changes:
   - {message: Made the dead state of the snake more dead (fix snakes death animation/sprite).,
@@ -2959,3 +2941,20 @@ Entries:
   - {message: Fixed not showing ban ids in a player's ban list., type: Fix}
   id: 2690
   time: '2022-11-21T19:04:24.0000000+00:00'
+- author: metalgearsloth
+  changes:
+  - {message: Fix some mapgrids not being sent to clients., type: Fix}
+  id: 2691
+  time: '2022-11-22T09:28:09.0000000+00:00'
+- author: metalgearsloth
+  changes:
+  - {message: Fix exception when shooting with your mouse outside of the window.,
+    type: Fix}
+  id: 2692
+  time: '2022-11-23T06:35:06.0000000+00:00'
+- author: Mervill
+  changes:
+  - {message: Items dropped onto a moving Conveyor by the disposal network move immediately,
+    type: Fix}
+  id: 2693
+  time: '2022-11-23T07:38:39.0000000+00:00'
