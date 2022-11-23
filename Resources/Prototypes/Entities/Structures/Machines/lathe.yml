@@ -185,6 +185,7 @@
       - CryostasisBeaker
       - Dropper
       - Syringe
+      - Implanter
       - PillCanister
       - ChemistryEmptyBottle01
       - Drone
@@ -220,7 +221,8 @@
       - VoiceTrigger
       - PowerCellSmall
       - PowerCellMedium
-      - PowerCellHigh
+      - PowerCellHigh  
+      - RPED
       - ProximitySensor
       - LeftArmBorg
       - RightArmBorg
@@ -304,6 +306,7 @@
       - ManualLaserTurretMachineCircuitboard
       - ManualShotgunTurretMachineCircuitboard
       - ManualRocketTurretMachineCircuitboard
+      - TraversalDistorterMachineCircuitboard
   - type: MaterialStorage
     whitelist:
       tags:
@@ -408,6 +411,7 @@
       - CryostasisBeaker
       - Dropper
       - Syringe
+      - Implanter
       - PillCanister
       - BodyBag
       - ChemistryEmptyBottle01

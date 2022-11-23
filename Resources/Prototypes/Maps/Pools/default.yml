@@ -2,3 +2,7 @@
   id: DefaultMapPool
   maps:
   - ISVBox
+  - ISVCobble
+  - ISVPiracy
+  - ISVRust
+  - ISVSpade

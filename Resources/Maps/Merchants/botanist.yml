@@ -1,0 +1,497 @@
+meta:
+  format: 2
+  name: DemoStation
+  author: Space-Wizards
+  postmapinit: false
+tilemap:
+  0: Space
+  1: FloorArcadeBlue
+  2: FloorArcadeBlue2
+  3: FloorArcadeRed
+  4: FloorAsteroidCoarseSand0
+  5: FloorAsteroidCoarseSandDug
+  6: FloorAsteroidIronsand1
+  7: FloorAsteroidIronsand2
+  8: FloorAsteroidIronsand3
+  9: FloorAsteroidIronsand4
+  10: FloorAsteroidSand
+  11: FloorAsteroidTile
+  12: FloorBar
+  13: FloorBlue
+  14: FloorBlueCircuit
+  15: FloorBoxing
+  16: FloorCarpetClown
+  17: FloorCarpetOffice
+  18: FloorCave
+  19: FloorCaveDrought
+  20: FloorClown
+  21: FloorDark
+  22: FloorDarkDiagonal
+  23: FloorDarkDiagonalMini
+  24: FloorDarkHerringbone
+  25: FloorDarkMini
+  26: FloorDarkMono
+  27: FloorDarkOffset
+  28: FloorDarkPavement
+  29: FloorDarkPavementVertical
+  30: FloorDarkPlastic
+  31: FloorDirt
+  32: FloorEighties
+  33: FloorElevatorShaft
+  34: FloorFreezer
+  35: FloorGlass
+  36: FloorGold
+  37: FloorGrass
+  38: FloorGrassDark
+  39: FloorGrassJungle
+  40: FloorGrassLight
+  41: FloorGreenCircuit
+  42: FloorGym
+  43: FloorHydro
+  44: FloorKitchen
+  45: FloorLaundry
+  46: FloorLino
+  47: FloorMetalDiamond
+  48: FloorMime
+  49: FloorMono
+  50: FloorPlastic
+  51: FloorRGlass
+  52: FloorReinforced
+  53: FloorRockVault
+  54: FloorShowroom
+  55: FloorShuttleBlue
+  56: FloorShuttleOrange
+  57: FloorShuttlePurple
+  58: FloorShuttleRed
+  59: FloorShuttleWhite
+  60: FloorSilver
+  61: FloorSnow
+  62: FloorSteel
+  63: FloorSteelDiagonal
+  64: FloorSteelDiagonalMini
+  65: FloorSteelDirty
+  66: FloorSteelHerringbone
+  67: FloorSteelMini
+  68: FloorSteelMono
+  69: FloorSteelOffset
+  70: FloorSteelPavement
+  71: FloorSteelPavementVertical
+  72: FloorTechMaint
+  73: FloorTechMaint2
+  74: FloorTechMaint3
+  75: FloorWhite
+  76: FloorWhiteDiagonal
+  77: FloorWhiteDiagonalMini
+  78: FloorWhiteHerringbone
+  79: FloorWhiteMini
+  80: FloorWhiteMono
+  81: FloorWhiteOffset
+  82: FloorWhitePavement
+  83: FloorWhitePavementVertical
+  84: FloorWhitePlastic
+  85: FloorWood
+  86: FloorWoodTile
+  87: Lattice
+  88: Plating
+grids:
+- uid: 0
+  settings:
+    chunksize: 16
+    tilesize: 1
+  chunks:
+  - ind: -1,-1
+    tiles: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAmAAACJgAAACYAAAMmAAACJgAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAmAAADJgAAAyYAAAEmAAADJgAAAiYAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJgAAASYAAAMmAAAAJgAAAyYAAAImAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACYAAAEmAAAAJgAAAiYAAAMmAAACJgAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAmAAABJgAAASYAAAImAAAAJgAAACYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJgAAAiYAAAMmAAAAJgAAASYAAAMmAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACYAAAImAAADJgAAASYAAAAmAAADJgAAAw==
+  - ind: -1,0
+    tiles: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAmAAABJgAAAiYAAAEmAAADJgAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
+  - ind: 0,-1
+    tiles: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAmAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJgAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACYAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAmAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJgAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
+entities:
+- uid: 0
+  components:
+  - type: MetaData
+  - pos: 1.9375,3.140625
+    parent: null
+    type: Transform
+  - type: MapGrid
+  - type: Broadphase
+  - angularDamping: 0.05
+    linearDamping: 0.05
+    fixedRotation: False
+    bodyType: Dynamic
+    type: Physics
+  - fixtures:
+    - density: 0.5
+      shape: !type:PolygonShape
+        vertices:
+        - -0.01,-5.99
+        - -0.01,-0.01
+        - -5.99,-0.01
+        - -5.99,-5.99
+      mask:
+      - MapGrid
+      layer:
+      - MapGrid
+      restitution: 0.1
+      id: grid_chunk--5.99--5.99
+    - density: 0.5
+      shape: !type:PolygonShape
+        vertices:
+        - -0.01,0.01
+        - -0.01,0.99
+        - -4.99,0.99
+        - -4.99,0.01
+      mask:
+      - MapGrid
+      layer:
+      - MapGrid
+      restitution: 0.1
+      id: grid_chunk--4.99-0.01
+    - density: 0.5
+      shape: !type:PolygonShape
+        vertices:
+        - -0.01,-6.99
+        - -0.01,-6.01
+        - -4.99,-6.01
+        - -4.99,-6.99
+      mask:
+      - MapGrid
+      layer:
+      - MapGrid
+      restitution: 0.1
+      id: grid_chunk--4.99--6.99
+    - density: 0.5
+      shape: !type:PolygonShape
+        vertices:
+        - 0.99,-5.99
+        - 0.99,-0.01
+        - 0.01,-0.01
+        - 0.01,-5.99
+      mask:
+      - MapGrid
+      layer:
+      - MapGrid
+      restitution: 0.1
+      id: grid_chunk-0.01--5.99
+    type: Fixtures
+  - gravityShakeSound: !type:SoundPathSpecifier
+      path: /Audio/Effects/alert.ogg
+    type: Gravity
+  - chunkCollection:
+      -1,-1:
+        0:
+          color: '#FFFFFFFF'
+          id: WoodTrimThinCornerSe
+          coordinates: -1,-7
+        1:
+          color: '#FFFFFFFF'
+          id: WoodTrimThinCornerSw
+          coordinates: -5,-7
+        3:
+          color: '#FFFFFFFF'
+          id: WoodTrimThinCornerNw
+          coordinates: -6,-1
+        4:
+          color: '#FFFFFFFF'
+          id: WoodTrimThinCornerSw
+          coordinates: -6,-6
+        5:
+          color: '#FFFFFFFF'
+          id: WoodTrimThinInnerNw
+          coordinates: -5,-1
+        9:
+          color: '#FFFFFFFF'
+          id: WoodTrimThinInnerSe
+          coordinates: -1,-6
+        10:
+          color: '#FFFFFFFF'
+          id: WoodTrimThinInnerSw
+          coordinates: -5,-6
+        11:
+          color: '#FFFFFFFF'
+          id: WoodTrimThinInnerNe
+          coordinates: -1,-1
+        16:
+          color: '#FFFFFFFF'
+          id: WoodTrimThinLineW
+          coordinates: -6,-5
+        17:
+          color: '#FFFFFFFF'
+          id: WoodTrimThinLineW
+          coordinates: -6,-4
+        18:
+          color: '#FFFFFFFF'
+          id: WoodTrimThinLineW
+          coordinates: -6,-3
+        19:
+          color: '#FFFFFFFF'
+          id: WoodTrimThinLineW
+          coordinates: -6,-2
+        23:
+          color: '#FFFFFFFF'
+          id: WoodTrimThinLineS
+          coordinates: -4,-7
+        24:
+          color: '#FFFFFFFF'
+          id: WoodTrimThinLineS
+          coordinates: -3,-7
+        25:
+          color: '#FFFFFFFF'
+          id: WoodTrimThinLineS
+          coordinates: -2,-7
+        26:
+          color: '#FFFFFFFF'
+          id: Grassd1
+          coordinates: -6,-6
+        27:
+          color: '#FFFFFFFF'
+          id: Grassd1
+          coordinates: -5,-2
+        28:
+          color: '#FFFFFFFF'
+          id: Grassd1
+          coordinates: -2,-1
+        29:
+          color: '#FFFFFFFF'
+          id: Grassd1
+          coordinates: -1,-6
+        30:
+          color: '#FFFFFFFF'
+          id: Grassd2
+          coordinates: -1,-5
+        31:
+          color: '#FFFFFFFF'
+          id: Grassd2
+          coordinates: -5,-5
+        32:
+          color: '#FFFFFFFF'
+          id: Grassd2
+          coordinates: -6,-1
+        33:
+          color: '#FFFFFFFF'
+          id: Grassd2
+          coordinates: -1,-1
+        34:
+          color: '#FFFFFFFF'
+          id: Grassd2
+          coordinates: -2,-2
+        35:
+          color: '#FFFFFFFF'
+          id: Grassd3
+          coordinates: -1,-2
+        36:
+          color: '#FFFFFFFF'
+          id: Grassd3
+          coordinates: -5,-2
+        37:
+          color: '#FFFFFFFF'
+          id: Grassd3
+          coordinates: -5,-5
+        38:
+          color: '#FFFFFFFF'
+          id: Grassd3
+          coordinates: -2,-6
+        39:
+          color: '#FFFFFFFF'
+          id: Grasse1
+          coordinates: -4,-5
+        40:
+          color: '#FFFFFFFF'
+          id: Grasse1
+          coordinates: -5,-4
+        41:
+          color: '#FFFFFFFF'
+          id: Grasse1
+          coordinates: -2,-3
+        42:
+          color: '#FFFFFFFF'
+          id: Grasse1
+          coordinates: -3,-3
+        43:
+          color: '#FFFFFFFF'
+          id: Grasse1
+          coordinates: -2,-5
+        44:
+          color: '#FFFFFFFF'
+          id: Grasse2
+          coordinates: -3,-5
+        45:
+          color: '#FFFFFFFF'
+          id: Grasse2
+          coordinates: -4,-4
+        46:
+          color: '#FFFFFFFF'
+          id: Grasse2
+          coordinates: -1,-3
+        47:
+          color: '#FFFFFFFF'
+          id: Grasse2
+          coordinates: -1,-4
+        48:
+          color: '#FFFFFFFF'
+          id: Grasse2
+          coordinates: -2,-4
+        49:
+          color: '#FFFFFFFF'
+          id: Grasse3
+          coordinates: -3,-4
+        50:
+          color: '#FFFFFFFF'
+          id: Grassc4
+          coordinates: -5,-3
+        51:
+          color: '#FFFFFFFF'
+          id: Grassc4
+          coordinates: -3,-2
+        52:
+          color: '#FFFFFFFF'
+          id: Grassc1
+          coordinates: -5,-2
+        53:
+          color: '#FFFFFFFF'
+          id: Grassc2
+          coordinates: -4,-4
+        54:
+          color: '#FFFFFFFF'
+          id: Grassc2
+          coordinates: -3,-2
+        55:
+          color: '#FFFFFFFF'
+          id: Grassc1
+          coordinates: -4,-2
+        56:
+          color: '#FFFFFFFF'
+          id: Grassc1
+          coordinates: -4,-3
+      -1,0:
+        2:
+          color: '#FFFFFFFF'
+          id: WoodTrimThinCornerNw
+          coordinates: -5,0
+        6:
+          color: '#FFFFFFFF'
+          id: WoodTrimThinCornerNe
+          coordinates: -1,0
+        20:
+          color: '#FFFFFFFF'
+          id: WoodTrimThinLineN
+          coordinates: -4,0
+        21:
+          color: '#FFFFFFFF'
+          id: WoodTrimThinLineN
+          coordinates: -3,0
+        22:
+          color: '#FFFFFFFF'
+          id: WoodTrimThinLineN
+          coordinates: -2,0
+      0,-1:
+        7:
+          color: '#FFFFFFFF'
+          id: WoodTrimThinCornerNe
+          coordinates: 0,-1
+        8:
+          color: '#FFFFFFFF'
+          id: WoodTrimThinCornerSe
+          coordinates: 0,-6
+        12:
+          color: '#FFFFFFFF'
+          id: WoodTrimThinLineE
+          coordinates: 0,-2
+        13:
+          color: '#FFFFFFFF'
+          id: WoodTrimThinLineE
+          coordinates: 0,-3
+        14:
+          color: '#FFFFFFFF'
+          id: WoodTrimThinLineE
+          coordinates: 0,-4
+        15:
+          color: '#FFFFFFFF'
+          id: WoodTrimThinLineE
+          coordinates: 0,-5
+    type: DecalGrid
+  - tiles:
+      -2,-2: 0
+      -2,-1: 0
+      -1,-7: 0
+      -1,-6: 0
+      -1,-5: 0
+      -1,-4: 0
+      -1,-3: 0
+      -1,-2: 0
+      -1,-1: 0
+      -5,-7: 0
+      -5,-6: 0
+      -5,-5: 0
+      -5,-4: 0
+      -5,-3: 0
+      -5,-2: 0
+      -5,-1: 0
+      -4,-7: 0
+      -4,-6: 0
+      -4,-5: 0
+      -4,-4: 0
+      -4,-3: 0
+      -4,-2: 0
+      -4,-1: 0
+      -3,-7: 0
+      -3,-6: 0
+      -3,-5: 0
+      -3,-4: 0
+      -3,-3: 0
+      -3,-2: 0
+      -3,-1: 0
+      -2,-7: 0
+      -2,-6: 0
+      -2,-5: 0
+      -2,-4: 0
+      -2,-3: 0
+      -5,0: 0
+      -4,0: 0
+      -3,0: 0
+      -2,0: 0
+      -1,0: 0
+      -6,-6: 0
+      -6,-5: 0
+      -6,-4: 0
+      -6,-3: 0
+      -6,-2: 0
+      -6,-1: 0
+      0,-6: 0
+      0,-5: 0
+      0,-4: 0
+      0,-3: 0
+      0,-2: 0
+      0,-1: 0
+    uniqueMixes:
+    - volume: 2500
+      temperature: 293.15
+      moles:
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    type: GridAtmosphere
+  - type: OccluderTree
+  - type: Shuttle
+  - type: GridPathfinding
+- uid: 2
+  type: FloraTree01
+  components:
+  - pos: -2.3720706,-1.4752393
+    parent: 0
+    type: Transform
+- uid: 3
+  type: BotanistMerchant
+  components:
+  - pos: -2.448089,-3.0701756
+    parent: 0
+    type: Transform
+...
