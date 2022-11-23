@@ -6,7 +6,7 @@ game-ticker-unknown-role = Unknown
 game-ticker-delay-start = Round start has been delayed for {$seconds} seconds.
 game-ticker-pause-start = Round start has been paused.
 game-ticker-pause-start-resumed = Round start countdown is now resumed.
-game-ticker-player-join-game-message = Welcome to Combat Rim 14! This is a combat variant of Outer Rim. Fight people, maybe work together and most importantly, stay alive.
+game-ticker-player-join-game-message = Welcome to Combat Rim 14! This is a combat focused fork of Afterlight: 3149. Fight people, maybe work together and most importantly, stay alive.
 game-ticker-get-info-text = Hi and welcome to [color=white]Combat Rim![/color]
                             The current round is: [color=white]#{$roundId}[/color]
                             The current player count is: [color=white]{$playerCount}[/color]
