@@ -114,10 +114,13 @@ namespace Content.Server.GameTicking
                     var mid = _mapManager.GetMapEntityId(DefaultMap);
                     xform.Coordinates = new EntityCoordinates(mid, offs);
                 }
+
+                var plr = shell.Player as IPlayerSession;
+                if (plr != null)
+                    MakeJoinGame(plr, (EntityUid) _stationSystem.GetOwningStation(grids.FirstOrDefault())!, "ShuttleCaptain");
+
+                return;
             }
-            var plr = shell.Player as IPlayerSession;
-            if (plr != null)
-                MakeJoinGame(plr, _stationSystem.Stations.Last(), "ShuttleCaptain");
         }
 
         /// <summary>

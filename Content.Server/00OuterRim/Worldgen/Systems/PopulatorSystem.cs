@@ -1,7 +1,8 @@
-using System.Linq;
 using Content.Server._00OuterRim.Worldgen.Components;
 using Content.Server.Ghost.Components;
+using Npgsql.Replication.PgOutput.Messages;
 using Robust.Server.Player;
+using Robust.Shared.Map.Components;
 using Robust.Shared.Timing;
 
 namespace Content.Server._00OuterRim.Worldgen.Systems;
@@ -10,6 +11,7 @@ public class PopulatorSystem : EntitySystem
 {
     [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly IGameTiming _gameTiming = default!;
+    [Dependency] private readonly EntityManager _entityManager = default!;
 
     public override void Update(float frameTime)
     {
@@ -34,7 +36,7 @@ public class PopulatorSystem : EntitySystem
             if (nearby)
             {
                 var startTime = _gameTiming.RealTime;
-                unpop.Populator?.Populate(grid.Owner, grid.Grid);
+                unpop.Populator?.Populate(grid.Owner, grid);
                 var timeSpan = _gameTiming.RealTime - startTime;
                 Logger.InfoS("worldgen", $"Populated grid {grid.Owner} in {timeSpan.TotalMilliseconds:N2}ms.");
                 RemComp<UnpopulatedComponent>(unpop.Owner);

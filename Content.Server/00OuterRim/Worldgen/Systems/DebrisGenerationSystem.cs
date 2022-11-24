@@ -6,6 +6,7 @@ using Content.Shared.Coordinates;
 using Content.Shared.Shuttles.Components;
 using Robust.Server.GameObjects;
 using Robust.Shared.Map;
+using Robust.Shared.Map.Components;
 using Robust.Shared.Random;
 
 namespace Content.Server._00OuterRim.Worldgen.Systems;
@@ -34,7 +35,7 @@ public sealed class DebrisGenerationSystem : EntitySystem
     /// Generates a new floorplan for the given debris.
     /// </summary>
     /// <returns></returns>
-    public (IMapGrid, EntityUid) GenerateFloorplan(DebrisPrototype proto, MapCoordinates location)
+    public (MapGridComponent, EntityUid) GenerateFloorplan(DebrisPrototype proto, MapCoordinates location)
     {
         var grid = _mapManager.CreateGrid(location.MapId);
         _transformSystem.SetWorldPosition(grid.GridEntityId, location.Position);
@@ -54,7 +55,7 @@ public sealed class DebrisGenerationSystem : EntitySystem
         return (grid, grid.GridEntityId);
     }
 
-    private void PlaceFloorplanTiles(DebrisPrototype proto, IMapGrid grid, bool blobs)
+    private void PlaceFloorplanTiles(DebrisPrototype proto, MapGridComponent grid, bool blobs)
     {
         // NO MORE THAN TWO ALLOCATIONS THANK YOU VERY MUCH.
         var spawnPoints = new HashSet<Vector2i>((int)proto.FloorPlacements * 4);

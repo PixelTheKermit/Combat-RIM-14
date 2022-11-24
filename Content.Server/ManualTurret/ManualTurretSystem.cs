@@ -131,7 +131,7 @@ namespace Content.Server.ManualTurret
                         batteryComp.CurrentCharge -= comp.FireCost * comp.ChargeNeededMultiplier;
                     else
                     {
-                        _audioSystem.Play(comp.SoundEmpty, Filter.Pvs(uid), uid);
+                        _audioSystem.Play(comp.SoundEmpty, Filter.Pvs(uid), uid, true);
                         return;
                     }
                 }
@@ -165,7 +165,7 @@ namespace Content.Server.ManualTurret
                             {
                                 if (!cartridgeComp.Spent) // a wasted bullet is a useless one
                                 {
-                                    _audioSystem.Play(comp.SoundGunshot, Filter.Pvs(uid), uid);
+                                    _audioSystem.Play(comp.SoundGunshot, Filter.Pvs(uid), uid, true);
 
                                     var bullet = cartridgeComp.Prototype;
                                     if (cartridgeComp.Count > 1) // For shotgun-like bullets
@@ -190,7 +190,7 @@ namespace Content.Server.ManualTurret
                             }
                             else // This is for fun, mostly. Could see some good use later maybe (Spear launcher, anyone?)
                             {
-                                _audioSystem.Play(comp.SoundGunshot, Filter.Pvs(uid), uid);
+                                _audioSystem.Play(comp.SoundGunshot, Filter.Pvs(uid), uid, true);
                                 var bullet = cartridge;
                                 ammoComp.Entities.Remove(cartridge);
                                 ShootProjectile(bullet, rot.ToWorldVec(), uid);
@@ -200,19 +200,19 @@ namespace Content.Server.ManualTurret
                         }
                         else
                         {
-                            _audioSystem.Play(comp.SoundEmpty, Filter.Pvs(uid), uid);
+                            _audioSystem.Play(comp.SoundEmpty, Filter.Pvs(uid), uid, true);
                         }
                     }
                     else
                     {
-                        _audioSystem.Play(comp.SoundEmpty, Filter.Pvs(uid), uid);
+                        _audioSystem.Play(comp.SoundEmpty, Filter.Pvs(uid), uid, true);
                     }
                 }
                 else // Does not support hitscan or shotgun-like patterns YET
                 { // This was actually easier to implement, says a lot about containers.
                     var projComp = _entityManager.GetComponent<ProjectileBatteryAmmoProviderComponent>(uid);
                     batteryComp!.CurrentCharge -= comp.FireCost * comp.ChargeNeededMultiplier;
-                    _audioSystem.Play(comp.SoundGunshot, Filter.Pvs(uid), uid);
+                    _audioSystem.Play(comp.SoundGunshot, Filter.Pvs(uid), uid, true);
                     var bullet = projComp.Prototype;
                     ShootProjectile(Spawn(bullet, xform.MapPosition), rot.ToWorldVec(), uid);
                 }

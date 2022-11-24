@@ -1,4 +1,4 @@
-﻿using System.Linq;
+using System.Linq;
 using Content.Client.Light;
 using Content.Client.Verbs;
 using Content.Shared.Input;
@@ -90,7 +90,7 @@ public sealed class GuidebookSystem : EntitySystem
         if (!TryComp<SharedSpeechComponent>(uid, out var speech) || speech.SpeechSounds is null)
             return;
 
-        _audioSystem.PlayGlobal(speech.SpeechSounds, Filter.Local(), speech.AudioParams);
+        _audioSystem.PlayGlobal(speech.SpeechSounds, Filter.Local(), false, speech.AudioParams);
     }
 
 
