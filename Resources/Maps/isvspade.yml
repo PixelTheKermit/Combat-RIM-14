@@ -106,6 +106,12 @@ entities:
   - pos: 3.5,-1.5
     parent: 3
     type: Transform
+- uid: 2
+  type: MagazineBoxMinigun
+  components:
+  - pos: 5.3697634,-0.55432606
+    parent: 3
+    type: Transform
 - uid: 3
   components:
   - type: MetaData
@@ -2534,4 +2540,10 @@ entities:
     type: Transform
   - powerLoad: 0
     type: ApcPowerReceiver
+- uid: 269
+  type: MagazineBoxMinigun
+  components:
+  - pos: 5.388768,-0.36445284
+    parent: 3
+    type: Transform
 ...
