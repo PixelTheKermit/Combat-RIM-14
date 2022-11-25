@@ -1,7 +1,7 @@
 ﻿- type: gameMap
   id: ISVSpade
   mapName: 'ISV Spade'
-  mapPath: /Maps/isvspade.yml
+  mapPath: /Maps/CRShuttles/isvspade.yml
   minPlayers: 0
   fallback: true
   descriptionPath: "/Server Info/Shuttles/ISVSpadeInfo.txt"

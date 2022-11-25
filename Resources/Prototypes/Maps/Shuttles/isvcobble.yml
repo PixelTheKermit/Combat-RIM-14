@@ -1,7 +1,7 @@
 ﻿- type: gameMap
   id: ISVCobble
   mapName: 'ISV Cobble'
-  mapPath: /Maps/isvcobble.yml
+  mapPath: /Maps/CRShuttles/isvcobble.yml
   minPlayers: 0
   fallback: true
   descriptionPath: "/Server Info/ISVCobbleInfo.txt"
