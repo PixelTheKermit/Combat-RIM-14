@@ -1,7 +1,7 @@
 ﻿- type: gameMap
   id: ISVRust
   mapName: 'ISV Rust'
-  mapPath: /Maps/isvrust.yml
+  mapPath: /Maps/CRShuttles/isvrust.yml
   minPlayers: 0
   fallback: true
   descriptionPath: "/Server Info/Shuttles/ISVRustInfo.txt"

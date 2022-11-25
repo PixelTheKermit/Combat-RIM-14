@@ -36,12 +36,15 @@
       Alive:
         Base: base
   - type: Speech
-  - type: Merchant
-    Currency: SpaceCash
-    Products:
-    - ClothingNeckGoldmedal
-    - WeaponPistolLuger
-    - WeaponRevolverDeckard
+
+- type: entity
+  name: Customer Merchant
+  description: A merchant that buys stuff from you
+  id: PurchasingMerchant
+  parent: MerchantBase
+  components:
+  - type: MerchantSell
+    cashPrototype: SpaceCash
 
 - type: entity
   name: Botanist Merchant

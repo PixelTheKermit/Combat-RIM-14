@@ -40,7 +40,7 @@ namespace Content.Server.Light.EntitySystems
             if (!args.Handled && component.CurrentState == SmokableState.Lit)
             {
                 _damageableSystem.TryChangeDamage(args.User, component.LitMeleeDamageBonus);
-                _audioSystem.Play("/Audio/Effects/lightburn.ogg", Filter.Pvs(uid), uid);
+                _audioSystem.Play("/Audio/Effects/lightburn.ogg", Filter.Pvs(uid), uid, true);
                 _popupSystem.PopupEntity("You try to painfully seal your wounds!", args.User, Filter.Entities(args.User));
             }
         }

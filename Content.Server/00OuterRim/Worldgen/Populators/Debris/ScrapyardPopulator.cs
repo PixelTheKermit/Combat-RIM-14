@@ -2,6 +2,7 @@ using Content.Server._00OuterRim.Worldgen.Systems;
 using Content.Shared.Maps;
 using Content.Shared.Storage;
 using Robust.Shared.Map;
+using Robust.Shared.Map.Components;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Dictionary;
 
 namespace Content.Server._00OuterRim.Worldgen.Populators.Debris;
@@ -12,7 +13,7 @@ public sealed class ScrapyardPopulator : DebrisPopulator
         customTypeSerializer: typeof(PrototypeIdDictionarySerializer<List<EntitySpawnEntry>, ContentTileDefinition>))]
     public Dictionary<string, List<EntitySpawnEntry>> EntityTable = default!;
 
-    public override void Populate(EntityUid gridEnt, IMapGrid grid)
+    public override void Populate(EntityUid gridEnt, MapGridComponent grid)
     {
         var deferred = EntitySystem.Get<DeferredSpawnSystem>();
 

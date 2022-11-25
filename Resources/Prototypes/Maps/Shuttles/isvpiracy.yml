@@ -1,7 +1,7 @@
 ﻿- type: gameMap
   id: ISVPiracy
   mapName: 'ISV Piracy'
-  mapPath: /Maps/isvpiracy.yml
+  mapPath: /Maps/CRShuttles/isvpiracy.yml
   minPlayers: 0
   fallback: true
   descriptionPath: "/Server Info/Shuttles/ISVPiracyInfo.txt"

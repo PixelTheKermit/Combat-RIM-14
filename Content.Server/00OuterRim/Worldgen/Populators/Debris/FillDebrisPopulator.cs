@@ -1,5 +1,6 @@
 using Content.Server._00OuterRim.Worldgen.Systems;
 using Robust.Shared.Map;
+using Robust.Shared.Map.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
@@ -13,7 +14,7 @@ public class FillDebrisPopulator : DebrisPopulator
     [DataField("fillerEntity", required: true, customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
     public string FillerEntity { get; } = default!;
 
-    public override void Populate(EntityUid gridEnt, IMapGrid grid)
+    public override void Populate(EntityUid gridEnt, MapGridComponent grid)
     {
         var entityManager = IoCManager.Resolve<IEntityManager>();
         var deferred = EntitySystem.Get<DeferredSpawnSystem>();

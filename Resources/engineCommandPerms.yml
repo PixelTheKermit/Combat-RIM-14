@@ -79,6 +79,7 @@
   - mapinit
   - savegrid
   - savemap
+  - setambientlight
   - tpgrid
   - gridtc
   - togglespritenetsync
