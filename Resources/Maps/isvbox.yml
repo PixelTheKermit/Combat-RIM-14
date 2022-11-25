@@ -106,20 +106,11 @@ entities:
   - pos: 6.5,2.5
     parent: 3
     type: Transform
-- uid: 2
-  components:
-  - type: MetaData
-  - type: Transform
-  - index: 15
-    type: Map
-  - type: PhysicsMap
-  - type: Broadphase
-  - type: OccluderTree
 - uid: 3
   components:
   - type: MetaData
   - pos: 0.484375,0.5
-    parent: 2
+    parent: null
     type: Transform
   - chunks:
       0,0:
@@ -907,8 +898,8 @@ entities:
     - volume: 2500
       temperature: 293.15
       moles:
-      - 19.481253
-      - 73.28662
+      - 18.935778
+      - 71.2346
       - 0
       - 0
       - 0

@@ -106,20 +106,11 @@ entities:
   - pos: 0.5,-2.5
     parent: 3
     type: Transform
-- uid: 2
-  components:
-  - type: MetaData
-  - type: Transform
-  - index: 30
-    type: Map
-  - type: PhysicsMap
-  - type: Broadphase
-  - type: OccluderTree
 - uid: 3
   components:
   - type: MetaData
   - pos: 0.484375,0.5
-    parent: 2
+    parent: null
     type: Transform
   - chunks:
       0,0:
