@@ -9,6 +9,7 @@ using Content.Shared.Stacks;
 using Content.Server.Hands.Systems;
 using Content.Shared.Verbs;
 using Content.Server.Chat.Systems;
+using Robust.Shared.Player;
 
 namespace Content.Server.Merchant
 {
@@ -20,6 +21,7 @@ namespace Content.Server.Merchant
         [Dependency] private readonly EntityManager _entityManager = default!;
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         [Dependency] private readonly SharedStackSystem _stackSystem = default!;
+        [Dependency] private readonly PopupSystem _popupSystem = default!;
         [Dependency] private readonly HandsSystem _handsSystem = default!;
         [Dependency] private readonly ChatSystem _chatSystem = default!;
 
@@ -40,6 +42,12 @@ namespace Content.Server.Merchant
         /// <param name="component"></param>
         private void GetNextItem(EntityUid uid, EntityUid user, MerchantComponent component)
         {
+            if (component.Count <= 0)
+            {
+                _popupSystem.PopupEntity("The machine appears to be off...", uid, Filter.Entities(user));
+                return;
+            }
+
             var objectname = "Unknown (I FUCKED UP!)"; // Tells you if you fucked up
             int price = 100;
             if (_prototypeManager.TryIndex<EntityPrototype>(component.Products[component.Index], out var proto)) // Checks to ensure you didn't fuck up.
@@ -60,6 +68,12 @@ namespace Content.Server.Merchant
         /// <param name="component"></param>
         private void AttemptRespeak(EntityUid uid, EntityUid user, MerchantComponent component)
         {
+            if (component.Count <= 0)
+            {
+                _popupSystem.PopupEntity("The machine appears to be off...", uid, Filter.Entities(user));
+                return;
+            }
+
             if (component.Index >= component.Products.Count) // Ensures your purchase isn't out of the list, allows for live changing (?)
                 component.Index = 0;
             int price = 100; // A base price, just in case an item doesn't exist
@@ -83,6 +97,12 @@ namespace Content.Server.Merchant
         /// <param name="component"></param>
         private void AttemptGetPrevItem(EntityUid uid, EntityUid user, MerchantComponent component) // Interaction with an empty hand
         {
+            if (component.Count <= 0)
+            {
+                _popupSystem.PopupEntity("The machine appears to be off...", uid, Filter.Entities(user));
+                return;
+            }
+
             component.Index -= 1; // Advances the index by 1, this basically selects what to buy
 
             if (component.Index >= component.Products.Count) // If index exceeds the amount of products, restart (Check still needed to allow for live changing)
@@ -100,6 +120,12 @@ namespace Content.Server.Merchant
         /// <param name="args"></param>
         private void UponEmptyInteraction(EntityUid uid, MerchantComponent component, InteractHandEvent args)
         {
+            if (component.Count <= 0)
+            {
+                _popupSystem.PopupEntity("The machine appears to be off...", uid, Filter.Entities(args.User));
+                return;
+            }
+
             component.Index += 1; // Advances the index by 1, this basically selects what to buy
             if (component.Index >= component.Products.Count) // If index exceeds the amount of products, restart
                 component.Index = 0;
@@ -116,6 +142,14 @@ namespace Content.Server.Merchant
         {
             if (args.Handled)
                 return;
+
+            args.Handled = true;
+
+            if (component.Count <= 0 )
+            {
+                _popupSystem.PopupEntity("The machine appears to be off...", uid, Filter.Entities(args.User));
+                return;
+            }
 
             if (component.Index >= component.Products.Count) // Ensures your purchase isn't out of the list
                 component.Index = 0;
@@ -142,10 +176,21 @@ namespace Content.Server.Merchant
                         _stackSystem.SetCount(args.Used, stack.Count - price);
                     else
                         _entityManager.DeleteEntity(args.Used);
+
+                    component.Count -= 1;
+
                     var productuid = _entityManager.SpawnEntity(component.Products[component.Index], Transform(args.User).Coordinates);
                     _handsSystem.TryPickupAnyHand(args.User, productuid);
                     var msg = "Thank You For Purchasing " + objectname + "!"; // :godo:
+
+                    if (component.Count <= 0)
+                    {
+                        _popupSystem.PopupEntity("The machine appears to power off...", uid, Filter.Entities(args.User));
+                        return;
+                    }
+
                     _chatSystem.TrySendInGameICMessage(uid, msg, InGameICChatType.Speak, true);
+
                 }
                 else // Poor ass mf
                 {

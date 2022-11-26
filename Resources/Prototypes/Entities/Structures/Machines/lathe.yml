@@ -594,6 +594,12 @@
         - LatheRecipePistolCartridge
         - LatheRecipeCobra
         - LatheRecipeCaselessPistolMag
+        - WeaponRevolverInspector
+        - WeaponRevolverMateba
+        - WeaponRevolverPirate
+        - WeaponRevolverPython
+        - CartridgeMagnum
+        - SpeedLoaderMagnum
         - LatheRecipeSubMachineGunAtreides # SMGs
         - LatheRecipeSubMachineGunWt550
         - LatheRecipeSubMachineGunVector

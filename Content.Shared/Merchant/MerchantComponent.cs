@@ -17,4 +17,6 @@ public sealed class MerchantComponent : Component
     public List<string> Products = new();
     [DataField("Index")]
     public int Index = 0;
+    [DataField("ProductsCount")]
+    public int Count = 20;
 }
