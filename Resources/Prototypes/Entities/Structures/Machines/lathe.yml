@@ -598,8 +598,8 @@
         - WeaponRevolverMateba
         - WeaponRevolverPirate
         - WeaponRevolverPython
-        - CartridgeMagnum
-        - SpeedLoaderMagnum
+        - LatheCartridgeMagnum
+        - LatheSpeedLoaderMagnum
         - LatheRecipeSubMachineGunAtreides # SMGs
         - LatheRecipeSubMachineGunWt550
         - LatheRecipeSubMachineGunVector

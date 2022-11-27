@@ -1,6 +1,22 @@
 - type: entity
+  parent: BaseItem
+  id: TurretAmmoProvider
+  abstract: true
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: Objects/Storage/boxes.rsi
+  - type: Item
+    size: 50
+    sprite: Objects/Storage/boxes.rsi
+  - type: BallisticAmmoProvider
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+
+- type: entity
   name: box of rockets
-  parent: BoxAmmoProvider
+  parent: TurretAmmoProvider
   id: BoxRockets
   description: A box full of lethal rockets, designed for RPGs.
   components:
@@ -8,8 +24,31 @@
       tags:
       - RocketAmmoBox
     - type: BallisticAmmoProvider
+      whitelist:
+        tags:
+          - CartridgeRocket
       proto: CartridgeRocket
       capacity: 6
     - type: Sprite
       layers:
         - state: boxwide
+
+- type: entity
+  name: box of shotgun turret lethal cartridges
+  parent: TurretAmmoProvider
+  id: TurretBoxLethalshot
+  description: A box full of lethal pellet shots, designed for shotgun turrets.
+  components:
+    - type: Tag
+      tags:
+      - ShotgunAmmoBox
+    - type: BallisticAmmoProvider
+      whitelist:
+        tags:
+          - ShellTurretShotgun
+      proto: ShellTurretShotgun
+      capacity: 18
+    - type: Sprite
+      layers:
+        - state: boxwide
+        - state: shelllethal

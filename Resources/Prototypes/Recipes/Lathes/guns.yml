@@ -142,7 +142,7 @@
     Steel: 400
 
 - type: latheRecipe
-  id: CartridgeMagnum
+  id: LatheCartridgeMagnum
   icon:
     sprite: Objects/Weapons/Guns/Ammunition/Casings/ammo_casing.rsi
     state: base
@@ -152,7 +152,7 @@
     Steel: 20
     
 - type: latheRecipe
-  id: SpeedLoaderMagnum
+  id: LatheSpeedLoaderMagnum
   icon:
     sprite: Objects\Weapons\Guns\Ammunition\SpeedLoaders/Magnum/magnum_speed_loader.rsi
     state: base

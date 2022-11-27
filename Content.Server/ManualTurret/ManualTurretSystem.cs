@@ -143,7 +143,7 @@ namespace Content.Server.ManualTurret
                 comp.TimeFired = curTime;
                 if (!comp.IsBatteryWeapon)
                 {
-                    var container = _containerSystem.GetAllContainers(uid).First();
+                    var container = _containerSystem.GetContainer(uid, "turret_mag");
                     if (container.ContainedEntities.Count > 0)
                     {
                         var magazine = container.ContainedEntities.First(); // There's probably a better way of doing this but it's good for now
@@ -159,7 +159,11 @@ namespace Content.Server.ManualTurret
                                 cartridge = Spawn(ammoComp.FillProto, xform.MapPosition);
                             }
                             else
+                            {
                                 cartridge = ammoComp.Entities.Last(); // Is it better to do last or first? fuck it we're doing last.
+                                ammoComp.Entities.Remove(cartridge);
+                                Dirty(ammoComp);
+                            }
 
                             if (_entityManager.TryGetComponent<CartridgeAmmoComponent>(cartridge, out var cartridgeComp))
                             {
@@ -180,13 +184,12 @@ namespace Content.Server.ManualTurret
                                     }
                                     else
                                         ShootProjectile(Spawn(bullet, xform.MapPosition), rot.ToWorldVec(), uid);
+
                                     _entityManager.DeleteEntity(cartridge); // This is better for performance, for both the client and the server.
                                     //Dirty(cartridge);
                                     //cartridgeComp.Spent = true;
                                     //_appearanceSystem.SetData(cartridge, AmmoVisuals.Spent, true);
                                 }
-                                //if (ammoComp.Entities.Count > 0)
-                                    //ammoComp.Entities.Remove(cartridge);
                             }
                             else // This is for fun, mostly. Could see some good use later maybe (Spear launcher, anyone?)
                             {
