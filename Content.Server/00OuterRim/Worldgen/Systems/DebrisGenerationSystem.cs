@@ -38,7 +38,7 @@ public sealed class DebrisGenerationSystem : EntitySystem
     public (MapGridComponent, EntityUid) GenerateFloorplan(DebrisPrototype proto, MapCoordinates location)
     {
         var grid = _mapManager.CreateGrid(location.MapId);
-        _transformSystem.SetWorldPosition(grid.GridEntityId, location.Position);
+        _transformSystem.SetWorldPosition(grid.Owner, location.Position);
 
         switch (proto.FloorplanStyle)
         {
@@ -52,7 +52,7 @@ public sealed class DebrisGenerationSystem : EntitySystem
                 throw new NotImplementedException();
         }
 
-        return (grid, grid.GridEntityId);
+        return (grid, grid.Owner);
     }
 
     private void PlaceFloorplanTiles(DebrisPrototype proto, MapGridComponent grid, bool blobs)

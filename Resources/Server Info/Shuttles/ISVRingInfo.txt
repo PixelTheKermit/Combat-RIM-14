@@ -1,0 +1,5 @@
+A ring shaped shuttle, made for artifact research and armed with laser turrets.
+Crew manifest:
+ - 1x Captain
+ - 3x Scientists
+ - 2x Salvage Specialists

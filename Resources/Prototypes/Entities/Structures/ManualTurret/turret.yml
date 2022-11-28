@@ -144,7 +144,7 @@
   parent: WeaponBasePoweredTurretManual
   id: WeaponRocketTurretManual
   name: rocket launcher turret
-  description: A very dangerous gun. Don't point this at your own shuttle
+  description: A very dangerous gun. Use with caution.
   components:
     - type: Machine
       board: WeaponRocketTurretManualCircuitboard
@@ -176,7 +176,7 @@
   parent: WeaponBasePoweredTurretManual
   id: WeaponShotgunTurretManual
   name: shotgun turret
-  description: A static, very heavy shotgun. You better hope none of the shots hit you!
+  description: A static, very heavy shotgun. You better pray none of the shots hit you!
   components:
     - type: Machine
       board: WeaponShotgunTurretManualCircuitboard

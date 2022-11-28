@@ -35,6 +35,8 @@
   id: MagazineBoxMinigun
   name: ammunition box (.10 rifle)
   components:
+  - type: StaticPrice
+    price: 5000
   - type: Tag
     tags:
       - MagazineBoxMinigun

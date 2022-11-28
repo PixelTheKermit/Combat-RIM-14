@@ -32,6 +32,10 @@
 	{
       "name": "demoman",
       "directions": 4
+	},
+	{
+      "name": "pirate",
+      "directions": 4
 	}
    ],
    "version" : 1

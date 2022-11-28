@@ -35,6 +35,19 @@
     states:
       Alive:
         Base: base
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 150
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SheetSteel:
+            min: 1
+            max: 3
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
   - type: Speech
 
 - type: entity
@@ -155,3 +168,20 @@
     - SyndieMiniBomb
     - ExGrenade
     - ClusterBang
+
+- type: entity
+  name: Turret Ammo Merchant
+  description: A merchant that provides ammo for your ship's guns
+  id: TurretAmmoMerchant
+  parent: MerchantBase
+  components:
+  - type: Sprite
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: pirate
+  - type: Merchant
+    Currency: SpaceCash
+    Products:
+    - MagazineBoxMinigun
+    - BoxRockets
+    - TurretBoxLethalshot

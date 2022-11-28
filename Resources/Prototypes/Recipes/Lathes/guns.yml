@@ -96,6 +96,72 @@
     GunParts: 15
     Steel: 150
 
+# <Revolvers>
+- type: latheRecipe
+  id: WeaponRevolverInspector
+  icon:
+    sprite: Objects/Weapons/Guns/Revolvers/inspector.rsi
+    state: icon
+  result: WeaponRevolverInspector
+  completetime: 15
+  materials:
+    GunParts: 150
+    Steel: 400
+
+- type: latheRecipe
+  id: WeaponRevolverMateba
+  icon:
+    sprite: Objects/Weapons/Guns/Revolvers/mateba.rsi
+    state: icon
+  result: WeaponRevolverMateba
+  completetime: 15
+  materials:
+    GunParts: 150
+    Steel: 400
+
+- type: latheRecipe
+  id: WeaponRevolverPirate
+  icon:
+    sprite: Objects/Weapons/Guns/Revolvers/pirate_revolver.rsi
+    state: icon
+  result: WeaponRevolverPirate
+  completetime: 15
+  materials:
+    GunParts: 150
+    Steel: 400
+
+- type: latheRecipe
+  id: WeaponRevolverPython
+  icon:
+    sprite: Objects/Weapons/Guns/Revolvers/python.rsi
+    state: icon
+  result: WeaponRevolverPython
+  completetime: 15
+  materials:
+    GunParts: 150
+    Steel: 400
+
+- type: latheRecipe
+  id: LatheCartridgeMagnum
+  icon:
+    sprite: Objects/Weapons/Guns/Ammunition/Casings/ammo_casing.rsi
+    state: base
+  result: CartridgeMagnum
+  completetime: 2
+  materials:
+    Steel: 20
+    
+- type: latheRecipe
+  id: LatheSpeedLoaderMagnum
+  icon:
+    sprite: Objects\Weapons\Guns\Ammunition\SpeedLoaders/Magnum/magnum_speed_loader.rsi
+    state: base
+  result: SpeedLoaderMagnum
+  completetime: 7
+  materials:
+    GunParts: 30
+    Steel: 300
+
 # <SMGs>
 - type: latheRecipe
   id: LatheRecipeSubMachineGunAtreides

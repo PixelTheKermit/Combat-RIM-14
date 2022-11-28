@@ -1,0 +1,37 @@
+- type: entity
+  id: BaseTurretShellShotgun
+  name: shell (.50)
+  parent: BaseCartridge
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+    - TurretCartridge
+    - TurretShellShotgun
+  - type: CartridgeAmmo
+    count: 8
+    spread: 12
+    soundEject:
+      collection: ShellEject
+  - type: Sprite
+    netsync: false
+    sprite: Objects/Weapons/Guns/Ammunition/Casings/shotgun_shell.rsi
+    layers:
+      - state: base
+        map: [ "enum.AmmoVisualLayers.Base" ]
+  - type: Appearance
+  - type: SpentAmmoVisuals
+
+- type: entity
+  id: ShellTurretShotgun
+  name: turret shell (.75)
+  parent: BaseTurretShellShotgun
+  components:
+  - type: StaticPrice
+    price: 0
+  - type: Sprite
+    layers:
+      - state: base
+        map: [ "enum.AmmoVisualLayers.Base" ]
+  - type: CartridgeAmmo
+    proto: PelletShotgunTurret

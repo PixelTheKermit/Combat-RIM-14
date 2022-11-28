@@ -1,0 +1,18 @@
+﻿- type: gameMap
+  id: ISVRing
+  mapName: 'ISV Ring'
+  mapPath: /Maps/CRShuttles/isvring.yml
+  minPlayers: 0
+  fallback: true
+  descriptionPath: "/Server Info/Shuttles/ISVRingInfo.txt"
+  stations:
+    IsvRing:
+      mapNameTemplate: '{0} Ring {1}'
+      nameGenerator:
+        !type:IndependentNameGenerator
+        prefixCreator: ''
+      overflowJobs: []
+      availableJobs:
+        ShuttleCaptain: [ 0, 1 ]
+        Scientist: [ 3, 3 ]
+        SalvageSpecialist: [ 2, 2 ]
