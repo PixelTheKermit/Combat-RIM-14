@@ -1,6 +1,8 @@
 using System.Linq;
 using Content.Server._00OuterRim.Worldgen.Components;
 using Content.Server._00OuterRim.Worldgen.Prototypes;
+using Content.Server.Mind;
+using Microsoft.CodeAnalysis;
 using Robust.Shared.Map;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
@@ -9,6 +11,8 @@ namespace Content.Server._00OuterRim.Worldgen.Systems.Overworld;
 
 public partial class WorldChunkSystem
 {
+    [Dependency] private readonly IMapManager _mapManager = default!;
+
     private readonly Queue<(DebrisData, Vector2i)> _debrisLoadQueue = new();
 
     private readonly Stopwatch _debrisLoadStopwatch = new();
@@ -65,6 +69,8 @@ public partial class WorldChunkSystem
         {
             if (_chunks.ContainsKey(chunk))
             {
+                _chunks.Remove(chunk);
+                MakeChunk(chunk);
                 LoadChunk(chunk);
             }
             else
@@ -95,7 +101,7 @@ public partial class WorldChunkSystem
 
     private void LoadDebris(DebrisData debris, Vector2i chunk)
     {
-        if (debris.CurrGrid is not null && Exists(debris.CurrGrid))
+        if (debris.CurrGrid != null && Exists(debris.CurrGrid))
             return;
 
         debris.CurrGrid = _debrisGeneration.GenerateDebris(debris.Kind!, debris.Coords);
@@ -177,8 +183,16 @@ public partial class WorldChunkSystem
 
     private void UnloadDebris(DebrisData debris)
     {
-        if (debris.CurrGrid is not null)
-            Del(debris.CurrGrid.Value);
-        debris.CurrGrid = null;
+        if (debris.CurrGrid != null && !EntityManager.IsQueuedForDeletion(debris.CurrGrid.Value))
+        {
+            EntityManager.QueueDeleteEntity(debris.CurrGrid.Value);
+
+            debris = new DebrisData()
+            {
+                CurrGrid = null,
+                Kind = debris.Kind,
+                Coords = new MapCoordinates(debris.Coords.Position, WorldMap),
+            };
+        }
     }
 }

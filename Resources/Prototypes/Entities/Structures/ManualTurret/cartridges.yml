@@ -27,6 +27,8 @@
   name: turret shell (.75)
   parent: BaseTurretShellShotgun
   components:
+  - type: StaticPrice
+    price: 0
   - type: Sprite
     layers:
       - state: base
