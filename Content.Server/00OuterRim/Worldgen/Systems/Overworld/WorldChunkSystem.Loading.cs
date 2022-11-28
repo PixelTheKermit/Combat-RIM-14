@@ -70,7 +70,7 @@ public partial class WorldChunkSystem
             if (_chunks.ContainsKey(chunk))
             {
                 _chunks.Remove(chunk);
-                MakeChunk(chunk);
+                MakeChunk(chunk, false);
                 LoadChunk(chunk);
             }
             else
@@ -110,7 +110,7 @@ public partial class WorldChunkSystem
         comp.CurrentChunk = chunk;
     }
 
-    private void MakeChunk(Vector2i chunk)
+    private void MakeChunk(Vector2i chunk, bool spawnPoI = true)
     {
         if (ShouldClipChunk(chunk))
         {
@@ -118,20 +118,23 @@ public partial class WorldChunkSystem
             return;
         }
 
-        if (_random.Prob(_pointOfInterestChance))
+        if (spawnPoI)
         {
-            ForceEmptyChunk(chunk);
-            var poi = _random.Pick(_prototypeManager.EnumeratePrototypes<PointOfInterestPrototype>().ToList());
-            poi.Generator.Generate(chunk);
-            return;
-        }
+            if (_random.Prob(_pointOfInterestChance))
+            {
+                ForceEmptyChunk(chunk);
+                var poi = _random.Pick(_prototypeManager.EnumeratePrototypes<PointOfInterestPrototype>().ToList());
+                poi.Generator.Generate(chunk);
+                return;
+            }
 
-        else if (_random.Prob(2.5f/100f))
-        {
-            ForceEmptyChunk(chunk);
-            var poi = _random.Pick(_prototypeManager.EnumeratePrototypes<MerchantSpawnerPrototype>().ToList());
-            poi.Generator.Generate(chunk);
-            return;
+            else if (_random.Prob(2.5f / 100f))
+            {
+                ForceEmptyChunk(chunk);
+                var poi = _random.Pick(_prototypeManager.EnumeratePrototypes<MerchantSpawnerPrototype>().ToList());
+                poi.Generator.Generate(chunk);
+                return;
+            }
         }
 
         var density = GetChunkDensity(chunk);
