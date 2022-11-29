@@ -13,19 +13,22 @@ using Content.Server.Power.Components;
 using Robust.Shared.Utility;
 using Robust.Shared.Containers;
 using Content.Server.Construction;
+using Content.Server.Weapons.Ranged.Systems;
+using Robust.Shared.Random;
 
 namespace Content.Server.ManualTurret
 {
     public sealed class ManualTurretSystem : EntitySystem
     {
         // Dependencies
+        [Dependency] protected readonly IRobustRandom Random = default!;
         [Dependency] private readonly EntityManager _entityManager = default!;
         [Dependency] private readonly SharedPhysicsSystem _physicsSystem = default!;
         [Dependency] private readonly SharedProjectileSystem _projectilesSystem = default!;
         [Dependency] private readonly IGameTiming _gameTiming = default!;
         [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
         [Dependency] private readonly ContainerSystem _containerSystem = default!;
-        [Dependency] private readonly SharedGunSystem _gunSystem = default!;
+        [Dependency] private readonly GunSystem _gunSystem = default!;
         [Dependency] private readonly SharedAppearanceSystem _appearanceSystem = default!;
 
         public override void Initialize() // VERY IMPORTANT!!!!!!
@@ -61,10 +64,15 @@ namespace Content.Server.ManualTurret
         /// <param name="args"></param>
         private void PartsRefresh(EntityUid uid, ManualTurretComponent component, RefreshPartsEvent args)
         {
+            // Obtain the ratings!
             var firingTimeRating = args.PartRatings[component.MachinePartFiringSpeed];
             var chargeNeededRating = args.PartRatings[component.MachinePartChargeNeeded];
+            var accuracyRating = args.PartRatings[component.MachinePartAccuracy];
+
+            // Make the markipliers with some funky math
             component.FireRateMultiplier = MathF.Pow(component.PartRatingFireRateMultiplier, firingTimeRating - 1);
             component.ChargeNeededMultiplier = MathF.Pow(component.PartRatingChargeNeededMultiplier, chargeNeededRating - 1);
+            component.AccuracyMultiplier = MathF.Pow(component.PartRatingAccuracyMultiplier, accuracyRating - 1);
             Dirty(component);
         }
 
@@ -72,6 +80,7 @@ namespace Content.Server.ManualTurret
         {
             args.AddPercentageUpgrade("turret-component-upgrade-speed", 1 / component.FireRateMultiplier);
             args.AddPercentageUpgrade("turret-component-upgrade-charge", 1 / component.ChargeNeededMultiplier);
+            args.AddPercentageUpgrade("turret-component-upgrade-accuracy", 1 / component.AccuracyMultiplier);
         }
 
         /// <summary>
@@ -165,6 +174,8 @@ namespace Content.Server.ManualTurret
                                 Dirty(ammoComp);
                             }
 
+                            var angle = GetRecoilAngle(_gameTiming.CurTime, comp, rot);
+
                             if (_entityManager.TryGetComponent<CartridgeAmmoComponent>(cartridge, out var cartridgeComp))
                             {
                                 if (!cartridgeComp.Spent) // a wasted bullet is a useless one
@@ -179,11 +190,11 @@ namespace Content.Server.ManualTurret
 
                                         for (var i = 0; i < cartridgeComp.Count; i++)
                                         {
-                                            ShootProjectile(Spawn(bullet, xform.MapPosition), angles[i].ToWorldVec(), uid);
+                                            _gunSystem.ShootProjectile(Spawn(bullet, xform.MapPosition), angles[i].ToWorldVec(), uid);
                                         }
                                     }
                                     else
-                                        ShootProjectile(Spawn(bullet, xform.MapPosition), rot.ToWorldVec(), uid);
+                                        _gunSystem.ShootProjectile(Spawn(bullet, xform.MapPosition), angle.ToWorldVec(), uid);
 
                                     _entityManager.DeleteEntity(cartridge); // This is better for performance, for both the client and the server.
                                     //Dirty(cartridge);
@@ -196,7 +207,7 @@ namespace Content.Server.ManualTurret
                                 _audioSystem.Play(comp.SoundGunshot, Filter.Pvs(uid), uid, true);
                                 var bullet = cartridge;
                                 ammoComp.Entities.Remove(cartridge);
-                                ShootProjectile(bullet, rot.ToWorldVec(), uid);
+                                _gunSystem.ShootProjectile(bullet, angle.ToWorldVec(), uid);
                             }
                             Dirty(magazine);
                             UpdateAppearance(ammoComp);
@@ -217,32 +228,22 @@ namespace Content.Server.ManualTurret
                     batteryComp!.CurrentCharge -= comp.FireCost * comp.ChargeNeededMultiplier;
                     _audioSystem.Play(comp.SoundGunshot, Filter.Pvs(uid), uid, true);
                     var bullet = projComp.Prototype;
-                    ShootProjectile(Spawn(bullet, xform.MapPosition), rot.ToWorldVec(), uid);
+                    _gunSystem.ShootProjectile(Spawn(bullet, xform.MapPosition), rot.ToWorldVec(), uid);
                 }
             }
         }
 
-
-        /// <summary>
-        /// Swiped from gun script
-        /// </summary>
-        /// <param name="uid"></param>
-        /// <param name="direction"></param>
-        /// <param name="user"></param>
-        /// <param name="speed"></param>
-        public void ShootProjectile(EntityUid uid, Vector2 direction, EntityUid? user = null, float speed = 20f)
+        private Angle GetRecoilAngle(TimeSpan curTime, ManualTurretComponent component, Angle direction)
         {
-            var physics = EnsureComp<PhysicsComponent>(uid);
-            physics.BodyStatus = BodyStatus.InAir;
-            _physicsSystem.SetLinearVelocity(physics, direction.Normalized * speed);
+            var timeSinceLastFire = (curTime - component.TimeFired).TotalSeconds;
+            var newTheta = MathHelper.Clamp(component.CurrentAngle.Theta + component.AngleIncrease.Theta * component.AccuracyMultiplier - component.AngleDecay.Theta / component.AccuracyMultiplier * timeSinceLastFire, component.MinAngle.Theta * component.AccuracyMultiplier, component.MaxAngle.Theta * component.AccuracyMultiplier);
+            component.CurrentAngle = new Angle(newTheta);
 
-            if (user != null)
-            {
-                var projectile = EnsureComp<ProjectileComponent>(uid);
-                _projectilesSystem.SetShooter(projectile, user.Value);
-            }
-
-            Transform(uid).WorldRotation = direction.ToWorldAngle();
+            var random = Random.NextFloat(-0.5f, 0.5f);
+            var spread = component.CurrentAngle.Theta * random;
+            var angle = new Angle(direction.Theta + component.CurrentAngle.Theta * random);
+            DebugTools.Assert(spread <= component.MaxAngle.Theta);
+            return angle;
         }
 
         private Angle[] LinearSpread(Angle start, Angle end, int intervals)
