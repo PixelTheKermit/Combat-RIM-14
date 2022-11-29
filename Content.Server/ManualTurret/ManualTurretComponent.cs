@@ -30,6 +30,21 @@ public sealed class ManualTurretComponent : Component
     [DataField("fireCost")]
     public float FireCost = 0f;
 
+    [DataField("currentAngle")]
+    public Angle CurrentAngle;
+
+    [ViewVariables(VVAccess.ReadWrite), DataField("angleIncrease")]
+    public Angle AngleIncrease = Angle.FromDegrees(0.5);
+
+    [DataField("angleDecay")]
+    public Angle AngleDecay = Angle.FromDegrees(4);
+
+    [ViewVariables(VVAccess.ReadWrite), DataField("maxAngle")]
+    public Angle MaxAngle = Angle.FromDegrees(2);
+
+    [ViewVariables(VVAccess.ReadWrite), DataField("minAngle")]
+    public Angle MinAngle = Angle.FromDegrees(1);
+
     // Sounds
 
     [DataField("soundGunshot")]
@@ -79,4 +94,13 @@ public sealed class ManualTurretComponent : Component
 
     [ViewVariables(VVAccess.ReadWrite)]
     public float ChargeNeededMultiplier = 1;
+
+    [DataField("machinePartAccuracy", customTypeSerializer: typeof(PrototypeIdSerializer<MachinePartPrototype>))]
+    public string MachinePartAccuracy = "Laser";
+
+    [DataField("partRatingAccuracyMultiplier")]
+    public float PartRatingAccuracyMultiplier = 0.25f;
+
+    [ViewVariables(VVAccess.ReadWrite)]
+    public float AccuracyMultiplier = 1;
 }

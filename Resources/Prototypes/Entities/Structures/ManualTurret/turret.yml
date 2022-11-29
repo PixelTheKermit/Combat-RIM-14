@@ -8,6 +8,10 @@
     mode: SnapgridCenter
   components:
     - type: ManualTurret # BRAND NEW COMPONENT FROM PIXEL CO. MADE FROM THE BLOOD AND SWEAT OF ONE POOR CODER!
+      minAngle: 2
+      maxAngle: 4
+      angleIncrease: 1
+      angleDecay: 2
       fireCost: 2.5
       soundGunshot: /Audio/Weapons/Guns/Gunshots/pistol.ogg
       fireRate: 12
