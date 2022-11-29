@@ -99,7 +99,7 @@ public sealed class ManualTurretComponent : Component
     public string MachinePartAccuracy = "Laser";
 
     [DataField("partRatingAccuracyMultiplier")]
-    public float PartRatingAccuracyMultiplier = 0.25f;
+    public float PartRatingAccuracyMultiplier = 0.5f;
 
     [ViewVariables(VVAccess.ReadWrite)]
     public float AccuracyMultiplier = 1;

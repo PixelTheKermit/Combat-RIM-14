@@ -5,3 +5,4 @@ technologies-turret-technology-description = Unlocks access to researching prote
 ## Upgrades
 turret-component-upgrade-speed = Firerate
 turret-component-upgrade-charge = Charge efficiency
+turret-component-upgrade-accuracy = Accuracy

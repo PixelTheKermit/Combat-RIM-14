@@ -64,12 +64,15 @@ namespace Content.Server.ManualTurret
         /// <param name="args"></param>
         private void PartsRefresh(EntityUid uid, ManualTurretComponent component, RefreshPartsEvent args)
         {
+            // Obtain the ratings!
             var firingTimeRating = args.PartRatings[component.MachinePartFiringSpeed];
             var chargeNeededRating = args.PartRatings[component.MachinePartChargeNeeded];
             var accuracyRating = args.PartRatings[component.MachinePartAccuracy];
+
+            // Make the markipliers with some funky math
             component.FireRateMultiplier = MathF.Pow(component.PartRatingFireRateMultiplier, firingTimeRating - 1);
             component.ChargeNeededMultiplier = MathF.Pow(component.PartRatingChargeNeededMultiplier, chargeNeededRating - 1);
-            component.AccuracyMultiplier = MathF.Pow(component.PartRatingChargeNeededMultiplier, chargeNeededRating - 1);
+            component.AccuracyMultiplier = MathF.Pow(component.PartRatingAccuracyMultiplier, accuracyRating - 1);
             Dirty(component);
         }
 
