@@ -60,32 +60,6 @@
 
 - type: entity
   parent: ClothingOuterHardsuitBase
-  id: ClothingOuterHardsuitBear
-  name: B.E.A.R. suit
-  description: Beary Easy Acceleration Raiment.
-  components:
-  - type: Sprite
-    sprite: /Textures/Clothing/OuterClothing/Hardsuits/security-pink.rsi
-  - type: Clothing
-    sprite: /Textures/Clothing/OuterClothing/Hardsuits/security-pink.rsi
-  - type: PressureProtection
-    highPressureMultiplier: 0.02
-    lowPressureMultiplier: 1000
-  - type: ClothingSpeedModifier
-    walkModifier: 1.25
-    sprintModifier: 1.25
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: -0.125
-        Slash: -0.125
-        Piercing: -0.125
-        Heat: 0.3
-  - type: ToggleableClothing
-    clothingPrototype: ClothingHeadHelmetHardsuitBear
-
-- type: entity
-  parent: ClothingOuterHardsuitBase
   id: ClothingOuterHardsuitDeathsquad
   name: deathsquad hardsuit
   description: An advanced hardsuit favored by commandos for use in special operations.
