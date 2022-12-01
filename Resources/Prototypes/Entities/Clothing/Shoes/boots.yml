@@ -21,6 +21,16 @@
     sprite: Clothing/Shoes/Boots/jackboots.rsi
 
 - type: entity
+  parent: ClothingShoesBootsJack
+  id: ClothingShoesDashing
+  name: dashboots
+  description: A pair of boots, fitted with some cool tech that allows the user to dash a small distance.
+  components:
+    - type: MagicClothing
+      worldSpells:
+        BootsBlink: -1
+
+- type: entity
   parent: ClothingShoesBaseButcherable
   id: ClothingShoesBootsSalvage
   name: salvage boots
