@@ -46,12 +46,12 @@ public sealed class ControllerDeviceSystem : EntitySystem
             return;
         }
 
-    //    var calcDist = Comp<TransformComponent>(uid).WorldPosition.Length - Comp<TransformComponent>(comp.Controlling.Value).WorldPosition.Length;
-    //    if (calcDist > controllableComp.Range)
-    //    {
-    //        _popupSystem.PopupEntity(Loc.GetString("device-control-out-of-range"), uid, Filter.Entities(args.User));
-    //        return;
-    //    }
+        var calcDist = (Comp<TransformComponent>(uid).WorldPosition - Comp<TransformComponent>(comp.Controlling.Value).WorldPosition).Length;
+        if (calcDist > controllableComp.Range)
+        {
+            _popupSystem.PopupEntity(Loc.GetString("device-control-out-of-range"), uid, Filter.Entities(args.User));
+            return;
+        }
 
         if (!TryComp<ControllerMobComponent>(args.User, out var controllerComp)
             || controllerComp.Controlling != null)

@@ -31,27 +31,27 @@ public sealed class ControllableMobSystem : EntitySystem
         SubscribeLocalEvent<ControllableMobComponent, MobStateChangedEvent>(MobStateChanged);
     }
 
-//    public override void Update(float frameTime)
-//  {
-//        base.Update(frameTime);
-//
-//        foreach (var (contMob, xform) in EntityQuery<ControllableMobComponent, TransformComponent>())
-//        {
-//            
-//            if (contMob.CurrentEntityOwning != null)
-//            {
-//                var calcDist = xform.WorldPosition.Length - Comp<TransformComponent>(contMob.CurrentEntityOwning.Value).WorldPosition.Length;
-//
-//                if (calcDist > contMob.Range)
-//                {
-//                    ChangeControl(contMob.Owner, contMob.CurrentEntityOwning.Value);
-//                    Comp<ControllerMobComponent>(contMob.CurrentEntityOwning.Value).Controlling = null;
-//                    _popupSystem.PopupEntity(Loc.GetString("device-control-out-of-range"), contMob.CurrentEntityOwning.Value, Filter.Entities(contMob.CurrentEntityOwning.Value));
-//                    contMob.CurrentEntityOwning = null;
-//                }
-//            }
-//        }
-//    }
+    public override void Update(float frameTime)
+  {
+        base.Update(frameTime);
+
+        foreach (var (contMob, xform) in EntityQuery<ControllableMobComponent, TransformComponent>())
+        {
+            
+            if (contMob.CurrentEntityOwning != null)
+            {
+                var calcDist = (xform.WorldPosition - Comp<TransformComponent>(contMob.CurrentEntityOwning.Value).WorldPosition).Length;
+
+                if (calcDist > contMob.Range)
+                {
+                    ChangeControl(contMob.Owner, contMob.CurrentEntityOwning.Value);
+                    Comp<ControllerMobComponent>(contMob.CurrentEntityOwning.Value).Controlling = null;
+                    _popupSystem.PopupEntity(Loc.GetString("device-control-out-of-range"), contMob.CurrentEntityOwning.Value, Filter.Entities(contMob.Owner));
+                    contMob.CurrentEntityOwning = null;
+                }
+            }
+        }
+    }
 
     public void ChangeControl(EntityUid former, EntityUid latter)
     {
