@@ -5,7 +5,7 @@
   id: BaseMobOrganic
   noSpawn: true
   components:
-  - type: Controller
+  - type: ControllerMob
   - type: LagCompensation
   - type: RangedDamageSound
     soundGroups:

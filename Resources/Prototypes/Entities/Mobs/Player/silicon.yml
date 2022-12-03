@@ -69,6 +69,7 @@
   id: Drone
   parent: PlayerSiliconBase
   components:
+  - type: InputMover
   - type: ControllableMob
   - type: Drone
   - type: InnateTool
@@ -121,7 +122,6 @@
       types:
         Heat : 1 #per second, scales with temperature & other constants
   - type: Sprite
-    drawdepth: SmallMobs
     netsync: false
     layers:
     - state: shell
