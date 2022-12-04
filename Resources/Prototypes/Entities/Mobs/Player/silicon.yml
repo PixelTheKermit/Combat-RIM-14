@@ -210,11 +210,11 @@
   - type: DamageStateVisuals
     states:
       Alive:
-        Base: drone
+        Base: dronedark
       Critical:
-        Base: shell
+        Base: shelldark
       Dead:
-        Base: shell
+        Base: shelldark
   - type: Flashable
   - type: NoSlip
   - type: StatusEffects
@@ -237,7 +237,7 @@
     netsync: false
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
-      state: drone
+      state: dronedark
       sprite: Mobs/Silicon/drone.rsi
   - type: MovementIgnoreGravity
   - type: Fixtures
