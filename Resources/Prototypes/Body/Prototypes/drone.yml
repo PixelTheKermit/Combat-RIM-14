@@ -25,3 +25,19 @@
       - hand 6
     hand 6:
       part: RightArmBorg
+
+- type: body
+  id: Drone2
+  name: "drone"
+  root: hand 1
+  slots:
+    hand 1:
+      part: LeftArmBorg
+      connections:
+      - hand 2
+    hand 2:
+      part: RightArmBorg
+      connections:
+      - hand 3
+    hand 3:
+      part: RightArmBorg

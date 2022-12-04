@@ -7,6 +7,7 @@ using Content.Shared.Damage;
 using Content.Shared.Hands;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
+using Content.Shared.MobState;
 using Content.Shared.MobState.Components;
 using Content.Shared.Popups;
 using Content.Shared.Verbs;
@@ -33,7 +34,7 @@ public sealed class ControllerDeviceSystem : EntitySystem
 
     private void Control(EntityUid uid, ControllerDeviceComponent comp, UseInHandEvent args)
     {
-        if (comp.Controlling == null && !_entityManager.EntityExists(comp.Controlling) && (TryComp<MobStateComponent>(uid, out var damageState) && _mobStateSystem.IsDead(uid, damageState)))
+        if (comp.Controlling == null || !_entityManager.EntityExists(comp.Controlling) || (TryComp<MobStateComponent>(comp.Controlling, out var damageState) && damageState.CurrentState != null && damageState.CurrentState.Value == DamageState.Dead))
         {
             _popupSystem.PopupEntity(Loc.GetString("control-device-unable-to-connect"), uid, Filter.Entities(args.User));
             return;
