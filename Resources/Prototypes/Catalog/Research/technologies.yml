@@ -449,6 +449,7 @@
   requiredTechnologies:
     - CompactPowerTechnology
   unlockedRecipes:
+    - ExosuitFabricatorMachineCircuitboard
     - ProximitySensor
     - LeftArmBorg
     - RightArmBorg

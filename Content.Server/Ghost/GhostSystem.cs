@@ -299,7 +299,7 @@ namespace Content.Server.Ghost
             return ghostBoo.Handled;
         }
     }
-    
+
     [AnyCommand]
     public sealed class ToggleGhostVisibility : IConsoleCommand
     {
@@ -309,10 +309,10 @@ namespace Content.Server.Ghost
         public void Execute(IConsoleShell shell, string argStr, string[] args)
         {
             if (shell.Player == null)
-                shell.WriteLine("You can only open the ghost roles UI on a client.");
+                shell.WriteLine("You can only toggle ghost visibility on a client.");
 
             var entityManager = IoCManager.Resolve<IEntityManager>();
-            
+
             var uid = shell.Player?.AttachedEntity;
             if (uid == null
                 || !entityManager.HasComponent<GhostComponent>(uid)
