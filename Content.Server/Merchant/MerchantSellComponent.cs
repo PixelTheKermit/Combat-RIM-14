@@ -1,4 +1,7 @@
 
+using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.List;
+
 namespace Content.Server.Merchant.Sell
 {
     [RegisterComponent]
@@ -12,5 +15,8 @@ namespace Content.Server.Merchant.Sell
 
         [DataField("cashPrototype")]
         public string CashPrototype = "SpaceCash";
+
+        [DataField("blacklist")]
+        public List<string> Blacklist = new();
     }
 }

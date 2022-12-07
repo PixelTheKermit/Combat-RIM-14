@@ -51,13 +51,15 @@
   - type: Speech
 
 - type: entity
-  name: Customer Merchant
+  name: Buyer Merchant
   description: A merchant that buys stuff from you
   id: PurchasingMerchant
   parent: MerchantBase
   components:
   - type: MerchantSell
     cashPrototype: SpaceCash
+    blacklist:
+    - SellMerchantBlacklist
 
 - type: entity
   name: Botanist Merchant

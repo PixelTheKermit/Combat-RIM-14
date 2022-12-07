@@ -25,6 +25,7 @@
     - type: Tag
       tags:
       - RocketAmmoBox
+      - SellMerchantBlacklist
     - type: BallisticAmmoProvider
       whitelist:
         tags:
@@ -46,6 +47,7 @@
     - type: Tag
       tags:
       - ShotgunAmmoBox
+      - SellMerchantBlacklist
     - type: BallisticAmmoProvider
       whitelist:
         tags:

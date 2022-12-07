@@ -34,3 +34,6 @@
 
 - type: Tag
   id: TurretShellShotgun
+
+- type: Tag
+  id: SellMerchantBlacklist

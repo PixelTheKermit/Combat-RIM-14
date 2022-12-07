@@ -79,7 +79,11 @@ public sealed class HeadsetSystem : EntitySystem
     private void OnHeadsetReceive(EntityUid uid, HeadsetComponent component, RadioReceiveEvent args)
     {
         if (TryComp(Transform(uid).ParentUid, out ActorComponent? actor))
-            _netMan.ServerSendMessage(args.ChatMsg, actor.PlayerSession.ConnectedClient);
+        {
+            var calcDist = (Transform(uid).WorldPosition - Transform(args.Source).WorldPosition).Length;
+            if (calcDist <= component.Range)
+                _netMan.ServerSendMessage(args.ChatMsg, actor.PlayerSession.ConnectedClient);
+        }
     }
 
     private void OnExamined(EntityUid uid, HeadsetComponent component, ExaminedEvent args)

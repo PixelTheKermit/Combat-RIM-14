@@ -8,6 +8,7 @@
     tags:
     - TurretCartridge
     - TurretShellShotgun
+    - SellMerchantBlacklist
   - type: CartridgeAmmo
     count: 8
     spread: 12

@@ -8,4 +8,6 @@ namespace Content.Server.Radio.Components;
 [RegisterComponent]
 public sealed class IntrinsicRadioReceiverComponent : Component
 {
+    [DataField("range")]
+    public float Range = 200f;
 }

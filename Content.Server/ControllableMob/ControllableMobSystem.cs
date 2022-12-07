@@ -12,6 +12,7 @@ using Content.Shared.Verbs;
 using Robust.Server.Player;
 using Robust.Shared.Player;
 using Robust.Shared.Maths;
+using Content.Server.GameTicking;
 
 namespace Content.Server.ControllableMob;
 
@@ -32,10 +33,10 @@ public sealed class ControllableMobSystem : EntitySystem
     }
 
     public override void Update(float frameTime)
-  {
+    {
         base.Update(frameTime);
 
-        foreach (var (contMob, xform) in EntityQuery<ControllableMobComponent, TransformComponent>())
+        foreach (var (contMob, xform, mindComp) in EntityQuery<ControllableMobComponent, TransformComponent, MindComponent>())
         {
             
             if (contMob.CurrentEntityOwning != null)
@@ -47,6 +48,11 @@ public sealed class ControllableMobSystem : EntitySystem
                     ChangeControl(contMob.Owner, contMob.CurrentEntityOwning.Value);
                     Comp<ControllerMobComponent>(contMob.CurrentEntityOwning.Value).Controlling = null;
                     _popupSystem.PopupEntity(Loc.GetString("device-control-out-of-range"), contMob.CurrentEntityOwning.Value, Filter.Entities(contMob.Owner));
+                    contMob.CurrentEntityOwning = null;
+                }
+                else if (!mindComp.HasMind)
+                {
+                    Comp<ControllerMobComponent>(contMob.CurrentEntityOwning.Value).Controlling = null;
                     contMob.CurrentEntityOwning = null;
                 }
             }

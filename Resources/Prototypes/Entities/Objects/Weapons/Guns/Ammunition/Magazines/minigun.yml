@@ -8,6 +8,7 @@
   - type: Tag
     tags:
       - MagazineBoxMinigunBase
+      - SellMerchantBlacklist
   - type: BallisticAmmoProvider
     whitelist:
       tags:
@@ -40,6 +41,7 @@
   - type: Tag
     tags:
       - MagazineBoxMinigun
+      - SellMerchantBlacklist
   - type: BallisticAmmoProvider
     proto: CartridgeMinigun
     capacity: 200

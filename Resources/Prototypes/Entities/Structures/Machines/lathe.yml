@@ -139,6 +139,7 @@
   - type: MaterialStorage
     whitelist:
       tags:
+        - GunBench
         - Sheet
         - RawMaterial
         - Ingot
@@ -188,7 +189,10 @@
       - Implanter
       - PillCanister
       - ChemistryEmptyBottle01
+      - BotRemoteBase
       - Drone
+      - GunDrone
+      - BombDrone
       - Flash
       - MicroManipulatorStockPart
       - ScanningModuleStockPart
@@ -307,6 +311,7 @@
       - ManualShotgunTurretMachineCircuitboard
       - ManualRocketTurretMachineCircuitboard
       - TraversalDistorterMachineCircuitboard
+      - ClothingShoesDashing
   - type: MaterialStorage
     whitelist:
       tags:
