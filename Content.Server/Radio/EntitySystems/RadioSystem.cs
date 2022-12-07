@@ -41,7 +41,11 @@ public sealed class RadioSystem : EntitySystem
     private void OnIntrinsicReceive(EntityUid uid, IntrinsicRadioReceiverComponent component, RadioReceiveEvent args)
     {
         if (TryComp(uid, out ActorComponent? actor))
-            _netMan.ServerSendMessage(args.ChatMsg, actor.PlayerSession.ConnectedClient);
+        {
+            var calcDist = (Transform(uid).WorldPosition - Transform(args.Source).WorldPosition).Length;
+            if (calcDist <= component.Range)
+                _netMan.ServerSendMessage(args.ChatMsg, actor.PlayerSession.ConnectedClient);
+        }
     }
 
     public void SendRadioMessage(EntityUid source, string message, RadioChannelPrototype channel)

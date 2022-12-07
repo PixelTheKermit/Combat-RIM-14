@@ -1,0 +1,37 @@
+- type: latheRecipe
+  id: GunDrone
+  icon:
+    sprite: Mobs/Silicon/drone.rsi
+    state: shelldark
+  result: GunDrone
+  completetime: 8
+  materials:
+    Steel: 750
+    Glass: 500
+    Plastic: 650
+    GunParts: 400
+
+- type: latheRecipe
+  id: BombDrone
+  icon:
+    sprite: Mobs/Silicon/drone.rsi
+    state: shelldark
+  result: BombDrone
+  completetime: 8
+  materials:
+    Steel: 1350
+    Glass: 600
+    Plastic: 750
+    #Gunpowder: 500
+
+- type: latheRecipe
+  id: BotRemoteBase
+  icon:
+    sprite: Objects/Devices/door_remote.rsi
+    state: door_remotebase
+  result: BotRemoteBase
+  completetime: 8
+  materials:
+    Steel: 500
+    Glass: 200
+    Plastic: 300

@@ -7,6 +7,7 @@ using Content.Server.Hands.Systems;
 using Content.Server.Stack;
 using Robust.Shared.Player;
 using Content.Shared.Tag;
+using System.Linq;
 
 namespace Content.Server.Merchant.Sell
 {
@@ -16,6 +17,7 @@ namespace Content.Server.Merchant.Sell
         [Dependency] private readonly PopupSystem _popup = default!;
         [Dependency] private readonly PricingSystem _pricingSystem = default!;
         [Dependency] private readonly EntityManager _entityManager = default!;
+        [Dependency] private readonly TagSystem _tagSystem = default!;
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         [Dependency] private readonly StackSystem _stackSystem = default!;
         [Dependency] private readonly HandsSystem _handsSystem = default!;
@@ -38,6 +40,12 @@ namespace Content.Server.Merchant.Sell
         {
             if (args.Handled)
                 return;
+
+            if (_tagSystem.HasAnyTag(args.Used, component.Blacklist))
+            {
+                _popupSystem.PopupEntity("You cannot sell this!", uid, Filter.Entities(args.User));
+                return;
+            }
 
             var moneyProto = _prototypeManager.Index<EntityPrototype>(component.CashPrototype);
 

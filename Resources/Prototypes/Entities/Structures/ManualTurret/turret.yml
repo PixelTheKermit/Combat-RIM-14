@@ -13,14 +13,14 @@
       angleIncrease: 1
       angleDecay: 2
       fireCost: 2.5
-      soundGunshot: /Audio/Weapons/Guns/Gunshots/pistol.ogg
+      soundGunshot: /Audio/Weapons/Guns/Gunshots/smg.ogg
       fireRate: 12
     - type: Clickable
     - type: InteractionOutline
     - type: Transform
       anchored: true
     - type: Anchorable
-      delay: 2
+      delay: 4
     - type: Physics
       bodyType: Dynamic
     - type: Pullable
@@ -83,8 +83,8 @@
       examinable: false
       nodes:
         input:
-          !type:CableDeviceNode
-          nodeGroupID: MVPower
+          !type:CableDeviceNode # This is totally a design choice and not because I couldn't figure out how to do this with LV cables
+          nodeGroupID: MVPower  # To be fair, it's probably better using MV.
     - type: BatteryCharger
       voltage: Medium
     - type: PowerNetworkBattery
@@ -122,12 +122,15 @@
   parent: WeaponBasePoweredTurretManual
   id: WeaponLaserTurretManual
   name: laser turret
-  description: A static, very heavy laser gun. You better hope it doesn't fire when you look at it!
+  description: A static, very heavy laser gun. You should probably wear some sort of eye protection!
   components:
+    - type: Battery
+      maxCharge: 875
+      startingCharge: 0
     - type: Machine
       board: WeaponLaserTurretManualCircuitboard
     - type: ManualTurret 
-      fireCost: 62.5
+      fireCost: 45
       soundGunshot: /Audio/Weapons/Guns/Gunshots/laser.ogg
       fireRate: 1
       isBatteryWeapon: true
@@ -153,7 +156,7 @@
     - type: Machine
       board: WeaponRocketTurretManualCircuitboard
     - type: ManualTurret
-      fireCost: 125
+      fireCost: 100
       soundGunshot: /Audio/Weapons/Guns/Gunshots/rpgfire.ogg
       fireRate: 0.25
     - type: Sprite
@@ -180,7 +183,7 @@
   parent: WeaponBasePoweredTurretManual
   id: WeaponShotgunTurretManual
   name: shotgun turret
-  description: A static, very heavy shotgun. You better pray none of the shots hit you!
+  description: A static, very heavy shotgun. You better pray none of the shots actually hit you!
   components:
     - type: Machine
       board: WeaponShotgunTurretManualCircuitboard

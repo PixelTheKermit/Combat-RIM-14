@@ -386,9 +386,6 @@
   id: BoxBeanbag
   description: A box full of beanbag shots, designed for riot shotguns.
   components:
-    - type: Tag
-      tags:
-      - ShotgunAmmoBox
     - type: BallisticAmmoProvider
       proto: ShellShotgunBeanbag
       capacity: 12

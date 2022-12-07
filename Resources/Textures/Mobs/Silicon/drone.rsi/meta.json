@@ -48,6 +48,40 @@
     {
       "name": "r_hand",
       "directions": 4
+    },
+    {
+      "name": "dronedark",
+      "directions": 4,
+      "delays": [
+        [
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.2,
+          0.2,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "shelldark",
+      "delays": [
+        [
+          1
+        ]
+      ]
     }
   ]
 }

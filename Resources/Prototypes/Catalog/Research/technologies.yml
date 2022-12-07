@@ -302,7 +302,10 @@
     - RoboticsTechnology
   unlockedRecipes:
     - ShuttleConsoleCircuitboard
+    - BotRemoteBaseas
     - Drone
+    - GunDrone
+    - BombDrone
     - RadarConsoleCircuitboard
 
 # Electromagnetic Theory Technology Tree
@@ -330,6 +333,7 @@
     - Signaller
     - SignalTrigger
     - VoiceTrigger
+    - ClothingShoesDashing
 
 - type: technology
   name: technologies-compact-power-technology

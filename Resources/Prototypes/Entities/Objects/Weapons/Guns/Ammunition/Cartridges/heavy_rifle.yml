@@ -8,6 +8,7 @@
     tags:
       - Cartridge
       - CartridgeHeavyRifle
+      - SellMerchantBlacklist
   - type: CartridgeAmmo
     proto: BulletHeavyRifle
   - type: Sprite

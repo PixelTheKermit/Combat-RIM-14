@@ -1,0 +1,11 @@
+- type: latheRecipe
+  id: ClothingShoesDashing
+  icon:
+    sprite: Clothing/Shoes/Boots/dashboots.rsi
+    state: icon
+  result: ClothingShoesDashing
+  completetime: 5
+  materials:
+    Plasteel: 500
+    Steel: 300
+    Glass: 100
