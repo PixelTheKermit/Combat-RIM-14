@@ -418,19 +418,6 @@
     - GeneratorUraniumMachineCircuitboard
     - GeneratorBiofuelMachineCircuitboard
     - WallmountSubstationElectronics
-- type: technology
-  name: technologies-applied-musicology
-  id: AppliedMusicology
-  description: technologies-applied-musicology-description
-  icon:
-    sprite: Objects/Fun/Instruments/guitar.rsi
-    state: icon
-  requiredPoints: 2500
-  requiredTechnologies:
-    - ElectromagneticTheory
-  unlockedRecipes:
-    - SynthesizerInstrument
-    - DawInstrumentMachineCircuitboard
 
 - type: technology
   name: technologies-basic-powercell-printing
