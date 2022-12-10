@@ -30,6 +30,7 @@ public sealed class ControllableMobSystem : EntitySystem
         SubscribeLocalEvent<ControllableMobComponent, InteractUsingEvent>(GetInteraction);
         SubscribeLocalEvent<ControllableMobComponent, GetVerbsEvent<ActivationVerb>>(AddActVerb);
         SubscribeLocalEvent<ControllableMobComponent, MobStateChangedEvent>(MobStateChanged);
+        SubscribeLocalEvent<ControllableMobComponent, ComponentShutdown>(OnDeleted);
     }
 
     public override void Update(float frameTime)
@@ -45,12 +46,13 @@ public sealed class ControllableMobSystem : EntitySystem
 
                 if (calcDist > contMob.Range)
                 {
-                    ChangeControl(contMob.Owner, contMob.CurrentEntityOwning.Value);
+                    RevokeControl(contMob.CurrentEntityOwning.Value);
                     Comp<ControllerMobComponent>(contMob.CurrentEntityOwning.Value).Controlling = null;
                     _popupSystem.PopupEntity(Loc.GetString("device-control-out-of-range"), contMob.CurrentEntityOwning.Value, Filter.Entities(contMob.Owner));
                     contMob.CurrentEntityOwning = null;
                 }
-                else if (!mindComp.HasMind)
+                else if (_entityManager.TryGetComponent<MindComponent>(contMob.Owner, out var entMindComp) && entMindComp.Mind != null
+                    && entMindComp.HasMind)
                 {
                     Comp<ControllerMobComponent>(contMob.CurrentEntityOwning.Value).Controlling = null;
                     contMob.CurrentEntityOwning = null;
@@ -59,28 +61,54 @@ public sealed class ControllableMobSystem : EntitySystem
         }
     }
 
-    public void ChangeControl(EntityUid former, EntityUid latter)
+    /// <summary>
+    /// Give temporary control to an entity.
+    /// </summary>
+    /// <param name="former">The original entity.</param> 
+    /// <param name="latter">The entity that you want to temporarily control.</param> 
+    public void GiveControl(EntityUid former, EntityUid latter)
     {
         if (!_entityManager.TryGetComponent<MindComponent>(former, out var mindComp))
             return;
 
-        var userId = mindComp.Mind!.UserId;
-
-        var session = IoCManager.Resolve<IPlayerManager>().GetSessionByUserId(userId!.Value);
-
-        var playerCData = session.ContentData();
-
-        var mind = playerCData!.Mind;
+        var mind = mindComp.Mind;
 
         if (mind == null)
+            return;
+
+        mind.Visit(latter);
+    }
+
+    /// <summary>
+    /// Revoke control of the entity.
+    /// </summary>
+    /// <param name="uid">The entity that is controlling.</param>
+    public void RevokeControl(EntityUid uid)
+    {
+        if (!_entityManager.TryGetComponent<MindComponent>(uid, out var mindComp))
+            return;
+
+        var mind = mindComp.Mind;
+
+        if (mind == null)
+            return;
+
+        mind.UnVisit();
+        
+    }
+
+
+    private void OnDeleted(EntityUid uid, ControllableMobComponent comp, ComponentShutdown args)
+    {
+        if (comp.CurrentEntityOwning != null &&
+            TryComp<ControllerMobComponent>(comp.CurrentEntityOwning, out var controlComp))
         {
-            mind = new Mind.Mind(session.UserId)
-            {
-                CharacterName = _entityManager.GetComponent<MetaDataComponent>(latter).EntityName
-            };
-            mind.ChangeOwningPlayer(session.UserId);
+            controlComp.Controlling = null;
+
+            RevokeControl(comp.CurrentEntityOwning.Value);
+
+            comp.CurrentEntityOwning = null;
         }
-        mind.TransferTo(latter);
     }
 
     private void MobStateChanged(EntityUid uid, ControllableMobComponent comp, MobStateChangedEvent args)
@@ -90,7 +118,7 @@ public sealed class ControllableMobSystem : EntitySystem
         {
             controlComp.Controlling = null;
 
-            ChangeControl(uid, comp.CurrentEntityOwning.Value);
+            RevokeControl(comp.CurrentEntityOwning.Value);
 
             comp.CurrentEntityOwning = null;
         }
@@ -113,7 +141,7 @@ public sealed class ControllableMobSystem : EntitySystem
         {
             controlComp.Controlling = null;
 
-            ChangeControl(uid, comp.CurrentEntityOwning.Value);
+            RevokeControl(comp.CurrentEntityOwning.Value);
 
             comp.CurrentEntityOwning = null;
         }
@@ -121,8 +149,7 @@ public sealed class ControllableMobSystem : EntitySystem
 
     private void AddActVerb(EntityUid uid, ControllableMobComponent comp, GetVerbsEvent<ActivationVerb> args)
     {
-        if (!args.CanInteract || !args.CanAccess ||
-            args.User != uid || !_entityManager.EntityExists(uid))
+        if (args.User != uid || !_entityManager.EntityExists(uid))
             return;
 
         ActivationVerb verb = new()
@@ -134,6 +161,7 @@ public sealed class ControllableMobSystem : EntitySystem
             Text = "Stop controlling",
             Priority = 1
         };
+
         args.Verbs.Add(verb);
     }
 }

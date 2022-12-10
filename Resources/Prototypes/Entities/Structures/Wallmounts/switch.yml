@@ -149,3 +149,51 @@
         Left: []
         Right: []
         Middle: []
+
+- type: entity
+  id: ButtonedLever
+  name: buttoned lever
+  description: A two way lever with a button on the top.
+  placement:
+    mode: SnapgridCenter
+  components:
+    - type: Clickable
+    - type: InteractionOutline
+    - type: Sprite
+      netsync: false
+      sprite: Structures/conveyor.rsi
+      layers:
+        - state: butswitch-mid
+          map: ["enabled", "enum.TwoWayLeverState.Middle"]
+    - type: ButtonedLever
+    - type: UseDelay
+      delay: 0.2 # prevent light-toggling auto-clickers.
+    - type: Appearance
+    - type: GenericVisualizer
+      visuals:
+        enum.TwoWayLeverVisuals.State:
+          enabled:
+            Right: { state: butswitch-fwd }
+            Middle: { state: butswitch-mid }
+            Left: { state: butswitch-rev }
+    - type: Damageable
+      damageContainer: Inorganic
+      damageModifierSet: Metallic
+    - type: Destructible
+      thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 100
+        behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+    - type: Construction
+      graph: LeverGraph
+      node: LeverNode
+    - type: SignalTransmitter
+      outputs:
+        Left: []
+        Right: []
+        Middle: []
+        On: []
+        Off: []

@@ -32,6 +32,20 @@ public sealed class ControllerDeviceSystem : EntitySystem
         SubscribeLocalEvent<ControllerDeviceComponent, GotUnequippedHandEvent>(Unequipped);
     }
 
+    private void OnDeleted(EntityUid uid, ControllerMobComponent comp, ComponentShutdown args)
+    {
+        if (comp.Controlling != null && _entityManager.EntityExists(comp.Controlling) // CHONKY
+            && TryComp<ControllableMobComponent>(comp.Controlling, out var controllableComp)
+            && controllableComp.CurrentEntityOwning != null
+            && TryComp<ControllerMobComponent>(controllableComp.CurrentEntityOwning.Value, out var controllerComp)
+            && controllerComp.Controlling != null)
+        {
+            controllerComp.Controlling = null;
+            _controllableMobSystem.RevokeControl(comp.Controlling.Value);
+            controllableComp.CurrentEntityOwning = null;
+        }
+    }
+
     private void Control(EntityUid uid, ControllerDeviceComponent comp, UseInHandEvent args)
     {
         if (comp.Controlling == null || !_entityManager.EntityExists(comp.Controlling) || (TryComp<MobStateComponent>(comp.Controlling, out var damageState) && damageState.CurrentState != null && damageState.CurrentState.Value == DamageState.Dead))
@@ -48,7 +62,7 @@ public sealed class ControllerDeviceSystem : EntitySystem
         }
 
         var calcDist = (Comp<TransformComponent>(uid).WorldPosition - Comp<TransformComponent>(comp.Controlling.Value).WorldPosition).Length;
-        if (calcDist > controllableComp.Range)
+        if (calcDist > comp.Range)
         {
             _popupSystem.PopupEntity(Loc.GetString("device-control-out-of-range"), uid, Filter.Entities(args.User));
             return;
@@ -61,9 +75,10 @@ public sealed class ControllerDeviceSystem : EntitySystem
             return;
         }
 
+        controllableComp.Range = comp.Range;
         controllerComp.Controlling = comp.Controlling;
         controllableComp.CurrentEntityOwning = args.User;
-        _controllableMobSystem.ChangeControl(controllableComp.CurrentEntityOwning.Value, comp.Controlling.Value);
+        _controllableMobSystem.GiveControl(controllableComp.CurrentEntityOwning.Value, comp.Controlling.Value);
     }
 
     private void Unequipped(EntityUid uid, ControllerDeviceComponent comp, GotUnequippedHandEvent args)
@@ -74,7 +89,7 @@ public sealed class ControllerDeviceSystem : EntitySystem
             && TryComp<ControllerMobComponent>(args.User, out var controllerComp)
             && controllerComp.Controlling != null)
         {
-            _controllableMobSystem.ChangeControl(comp.Controlling.Value, controllableComp.CurrentEntityOwning.Value);
+            _controllableMobSystem.RevokeControl(comp.Controlling.Value);
             comp.Controlling = null;
             controllerComp.Controlling = null;
             controllableComp.CurrentEntityOwning = null;
