@@ -3,7 +3,7 @@ namespace Content.Server.ControllableMob;
 [RegisterComponent]
 public sealed class ControllableMobComponent : Component
 {
-    [DataField("range")]
+    [ViewVariables(VVAccess.ReadWrite)]
     public float Range = 50f;
 
     [ViewVariables(VVAccess.ReadWrite)]
