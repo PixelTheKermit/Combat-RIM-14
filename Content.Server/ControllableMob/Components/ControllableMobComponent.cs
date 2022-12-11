@@ -8,4 +8,7 @@ public sealed class ControllableMobComponent : Component
 
     [ViewVariables(VVAccess.ReadWrite)]
     public EntityUid? CurrentEntityOwning;
+
+    [ViewVariables(VVAccess.ReadWrite)]
+    public EntityUid? CurrentDeviceOwning;
 }
