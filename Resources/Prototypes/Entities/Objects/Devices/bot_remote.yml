@@ -2,7 +2,7 @@
   parent: BaseItem
   id: BotRemoteBase
   name: bot remote
-  description: A gadget which allows the user to control a bot.
+  description: A gadget which allows the user to control a bot in a short radius. Can also be used to setup a controller console.
   components:
   - type: Sprite
     sprite: Objects/Devices/door_remote.rsi
