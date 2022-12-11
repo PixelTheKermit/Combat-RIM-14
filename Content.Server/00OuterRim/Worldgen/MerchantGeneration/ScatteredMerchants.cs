@@ -6,6 +6,7 @@ using Robust.Server.GameObjects;
 using Robust.Server.Maps;
 using Robust.Shared.Random;
 using System.Linq;
+using static Robust.Shared.Physics.DynamicTree;
 
 namespace Content.Server._00OuterRim.Worldgen.MerchantGeneration;
 
@@ -39,6 +40,7 @@ public sealed class ScatteredMerchants : MerchantGenerator
                 Rotation = random.NextAngle()
             });
             iffSys.AddIFFFlag(grid!.FirstOrDefault(), IFFFlags.HideLabel);
+            iffSys.SetIFFColor(grid!.FirstOrDefault(), Color.ForestGreen);
         }
 
 

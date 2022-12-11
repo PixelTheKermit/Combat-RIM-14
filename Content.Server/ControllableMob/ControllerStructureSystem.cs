@@ -44,7 +44,7 @@ public sealed class ControllerStructureSystem : EntitySystem
             if (contStruct.Controlling != null && contStruct.Controlling != null
                 && _entityManager.EntityExists(contStruct.Controlling) && TryComp<ControllableMobComponent>(contStruct.Controlling, out var controllableComp) // TODO: REDUCE THE DAMN CHONK OF THIS IF STATEMENT
                 && controllableComp.CurrentDeviceOwning == contStruct.Owner && controllableComp.CurrentEntityOwning != null && TryComp<ControllerMobComponent>(controllableComp.CurrentEntityOwning.Value, out var controllerComp)
-                && controllerComp.Controlling != null && (!apcReceiver.Powered || (Comp<TransformComponent>(controllerComp.Owner).WorldPosition - transform.WorldPosition).Length <= InteractionSystem.InteractionRange))
+                && controllerComp.Controlling != null && (!apcReceiver.Powered || (Comp<TransformComponent>(controllerComp.Owner).WorldPosition - transform.WorldPosition).Length > InteractionSystem.InteractionRange))
             {
                 controllerComp.Controlling = null;
                 _controllableMobSystem.RevokeControl(controllableComp.CurrentEntityOwning.Value);
