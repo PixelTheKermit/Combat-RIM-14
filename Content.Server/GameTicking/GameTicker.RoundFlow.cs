@@ -86,8 +86,13 @@ namespace Content.Server.GameTicking
         [AnyCommand]
         private void PurchaseShipCommand(IConsoleShell shell, string argstr, string[] args)
         {
-            if (!PurchaseAvailable())
+            var plr = shell.Player as IPlayerSession;
+
+            if (plr != null && plr.AttachedEntity != null)
+            {
+                shell.WriteError("Nuh uh.");
                 return;
+            }
 
             if (args.Length != 1)
             {
@@ -115,7 +120,7 @@ namespace Content.Server.GameTicking
                     xform.Coordinates = new EntityCoordinates(mid, offs);
                 }
 
-                var plr = shell.Player as IPlayerSession;
+                
                 if (plr != null)
                     MakeJoinGame(plr, (EntityUid) _stationSystem.GetOwningStation(grids.FirstOrDefault())!, "ShuttleCaptain");
 
