@@ -286,7 +286,6 @@ namespace Content.Server.Gravity
         {
             component.Charge = 0;
             component.SwitchedOn = false;
-            UpdateGravityActive(component, false);
             UpdateState(component, Comp<ApcPowerReceiverComponent>(uid));
         }
     }

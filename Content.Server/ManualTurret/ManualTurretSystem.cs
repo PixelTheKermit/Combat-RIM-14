@@ -182,11 +182,11 @@ namespace Content.Server.ManualTurret
 
                         for (var i = 0; i < cartridgeComp.Count; i++)
                         {
-                            _gunSystem.ShootProjectile(Spawn(bullet, xform.MapPosition), angles[i].ToWorldVec(), uid);
+                            _gunSystem.ShootProjectile(Spawn(bullet, xform.MapPosition), angles[i].ToWorldVec(), angles[i].ToWorldVec()*10, uid);
                         }
                     }
                     else
-                        _gunSystem.ShootProjectile(Spawn(bullet, xform.MapPosition), angle.ToWorldVec(), uid);
+                        _gunSystem.ShootProjectile(Spawn(bullet, xform.MapPosition), angle.ToWorldVec(), angle.ToWorldVec()*10, uid);
 
                     if (batteryComp != null)
                         batteryComp.CurrentCharge -= comp.FireCost * comp.ChargeNeededMultiplier;
@@ -212,7 +212,7 @@ namespace Content.Server.ManualTurret
 
                 var bullet = projComp.Prototype;
                 _audioSystem.Play(comp.SoundGunshot, Filter.Pvs(uid), uid, true);
-                _gunSystem.ShootProjectile(Spawn(bullet, xform.MapPosition), angle.ToWorldVec(), uid);
+                _gunSystem.ShootProjectile(Spawn(bullet, xform.MapPosition), angle.ToWorldVec() * 10, xform.WorldPosition, uid);
             }
         }
 
