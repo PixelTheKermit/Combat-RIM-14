@@ -16,7 +16,7 @@ namespace Content.Shared.CCVar
         ///     Change this to have the changelog and rules "last seen" date stored separately.
         /// </summary>
         public static readonly CVarDef<string> ServerId =
-            CVarDef.Create("server.id", "unknown_server_id", CVar.REPLICATED | CVar.SERVER);
+            CVarDef.Create("server.id", "deltasector", CVar.REPLICATED | CVar.SERVER);
 
         /// <summary>
         ///     Name of the rules txt file in the "Resources/Server Info" dir. Include the extension.
@@ -28,7 +28,7 @@ namespace Content.Shared.CCVar
         ///     A loc string for what should be displayed as the title on the Rules window.
         /// </summary>
         public static readonly CVarDef<string> RulesHeader =
-            CVarDef.Create("server.rules_header", "ui-rules-header", CVar.REPLICATED | CVar.SERVER);
+            CVarDef.Create("server.rules_header", "ui-rules-header-ds", CVar.REPLICATED | CVar.SERVER);
 
         /*
          * Ambience
@@ -140,7 +140,7 @@ namespace Content.Shared.CCVar
         ///     Controls if the lobby is enabled. If it is not, and there are no available jobs, you may get stuck on a black screen.
         /// </summary>
         public static readonly CVarDef<bool>
-            GameLobbyEnabled = CVarDef.Create("game.lobbyenabled", false, CVar.ARCHIVE);
+            GameLobbyEnabled = CVarDef.Create("game.lobbyenabled", true, CVar.ARCHIVE);
 
         /// <summary>
         ///     Controls the duration of the lobby timer in seconds. Defaults to 2 minutes and 30 seconds.
@@ -207,7 +207,7 @@ namespace Content.Shared.CCVar
         /// Is map rotation enabled?
         /// </summary>
         public static readonly CVarDef<bool>
-            GameMapRotation = CVarDef.Create<bool>("game.map_rotation", true, CVar.SERVERONLY);
+            GameMapRotation = CVarDef.Create<bool>("game.map_rotation", false, CVar.SERVERONLY);
 
         /// <summary>
         /// If roles should be restricted based on time.
@@ -508,7 +508,7 @@ namespace Content.Shared.CCVar
          */
         // Round  end sound (APC Destroyed)
         public static readonly CVarDef<bool> RestartSoundsEnabled =
-            CVarDef.Create("ambience.restart_sounds_enabled", true, CVar.ARCHIVE | CVar.CLIENTONLY);
+            CVarDef.Create("ambience.restart_sounds_enabled", false, CVar.ARCHIVE | CVar.CLIENTONLY);
 
 
         /*
@@ -543,7 +543,10 @@ namespace Content.Shared.CCVar
 
         public static readonly CVarDef<bool> NPCEnabled = CVarDef.Create("npc.enabled", true);
 
-        public static readonly CVarDef<bool> NPCCollisionAvoidance = CVarDef.Create("npc.collision_avoidance", true);
+        /// <summary>
+        /// Should NPCs pathfind when steering. For debug purposes.
+        /// </summary>
+        public static readonly CVarDef<bool> NPCPathfinding = CVarDef.Create("npc.pathfinding", true);
 
         /*
          * Net
@@ -881,7 +884,7 @@ namespace Content.Shared.CCVar
         /// True: Dead players can use LOOC
         /// False: Dead player LOOC gets redirected to dead chat
         /// </summary>
-        public static readonly CVarDef<bool> DeadLoocEnabled = CVarDef.Create("looc.enabled_dead", false, CVar.NOTIFY | CVar.REPLICATED);
+        public static readonly CVarDef<bool> DeadLoocEnabled = CVarDef.Create("looc.enabled_dead", true, CVar.NOTIFY | CVar.REPLICATED);
 
         /*
          * Entity Menu Grouping Types
@@ -1140,7 +1143,7 @@ namespace Content.Shared.CCVar
          */
 
         public static readonly CVarDef<string> UILayout =
-            CVarDef.Create("ui.layout", "Default", CVar.CLIENTONLY | CVar.ARCHIVE);
+            CVarDef.Create("ui.layout", "Separated", CVar.CLIENTONLY | CVar.ARCHIVE);
 
 
 
@@ -1357,7 +1360,6 @@ namespace Content.Shared.CCVar
          * PLAYTIME
          */
 
-
         /// <summary>
         /// Time between play time autosaves, in seconds.
         /// </summary>
@@ -1409,5 +1411,38 @@ namespace Content.Shared.CCVar
         /// </summary>
         public static readonly CVarDef<string> InfoLinksBugReport =
             CVarDef.Create("infolinks.bug_report", "", CVar.SERVER | CVar.REPLICATED);
+
+        /*
+         * CONFIG
+         */
+
+        // These are server-only for now since I don't foresee a client use yet,
+        // and I don't wanna have to start coming up with like .client suffixes and stuff like that.
+
+        /// <summary>
+        /// Configuration presets to load during startup.
+        /// Multiple presets can be separated by comma and are loaded in order.
+        /// </summary>
+        /// <remarks>
+        /// Loaded presets must be located under the <c>ConfigPresets/</c> resource directory and end with the <c>.toml</c> extension.
+        /// Only the file name (without extension) must be given for this variable.
+        /// </remarks>
+        public static readonly CVarDef<string> ConfigPresets =
+            CVarDef.Create("config.presets", "", CVar.SERVERONLY);
+
+        /// <summary>
+        /// Whether to load the preset development CVars.
+        /// This disables some things like lobby to make development easier.
+        /// Even when true, these are only loaded if the game is compiled with <c>DEVELOPMENT</c> set.
+        /// </summary>
+        public static readonly CVarDef<bool> ConfigPresetDevelopment =
+            CVarDef.Create("config.preset_development", true, CVar.SERVERONLY);
+
+        /// <summary>
+        /// Whether to load the preset debug CVars.
+        /// Even when true, these are only loaded if the game is compiled with <c>DEBUG</c> set.
+        /// </summary>
+        public static readonly CVarDef<bool> ConfigPresetDebug =
+            CVarDef.Create("config.preset_debug", true, CVar.SERVERONLY);
     }
 }

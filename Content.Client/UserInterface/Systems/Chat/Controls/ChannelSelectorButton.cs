@@ -78,11 +78,11 @@ public sealed class ChannelSelectorButton : Button
     {
         return channel switch
         {
-            ChatSelectChannel.Radio => Color.LimeGreen,
-            ChatSelectChannel.LOOC => Color.MediumTurquoise,
-            ChatSelectChannel.OOC => Color.LightSkyBlue,
-            ChatSelectChannel.Dead => Color.MediumPurple,
-            ChatSelectChannel.Admin => Color.Red,
+            ChatSelectChannel.Radio => ChatChannel.Radio.TextColor(),
+            ChatSelectChannel.LOOC => ChatChannel.LOOC.TextColor(),
+            ChatSelectChannel.OOC => ChatChannel.OOC.TextColor(),
+            ChatSelectChannel.Dead => ChatChannel.Dead.TextColor(),
+            ChatSelectChannel.Admin => ChatChannel.Admin.TextColor(),
             _ => Color.DarkGray
         };
     }
