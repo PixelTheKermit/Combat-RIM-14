@@ -26,7 +26,7 @@
     damage:
       types:
         Heat: 28
-        Structural: 7.5
+        Structural: 15
 
 - type: entity
   id: PelletShotgunTurret
