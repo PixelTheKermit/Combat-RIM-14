@@ -212,7 +212,7 @@ namespace Content.Server.ManualTurret
 
                 var bullet = projComp.Prototype;
                 _audioSystem.Play(comp.SoundGunshot, Filter.Pvs(uid), uid, true);
-                _gunSystem.ShootProjectile(Spawn(bullet, xform.MapPosition), angle.ToWorldVec() * 10, xform.WorldPosition, uid);
+                _gunSystem.ShootProjectile(Spawn(bullet, xform.MapPosition), angle.ToWorldVec(), angle.ToWorldVec() * 10, uid);
             }
         }
 
