@@ -3,7 +3,7 @@
   name: chat-radio-common
   keycode: ";"
   frequency: 1459
-  color: "#32cd32"
+  color: "#32861A"
 
 - type: radioChannel
   id: CentCom
@@ -17,28 +17,28 @@
   name: chat-radio-command
   keycode: 'c'
   frequency: 1353
-  color: "#fcdf03"
+  color: "#D06F48"
 
 - type: radioChannel
   id: Engineering
   name: chat-radio-engineering
   keycode: 'e'
   frequency: 1357
-  color: "#f37746"
+  color: "#D5AB3D"
 
 - type: radioChannel
   id: Medical
   name: chat-radio-medical
   keycode: 'm'
   frequency: 1355
-  color: "#57b8f0"
+  color: "#5181C1"
 
 - type: radioChannel
   id: Science
   name: chat-radio-science
   keycode: 'n'
   frequency: 1351
-  color: "#c68cfa"
+  color: "#B479CA"
 
 - type: radioChannel
   id: Security
