@@ -65,7 +65,7 @@ namespace Content.Server.Abilities.Mime
             if (!component.Enabled)
                 return;
 
-            _popupSystem.PopupEntity(Loc.GetString("mime-cant-speak"), uid, Filter.Entities(uid));
+            _popupSystem.PopupEntity(Loc.GetString("mime-cant-speak"), uid, uid);
             args.Cancel();
         }
 

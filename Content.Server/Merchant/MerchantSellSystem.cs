@@ -43,7 +43,7 @@ namespace Content.Server.Merchant.Sell
 
             if (_tagSystem.HasAnyTag(args.Used, component.Blacklist))
             {
-                _popupSystem.PopupEntity("You cannot sell this!", uid, Filter.Entities(args.User));
+                _popupSystem.PopupEntity("You cannot sell this!", uid, args.User);
                 return;
             }
 
@@ -53,7 +53,7 @@ namespace Content.Server.Merchant.Sell
 
             if (!isProtoStackable)
             {
-                _popupSystem.PopupEntity("The coder fucked up.", uid, Filter.Entities(args.User));
+                _popupSystem.PopupEntity("The coder fucked up.", uid, args.User);
                 return;
             }
 
@@ -61,7 +61,7 @@ namespace Content.Server.Merchant.Sell
 
             if (isStackable && protoStackComp!.StackTypeId == stackComp!.StackTypeId) // This is probably a shit way of doing this, too bad!
             {
-                _popupSystem.PopupEntity("You cannot sell money!", uid, Filter.Entities(args.User));
+                _popupSystem.PopupEntity("You cannot sell money!", uid, args.User);
                 return;
             }
 
@@ -69,7 +69,7 @@ namespace Content.Server.Merchant.Sell
 
             if ((int) price <= 0)
             {
-                _popupSystem.PopupEntity("This item has no value.", uid, Filter.Entities(args.User));
+                _popupSystem.PopupEntity("This item has no value.", uid, args.User);
                 return;
             }
 
@@ -82,7 +82,7 @@ namespace Content.Server.Merchant.Sell
                 _handsSystem.TryPickupAnyHand(args.User, moneyEntity);
             }
             else
-                _popupSystem.PopupEntity("It doesn't have enough funds.", uid, Filter.Entities(args.User));
+                _popupSystem.PopupEntity("It doesn't have enough funds.", uid, args.User);
 
             args.Handled = true;
         }
@@ -98,7 +98,7 @@ namespace Content.Server.Merchant.Sell
             if (args.Handled)
                 return;
 
-            _popupSystem.PopupEntity("Funds: " + component.Funds, uid, Filter.Entities(args.User));
+            _popupSystem.PopupEntity("Funds: " + component.Funds, uid, args.User);
             args.Handled = true;
         }
     }

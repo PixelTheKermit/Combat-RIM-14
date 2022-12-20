@@ -9,9 +9,6 @@ namespace Content.Server.Research.Systems;
 
 public sealed partial class ResearchSystem
 {
-    [Dependency] private readonly StationSystem _stationSystem = default!;
-    [Dependency] private readonly EntityManager _entityManager = default!;
-	
     private void OnExamined(EntityUid uid, ResearchServerComponent component, ExaminedEvent args)
     {
         if (!args.IsInDetailsRange)
