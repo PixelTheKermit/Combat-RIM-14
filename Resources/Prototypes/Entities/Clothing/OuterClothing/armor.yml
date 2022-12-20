@@ -57,6 +57,7 @@
         Slash: 0.5
         Piercing: 0.6
         Heat: 0.5
+  - type: GroupExamine
 
 - type: entity
   parent: ClothingOuterBaseLarge
@@ -78,6 +79,7 @@
         Piercing: 0.2
         Heat: 0.5
         Radiation: 0
+  - type: GroupExamine
 
 - type: entity
   parent: ClothingOuterArmorHeavy
@@ -144,6 +146,7 @@
         Heat: 0.9
   - type: ExplosionResistance
     damageCoefficient: 0.9
+  - type: GroupExamine
 
 - type: entity
   parent: ClothingOuterBaseLarge
@@ -166,6 +169,7 @@
         Heat: 0.9
   - type: ExplosionResistance
     damageCoefficient: 0.8
+  - type: GroupExamine
 
 - type: entity
   parent: ClothingOuterBaseLarge
@@ -188,7 +192,8 @@
         Heat: 0.5
   - type: ExplosionResistance
     damageCoefficient: 0.65
-    
+  - type: GroupExamine
+
 - type: entity
   parent: ClothingOuterBaseLarge
   id: ClothingOuterArmorChangeling
@@ -212,3 +217,4 @@
     sprintModifier: 0.65 
   - type: ExplosionResistance
     damageCoefficient: 0.5
+  - type: GroupExamine
