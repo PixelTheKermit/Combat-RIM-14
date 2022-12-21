@@ -82,11 +82,6 @@ namespace Content.Server.Research.Systems
                     list.Add(server);
             }
 
-            if (list.Count > 0)
-                Logger.Debug("Why is it not working???");
-            else
-                Logger.Debug("Ok why the fuck is this empty?");
-
             return list;
         }
 

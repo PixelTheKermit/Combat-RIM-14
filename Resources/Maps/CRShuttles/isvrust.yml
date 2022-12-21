@@ -106,11 +106,20 @@ entities:
   - pos: 0.5,-2.5
     parent: 3
     type: Transform
+- uid: 2
+  components:
+  - type: MetaData
+  - type: Transform
+  - index: 25
+    type: Map
+  - type: PhysicsMap
+  - type: Broadphase
+  - type: OccluderTree
 - uid: 3
   components:
   - type: MetaData
   - pos: 0.484375,0.5
-    parent: null
+    parent: 2
     type: Transform
   - chunks:
       0,0:
@@ -132,111 +141,7 @@ entities:
     fixedRotation: False
     bodyType: Dynamic
     type: Physics
-  - fixtures:
-    - density: 0.5
-      shape: !type:PolygonShape
-        vertices:
-        - 1.99,0.01
-        - 1.99,1.99
-        - 0.01,1.99
-        - 0.01,0.01
-      mask:
-      - MapGrid
-      layer:
-      - MapGrid
-      restitution: 0.1
-      id: grid_chunk-0.01-0.01
-    - density: 0.5
-      shape: !type:PolygonShape
-        vertices:
-        - 1.99,-5.99
-        - 1.99,-5.01
-        - 0.01,-5.01
-        - 0.01,-5.99
-      mask:
-      - MapGrid
-      layer:
-      - MapGrid
-      restitution: 0.1
-      id: grid_chunk-0.01--5.99
-    - density: 0.5
-      shape: !type:PolygonShape
-        vertices:
-        - 2.99,-4.99
-        - 2.99,-4.01
-        - 0.01,-4.01
-        - 0.01,-4.99
-      mask:
-      - MapGrid
-      layer:
-      - MapGrid
-      restitution: 0.1
-      id: grid_chunk-0.01--4.99
-    - density: 0.5
-      shape: !type:PolygonShape
-        vertices:
-        - 1.99,-3.99
-        - 1.99,-0.01
-        - 0.01,-0.01
-        - 0.01,-3.99
-      mask:
-      - MapGrid
-      layer:
-      - MapGrid
-      restitution: 0.1
-      id: grid_chunk-0.01--3.99
-    - density: 0.5
-      shape: !type:PolygonShape
-        vertices:
-        - -0.01,0.01
-        - -0.01,1.99
-        - -2.99,1.99
-        - -2.99,0.01
-      mask:
-      - MapGrid
-      layer:
-      - MapGrid
-      restitution: 0.1
-      id: grid_chunk--2.99-0.01
-    - density: 0.5
-      shape: !type:PolygonShape
-        vertices:
-        - -0.01,-5.99
-        - -0.01,-5.01
-        - -2.99,-5.01
-        - -2.99,-5.99
-      mask:
-      - MapGrid
-      layer:
-      - MapGrid
-      restitution: 0.1
-      id: grid_chunk--2.99--5.99
-    - density: 0.5
-      shape: !type:PolygonShape
-        vertices:
-        - -0.01,-4.99
-        - -0.01,-4.01
-        - -3.99,-4.01
-        - -3.99,-4.99
-      mask:
-      - MapGrid
-      layer:
-      - MapGrid
-      restitution: 0.1
-      id: grid_chunk--3.99--4.99
-    - density: 0.5
-      shape: !type:PolygonShape
-        vertices:
-        - -0.01,-3.99
-        - -0.01,-0.01
-        - -2.99,-0.01
-        - -2.99,-3.99
-      mask:
-      - MapGrid
-      layer:
-      - MapGrid
-      restitution: 0.1
-      id: grid_chunk--2.99--3.99
+  - fixtures: []
     type: Fixtures
   - gravityShakeSound: !type:SoundPathSpecifier
       path: /Audio/Effects/alert.ogg
@@ -675,8 +580,10 @@ entities:
     type: BecomesStation
   - type: OccluderTree
   - type: Shuttle
-  - type: GridPathfinding
+  - nextUpdate: 0.45
+    type: GridPathfinding
   - type: RadiationGridResistance
+  - type: GasTileOverlay
 - uid: 4
   type: WallSolid
   components:
@@ -1091,7 +998,7 @@ entities:
 - uid: 64
   type: Paper
   components:
-  - desc: ''
+  - desc: ""
     type: MetaData
   - pos: 0.2762071,0.57855284
     parent: 3
@@ -1162,6 +1069,12 @@ entities:
   type: ResearchComputerCircuitboard
   components:
   - pos: -1.6689658,0.26933408
+    parent: 3
+    type: Transform
+- uid: 75
+  type: SpawnPointLatejoin
+  components:
+  - pos: 0.5,-2.5
     parent: 3
     type: Transform
 ...

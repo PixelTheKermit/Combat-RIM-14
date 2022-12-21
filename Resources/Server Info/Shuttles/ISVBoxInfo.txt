@@ -1,2 +1,2 @@
 A box shaped shuttle, consisting of a small medical area.
-No turrets, so try to avoid conflict for as long as possible.
+Comes with two turrets, but both need to be setup.

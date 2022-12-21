@@ -1,4 +1,5 @@
-A ring shaped shuttle, made for artifact research and armed with laser turrets.
+A ring shaped shuttle, made for artifact research and armed with many laser turrets.
+Needs a big crew to function properly however.
 Crew manifest:
  - 1x Captain
  - 3x Scientists
