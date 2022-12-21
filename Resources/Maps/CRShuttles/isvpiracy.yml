@@ -106,16 +106,25 @@ entities:
   - pos: -5.5,4.5
     parent: 3
     type: Transform
+- uid: 2
+  components:
+  - type: MetaData
+  - type: Transform
+  - index: 25
+    type: Map
+  - type: PhysicsMap
+  - type: Broadphase
+  - type: OccluderTree
 - uid: 3
   components:
   - type: MetaData
   - pos: 0.484375,0.5
-    parent: null
+    parent: 2
     type: Transform
   - chunks:
       0,0:
         ind: 0,0
-        tiles: VQAAAlgAAABYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFUAAAFVAAAAVQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABVAAABVQAAAFgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAVQAAAlUAAABVAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFUAAANVAAAAWAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABVAAAAVQAAAFgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAVQAAAFgAAABYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFUAAABYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABYAAAAWAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
+        tiles: VQAAAlgAAABXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFUAAAFVAAAAVQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABVAAABVQAAAFgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAVQAAAlUAAABVAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFUAAANVAAAAWAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABVAAAAVQAAAFgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAVQAAAFgAAABYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFUAAABYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABYAAAAWAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
       0,-1:
         ind: 0,-1
         tiles: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAVwAAAFcAAABXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFcAAABXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABVAAAAVwAAAFcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAVQAAAFgAAABXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFUAAABYAAAAVwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABVAAAAWAAAAFcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAVQAAAlgAAABXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
@@ -124,7 +133,7 @@ entities:
         tiles: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFcAAABXAAAAVwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFcAAABXAAAAVwAAAFcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABXAAAAVwAAAFcAAABXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFcAAABXAAAAVwAAAFUAAABVAAAAVQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAVwAAAFcAAABVAAAAVQAAAFUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAVwAAAFcAAABVAAAAVQAAAFUAAABVAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFcAAABYAAAAVQAAAFUAAABVAAAAVQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABXAAAAWAAAAFUAAABVAAAAVQAAAFUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAVwAAAFgAAABVAAAAVQAAAFUAAABVAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFcAAABYAAAAVQAAAFUAAABVAAADVQAAAA==
       -1,0:
         ind: -1,0
-        tiles: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFgAAABYAAAAVQAAA1UAAAJVAAAAVQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABVAAAAVQAAAFUAAABVAAACVQAAA1UAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWAAAAFUAAABVAAADVQAAA1UAAABVAAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFUAAABVAAAAVQAAA1UAAABVAAAAVQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABYAAAAVQAAAFUAAAFVAAACVQAAA1UAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWAAAAFUAAABVAAADVQAAAlUAAAJVAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFgAAABYAAAAVQAAAFUAAAFVAAAAVQAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWAAAAFUAAABVAAACVQAAAFUAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFgAAABYAAAAVQAAAFUAAAFVAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWAAAAFUAAABVAAADVQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFgAAABVAAAAVQAAAFUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABYAAAAWAAAAFUAAABYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFgAAABVAAAAWAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABYAAAAVQAAAFgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWAAAAFUAAABYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABVAAAAAAAAAA==
+        tiles: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFcAAABYAAAAVQAAA1UAAAJVAAAAVQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABVAAAAVQAAAFUAAABVAAACVQAAA1UAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWAAAAFUAAABVAAADVQAAA1UAAABVAAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFUAAABVAAAAVQAAA1UAAABVAAAAVQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABYAAAAVQAAAFUAAAFVAAACVQAAA1UAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWAAAAFUAAABVAAADVQAAAlUAAAJVAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFgAAABYAAAAVQAAAFUAAAFVAAAAVQAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWAAAAFUAAABVAAACVQAAAFUAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFgAAABYAAAAVQAAAFUAAAFVAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWAAAAFUAAABVAAADVQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFgAAABVAAAAVQAAAFUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABYAAAAWAAAAFUAAABYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFgAAABVAAAAWAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABYAAAAVQAAAFgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWAAAAFUAAABYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABVAAAAAAAAAA==
       -1,1:
         ind: -1,1
         tiles: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABVAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
@@ -135,245 +144,10 @@ entities:
     fixedRotation: False
     bodyType: Dynamic
     type: Physics
-  - fixtures:
-    - density: 0.5
-      shape: !type:PolygonShape
-        vertices:
-        - 2.99,0.01
-        - 2.99,6.99
-        - 0.01,6.99
-        - 0.01,0.01
-      mask:
-      - MapGrid
-      layer:
-      - MapGrid
-      restitution: 0.1
-      id: grid_chunk-0.01-0.01
-    - density: 0.5
-      shape: !type:PolygonShape
-        vertices:
-        - 1.99,7.01
-        - 1.99,8.99
-        - 0.01,8.99
-        - 0.01,7.01
-      mask:
-      - MapGrid
-      layer:
-      - MapGrid
-      restitution: 0.1
-      id: grid_chunk-0.01-7.01
-    - density: 0.5
-      shape: !type:PolygonShape
-        vertices:
-        - 0.99,9.01
-        - 0.99,11.99
-        - 0.01,11.99
-        - 0.01,9.01
-      mask:
-      - MapGrid
-      layer:
-      - MapGrid
-      restitution: 0.1
-      id: grid_chunk-0.01-9.01
-    - density: 0.5
-      shape: !type:PolygonShape
-        vertices:
-        - 0.99,-8.99
-        - 0.99,-7.01
-        - 0.01,-7.01
-        - 0.01,-8.99
-      mask:
-      - MapGrid
-      layer:
-      - MapGrid
-      restitution: 0.1
-      id: grid_chunk-0.01--8.99
-    - density: 0.5
-      shape: !type:PolygonShape
-        vertices:
-        - 2.99,-6.99
-        - 2.99,-6.01
-        - 0.01,-6.01
-        - 0.01,-6.99
-      mask:
-      - MapGrid
-      layer:
-      - MapGrid
-      restitution: 0.1
-      id: grid_chunk-0.01--6.99
-    - density: 0.5
-      shape: !type:PolygonShape
-        vertices:
-        - 1.99,-5.99
-        - 1.99,-5.01
-        - 0.01,-5.01
-        - 0.01,-5.99
-      mask:
-      - MapGrid
-      layer:
-      - MapGrid
-      restitution: 0.1
-      id: grid_chunk-0.01--5.99
-    - density: 0.5
-      shape: !type:PolygonShape
-        vertices:
-        - 2.99,-4.99
-        - 2.99,-0.01
-        - 0.01,-0.01
-        - 0.01,-4.99
-      mask:
-      - MapGrid
-      layer:
-      - MapGrid
-      restitution: 0.1
-      id: grid_chunk-0.01--4.99
-    - density: 0.5
-      shape: !type:PolygonShape
-        vertices:
-        - -0.01,-9.99
-        - -0.01,-9.01
-        - -2.99,-9.01
-        - -2.99,-9.99
-      mask:
-      - MapGrid
-      layer:
-      - MapGrid
-      restitution: 0.1
-      id: grid_chunk--2.99--9.99
-    - density: 0.5
-      shape: !type:PolygonShape
-        vertices:
-        - -0.01,-8.99
-        - -0.01,-7.01
-        - -3.99,-7.01
-        - -3.99,-8.99
-      mask:
-      - MapGrid
-      layer:
-      - MapGrid
-      restitution: 0.1
-      id: grid_chunk--3.99--8.99
-    - density: 0.5
-      shape: !type:PolygonShape
-        vertices:
-        - -0.01,-6.99
-        - -0.01,-6.01
-        - -5.99,-6.01
-        - -5.99,-6.99
-      mask:
-      - MapGrid
-      layer:
-      - MapGrid
-      restitution: 0.1
-      id: grid_chunk--5.99--6.99
-    - density: 0.5
-      shape: !type:PolygonShape
-        vertices:
-        - -0.01,-5.99
-        - -0.01,-5.01
-        - -4.99,-5.01
-        - -4.99,-5.99
-      mask:
-      - MapGrid
-      layer:
-      - MapGrid
-      restitution: 0.1
-      id: grid_chunk--4.99--5.99
-    - density: 0.5
-      shape: !type:PolygonShape
-        vertices:
-        - -0.01,-4.99
-        - -0.01,-0.01
-        - -5.99,-0.01
-        - -5.99,-4.99
-      mask:
-      - MapGrid
-      layer:
-      - MapGrid
-      restitution: 0.1
-      id: grid_chunk--5.99--4.99
-    - density: 0.5
-      shape: !type:PolygonShape
-        vertices:
-        - -0.01,0.01
-        - -0.01,6.99
-        - -5.99,6.99
-        - -5.99,0.01
-      mask:
-      - MapGrid
-      layer:
-      - MapGrid
-      restitution: 0.1
-      id: grid_chunk--5.99-0.01
-    - density: 0.5
-      shape: !type:PolygonShape
-        vertices:
-        - -0.01,7.01
-        - -0.01,8.99
-        - -4.99,8.99
-        - -4.99,7.01
-      mask:
-      - MapGrid
-      layer:
-      - MapGrid
-      restitution: 0.1
-      id: grid_chunk--4.99-7.01
-    - density: 0.5
-      shape: !type:PolygonShape
-        vertices:
-        - -0.01,9.01
-        - -0.01,11.99
-        - -3.99,11.99
-        - -3.99,9.01
-      mask:
-      - MapGrid
-      layer:
-      - MapGrid
-      restitution: 0.1
-      id: grid_chunk--3.99-9.01
-    - density: 0.5
-      shape: !type:PolygonShape
-        vertices:
-        - -0.01,12.01
-        - -0.01,14.99
-        - -2.99,14.99
-        - -2.99,12.01
-      mask:
-      - MapGrid
-      layer:
-      - MapGrid
-      restitution: 0.1
-      id: grid_chunk--2.99-12.01
-    - density: 0.5
-      shape: !type:PolygonShape
-        vertices:
-        - -1.01,15.01
-        - -1.01,15.99
-        - -1.99,15.99
-        - -1.99,15.01
-      mask:
-      - MapGrid
-      layer:
-      - MapGrid
-      restitution: 0.1
-      id: grid_chunk--1.99-15.01
-    - density: 0.5
-      shape: !type:PolygonShape
-        vertices:
-        - -1.01,16.01
-        - -1.01,16.99
-        - -1.99,16.99
-        - -1.99,16.01
-      mask:
-      - MapGrid
-      layer:
-      - MapGrid
-      restitution: 0.1
-      id: grid_chunk--1.99-16.01
+  - fixtures: []
     type: Fixtures
   - gravityShakeSound: !type:SoundPathSpecifier
       path: /Audio/Effects/alert.ogg
-    enabled: True
     type: Gravity
   - tiles:
       0,0: 0
@@ -572,8 +346,8 @@ entities:
     - volume: 2500
       temperature: 293.15
       moles:
-      - 18.935778
-      - 71.2346
+      - 18.405577
+      - 69.24003
       - 0
       - 0
       - 0
@@ -589,10 +363,15 @@ entities:
     type: BecomesStation
   - type: OccluderTree
   - type: Shuttle
-  - type: GridPathfinding
+  - nextUpdate: 222.0404819
+    type: GridPathfinding
   - type: RadiationGridResistance
   - chunkCollection: {}
     type: DecalGrid
+  - nextShake: 0
+    shakeTimes: 10
+    type: GravityShake
+  - type: GasTileOverlay
 - uid: 4
   type: CableApcExtension
   components:
@@ -769,44 +548,53 @@ entities:
     parent: 3
     type: Transform
 - uid: 32
-  type: AirlockGlassShuttle
+  type: WeaponLaserTurretManual
   components:
   - rot: -1.5707963267948966 rad
-    pos: -5.5,1.5
+    pos: -5.5,-0.5
     parent: 3
     type: Transform
-  - fixtures:
-    - density: 100
-      shape: !type:PolygonShape
-        vertices:
-        - 0.49,-0.49
-        - 0.49,0.49
-        - -0.49,0.49
-        - -0.49,-0.49
-      mask:
-      - Impassable
-      - MidImpassable
-      - HighImpassable
-      - LowImpassable
-      - InteractImpassable
-      layer:
-      - MidImpassable
-      - HighImpassable
-      - BulletImpassable
-      - InteractImpassable
-      - Opaque
-    - shape: !type:PhysShapeCircle
-        position: 0,-0.5
-        radius: 0.2
-      hard: False
-      id: docking
-    type: Fixtures
+  - inputs:
+      TurretClockwise:
+      - port: Right
+        uid: 148
+      TurretAntiClockwise:
+      - port: Left
+        uid: 148
+      TurretStopRot:
+      - port: Middle
+        uid: 148
+      TurretShootSemi: []
+      TurretShootAutoToggle:
+      - port: Pressed
+        uid: 56
+      TurretShootAutoOn: []
+      TurretShootAutoOff: []
+    type: SignalReceiver
 - uid: 33
-  type: WallWood
+  type: WeaponLaserTurretManual
   components:
-  - pos: 2.5,6.5
+  - rot: -1.5707963267948966 rad
+    pos: -5.5,-2.5
     parent: 3
     type: Transform
+  - inputs:
+      TurretClockwise:
+      - port: Right
+        uid: 148
+      TurretAntiClockwise:
+      - port: Left
+        uid: 148
+      TurretStopRot:
+      - port: Middle
+        uid: 148
+      TurretShootSemi: []
+      TurretShootAutoToggle:
+      - port: Pressed
+        uid: 56
+      TurretShootAutoOn: []
+      TurretShootAutoOff: []
+    type: SignalReceiver
 - uid: 34
   type: GasPipeStraight
   components:
@@ -954,7 +742,8 @@ entities:
 - uid: 52
   type: WallWood
   components:
-  - pos: 2.5,-3.5
+  - rot: 1.5707963267948966 rad
+    pos: 2.5,1.5
     parent: 3
     type: Transform
 - uid: 53
@@ -985,15 +774,16 @@ entities:
     type: Physics
   - outputs:
       Pressed:
-      - port: TurretShootSemi
-        uid: 209
-      - port: TurretShootSemi
-        uid: 210
+      - port: TurretShootAutoToggle
+        uid: 32
+      - port: TurretShootAutoToggle
+        uid: 33
     type: SignalTransmitter
 - uid: 57
   type: WallWood
   components:
-  - pos: -5.5,-3.5
+  - rot: 1.5707963267948966 rad
+    pos: -4.5,1.5
     parent: 3
     type: Transform
 - uid: 58
@@ -1321,11 +1111,29 @@ entities:
     parent: 3
     type: Transform
 - uid: 110
-  type: WallWood
+  type: WeaponLaserTurretManual
   components:
-  - pos: -5.5,6.5
+  - rot: 1.5707963267948966 rad
+    pos: 2.5,-2.5
     parent: 3
     type: Transform
+  - inputs:
+      TurretClockwise:
+      - port: Right
+        uid: 116
+      TurretAntiClockwise:
+      - port: Left
+        uid: 116
+      TurretStopRot:
+      - port: Middle
+        uid: 116
+      TurretShootSemi: []
+      TurretShootAutoToggle:
+      - port: Pressed
+        uid: 152
+      TurretShootAutoOn: []
+      TurretShootAutoOff: []
+    type: SignalReceiver
 - uid: 111
   type: WallWood
   components:
@@ -1366,19 +1174,19 @@ entities:
   - outputs:
       Left:
       - port: TurretAntiClockwise
-        uid: 211
+        uid: 210
       - port: TurretAntiClockwise
-        uid: 212
+        uid: 110
       Right:
       - port: TurretClockwise
-        uid: 211
+        uid: 210
       - port: TurretClockwise
-        uid: 212
+        uid: 110
       Middle:
       - port: TurretStopRot
-        uid: 211
+        uid: 210
       - port: TurretStopRot
-        uid: 212
+        uid: 110
     type: SignalTransmitter
 - uid: 117
   type: WallWood
@@ -1506,9 +1314,10 @@ entities:
     parent: 3
     type: Transform
 - uid: 136
-  type: AtmosDeviceFanTiny
+  type: WallWood
   components:
-  - pos: 2.5,1.5
+  - rot: 1.5707963267948966 rad
+    pos: -5.5,1.5
     parent: 3
     type: Transform
 - uid: 137
@@ -1590,19 +1399,19 @@ entities:
   - outputs:
       Left:
       - port: TurretAntiClockwise
-        uid: 210
+        uid: 33
       - port: TurretAntiClockwise
-        uid: 209
+        uid: 32
       Right:
       - port: TurretClockwise
-        uid: 210
+        uid: 33
       - port: TurretClockwise
-        uid: 209
+        uid: 32
       Middle:
       - port: TurretStopRot
-        uid: 210
+        uid: 33
       - port: TurretStopRot
-        uid: 209
+        uid: 32
     type: SignalTransmitter
 - uid: 149
   type: CableApcExtension
@@ -1634,10 +1443,10 @@ entities:
     type: Physics
   - outputs:
       Pressed:
-      - port: TurretShootSemi
-        uid: 211
-      - port: TurretShootSemi
-        uid: 212
+      - port: TurretShootAutoToggle
+        uid: 110
+      - port: TurretShootAutoToggle
+        uid: 210
     type: SignalTransmitter
 - uid: 153
   type: CableApcExtension
@@ -1664,9 +1473,10 @@ entities:
     parent: 3
     type: Transform
 - uid: 157
-  type: AtmosDeviceFanTiny
+  type: WallWood
   components:
-  - pos: -5.5,1.5
+  - rot: 1.5707963267948966 rad
+    pos: 1.5,1.5
     parent: 3
     type: Transform
 - uid: 158
@@ -1963,13 +1773,15 @@ entities:
 - uid: 204
   type: WallWood
   components:
-  - pos: -5.5,0.5
+  - rot: 3.141592653589793 rad
+    pos: 2.5,6.5
     parent: 3
     type: Transform
 - uid: 205
   type: WallWood
   components:
-  - pos: 2.5,0.5
+  - rot: 3.141592653589793 rad
+    pos: -5.5,6.5
     parent: 3
     type: Transform
 - uid: 206
@@ -2012,102 +1824,20 @@ entities:
       id: docking
     type: Fixtures
 - uid: 208
-  type: AirlockGlassShuttle
+  type: StoolBar
   components:
-  - rot: 1.5707963267948966 rad
-    pos: 2.5,1.5
+  - rot: 3.141592653589793 rad
+    pos: -1.5,3.5
     parent: 3
     type: Transform
-  - fixtures:
-    - density: 100
-      shape: !type:PolygonShape
-        vertices:
-        - 0.49,-0.49
-        - 0.49,0.49
-        - -0.49,0.49
-        - -0.49,-0.49
-      mask:
-      - Impassable
-      - MidImpassable
-      - HighImpassable
-      - LowImpassable
-      - InteractImpassable
-      layer:
-      - MidImpassable
-      - HighImpassable
-      - BulletImpassable
-      - InteractImpassable
-      - Opaque
-    - shape: !type:PhysShapeCircle
-        position: 0,-0.5
-        radius: 0.2
-      hard: False
-      id: docking
-    type: Fixtures
 - uid: 209
-  type: WeaponLaserTurretManual
+  type: StoolBar
   components:
-  - rot: -1.5707963267948966 rad
-    pos: -5.5,-0.5
+  - rot: 3.141592653589793 rad
+    pos: -0.5,3.5
     parent: 3
     type: Transform
-  - inputs:
-      TurretClockwise:
-      - port: Right
-        uid: 148
-      TurretAntiClockwise:
-      - port: Left
-        uid: 148
-      TurretStopRot:
-      - port: Middle
-        uid: 148
-      TurretShootSemi:
-      - port: Pressed
-        uid: 56
-    type: SignalReceiver
 - uid: 210
-  type: WeaponLaserTurretManual
-  components:
-  - rot: -1.5707963267948966 rad
-    pos: -5.5,-2.5
-    parent: 3
-    type: Transform
-  - inputs:
-      TurretClockwise:
-      - port: Right
-        uid: 148
-      TurretAntiClockwise:
-      - port: Left
-        uid: 148
-      TurretStopRot:
-      - port: Middle
-        uid: 148
-      TurretShootSemi:
-      - port: Pressed
-        uid: 56
-    type: SignalReceiver
-- uid: 211
-  type: WeaponLaserTurretManual
-  components:
-  - rot: 1.5707963267948966 rad
-    pos: 2.5,-2.5
-    parent: 3
-    type: Transform
-  - inputs:
-      TurretClockwise:
-      - port: Right
-        uid: 116
-      TurretAntiClockwise:
-      - port: Left
-        uid: 116
-      TurretStopRot:
-      - port: Middle
-        uid: 116
-      TurretShootSemi:
-      - port: Pressed
-        uid: 152
-    type: SignalReceiver
-- uid: 212
   type: WeaponLaserTurretManual
   components:
   - rot: 1.5707963267948966 rad
@@ -2124,10 +1854,26 @@ entities:
       TurretStopRot:
       - port: Middle
         uid: 116
-      TurretShootSemi:
+      TurretShootSemi: []
+      TurretShootAutoToggle:
       - port: Pressed
         uid: 152
+      TurretShootAutoOn: []
+      TurretShootAutoOff: []
     type: SignalReceiver
+- uid: 211
+  type: ResearchAndDevelopmentServer
+  components:
+  - pos: -4.5,2.5
+    parent: 3
+    type: Transform
+- uid: 212
+  type: StoolBar
+  components:
+  - rot: 3.141592653589793 rad
+    pos: -2.5,3.5
+    parent: 3
+    type: Transform
 - uid: 213
   type: CableMV
   components:

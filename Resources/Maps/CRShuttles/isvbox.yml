@@ -106,11 +106,20 @@ entities:
   - pos: 6.5,2.5
     parent: 3
     type: Transform
+- uid: 2
+  components:
+  - type: MetaData
+  - type: Transform
+  - index: 30
+    type: Map
+  - type: PhysicsMap
+  - type: Broadphase
+  - type: OccluderTree
 - uid: 3
   components:
   - type: MetaData
   - pos: 0.484375,0.5
-    parent: null
+    parent: 2
     type: Transform
   - chunks:
       0,0:
@@ -132,141 +141,10 @@ entities:
     fixedRotation: False
     bodyType: Dynamic
     type: Physics
-  - fixtures:
-    - density: 0.5
-      shape: !type:PolygonShape
-        vertices:
-        - 15.99,0.01
-        - 15.99,5.99
-        - 1.01,5.99
-        - 1.01,0.01
-      mask:
-      - MapGrid
-      layer:
-      - MapGrid
-      restitution: 0.1
-      id: grid_chunk-1.01-0.01
-    - density: 0.5
-      shape: !type:PolygonShape
-        vertices:
-        - 4.99,-13.99
-        - 4.99,-13.01
-        - 3.01,-13.01
-        - 3.01,-13.99
-      mask:
-      - MapGrid
-      layer:
-      - MapGrid
-      restitution: 0.1
-      id: grid_chunk-3.01--13.99
-    - density: 0.5
-      shape: !type:PolygonShape
-        vertices:
-        - 14.99,-13.99
-        - 14.99,-13.01
-        - 13.01,-13.01
-        - 13.01,-13.99
-      mask:
-      - MapGrid
-      layer:
-      - MapGrid
-      restitution: 0.1
-      id: grid_chunk-13.01--13.99
-    - density: 0.5
-      shape: !type:PolygonShape
-        vertices:
-        - 4.99,-12.99
-        - 4.99,-12.01
-        - 2.01,-12.01
-        - 2.01,-12.99
-      mask:
-      - MapGrid
-      layer:
-      - MapGrid
-      restitution: 0.1
-      id: grid_chunk-2.01--12.99
-    - density: 0.5
-      shape: !type:PolygonShape
-        vertices:
-        - 15.99,-12.99
-        - 15.99,-12.01
-        - 13.01,-12.01
-        - 13.01,-12.99
-      mask:
-      - MapGrid
-      layer:
-      - MapGrid
-      restitution: 0.1
-      id: grid_chunk-13.01--12.99
-    - density: 0.5
-      shape: !type:PolygonShape
-        vertices:
-        - 3.99,-11.99
-        - 3.99,-11.01
-        - 1.01,-11.01
-        - 1.01,-11.99
-      mask:
-      - MapGrid
-      layer:
-      - MapGrid
-      restitution: 0.1
-      id: grid_chunk-1.01--11.99
-    - density: 0.5
-      shape: !type:PolygonShape
-        vertices:
-        - 15.99,-11.99
-        - 15.99,-11.01
-        - 14.01,-11.01
-        - 14.01,-11.99
-      mask:
-      - MapGrid
-      layer:
-      - MapGrid
-      restitution: 0.1
-      id: grid_chunk-14.01--11.99
-    - density: 0.5
-      shape: !type:PolygonShape
-        vertices:
-        - 15.99,-10.99
-        - 15.99,-0.01
-        - 1.01,-0.01
-        - 1.01,-10.99
-      mask:
-      - MapGrid
-      layer:
-      - MapGrid
-      restitution: 0.1
-      id: grid_chunk-1.01--10.99
-    - density: 0.5
-      shape: !type:PolygonShape
-        vertices:
-        - 16.99,0.01
-        - 16.99,5.99
-        - 16.01,5.99
-        - 16.01,0.01
-      mask:
-      - MapGrid
-      layer:
-      - MapGrid
-      restitution: 0.1
-      id: grid_chunk-16.01-0.01
-    - density: 0.5
-      shape: !type:PolygonShape
-        vertices:
-        - 16.99,-10.99
-        - 16.99,-0.01
-        - 16.01,-0.01
-        - 16.01,-10.99
-      mask:
-      - MapGrid
-      layer:
-      - MapGrid
-      restitution: 0.1
-      id: grid_chunk-16.01--10.99
+  - fixtures: []
     type: Fixtures
   - gravityShakeSound: !type:SoundPathSpecifier
       path: /Audio/Effects/alert.ogg
-    enabled: True
     type: Gravity
   - chunkCollection:
       0,-1:
@@ -898,8 +776,8 @@ entities:
     - volume: 2500
       temperature: 293.15
       moles:
-      - 18.935778
-      - 71.2346
+      - 18.405577
+      - 69.24003
       - 0
       - 0
       - 0
@@ -931,7 +809,12 @@ entities:
   - type: RadiationGridResistance
   - type: OccluderTree
   - type: Shuttle
-  - type: GridPathfinding
+  - nextUpdate: 155.3423632
+    type: GridPathfinding
+  - nextShake: 0
+    shakeTimes: 10
+    type: GravityShake
+  - type: GasTileOverlay
 - uid: 4
   type: WallSolid
   components:
@@ -3387,6 +3270,12 @@ entities:
     pos: 13.5,-13.5
     parent: 3
     type: Transform
+- uid: 366
+  type: WeaponLaserTurretManual
+  components:
+  - pos: 12.5,-5.5
+    parent: 3
+    type: Transform
 - uid: 367
   type: GasPipeBend
   components:
@@ -4037,6 +3926,19 @@ entities:
   components:
   - rot: 1.5707963267948966 rad
     pos: 14.5,-11.5
+    parent: 3
+    type: Transform
+- uid: 457
+  type: WeaponLaserTurretManual
+  components:
+  - pos: 13.5,-5.5
+    parent: 3
+    type: Transform
+- uid: 458
+  type: Wrench
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 13.057538,-6.1852827
     parent: 3
     type: Transform
 ...
