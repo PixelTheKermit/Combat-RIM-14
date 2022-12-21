@@ -53,28 +53,28 @@ public sealed class ControllerDeviceSystem : EntitySystem
 
         if (comp.Controlling == null || !_entityManager.EntityExists(comp.Controlling) || (TryComp<MobStateComponent>(comp.Controlling, out var damageState) && damageState.CurrentState != null && damageState.CurrentState.Value == DamageState.Dead))
         {
-            _popupSystem.PopupEntity(Loc.GetString("control-device-unable-to-connect"), uid, Filter.Entities(args.User));
+            _popupSystem.PopupEntity(Loc.GetString("control-device-unable-to-connect"), uid, args.User);
             return;
         }
 
         if (!TryComp<ControllableMobComponent>(comp.Controlling, out var controllableComp)
             || controllableComp.CurrentEntityOwning != null)
         {
-            _popupSystem.PopupEntity(Loc.GetString("control-device-already-controlled"), uid, Filter.Entities(args.User));
+            _popupSystem.PopupEntity(Loc.GetString("control-device-already-controlled"), uid, args.User);
             return;
         }
 
         var calcDist = (Comp<TransformComponent>(uid).WorldPosition - Comp<TransformComponent>(comp.Controlling.Value).WorldPosition).Length;
         if (calcDist > comp.Range)
         {
-            _popupSystem.PopupEntity(Loc.GetString("device-control-out-of-range"), uid, Filter.Entities(args.User));
+            _popupSystem.PopupEntity(Loc.GetString("device-control-out-of-range"), uid, args.User);
             return;
         }
 
         if (!TryComp<ControllerMobComponent>(args.User, out var controllerComp)
             || controllerComp.Controlling != null)
         {
-            _popupSystem.PopupEntity(Loc.GetString("control-device-unable-to-use"), uid, Filter.Entities(args.User));
+            _popupSystem.PopupEntity(Loc.GetString("control-device-unable-to-use"), uid, args.User);
             return;
         }
 

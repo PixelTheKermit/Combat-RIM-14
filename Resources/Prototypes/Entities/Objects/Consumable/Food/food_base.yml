@@ -29,4 +29,5 @@
   - type: InjectableSolution
     solution: food
   - type: ChemicalFuelGeneratorDirectSource
+  - type: RefillableSolution
     solution: food

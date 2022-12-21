@@ -57,7 +57,7 @@ namespace Content.Server.Construction
             xform.Anchored = false;
             RaiseLocalEvent(uid, new UserUnanchoredEvent(args.User, args.Using));
 
-            _popup.PopupEntity(Loc.GetString("anchorable-unanchored"), uid, Filter.Pvs(uid, entityManager: EntityManager));
+            _popup.PopupEntity(Loc.GetString("anchorable-unanchored"), uid);
 
             _adminLogger.Add(
                 LogType.Unanchor,
@@ -78,7 +78,7 @@ namespace Content.Server.Construction
             if (TryComp<PhysicsComponent>(uid, out var anchorBody) &&
                 !TileFree(xform.Coordinates, anchorBody))
             {
-                _popup.PopupEntity(Loc.GetString("anchorable-occupied"), uid, Filter.Entities(args.User));
+                _popup.PopupEntity(Loc.GetString("anchorable-occupied"), uid, args.User);
                 return;
             }
 
@@ -99,7 +99,7 @@ namespace Content.Server.Construction
             xform.Anchored = true;
             RaiseLocalEvent(uid, new UserAnchoredEvent(args.User, args.Using));
 
-            _popup.PopupEntity(Loc.GetString("anchorable-anchored"), uid, Filter.Pvs(uid, entityManager: EntityManager));
+            _popup.PopupEntity(Loc.GetString("anchorable-anchored"), uid);
 
             _adminLogger.Add(
                 LogType.Anchor,
@@ -195,7 +195,7 @@ namespace Content.Server.Construction
             if (TryComp<PhysicsComponent>(uid, out var anchorBody) &&
                 !TileFree(transform.Coordinates, anchorBody))
             {
-                _popup.PopupEntity(Loc.GetString("anchorable-occupied"), uid, Filter.Entities(userUid));
+                _popup.PopupEntity(Loc.GetString("anchorable-occupied"), uid, userUid);
                 return;
             }
 

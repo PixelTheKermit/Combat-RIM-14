@@ -12,6 +12,6 @@ public sealed class ControllerDeviceComponent : Component
     [DataField("range")]
     public float Range = 50f;
 
-    [ViewVariables(VVAccess.ReadWrite)]
+    [DataField("controlling")]
     public EntityUid? Controlling;
 }

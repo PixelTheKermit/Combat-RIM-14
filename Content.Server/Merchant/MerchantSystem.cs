@@ -44,7 +44,7 @@ namespace Content.Server.Merchant
         {
             if (component.Count <= 0)
             {
-                _popupSystem.PopupEntity("The machine appears to be off...", uid, Filter.Entities(user));
+                _popupSystem.PopupEntity("The machine appears to be off...", uid, user);
                 return;
             }
 
@@ -70,7 +70,7 @@ namespace Content.Server.Merchant
         {
             if (component.Count <= 0)
             {
-                _popupSystem.PopupEntity("The machine appears to be off...", uid, Filter.Entities(user));
+                _popupSystem.PopupEntity("The machine appears to be off...", uid, user);
                 return;
             }
 
@@ -99,7 +99,7 @@ namespace Content.Server.Merchant
         {
             if (component.Count <= 0)
             {
-                _popupSystem.PopupEntity("The machine appears to be off...", uid, Filter.Entities(user));
+                _popupSystem.PopupEntity("The machine appears to be off...", uid, user);
                 return;
             }
 
@@ -122,7 +122,7 @@ namespace Content.Server.Merchant
         {
             if (component.Count <= 0)
             {
-                _popupSystem.PopupEntity("The machine appears to be off...", uid, Filter.Entities(args.User));
+                _popupSystem.PopupEntity("The machine appears to be off...", uid, args.User);
                 return;
             }
 
@@ -147,7 +147,7 @@ namespace Content.Server.Merchant
 
             if (component.Count <= 0 )
             {
-                _popupSystem.PopupEntity("The machine appears to be off...", uid, Filter.Entities(args.User));
+                _popupSystem.PopupEntity("The machine appears to be off...", uid, args.User);
                 return;
             }
 
@@ -185,7 +185,7 @@ namespace Content.Server.Merchant
 
                     if (component.Count <= 0)
                     {
-                        _popupSystem.PopupEntity("The machine appears to power off...", uid, Filter.Entities(args.User));
+                        _popupSystem.PopupEntity("The machine appears to power off...", uid, args.User);
                         return;
                     }
 

@@ -100,7 +100,7 @@
   parent: WeaponBasePoweredTurretManual
   id: WeaponTurretManual
   name: turret
-  description: A static, very heavy gun. You better hope it's not pointing at you!
+  description: A turret with a high firerate. Chews up it's ammo like it's nothing.
   components:
     - type: Machine
       board: WeaponTurretManualCircuitboard
@@ -122,7 +122,7 @@
   parent: WeaponBasePoweredTurretManual
   id: WeaponLaserTurretManual
   name: laser turret
-  description: A static, very heavy laser gun. You should probably wear some sort of eye protection!
+  description: A static, very heavy and precise laser gun, does not require ammo yet uses more power.
   components:
     - type: Battery
       maxCharge: 875
@@ -130,20 +130,16 @@
     - type: Machine
       board: WeaponLaserTurretManualCircuitboard
     - type: ManualTurret 
-      fireCost: 45
+      minAngle: 0
+      maxAngle: 0
+      fireCost: 15
       soundGunshot: /Audio/Weapons/Guns/Gunshots/laser.ogg
-      fireRate: 1
+      fireRate: 3
       isBatteryWeapon: true
       machinePartFiringSpeed: Laser
     - type: Sprite
       layers:
         - state: laser
-    - type: SignalReceiver
-      inputs:
-        TurretClockwise: []
-        TurretAntiClockwise: []
-        TurretStopRot: []
-        TurretShootSemi: []
     - type: ProjectileBatteryAmmoProvider
       proto: EmitterBolt
 
@@ -151,7 +147,7 @@
   parent: WeaponBasePoweredTurretManual
   id: WeaponRocketTurretManual
   name: rocket launcher turret
-  description: A very dangerous gun. Use with caution.
+  description: A very energy intensive turret. It's expensive ammo is worth it, but also dangerous if misused.
   components:
     - type: Machine
       board: WeaponRocketTurretManualCircuitboard
@@ -182,8 +178,8 @@
 - type: entity
   parent: WeaponBasePoweredTurretManual
   id: WeaponShotgunTurretManual
-  name: shotgun turret
-  description: A static, very heavy shotgun. You better pray none of the shots actually hit you!
+  name: buckshot turret
+  description: A slow turret that is useful for damaging a wide section of a shuttle.
   components:
     - type: Machine
       board: WeaponShotgunTurretManualCircuitboard

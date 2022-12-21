@@ -6,6 +6,6 @@ public sealed class ControllerStructureComponent : Component
     [DataField("range")]
     public float Range = 150f;
 
-    [ViewVariables(VVAccess.ReadWrite)]
+    [DataField("controlling")]
     public EntityUid? Controlling;
 }

@@ -81,6 +81,7 @@
     state: egg-0
     netsync: false
   - type: Puddle
+    wetFloorEffectThreshold: 0 # No wet floor sparkles
   - type: SolutionContainerManager
     solutions:
       puddle:
@@ -89,8 +90,7 @@
           Quantity: 2
   - type: Evaporation
   - type: Appearance
-    visuals:
-    - type: PuddleVisualizer
+  - type: PuddleVisualizer
 
 - type: entity
   name: eggshells

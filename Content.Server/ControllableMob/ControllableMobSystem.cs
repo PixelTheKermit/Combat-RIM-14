@@ -48,7 +48,7 @@ public sealed class ControllableMobSystem : EntitySystem
                 {
                     RevokeControl(contMob.CurrentEntityOwning.Value);
                     Comp<ControllerMobComponent>(contMob.CurrentEntityOwning.Value).Controlling = null;
-                    _popupSystem.PopupEntity(Loc.GetString("device-control-out-of-range"), contMob.CurrentEntityOwning.Value, Filter.Entities(contMob.Owner));
+                    _popupSystem.PopupEntity(Loc.GetString("device-control-out-of-range"), contMob.CurrentEntityOwning.Value, contMob.CurrentEntityOwning.Value);
                     contMob.CurrentEntityOwning = null;
                 }
                 else if (_entityManager.TryGetComponent<MindComponent>(contMob.Owner, out var entMindComp) && entMindComp.Mind != null
@@ -126,13 +126,23 @@ public sealed class ControllableMobSystem : EntitySystem
 
     private void GetInteraction(EntityUid uid, ControllableMobComponent comp, InteractUsingEvent args)
     {
-        if (comp.CurrentEntityOwning == null && TryComp<ControllerMobComponent>(args.User, out var controlComp) &&
-            !(TryComp<MobStateComponent>(uid, out var damageState) && _mobStateSystem.IsDead(uid, damageState))
-            && TryComp<ControllerDeviceComponent>(args.Used, out var controlDeviceComp))
+        if (!TryComp<ControllerDeviceComponent>(args.Used, out var controlDeviceComp))
+            return;
+
+        if (comp.CurrentEntityOwning != null)
         {
-            controlDeviceComp.Controlling = uid;
-            _popupSystem.PopupEntity(Loc.GetString("device-control-paired"), uid, Filter.Entities(args.User));
+            _popupSystem.PopupEntity(Loc.GetString("device-control-fail-pair-controlled"), uid, args.User);
+            return;
         }
+
+        if (TryComp<MobStateComponent>(uid, out var damageState) && _mobStateSystem.IsDead(uid, damageState))
+        {
+            _popupSystem.PopupEntity(Loc.GetString("device-control-fail-pair-damaged"), uid, args.User);
+            return;
+        }
+
+        controlDeviceComp.Controlling = uid;
+        _popupSystem.PopupEntity(Loc.GetString("device-control-paired"), uid, args.User);
     }
 
     private void StopControl(EntityUid uid, ControllableMobComponent comp)

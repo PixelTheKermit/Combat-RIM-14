@@ -12,6 +12,7 @@ public static class ChatChannelExtensions
             ChatChannel.OOC => Color.FromHex("#709FBD"),
             ChatChannel.Dead => Color.FromHex("#715AA1"),
             ChatChannel.Admin => Color.FromHex("#B30808"),
+            ChatChannel.AdminChat => Color.HotPink,
             ChatChannel.Whisper => Color.DarkGray,
             _ => Color.LightGray
         };
