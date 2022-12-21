@@ -68,9 +68,17 @@ public sealed partial class ResearchSystem
 
     private void UpdateClientInterface(ResearchClientComponent component)
     {
-        var names = GetServerNames();
+        var transform = Comp<TransformComponent>(component.Owner);
+
+        if (transform.GridUid == null)
+            return;
+
+        var servers = GetServersOnGrid(transform.GridUid.Value);
+
+        var names = GetServerNames(servers.ToArray());
+
         var state = new ResearchClientBoundInterfaceState(names.Length, names,
-            GetServerIds(), component.ConnectedToServer ? component.Server!.Id : -1);
+            GetServerIds(servers.ToArray()), component.ConnectedToServer ? component.Server!.Id : -1);
 
         _uiSystem.TrySetUiState(component.Owner, ResearchClientUiKey.Key, state);
     }

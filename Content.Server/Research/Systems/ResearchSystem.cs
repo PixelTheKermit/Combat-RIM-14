@@ -43,9 +43,10 @@ namespace Content.Server.Research.Systems
             return null;
         }
 
-        public string[] GetServerNames()
+        public string[] GetServerNames(ResearchServerComponent[]? allServers)
         {
-            var allServers = EntityQuery<ResearchServerComponent>(true).ToArray();
+            if (allServers == null)
+                allServers = EntityQuery<ResearchServerComponent>(true).ToArray();
             var list = new string[allServers.Length];
 
             for (var i = 0; i < allServers.Length; i++)
@@ -56,15 +57,35 @@ namespace Content.Server.Research.Systems
             return list;
         }
 
-        public int[] GetServerIds()
+        public int[] GetServerIds(ResearchServerComponent[]? allServers)
         {
-            var allServers = EntityQuery<ResearchServerComponent>(true).ToArray();
+            if (allServers == null)
+                allServers = EntityQuery<ResearchServerComponent>(true).ToArray();
             var list = new int[allServers.Length];
 
             for (var i = 0; i < allServers.Length; i++)
             {
                 list[i] = allServers[i].Id;
             }
+
+            return list;
+        }
+
+        public List<ResearchServerComponent> GetServersOnGrid(EntityUid grid)
+        {
+            var allServers = EntityQuery<ResearchServerComponent>(true);
+            var list = new List<ResearchServerComponent>();
+
+            foreach (var server in allServers)
+            {
+                if (Comp<TransformComponent>(server.Owner).GridUid == grid)
+                    list.Add(server);
+            }
+
+            if (list.Count > 0)
+                Logger.Debug("Why is it not working???");
+            else
+                Logger.Debug("Ok why the fuck is this empty?");
 
             return list;
         }
