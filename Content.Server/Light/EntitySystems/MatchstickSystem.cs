@@ -12,6 +12,8 @@ using Content.Shared.Popups;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Player;
+using System.Threading;
+using Content.Server.DoAfter;
 
 namespace Content.Server.Light.EntitySystems
 {
@@ -24,6 +26,7 @@ namespace Content.Server.Light.EntitySystems
         [Dependency] private readonly DamageableSystem _damageableSystem = default!;
         [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
         [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
+        [Dependency] private readonly DoAfterSystem _doAfterSystem = default!;
 
         public override void Initialize()
         {
@@ -33,16 +36,39 @@ namespace Content.Server.Light.EntitySystems
             SubscribeLocalEvent<MatchstickComponent, IsHotEvent>(OnIsHotEvent);
             SubscribeLocalEvent<MatchstickComponent, ComponentShutdown>(OnShutdown);
             SubscribeLocalEvent<MatchstickComponent, MeleeHitEvent>(OnMeleeHit);
+
+            SubscribeLocalEvent<MatchstickComponent, CauterizeComplete>(OnCauterizeCompleted);
+            SubscribeLocalEvent<MatchstickComponent, CauterizeCancelledEvent>(OnCauterizeCancelled);
         }
 
         private void OnInteract(EntityUid uid, MatchstickComponent component, UseInHandEvent args)
         {
-            if (!args.Handled && component.CurrentState == SmokableState.Lit)
+            if (!args.Handled && component.CurrentState == SmokableState.Lit && component.CancelToken == null)
             {
-                _damageableSystem.TryChangeDamage(args.User, component.LitMeleeDamageBonus);
-                _audioSystem.Play("/Audio/Effects/lightburn.ogg", Filter.Pvs(uid), uid, true);
                 _popupSystem.PopupEntity("You try to painfully seal your wounds!", args.User, args.User);
+                component.CancelToken = new CancellationTokenSource();
+                _doAfterSystem.DoAfter(new DoAfterEventArgs(uid, component.Delay, component.CancelToken.Token, args.User)
+                {
+                    UserFinishedEvent = new CauterizeComplete(uid, args.User),
+                    UserCancelledEvent = new CauterizeCancelledEvent(),
+                    BreakOnTargetMove = true,
+                    BreakOnUserMove = true,
+                    BreakOnStun = true,
+                });
             }
+        }
+
+        private void OnCauterizeCompleted(EntityUid uid, MatchstickComponent component, CauterizeComplete args)
+        {
+            component.CancelToken = null;
+
+            _damageableSystem.TryChangeDamage(args.User, component.LitMeleeDamageBonus);
+            _audioSystem.Play("/Audio/Effects/lightburn.ogg", Filter.Pvs(args.User), args.User, true);
+        }
+
+        private void OnCauterizeCancelled(EntityUid uid, MatchstickComponent component, CauterizeCancelledEvent args)
+        {
+            component.CancelToken = null;
         }
 
         private void OnMeleeHit(EntityUid uid, MatchstickComponent component, MeleeHitEvent args)
@@ -140,5 +166,18 @@ namespace Content.Server.Light.EntitySystems
                 appearance.SetData(SmokingVisuals.Smoking, component.CurrentState);
             }
         }
+        private sealed class CauterizeComplete : EntityEventArgs
+        {
+            public EntityUid Used { get; }
+            public EntityUid User { get; }
+
+            public CauterizeComplete(EntityUid used, EntityUid user)
+            {
+                Used = used;
+                User = user;
+            }
+        }
+
+        private sealed class CauterizeCancelledEvent : EntityEventArgs { }
     }
 }

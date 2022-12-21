@@ -18,6 +18,7 @@
     tags:
     - Matchstick
     - Trash
+  - type: DoAfter
   - type: MeleeWeapon
     attackRate: 2
     damage:

@@ -2,6 +2,7 @@ using Content.Server.Light.EntitySystems;
 using Content.Shared.Smoking;
 using Robust.Shared.Audio;
 using Content.Shared.Damage;
+using System.Threading;
 
 namespace Content.Server.Light.Components
 {
@@ -31,6 +32,8 @@ namespace Content.Server.Light.Components
         /// </summary>
         [DataField("litMeleeDamageBonus")]
         public DamageSpecifier LitMeleeDamageBonus = new();
+
+        public CancellationTokenSource? CancelToken;
 
         /// <summary>
         /// Sound played when you ignite the matchstick.
