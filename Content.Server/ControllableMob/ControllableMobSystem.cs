@@ -1,18 +1,11 @@
-
 using Content.Server.ControllerDevice;
-using Content.Server.Database;
 using Content.Server.Mind.Components;
 using Content.Server.MobState;
-using Content.Server.Players;
 using Content.Shared.Interaction;
 using Content.Shared.MobState;
 using Content.Shared.MobState.Components;
 using Content.Shared.Popups;
 using Content.Shared.Verbs;
-using Robust.Server.Player;
-using Robust.Shared.Player;
-using Robust.Shared.Maths;
-using Content.Server.GameTicking;
 
 namespace Content.Server.ControllableMob;
 
@@ -96,7 +89,6 @@ public sealed class ControllableMobSystem : EntitySystem
         mind.UnVisit();
         
     }
-
 
     private void OnDeleted(EntityUid uid, ControllableMobComponent comp, ComponentShutdown args)
     {

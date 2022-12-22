@@ -1,19 +1,9 @@
-
 using Content.Server.ControllerDevice;
-using Content.Server.Mind.Components;
-using Content.Server.MobState;
-using Content.Server.Players;
-using Content.Shared.Damage;
 using Content.Shared.Hands;
-using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
 using Content.Shared.MobState;
 using Content.Shared.MobState.Components;
 using Content.Shared.Popups;
-using Content.Shared.Verbs;
-using Robust.Server.Player;
-using Robust.Shared.Localization;
-using Robust.Shared.Player;
 
 namespace Content.Server.ControllableMob;
 
@@ -21,7 +11,6 @@ public sealed class ControllerDeviceSystem : EntitySystem
 {
     // Dependencies
     [Dependency] private readonly EntityManager _entityManager = default!;
-    [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
     [Dependency] private readonly ControllableMobSystem _controllableMobSystem = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
     public override void Initialize() // VERY IMPORTANT!!!!!!
@@ -34,16 +23,24 @@ public sealed class ControllerDeviceSystem : EntitySystem
 
     private void OnDeleted(EntityUid uid, ControllerMobComponent comp, ComponentShutdown args)
     {
-        if (comp.Controlling != null && _entityManager.EntityExists(comp.Controlling) // CHONKY
-            && TryComp<ControllableMobComponent>(comp.Controlling, out var controllableComp)
-            && controllableComp.CurrentDeviceOwning == uid && controllableComp.CurrentEntityOwning != null
-            && TryComp<ControllerMobComponent>(controllableComp.CurrentEntityOwning.Value, out var controllerComp)
-            && controllerComp.Controlling != null)
-        {
-            controllerComp.Controlling = null;
-            _controllableMobSystem.RevokeControl(comp.Controlling.Value);
-            controllableComp.CurrentEntityOwning = null;
-        }
+        // Checks to make sure that we are controlling an entity
+        if (comp.Controlling == null && !_entityManager.EntityExists(comp.Controlling))
+            return;
+
+        if (!TryComp<ControllableMobComponent>(comp.Controlling, out var controllableComp))
+            return;
+
+        var owner = controllableComp.CurrentDeviceOwning;
+
+        if (owner != comp.Owner || owner == null)
+            return;
+
+        if (!TryComp<ControllerMobComponent>(owner.Value, out var controllerComp) || controllerComp.Controlling != null)
+            return;
+
+        controllerComp.Controlling = null;
+        _controllableMobSystem.RevokeControl(comp.Controlling.Value);
+        controllableComp.CurrentEntityOwning = null;
     }
 
     private void Control(EntityUid uid, ControllerDeviceComponent comp, UseInHandEvent args)
@@ -87,16 +84,24 @@ public sealed class ControllerDeviceSystem : EntitySystem
 
     private void Unequipped(EntityUid uid, ControllerDeviceComponent comp, GotUnequippedHandEvent args)
     {
-        if (comp.Controlling != null && _entityManager.EntityExists(comp.Controlling) // CHONKY
-            && TryComp<ControllableMobComponent>(comp.Controlling, out var controllableComp)
-            && controllableComp.CurrentEntityOwning != null
-            && TryComp<ControllerMobComponent>(args.User, out var controllerComp)
-            && controllerComp.Controlling != null)
-        {
-            _controllableMobSystem.RevokeControl(comp.Controlling.Value);
-            comp.Controlling = null;
-            controllerComp.Controlling = null;
-            controllableComp.CurrentEntityOwning = null;
-        }
+        // Checks to make sure that we are controlling an entity
+        if (comp.Controlling == null && !_entityManager.EntityExists(comp.Controlling))
+            return;
+
+        if (!TryComp<ControllableMobComponent>(comp.Controlling, out var controllableComp))
+            return;
+
+        var owner = controllableComp.CurrentDeviceOwning;
+
+        if (owner != comp.Owner || owner == null)
+            return;
+
+        if (!TryComp<ControllerMobComponent>(owner.Value, out var controllerComp) || controllerComp.Controlling != null)
+            return;
+
+        _controllableMobSystem.RevokeControl(comp.Controlling.Value);
+        comp.Controlling = null;
+        controllerComp.Controlling = null;
+        controllableComp.CurrentEntityOwning = null;
     }
 }
