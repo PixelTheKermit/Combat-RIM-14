@@ -108,6 +108,7 @@ entities:
     type: Transform
 - uid: 3
   components:
+  - type: TimeSpawned
   - type: MetaData
   - pos: 0.484375,0.5
     parent: null
