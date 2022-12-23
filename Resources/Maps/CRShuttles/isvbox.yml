@@ -117,8 +117,6 @@ entities:
   - type: OccluderTree
 - uid: 3
   components:
-  - type: MetaData
-  - type: TimeSpawned
   - pos: 0.484375,0.5
     parent: 2
     type: Transform

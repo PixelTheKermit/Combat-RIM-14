@@ -108,7 +108,6 @@ entities:
     type: Transform
 - uid: 2
   components:
-  - type: TimeSpawned
   - type: MetaData
   - type: Transform
   - index: 25
