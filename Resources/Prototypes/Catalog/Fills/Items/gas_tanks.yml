@@ -6,9 +6,9 @@
   - type: GasTank
     outputPressure: 21.27825
     air:
-      volume: 70
+      volume: 18
       moles:
-        - 22.6293856 # oxygen
+        - 2.587682608 # oxygen
       temperature: 293.15
 
 - type: entity
@@ -51,7 +51,7 @@
     - type: GasTank
       outputPressure: 21.27825
       air:
-        volume: 10
+        volume: 12
         moles:
           - 1.61721219 # oxygen
         temperature: 293.15
@@ -64,10 +64,10 @@
     - type: GasTank
       outputPressure: 101.325
       air:
-        volume: 70
+        volume: 18
         moles:
-          - 4.75217098 # oxygen
-          - 17.8772147 # nitrogen
+          - 0.2587682608 # oxygen
+          - 2.3289143472 # nitrogen
         temperature: 293.15
 
 - type: entity
@@ -79,10 +79,10 @@
     - type: GasTank
       outputPressure: 101.325
       air:
-        volume: 70
+        volume: 18
         moles:
           - 0 # oxygen
-          - 22.6293856 # nitrogen
+          - 2.587682608 # nitrogen
         temperature: 293.15
 
 - type: entity
@@ -94,16 +94,16 @@
     - type: GasTank
       outputPressure: 101.325
       air:
-        volume: 70
+        volume: 18
         moles:
-          - 20.5 # oxygen
+          - 5.27142857143  # oxygen
           - 0 # Nitrogen
           - 0 # CO2
           - 0 # Plasma
           - 0 # Tritium
           - 0 # Water vapor
           - 0 # Miasma
-          - 2 # N2O
+          - 0.51428571428  # N2O
         temperature: 293.15
 
 
@@ -117,7 +117,7 @@
     - type: GasTank
       outputPressure: 101.325
       air:
-        volume: 70
+        volume: 18
         moles:
           - 0
           - 0

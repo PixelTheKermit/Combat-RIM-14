@@ -25,6 +25,7 @@
   - type: SlowOnDamage # Moths are weaker than everyone else, so they should take less speed penalties
     speedModifierThresholds:
       70: 0.8
+      85: 0.5
   - type: MobState
     thresholds:
       0: Alive
