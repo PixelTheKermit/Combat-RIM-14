@@ -1,21 +1,11 @@
-
 using Content.Server.ControllerDevice;
 using Content.Server.Interaction;
-using Content.Server.Mind.Components;
 using Content.Server.MobState;
-using Content.Server.Players;
 using Content.Server.Power.Components;
-using Content.Shared.Damage;
-using Content.Shared.Hands;
 using Content.Shared.Interaction;
-using Content.Shared.Interaction.Events;
 using Content.Shared.MobState;
 using Content.Shared.MobState.Components;
 using Content.Shared.Popups;
-using Content.Shared.Verbs;
-using Robust.Server.Player;
-using Robust.Shared.Localization;
-using Robust.Shared.Player;
 
 namespace Content.Server.ControllableMob;
 
@@ -41,30 +31,52 @@ public sealed class ControllerStructureSystem : EntitySystem
 
         foreach (var (contStruct, apcReceiver, transform) in EntityQuery<ControllerStructureComponent, ApcPowerReceiverComponent, TransformComponent>())
         {
-            if (contStruct.Controlling != null && contStruct.Controlling != null
-                && _entityManager.EntityExists(contStruct.Controlling) && TryComp<ControllableMobComponent>(contStruct.Controlling, out var controllableComp) // TODO: REDUCE THE DAMN CHONK OF THIS IF STATEMENT
-                && controllableComp.CurrentDeviceOwning == contStruct.Owner && controllableComp.CurrentEntityOwning != null && TryComp<ControllerMobComponent>(controllableComp.CurrentEntityOwning.Value, out var controllerComp)
-                && controllerComp.Controlling != null && (!apcReceiver.Powered || (Comp<TransformComponent>(controllerComp.Owner).WorldPosition - transform.WorldPosition).Length > InteractionSystem.InteractionRange))
-            {
-                controllerComp.Controlling = null;
-                _controllableMobSystem.RevokeControl(controllableComp.CurrentEntityOwning.Value);
-                controllableComp.CurrentEntityOwning = null;
-            }    
+            // Checks to make sure that we are controlling an entity
+            if (contStruct.Controlling == null || !_entityManager.EntityExists(contStruct.Controlling))
+                continue; // REMINDER TO SELF, CONTINUE DOES NOT MEAN WHAT YOU THINK IT MEANS
+
+            if (!TryComp<ControllableMobComponent>(contStruct.Controlling, out var controllableComp))
+                continue;
+
+            var owner = controllableComp.CurrentEntityOwning;
+
+            if (owner == null || !TryComp<ControllerMobComponent>(owner.Value, out var controllerComp) || controllerComp.Controlling == null)
+                continue;
+
+            if (controllableComp.CurrentDeviceOwning == null || controllableComp.CurrentDeviceOwning.Value != contStruct.Owner)
+                continue;
+
+            // And now checks to ensure we are still able to control the entity
+            if (apcReceiver.Powered &&
+                (Comp<TransformComponent>(controllerComp.Owner).WorldPosition - transform.WorldPosition).Length <= InteractionSystem.InteractionRange*2)
+                continue;
+
+            controllerComp.Controlling = null;
+            _controllableMobSystem.RevokeControl(owner.Value);
+            controllableComp.CurrentEntityOwning = null;
         }
     }
 
     private void OnDeleted(EntityUid uid, ControllerStructureComponent comp, ComponentShutdown args)
     {
-        if (comp.Controlling != null && _entityManager.EntityExists(comp.Controlling) // CHONKY
-            && TryComp<ControllableMobComponent>(comp.Controlling, out var controllableComp)
-            && controllableComp.CurrentDeviceOwning == uid && controllableComp.CurrentEntityOwning != null
-            && TryComp<ControllerMobComponent>(controllableComp.CurrentEntityOwning.Value, out var controllerComp)
-            && controllerComp.Controlling != null)
-        {
-            controllerComp.Controlling = null;
-            _controllableMobSystem.RevokeControl(controllableComp.CurrentEntityOwning.Value);
-            controllableComp.CurrentEntityOwning = null;
-        }
+        // Checks to make sure that we are controlling an entity
+        if (comp.Controlling == null || !_entityManager.EntityExists(comp.Controlling))
+            return;
+
+        if (!TryComp<ControllableMobComponent>(comp.Controlling, out var controllableComp))
+            return;
+
+        var owner = controllableComp.CurrentEntityOwning;
+
+        if (owner == null || !TryComp<ControllerMobComponent>(owner.Value, out var controllerComp) || controllerComp.Controlling == null)
+            return;
+
+        if (controllableComp.CurrentDeviceOwning == null || controllableComp.CurrentDeviceOwning.Value != uid)
+            return;
+
+        controllerComp.Controlling = null;
+        _controllableMobSystem.RevokeControl(owner.Value);
+        controllableComp.CurrentEntityOwning = null;
     }
 
     private void Control(EntityUid uid, ControllerStructureComponent comp, InteractHandEvent args)

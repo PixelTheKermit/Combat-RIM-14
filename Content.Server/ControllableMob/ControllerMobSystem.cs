@@ -1,10 +1,4 @@
-
-using Content.Server.Mind.Components;
-using Content.Server.Players;
 using Content.Shared.Damage;
-using Content.Shared.Interaction;
-using Content.Shared.Verbs;
-using Robust.Server.Player;
 
 namespace Content.Server.ControllableMob;
 
