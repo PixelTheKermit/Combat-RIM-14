@@ -32,22 +32,23 @@ public sealed class ControllerStructureSystem : EntitySystem
         foreach (var (contStruct, apcReceiver, transform) in EntityQuery<ControllerStructureComponent, ApcPowerReceiverComponent, TransformComponent>())
         {
             // Checks to make sure that we are controlling an entity
-            if (contStruct.Controlling == null && !_entityManager.EntityExists(contStruct.Controlling))
+            if (contStruct.Controlling == null || !_entityManager.EntityExists(contStruct.Controlling))
                 continue; // REMINDER TO SELF, CONTINUE DOES NOT MEAN WHAT YOU THINK IT MEANS
 
             if (!TryComp<ControllableMobComponent>(contStruct.Controlling, out var controllableComp))
                 continue;
 
-            var owner = controllableComp.CurrentDeviceOwning;
+            var owner = controllableComp.CurrentEntityOwning;
 
-            if (owner == null || owner != contStruct.Owner)
+            if (owner == null || !TryComp<ControllerMobComponent>(owner.Value, out var controllerComp) || controllerComp.Controlling == null)
                 continue;
 
-            if (!TryComp<ControllerMobComponent>(owner.Value, out var controllerComp) || controllerComp.Controlling != null)
+            if (controllableComp.CurrentDeviceOwning == null || controllableComp.CurrentDeviceOwning.Value != contStruct.Owner)
                 continue;
 
             // And now checks to ensure we are still able to control the entity
-            if (apcReceiver.Powered || !((Comp<TransformComponent>(controllerComp.Owner).WorldPosition - transform.WorldPosition).Length > InteractionSystem.InteractionRange))
+            if (apcReceiver.Powered &&
+                (Comp<TransformComponent>(controllerComp.Owner).WorldPosition - transform.WorldPosition).Length <= InteractionSystem.InteractionRange*2)
                 continue;
 
             controllerComp.Controlling = null;
@@ -59,18 +60,18 @@ public sealed class ControllerStructureSystem : EntitySystem
     private void OnDeleted(EntityUid uid, ControllerStructureComponent comp, ComponentShutdown args)
     {
         // Checks to make sure that we are controlling an entity
-        if (comp.Controlling == null && !_entityManager.EntityExists(comp.Controlling))
+        if (comp.Controlling == null || !_entityManager.EntityExists(comp.Controlling))
             return;
 
         if (!TryComp<ControllableMobComponent>(comp.Controlling, out var controllableComp))
             return;
 
-        var owner = controllableComp.CurrentDeviceOwning;
+        var owner = controllableComp.CurrentEntityOwning;
 
-        if (owner != comp.Owner || owner == null)
+        if (owner == null || !TryComp<ControllerMobComponent>(owner.Value, out var controllerComp) || controllerComp.Controlling == null)
             return;
 
-        if (!TryComp<ControllerMobComponent>(owner.Value, out var controllerComp) || controllerComp.Controlling != null)
+        if (controllableComp.CurrentDeviceOwning == null || controllableComp.CurrentDeviceOwning.Value != uid)
             return;
 
         controllerComp.Controlling = null;

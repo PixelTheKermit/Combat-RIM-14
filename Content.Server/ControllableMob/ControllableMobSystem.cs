@@ -30,24 +30,17 @@ public sealed class ControllableMobSystem : EntitySystem
     {
         base.Update(frameTime);
 
-        foreach (var (contMob, xform, mindComp) in EntityQuery<ControllableMobComponent, TransformComponent, MindComponent>())
+        foreach (var (contMob, xform) in EntityQuery<ControllableMobComponent, TransformComponent>())
         {
-            
             if (contMob.CurrentEntityOwning != null)
             {
-                var calcDist = (xform.WorldPosition - Comp<TransformComponent>(contMob.CurrentEntityOwning.Value).WorldPosition).Length;
+                var calcDist = (Comp<TransformComponent>(contMob.CurrentEntityOwning.Value).WorldPosition - xform.WorldPosition).Length;
 
                 if (calcDist > contMob.Range)
                 {
                     RevokeControl(contMob.CurrentEntityOwning.Value);
                     Comp<ControllerMobComponent>(contMob.CurrentEntityOwning.Value).Controlling = null;
                     _popupSystem.PopupEntity(Loc.GetString("device-control-out-of-range"), contMob.CurrentEntityOwning.Value, contMob.CurrentEntityOwning.Value);
-                    contMob.CurrentEntityOwning = null;
-                }
-                else if (_entityManager.TryGetComponent<MindComponent>(contMob.Owner, out var entMindComp) && entMindComp.Mind != null
-                    && entMindComp.HasMind)
-                {
-                    Comp<ControllerMobComponent>(contMob.CurrentEntityOwning.Value).Controlling = null;
                     contMob.CurrentEntityOwning = null;
                 }
             }

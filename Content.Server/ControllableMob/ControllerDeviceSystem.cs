@@ -24,18 +24,18 @@ public sealed class ControllerDeviceSystem : EntitySystem
     private void OnDeleted(EntityUid uid, ControllerMobComponent comp, ComponentShutdown args)
     {
         // Checks to make sure that we are controlling an entity
-        if (comp.Controlling == null && !_entityManager.EntityExists(comp.Controlling))
+        if (comp.Controlling == null || !_entityManager.EntityExists(comp.Controlling))
             return;
 
         if (!TryComp<ControllableMobComponent>(comp.Controlling, out var controllableComp))
             return;
 
-        var owner = controllableComp.CurrentDeviceOwning;
+        var owner = controllableComp.CurrentEntityOwning;
 
-        if (owner != comp.Owner || owner == null)
+        if (owner == null || !TryComp<ControllerMobComponent>(owner.Value, out var controllerComp) || controllerComp.Controlling == null)
             return;
 
-        if (!TryComp<ControllerMobComponent>(owner.Value, out var controllerComp) || controllerComp.Controlling != null)
+        if (controllableComp.CurrentDeviceOwning == null || controllableComp.CurrentDeviceOwning.Value != uid)
             return;
 
         controllerComp.Controlling = null;
@@ -85,18 +85,18 @@ public sealed class ControllerDeviceSystem : EntitySystem
     private void Unequipped(EntityUid uid, ControllerDeviceComponent comp, GotUnequippedHandEvent args)
     {
         // Checks to make sure that we are controlling an entity
-        if (comp.Controlling == null && !_entityManager.EntityExists(comp.Controlling))
+        if (comp.Controlling == null || !_entityManager.EntityExists(comp.Controlling))
             return;
 
         if (!TryComp<ControllableMobComponent>(comp.Controlling, out var controllableComp))
             return;
 
-        var owner = controllableComp.CurrentDeviceOwning;
+        var owner = controllableComp.CurrentEntityOwning;
 
-        if (owner != comp.Owner || owner == null)
+        if (owner == null || !TryComp<ControllerMobComponent>(owner.Value, out var controllerComp) || controllerComp.Controlling == null)
             return;
 
-        if (!TryComp<ControllerMobComponent>(owner.Value, out var controllerComp) || controllerComp.Controlling != null)
+        if (controllableComp.CurrentDeviceOwning == null || controllableComp.CurrentDeviceOwning.Value != uid)
             return;
 
         _controllableMobSystem.RevokeControl(comp.Controlling.Value);
