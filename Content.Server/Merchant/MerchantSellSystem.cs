@@ -2,12 +2,10 @@ using Content.Server.Cargo.Systems;
 using Content.Server.Popups;
 using Content.Shared.Interaction;
 using Robust.Shared.Prototypes;
-using Content.Server.Chat.Systems;
 using Content.Server.Hands.Systems;
-using Content.Server.Stack;
-using Robust.Shared.Player;
+using Content.Shared.Stacks;
 using Content.Shared.Tag;
-using System.Linq;
+using Content.Server.Stack;
 
 namespace Content.Server.Merchant.Sell
 {
