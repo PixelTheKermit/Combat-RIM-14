@@ -1,7 +1,8 @@
-﻿using Content.Server.Chemistry.Components.SolutionManager;
+using Content.Server.Chemistry.Components.SolutionManager;
 using Content.Server.Materials;
 using Content.Server.Power.Components;
 using Content.Server.Stack;
+using Content.Shared.Stacks;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Interaction;
 using Content.Shared.Materials;

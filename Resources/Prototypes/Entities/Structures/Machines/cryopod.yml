@@ -5,6 +5,7 @@
   description: Perfect for a month's nap.
   suffix: Spawns
   components:
+  - type: InteractionOutline
   - type: Sprite
     netsync: false
     sprite: Structures/Machines/cryopod.rsi
@@ -37,12 +38,12 @@
   - type: MaterialStorage
   - type: Appearance
   - type: Climbable
-  - type: Cryopod
+  - type: CryopodSpawn
 
 - type: entity
   id: MachineCryopodNoSpawns
   parent: MachineCryopod
   suffix: No Spawns
   components:
-  - type: Cryopod
+  - type: CryopodSpawn
     doSpawns: false
