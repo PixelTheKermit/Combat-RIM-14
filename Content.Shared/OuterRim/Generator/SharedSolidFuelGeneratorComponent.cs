@@ -1,4 +1,4 @@
-﻿using Robust.Shared.Serialization;
+using Robust.Shared.Serialization;
 
 namespace Content.Shared.OuterRim.Generator;
 
@@ -29,7 +29,7 @@ public sealed class SetTargetPowerMessage : BoundUserInterfaceMessage
 
     public SetTargetPowerMessage(int targetPower)
     {
-        TargetPower = targetPower;
+        TargetPower = Math.Clamp(targetPower, 0, 100);
     }
 }
 
