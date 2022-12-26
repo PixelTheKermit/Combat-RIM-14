@@ -16,7 +16,7 @@ namespace Content.Shared.CCVar
         ///     Change this to have the changelog and rules "last seen" date stored separately.
         /// </summary>
         public static readonly CVarDef<string> ServerId =
-            CVarDef.Create("server.id", "deltasector", CVar.REPLICATED | CVar.SERVER);
+            CVarDef.Create("server.id", "combatrim", CVar.REPLICATED | CVar.SERVER);
 
         /// <summary>
         ///     Name of the rules txt file in the "Resources/Server Info" dir. Include the extension.
@@ -110,7 +110,7 @@ namespace Content.Shared.CCVar
         ///     Controls if the game should run station events
         /// </summary>
         public static readonly CVarDef<bool>
-            EventsEnabled = CVarDef.Create("events.enabled", true, CVar.ARCHIVE | CVar.SERVERONLY);
+            EventsEnabled = CVarDef.Create("events.enabled", false, CVar.ARCHIVE | CVar.SERVERONLY);
 
         /// <summary>
         ///     Average time (in minutes) for when the ramping event scheduler should stop increasing the chaos modifier.

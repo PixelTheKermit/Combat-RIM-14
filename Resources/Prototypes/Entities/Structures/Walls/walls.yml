@@ -59,6 +59,23 @@
 
 - type: entity
   parent: BaseWall
+  id: IndestructibleWall
+  name: sturdy shuttle wall
+  description: Keeps the air in and the bullets out.
+  components:
+  - type: Tag
+    tags:
+      - Wall
+  - type: Sprite
+    sprite: Structures/Walls/shuttle.rsi
+  - type: Icon
+    sprite: Structures/Walls/shuttle.rsi
+  - type: IconSmooth
+    key: walls
+    base: state
+  
+- type: entity
+  parent: BaseWall
   id: WallBrick
   name: brick wall
   components:
