@@ -183,7 +183,7 @@
   icon:
     sprite: Structures/Wallmounts/camera.rsi
     state: cameracase
-  requiredPoints: 12500
+  requiredPoints: 3125
   requiredTechnologies:
   - BasicResearch
   unlockedRecipes:
@@ -263,7 +263,7 @@
   icon:
     sprite: Structures/Shuttles/gyroscope.rsi
     state: base
-  requiredPoints: 10000
+  requiredPoints: 2500
   requiredTechnologies:
   - SalvageEquipment
   - IndustrialEngineering
@@ -280,7 +280,7 @@
   icon:
     sprite: Objects/Specific/Mech/mecha.rsi
     state: ripley
-  requiredPoints: 30000
+  requiredPoints: 7500
   requiredTechnologies:
   - SalvageEquipment
   unlockedRecipes:
@@ -383,7 +383,7 @@
   icon:
     sprite: Structures/Power/Generation/Singularity/emitter.rsi
     state: emitter1
-  requiredPoints: 15000
+  requiredPoints: 3750
   requiredTechnologies:
   - ElectromagneticTheory
   - IndustrialEngineering
@@ -491,7 +491,8 @@
     state: shotgun
   requiredPoints: 2500
   requiredTechnologies:
-    - BasicPartsTechnology
+  - ElectromagneticTheory
+  - IndustrialEngineering
   unlockedRecipes:
     - ManualTurretMachineCircuitboard
     - ManualLaserTurretMachineCircuitboard
@@ -562,7 +563,7 @@
   icon:
     sprite: Objects/Specific/Xenoarchaeology/xeno_artifacts.rsi
     state: ano01
-  requiredPoints: 10000
+  requiredPoints: 2500
   requiredTechnologies:
   - ScientificTechnology
   unlockedRecipes:
