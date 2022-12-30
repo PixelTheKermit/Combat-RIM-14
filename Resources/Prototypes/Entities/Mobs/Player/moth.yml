@@ -4,6 +4,7 @@
   parent: BaseMobMoth
   id: MobMoth
   components:
+  - type: MothAccent
   - type: CombatMode
     disarm: null
   - type: InteractionPopup
