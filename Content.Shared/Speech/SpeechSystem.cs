@@ -49,7 +49,7 @@ namespace Content.Shared.Speech
 		
         private void OnWhisperAttempt(WhisperAttemptEvent args)
         {
-            if (!TryComp(args.Uid, out SharedSpeechComponent? whisper) || !whisper.Enabled)
+            if (!TryComp(args.Uid, out SpeechComponent? whisper) || !whisper.Enabled)
                 args.Cancel();
 		}
 
