@@ -1,0 +1,10 @@
+﻿- type: entity
+  parent: SheetPlasma
+  id: AfterlightSheetPlasma5
+  name: plasma
+  suffix: Single
+  components:
+    - type: Sprite
+      state: plasma
+    - type: Stack
+      count: 5

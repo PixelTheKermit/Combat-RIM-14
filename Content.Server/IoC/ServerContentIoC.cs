@@ -1,4 +1,4 @@
-using Content.Server._00OuterRim.Worldgen.Tools;
+using Content.Server._Citadel.Worldgen.Tools;
 using Content.Server.Administration;
 using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;
@@ -48,7 +48,6 @@ namespace Content.Server.IoC
             IoCManager.Register<IAfkManager, AfkManager>();
             IoCManager.Register<IGameMapManager, GameMapManager>();
             IoCManager.Register<IGamePrototypeLoadManager, GamePrototypeLoadManager>();
-            IoCManager.Register<PoissonDiskSampler>();
             IoCManager.Register<RulesManager, RulesManager>();
             IoCManager.Register<RoleBanManager, RoleBanManager>();
             IoCManager.Register<NetworkResourceManager>();
@@ -59,6 +58,9 @@ namespace Content.Server.IoC
             IoCManager.Register<PlayTimeTrackingManager>();
             IoCManager.Register<UserDbDataManager>();
             IoCManager.Register<ServerInfoManager>();
+
+            // Citadel IoCs
+            IoCManager.Register<PoissonDiskSampler>();
         }
     }
 }

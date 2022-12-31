@@ -1,0 +1,18 @@
+- type: gameMap
+  id: Forge
+  mapName: 'Forge'
+  mapPath: "/Maps/_Afterlight/Vessels/forge.yml"
+  minPlayers: 0
+  validShip: true
+  description: |
+    A humble salvage vessel.
+  stations:
+    Forge:
+      mapNameTemplate: '{0} Forge {1}'
+      nameGenerator:
+        !type:NanotrasenNameGenerator
+        prefixCreator: '14'
+      overflowJobs: []
+      availableJobs:
+        Quartermaster: [ 1, 1 ]
+        SalvageSpecialist: [ 3, 3 ]

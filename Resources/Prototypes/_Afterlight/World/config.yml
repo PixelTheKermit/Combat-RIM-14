@@ -1,0 +1,17 @@
+﻿- type: worldgenConfig
+  id: AfterlightDefault
+  components:
+    - type: WorldController
+    - type: BiomeSelection
+      biomes:
+        - CitadelAsteroidsFallback
+        - CitadelFailsafe
+        - AfterlightAsteroidsStandard
+        - AfterlightAsteroidsWastes
+        - AfterlightAsteroidsEmptiness
+    - type: ShipSpawning
+      loadedSpawnArea: 8
+    - type: StructurePlacement
+      structures:
+      - entity: AfterlightSurveyor
+        amountRange: 1, 5

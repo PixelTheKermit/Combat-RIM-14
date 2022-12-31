@@ -11,6 +11,7 @@ using Content.IntegrationTests.Tests.Destructible;
 using Content.IntegrationTests.Tests.DeviceNetwork;
 using Content.IntegrationTests.Tests.Interaction.Click;
 using Content.IntegrationTests.Tests.Networking;
+using Content.Server._Citadel.Worldgen;
 using Content.Server.GameTicking;
 using Content.Shared.CCVar;
 using NUnit.Framework;
@@ -57,7 +58,7 @@ public static class PoolManager
         (CCVars.VelocityConstraintsPerThread.Name, "999", true),
         (CCVars.ThreadParallelCount.Name, "1", true),
         (CCVars.GameRoleTimers.Name, "false", false),
-        (CCVars.WorldGenEnabled.Name, "false", true)
+        (WorldgenCVars.WorldgenEnabled.Name, "false", false), // CITADEL EDIT
     };
 
     private static int PairId;
@@ -132,7 +133,7 @@ public static class PoolManager
         List<Pair> localPairs;
         lock (PairLock)
         {
-            if(Dead)
+            if (Dead)
                 return;
             Dead = true;
             localPairs = Pairs.Keys.ToList();
@@ -399,7 +400,7 @@ public static class PoolManager
                 cNetMgr.ClientConnect(null!, 0, null!);
             });
         }
-        await ReallyBeIdle(pair,11);
+        await ReallyBeIdle(pair, 11);
 
         await TestContext.Out.WriteLineAsync($"Recycling: {methodWatch.Elapsed.TotalMilliseconds} ms: Disconnecting client, and restarting server");
 
@@ -421,7 +422,7 @@ public static class PoolManager
                     serverProtoManager.RemoveString(pair.Settings.ExtraPrototypes.Trim());
                 });
             }
-            if(!pair.Settings.NoClient)
+            if (!pair.Settings.NoClient)
             {
                 var clientProtoManager = pair.Client.ResolveDependency<IPrototypeManager>();
                 await pair.Client.WaitPost(() =>

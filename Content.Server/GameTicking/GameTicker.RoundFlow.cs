@@ -4,9 +4,6 @@ using Content.Server.Ghost;
 using Content.Server.Maps;
 using Content.Server.Mind;
 using Content.Server.Players;
-using Content.Server.Station;
-using Content.Server.Station.Components;
-using Content.Shared.Administration;
 using Content.Shared.CCVar;
 using Content.Shared.GameTicking;
 using Content.Shared.Preferences;
@@ -15,7 +12,6 @@ using Prometheus;
 using Robust.Server.Maps;
 using Robust.Server.Player;
 using Robust.Shared.Audio;
-using Robust.Shared.Console;
 using Robust.Shared.Map;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
@@ -23,11 +19,8 @@ using Robust.Shared.Random;
 using Robust.Shared.Utility;
 using System.Linq;
 using System.Threading.Tasks;
-using Content.Server.Station.Systems;
 using Content.Shared.Database;
 using Robust.Shared.Asynchronous;
-using Content.Server._00OuterRim.Worldgen.Systems.Overworld;
-using Robust.Shared.Players;
 
 namespace Content.Server.GameTicking
 {
@@ -47,8 +40,6 @@ namespace Content.Server.GameTicking
         [ViewVariables]
         private int _roundStartFailCount = 0;
 #endif
-        [Dependency] private readonly IEntityManager _entityManager = default!;
-        [Dependency] private readonly WorldChunkSystem _world = default!;
 
         [ViewVariables]
         private TimeSpan _roundStartTimeSpan;
@@ -77,56 +68,6 @@ namespace Content.Server.GameTicking
 
         [ViewVariables]
         public int RoundId { get; private set; }
-
-        private void InitializeRoundFlow()
-        {
-            _consoleHost.RegisterCommand("purchaseship", String.Empty, String.Empty, PurchaseShipCommand);
-        }
-
-        [AnyCommand]
-        private void PurchaseShipCommand(IConsoleShell shell, string argstr, string[] args)
-        {
-            var plr = shell.Player as IPlayerSession;
-
-            if (plr != null && plr.AttachedEntity != null)
-            {
-                shell.WriteError("Nuh uh.");
-                return;
-            }
-
-            if (args.Length != 1)
-            {
-                shell.WriteError("You shouldn't be manually calling PurchaseShip, but for the record it takes one argument, a map ID.");
-                return;
-            }
-
-            for (var i = 0; i < 128; i++)
-            {
-                var loc = _robustRandom.Pick(_world.SafeSpawnLocations);
-
-                if (_mapManager.FindGridsIntersecting(DefaultMap,
-                        Box2.CenteredAround((loc * WorldChunkSystem.ChunkSize) - (WorldChunkSystem.ChunkSize / 2),
-                            Vector2.One * (3.0f / 4) * WorldChunkSystem.ChunkSize)).Any())
-                    continue;
-
-                //There's a hack here to get around loadmap crashing.
-                var grids = LoadGameMap(_prototypeManager.Index<GameMapPrototype>(args[0]), _mapManager.CreateMap(), null);
-
-                foreach (var grid in grids)
-                {
-                    var xform = Transform(grid);
-                    var offs = xform.Coordinates.Position + ((loc * WorldChunkSystem.ChunkSize) - (WorldChunkSystem.ChunkSize / 2));
-                    var mid = _mapManager.GetMapEntityId(DefaultMap);
-                    xform.Coordinates = new EntityCoordinates(mid, offs);
-                }
-
-                
-                if (plr != null)
-                    MakeJoinGame(plr, (EntityUid) _stationSystem.GetOwningStation(grids.FirstOrDefault())!, "ShuttleCaptain");
-
-                return;
-            }
-        }
 
         /// <summary>
         ///     Loads all the maps for the given round.
@@ -210,11 +151,6 @@ namespace Content.Server.GameTicking
             RaiseLocalEvent(new PostGameMapLoad(map, targetMapId, gridUids, stationName));
 
             return gridUids;
-        }
-
-        public bool PurchaseAvailable()
-        {
-            return true;
         }
 
         public void StartRound(bool force = false)
@@ -534,11 +470,10 @@ namespace Content.Server.GameTicking
             RaiseNetworkEvent(ev, Filter.Broadcast());
 
             DisallowLateJoin = false;
-            _world.Reset();
             _playerGameStatuses.Clear();
             foreach (var session in _playerManager.ServerSessions)
             {
-                _playerGameStatuses[session.UserId] = LobbyEnabled ?  PlayerGameStatus.NotReadyToPlay : PlayerGameStatus.ReadyToPlay;
+                _playerGameStatuses[session.UserId] = LobbyEnabled ? PlayerGameStatus.NotReadyToPlay : PlayerGameStatus.ReadyToPlay;
             }
         }
 
@@ -553,7 +488,7 @@ namespace Content.Server.GameTicking
 
             RaiseNetworkEvent(new TickerLobbyCountdownEvent(_roundStartTime, Paused));
 
-            _chatManager.DispatchServerAnnouncement(Loc.GetString("game-ticker-delay-start", ("seconds",time.TotalSeconds)));
+            _chatManager.DispatchServerAnnouncement(Loc.GetString("game-ticker-delay-start", ("seconds", time.TotalSeconds)));
 
             return true;
         }
