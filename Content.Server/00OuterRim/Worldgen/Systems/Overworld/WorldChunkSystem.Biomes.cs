@@ -11,8 +11,8 @@ public partial class WorldChunkSystem
 
     // Density
     private const float DensityControllerCoordinateScale = 6f;
-    private const float MinDensity = 90.0f;
-    private const float MaxDensity = 40.0f;
+    private const float MinDensity = 120.0f;
+    private const float MaxDensity = 90.0f;
     private const float DensityScale = MinDensity - MaxDensity;
     private const float DensityClipPointMin = 0.4f;
     private const float DensityClipPointMax = 0.5f;
