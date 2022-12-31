@@ -20,7 +20,8 @@
 - type: entity
   id: OrganMothStomach
   parent: BaseMothOrgan
-  name: moth stomach
+  name: stomach
+  suffix: "moth"
   description: "Gross. This is hard to stomach."
   components:
   - type: Sprite
