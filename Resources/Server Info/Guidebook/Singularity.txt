@@ -1,7 +1,0 @@
-
-?{|:Vertical:Center
-#This feature isn't in Outer Rim
-#For now.
-?|}
-
-TODO: Write this.

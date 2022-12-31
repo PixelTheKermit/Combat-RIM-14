@@ -1,6 +1,0 @@
-﻿Cryopods allow you to enter and exit the vessel's cryogenic storage, and is the primary method through which crew are provided to a vessel. The majority of vessels have about three to four times their standard crew in storage at any time as a form of long-term insurance in the event of crew death during operations.
-
-<GuideEntityEmbed MachineCryopod Caption Scale=2>
-Cryogenic storage is automatically timed, and crew cannot be awoken manually. Crew that enter a cryopod have the option to enter storage, and crew currently afflicted by SSD will automatically be inducted into storage upon insertion. Reawakening will be timed automatically based on their calculated wakeup time.
-
-Due to having significant structure underneath the ship, cryopods [color=#a4885c]cannot be unanchored or installed on new vessels.[/color]

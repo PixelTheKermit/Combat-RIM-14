@@ -21,8 +21,6 @@
           - prob: 6 # Intentional blank.
           - id: AfterlightSalvageMaterialCrateSpawner
             prob: 1
-          - id: AfterlightCrateSalvageChemistyGoodies
-            prob: 0.1
           - id: CrateEngineeringCableBulk
             prob: 0.03
           - id: AfterlightCrateFoodMRERandom
@@ -49,8 +47,6 @@
             prob: 1
           - id: AfterlightSalvageMaterialCrateSpawner
             prob: 0.3
-          - id: AfterlightCrateSalvageChemistyGoodies
-            prob: 0.1
           - id: AfterlightCrateSalvageMachineGoodies
             prob: 0.03
           - id: CrateEngineeringCableBulk
@@ -67,8 +63,6 @@
             prob: 1
           - id: SalvageCanisterSpawner
             prob: 0.2
-          - id: AfterlightCrateSalvageChemistyGoodies
-            prob: 0.03
           - id: AfterlightCrateFoodMRERandom
             prob: 0.03
           - id: CrateSalvageEquipment
@@ -159,8 +153,6 @@
           - id: Grille
             prob: 1
           - id: AfterlightSalvageMaterialCrateSpawner
-            prob: 0.3
-          - id: AfterlightCrateSalvageChemistyGoodies
             prob: 0.3
           - id: AfterlightCrateSalvageBarGoodies
             prob: 0.03

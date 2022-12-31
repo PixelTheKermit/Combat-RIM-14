@@ -38,21 +38,6 @@
           prob: 0.01
 
 - type: entity
-  id: AfterlightCrateSalvageChemistyGoodies
-  suffix: Filled, Salvage Chemistry, Afterlight
-  noSpawn: true # You should use SalvageMaterialCrateSpawner instead
-  parent: CrateGenericSteel
-  components:
-    - type: StorageFill
-      contents:
-        - id: AfterlightRandomCoreChemistryBottle
-          amount: 1
-          maxAmount: 8
-        - id: AfterlightRandomCoreChemistryVacuumFlask
-          amount: 1
-          maxAmount: 4
-
-- type: entity
   id: AfterlightCrateFoodMRERandom
   suffix: MRE, Random
   parent: CratePlastic

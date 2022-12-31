@@ -1,6 +1,0 @@
-
-<Box HCenter>
-#"Roleplaying took everything from me!"
-#--Your mom.
-<Box\>
-

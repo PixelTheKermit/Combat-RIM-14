@@ -81,8 +81,7 @@ public sealed class ShipSpawningSystem : BaseWorldSystem
 
     private void UpdateSpawnEligibility()
     {
-        var eligible = _station.Stations.All(x => Comp<StationJobsComponent>(x).PercentJobsRemaining < 0.75f);
-        RaiseNetworkEvent(new UpdateSpawnEligibilityEvent(eligible));
+        RaiseNetworkEvent(new UpdateSpawnEligibilityEvent(true));
     }
 
     public void SpawnVessel(string vessel, IPlayerSession? user = null)
@@ -122,10 +121,13 @@ public sealed class ShipSpawningSystem : BaseWorldSystem
                 LoadMap = false
             };
 
-            _gameTicker.LoadGameMap(proto, coords.MapId, loadOpts);
+            var grids = _gameTicker.LoadGameMap(proto, coords.MapId, loadOpts);
             if (user is { } session)
                 _log.Add(LogType.ALSpawnVessel, LogImpact.Medium, $"User {session} bought the vessel {proto.ID} ({proto.MapName})");
             UpdateSpawnEligibility();
+
+            if (user != null)
+                _gameTicker.MakeJoinGame(user, (EntityUid) _station.GetOwningStation(grids.First())!, "ShuttleCaptain");
             return;
         }
     }
