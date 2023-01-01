@@ -91,6 +91,13 @@ public sealed class ShipSpawningSystem : BaseWorldSystem
             return;
         }
 
+        if (user != null && user.AttachedEntity.HasValue)
+        {
+            Logger.Warning("You're not supposed to do that! This will be logged.");
+            _log.Add(LogType.ALSpawnVessel, LogImpact.Medium, $"User {user} tried buying a vessel ingame!");
+            return;
+        }
+
         ShipSpawningComponent map;
 
         {

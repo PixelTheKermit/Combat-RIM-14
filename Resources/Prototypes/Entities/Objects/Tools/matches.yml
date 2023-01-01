@@ -14,16 +14,16 @@
   id: Matchstick
   description: A simple match stick, used for lighting fine smokables.
   components:
+  - type: Cauterize
+    litCauterizeDamage:
+      types: # When lit, should give heat damage and heal slash
+        Heat: 2
+        Slash: -3
   - type: Tag
     tags:
     - Matchstick
     - Trash
   - type: DoAfter
-  - type: MeleeWeapon
-    attackRate: 2
-    damage:
-      types:
-        Heat: 0 #it's a small, unlit match, what did you expect?
   - type: Recyclable
   - type: SpaceGarbage
   - type: Sprite
@@ -37,10 +37,6 @@
     size: 1
   - type: ItemCooldown
   - type: Matchstick
-    litMeleeDamageBonus:
-      types: # When lit, should give heat damage and heal slash
-        Heat: 2
-        Slash: -3
     duration: 10
     igniteSound:
       path: /Audio/Items/match_strike.ogg

@@ -28,14 +28,6 @@ namespace Content.Server.Light.Components
         public int Delay = 1;
 
         /// <summary>
-        /// How much damage will the matchstick do when it's lit
-        /// </summary>
-        [DataField("litMeleeDamageBonus")]
-        public DamageSpecifier LitMeleeDamageBonus = new();
-
-        public CancellationTokenSource? CancelToken;
-
-        /// <summary>
         /// Sound played when you ignite the matchstick.
         /// </summary>
         [DataField("igniteSound", required: true)] public SoundSpecifier IgniteSound = default!;
