@@ -49,9 +49,6 @@
   - type: MovementSpeedModifier
     baseWalkSpeed: 3.5
     baseSprintSpeed: 5.5
-    weightlessAcceleration: 0.5
-    weightlessFriction: 0.75
-    weightlessModifier: 0.6
   - type: Perishable
 
 - type: entity
