@@ -1,0 +1,13 @@
+﻿- type: worldgenConfig
+  id: CombatRimDefault
+  components:
+    - type: WorldController
+    - type: BiomeSelection
+      biomes:
+        - CitadelAsteroidsFallback
+        - CitadelFailsafe
+        - CombatRimAsteroidsStandard
+        - CombatRimAsteroidsWastes
+        - CombatRimAsteroidsEmptiness
+    - type: ShipSpawning
+      loadedSpawnArea: 8

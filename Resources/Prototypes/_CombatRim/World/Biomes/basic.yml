@@ -1,0 +1,108 @@
+# This is just AL's biomes, but I put in lost shipments around.
+# I moved this to a different folder in case of changes made to AL's biomes.
+# Was this nessessary? Probably not.
+
+- type: biome
+  id: CombatRimAsteroidsStandard
+  priority: 0
+  noiseRanges: {}
+  chunkComponents:
+    - type: DebrisFeaturePlacerController
+      densityNoiseChannel: Density
+    - type: SimpleDebrisSelector
+      debrisTable:
+        - id: AfterlightAsteroidDebrisSmall
+        - id: AfterlightAsteroidDebrisMedium
+        - id: AfterlightAsteroidDebrisLarge
+          prob: 0.7
+        - id: AfterlightAsteroidDebrisLarger
+          prob: 0.4
+        - id: RandomMerchantPoI
+          prob: 0.05
+        - id: RandomLostShipment
+          prob: 0.01
+    - type: NoiseDrivenDebrisSelector
+      noiseChannel: Wreck
+      debrisTable:
+        - id: AfterlightScrapDebrisSmall
+        - id: AfterlightScrapDebrisMedium
+        - id: AfterlightScrapDebrisLarge
+          prob: 0.5
+        - id: AfterlightScrapDebrisSmallRecreational
+          prob: 0.1
+        - id: RandomMerchantPoI
+          prob: 0.05
+        - id: RandomLostShipment
+          prob: 0.01
+    - type: NoiseRangeCarver
+      ranges:
+        - 0.4, 0.6
+      noiseChannel: Carver
+
+- type: biome
+  id: CombatRimAsteroidsWastes
+  priority: 1
+  noiseRanges:
+    Temperature:
+      - 0.0, 0.3
+  chunkComponents:
+    - type: DebrisFeaturePlacerController
+      densityNoiseChannel: Density
+    - type: SimpleDebrisSelector
+      debrisTable:
+        - id: AfterlightAsteroidDebrisSmall
+        - id: AfterlightAsteroidDebrisMedium
+        - id: AfterlightAsteroidDebrisLarge
+          prob: 0.7
+        - id: AfterlightAsteroidDebrisLarger
+          prob: 0.4
+        - id: RandomMerchantPoI
+          prob: 0.05
+        - id: RandomLostShipment
+          prob: 0.01
+    - type: NoiseDrivenDebrisSelector
+      noiseChannel: Wreck
+      debrisTable:
+        - id: AfterlightScrapDebrisSmall
+        - id: AfterlightScrapDebrisMedium
+          prob: 0.1
+        - id: AfterlightScrapDebrisLarge
+          prob: 0.05
+        - id: AfterlightScrapDebrisSmallRecreational
+          prob: 0.01
+        - id: RandomMerchantPoI
+          prob: 0.05
+        - id: RandomLostShipment
+          prob: 0.01
+    - type: NoiseRangeCarver
+      ranges:
+        - 0.3, 0.7
+      noiseChannel: Carver
+
+- type: biome
+  id: CombatRimAsteroidsEmptiness
+  priority: 2
+  noiseRanges:
+    Temperature:
+      - 0.0, 0.1
+    Wreck:
+      - 0.5, 0.6
+  chunkComponents:
+    - type: DebrisFeaturePlacerController
+      densityNoiseChannel: Density
+    - type: SimpleDebrisSelector
+      debrisTable:
+        - id: AfterlightAsteroidDebrisSmall
+        - id: AfterlightAsteroidDebrisMedium
+        - id: AfterlightAsteroidDebrisLarge
+          prob: 0.7
+        - id: AfterlightAsteroidDebrisLarger
+          prob: 0.4
+        - id: RandomMerchantPoI
+          prob: 0.05
+        - id: RandomLostShipment
+          prob: 0.01
+    - type: NoiseRangeCarver
+      ranges:
+        - 0.3, 0.8
+      noiseChannel: Carver
