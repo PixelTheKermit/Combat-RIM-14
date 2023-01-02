@@ -1,0 +1,50 @@
+- type: entity
+  id: SoulSwappingDevice
+  name: Unknown Device
+  description: You're not sure what this is, but you feel less like yourself when you look at it.
+  parent: BaseItem
+  components:
+  - type: SoulTrapper
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Item
+    size: 20
+  - type: ItemSlots
+    slots:
+      soul-container:
+        name: Soul Container
+        insertSound: /Audio/Weapons/Guns/MagIn/smg_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/smg_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - SoulContainer
+  - type: Sprite
+    netsync: false
+    sprite: Objects/Souls/souldevice.rsi
+    layers:
+    - state: icon
+  - type: Appearance
+
+- type: entity
+  id: SoulBottle
+  name: Odd Bottle
+  description: It looks like a regular empty bottle... is there something inside?
+  parent: BaseItem
+  components:
+  - type: Speech
+  - type: GhostAccent
+  - type: Tag
+    tags:
+      - SoulContainer
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Item
+    size: 5
+  - type: Sprite
+    netsync: false
+    sprite: Objects/Souls/soulbottle.rsi
+    layers:
+    - state: icon
+  - type: Appearance
+  - type: Mind

@@ -4,7 +4,9 @@
   mapPath: /Maps/CRShuttles/isvbox.yml
   minPlayers: 0
   fallback: true
-  descriptionPath: "/Server Info/Shuttles/ISVBoxInfo.txt"
+  validShip: true
+  description: |
+    test
   stations:
     IsvBox:
       mapNameTemplate: '{0} Box {1}'

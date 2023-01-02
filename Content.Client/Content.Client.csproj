@@ -33,10 +33,21 @@
     <Compile Update="UserInterface\Systems\Inventory\Windows\StrippingWindow.xaml.cs">
       <DependentUpon>StrippingWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Guidebook\GuidebookWindow.xaml.cs">
-      <DependentUpon>GuidebookWindow.xaml</DependentUpon>
-    </Compile>
   </ItemGroup>
   <Import Project="..\RobustToolbox\MSBuild\XamlIL.targets" />
   <Import Project="..\RobustToolbox\MSBuild\Robust.Analyzers.targets" />
+  <ItemGroup>
+    <EmbeddedResource Update="_Afterlight\Latejoin\NewVesselGui.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="_Afterlight\Latejoin\OuterRimLateJoinGui.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="_Afterlight\Latejoin\OuterRimLateJoinJobButton.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="_Afterlight\Latejoin\VesselListControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
 </Project>

@@ -1,0 +1,34 @@
+﻿- type: construction
+  name: soil
+  id: AfterlightSoil
+  graph: AfterlightSoil
+  startNode: start
+  targetNode: soil
+  category: construction-category-structures
+  description: A pile of composted soil, perfect for plant growing.
+  icon:
+    sprite: /Textures/Structures/Hydroponics/misc.rsi
+    state: soil
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canRotate: false
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: constructionGraph
+  id: AfterlightSoil
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: soil
+          completed:
+            - !type:SnapToGrid
+              southRotation: true
+          steps:
+            - name: "a compostable plant"
+              component: Produce
+              icon: { sprite: Objects/Specific/Hydroponics/wheat.rsi, state: produce }
+    - node: soil
+      entity: hydroponicsSoil

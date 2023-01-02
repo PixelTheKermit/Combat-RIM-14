@@ -1,0 +1,11 @@
+﻿- type: entity
+  id: AfterlightSurveyor
+  noSpawn: true
+  components:
+  - type: BlueprintPlacer
+    blueprint: /Maps/Salvage/small-ai-survey-drone.yml
+    components:
+    - type: WorldLoader
+      radius: 256
+    # 3m up, 0.5 to the left.
+    # TODO: This should spawn an AI vessel, not a wreck. Blocked on sloth :(

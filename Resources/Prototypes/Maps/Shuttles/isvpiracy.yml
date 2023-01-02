@@ -4,7 +4,9 @@
   mapPath: /Maps/CRShuttles/isvpiracy.yml
   minPlayers: 0
   fallback: true
-  descriptionPath: "/Server Info/Shuttles/ISVPiracyInfo.txt"
+  validShip: true
+  description: |
+    test
   stations:
     IsvPiracy:
       mapNameTemplate: '{0} Piracy {1}'

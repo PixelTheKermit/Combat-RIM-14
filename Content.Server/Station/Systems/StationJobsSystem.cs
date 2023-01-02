@@ -1,4 +1,4 @@
-﻿using System.Diagnostics.CodeAnalysis;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Server.GameTicking;
 using Content.Server.Station.Components;
@@ -151,7 +151,7 @@ public sealed partial class StationJobsSystem : EntitySystem
                 if (!createSlot)
                     return false;
                 stationJobs.TotalJobs += amount;
-                jobList[jobPrototypeId] = (uint?)amount;
+                jobList[jobPrototypeId] = (uint?) amount;
                 UpdateJobsAvailable();
                 return true;
             case true:
@@ -167,10 +167,10 @@ public sealed partial class StationJobsSystem : EntitySystem
 
                 //C# type handling moment
                 if (amount > 0)
-                    jobList[jobPrototypeId] += (uint)amount;
+                    jobList[jobPrototypeId] += (uint) amount;
                 else
                 {
-                    if ((int)jobList[jobPrototypeId]!.Value - Math.Abs(amount) <= 0)
+                    if ((int) jobList[jobPrototypeId]!.Value - Math.Abs(amount) <= 0)
                         jobList[jobPrototypeId] = 0;
                     else
                         jobList[jobPrototypeId] -= (uint) Math.Abs(amount);
@@ -220,13 +220,13 @@ public sealed partial class StationJobsSystem : EntitySystem
                 if (!createSlot)
                     return false;
                 stationJobs.TotalJobs += amount;
-                jobList[jobPrototypeId] = (uint?)amount;
+                jobList[jobPrototypeId] = (uint?) amount;
                 UpdateJobsAvailable();
                 return true;
             case true:
-                stationJobs.TotalJobs += amount - (int)jobList[jobPrototypeId]!.Value;
+                stationJobs.TotalJobs += amount - (int) jobList[jobPrototypeId]!.Value;
 
-                jobList[jobPrototypeId] = (uint)amount;
+                jobList[jobPrototypeId] = (uint) amount;
                 UpdateJobsAvailable();
                 return true;
         }
@@ -255,7 +255,7 @@ public sealed partial class StationJobsSystem : EntitySystem
 
         // Subtract out the job we're fixing to make have unlimited slots.
         if (stationJobs.JobList.ContainsKey(jobPrototypeId) && stationJobs.JobList[jobPrototypeId] != null)
-            stationJobs.TotalJobs -= (int)stationJobs.JobList[jobPrototypeId]!.Value;
+            stationJobs.TotalJobs -= (int) stationJobs.JobList[jobPrototypeId]!.Value;
 
         stationJobs.JobList[jobPrototypeId] = null;
 
@@ -448,7 +448,7 @@ public sealed partial class StationJobsSystem : EntitySystem
 
     private bool _availableJobsDirty;
 
-    private TickerJobsAvailableEvent _cachedAvailableJobs = new (new Dictionary<EntityUid, string>(), new Dictionary<EntityUid, Dictionary<string, uint?>>(), false);
+    private TickerJobsAvailableEvent _cachedAvailableJobs = new(new Dictionary<EntityUid, string>(), new Dictionary<EntityUid, Dictionary<string, uint?>>());
 
     /// <summary>
     /// Assembles an event from the current available-to-play jobs.
@@ -459,7 +459,7 @@ public sealed partial class StationJobsSystem : EntitySystem
     {
         // If late join is disallowed, return no available jobs.
         if (_gameTicker.DisallowLateJoin)
-            return new TickerJobsAvailableEvent(new Dictionary<EntityUid, string>(), new Dictionary<EntityUid, Dictionary<string, uint?>>(), false);
+            return new TickerJobsAvailableEvent(new Dictionary<EntityUid, string>(), new Dictionary<EntityUid, Dictionary<string, uint?>>());
 
         var jobs = new Dictionary<EntityUid, Dictionary<string, uint?>>();
         var stationNames = new Dictionary<EntityUid, string>();
@@ -470,7 +470,7 @@ public sealed partial class StationJobsSystem : EntitySystem
             jobs.Add(station, list);
             stationNames.Add(station, Name(station));
         }
-        return new TickerJobsAvailableEvent(stationNames, jobs, _gameTicker.PurchaseAvailable());
+        return new TickerJobsAvailableEvent(stationNames, jobs);
     }
 
     /// <summary>

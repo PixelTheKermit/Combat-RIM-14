@@ -4,7 +4,9 @@
   mapPath: /Maps/CRShuttles/isvring.yml
   minPlayers: 0
   fallback: true
-  descriptionPath: "/Server Info/Shuttles/ISVRingInfo.txt"
+  validShip: true
+  description: |
+    test
   stations:
     IsvRing:
       mapNameTemplate: '{0} Ring {1}'

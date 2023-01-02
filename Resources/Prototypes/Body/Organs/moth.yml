@@ -20,7 +20,8 @@
 - type: entity
   id: OrganMothStomach
   parent: BaseMothOrgan
-  name: moth stomach
+  name: stomach
+  suffix: "moth"
   description: "Gross. This is hard to stomach."
   components:
   - type: Sprite
@@ -31,10 +32,10 @@
       stomach:
         maxVol: 150
   - type: Stomach
-    maxVolume: 10
+    maxVolume: 20
   - type: Metabolizer
-    maxReagents: 3
-    metabolizerTypes: [Human,Moth]
+    maxReagents: 2
+    metabolizerTypes: [Human, Moth]
     groups:
     - id: Food
     - id: Drink

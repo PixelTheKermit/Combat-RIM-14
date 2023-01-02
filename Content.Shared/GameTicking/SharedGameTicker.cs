@@ -1,4 +1,4 @@
-﻿using Robust.Shared.Network;
+using Robust.Shared.Network;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
 
@@ -113,13 +113,11 @@ namespace Content.Shared.GameTicking
         /// </summary>
         public Dictionary<EntityUid, Dictionary<string, uint?>> JobsAvailableByStation { get; }
         public Dictionary<EntityUid, string> StationNames { get; }
-        public bool PurchaseAvailable { get; }
 
-        public TickerJobsAvailableEvent(Dictionary<EntityUid, string> stationNames, Dictionary<EntityUid, Dictionary<string, uint?>> jobsAvailableByStation, bool purchaseAvailable)
+        public TickerJobsAvailableEvent(Dictionary<EntityUid, string> stationNames, Dictionary<EntityUid, Dictionary<string, uint?>> jobsAvailableByStation)
         {
             StationNames = stationNames;
             JobsAvailableByStation = jobsAvailableByStation;
-            PurchaseAvailable = purchaseAvailable;
         }
     }
 
@@ -177,4 +175,3 @@ namespace Content.Shared.GameTicking
         JoinedGame,
     }
 }
-

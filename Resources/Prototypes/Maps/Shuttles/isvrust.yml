@@ -4,7 +4,9 @@
   mapPath: /Maps/CRShuttles/isvrust.yml
   minPlayers: 0
   fallback: true
-  descriptionPath: "/Server Info/Shuttles/ISVRustInfo.txt"
+  validShip: true
+  description: |
+    test
   stations:
     IsvRust:
       mapNameTemplate: '{0} Rust {1}'

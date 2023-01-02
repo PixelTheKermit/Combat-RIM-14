@@ -1,7 +1,0 @@
-﻿Biofuel generators are standard 15hW portable generators, ran on whatever produce or biological matter you can provide, converting nutrients into watts to power a vessel. It is strongly recommended to reserve three planters per generator to fuel production.
-
-<GuideEntityEmbed GeneratorBiofuel Scale=2>
-#Fuel
-Biofuel generators are equipped with a simple reprocesser to convert foodstuff into burnable fuels [color=#a4885c]according to it's nutritional value[/color]. Some biological matter, namely that with no nutritional value, cannot be reprocessed this way for the time being.
-
-Additionally if you were to obtain a biomass processor, biomass is a valid fuel source for these generators and is the most effective one available.

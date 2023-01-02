@@ -1,4 +1,4 @@
-﻿namespace Content.Server.Maps;
+namespace Content.Server.Maps;
 
 public sealed partial class GameMapPrototype
 {

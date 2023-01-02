@@ -17,6 +17,7 @@ using Robust.Shared.Configuration;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Content.Client.UserInterface.Systems.EscapeMenu;
+using Content.Client._Afterlight.Latejoin;
 
 
 namespace Content.Client.Lobby
@@ -114,7 +115,7 @@ namespace Content.Client.Lobby
                 return;
             }
 
-            new OuterRimLateJoinGui().OpenCentered();
+            new OuterRimLateJoinGui().OpenCentered(); // AFTERLIGHT EDIT
         }
 
         private void OnReadyToggled(BaseButton.ButtonToggledEventArgs args)

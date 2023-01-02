@@ -37,3 +37,6 @@
 
 - type: Tag
   id: SellMerchantBlacklist
+
+- type: Tag
+  id: SoulContainer

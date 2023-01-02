@@ -4,7 +4,9 @@
   mapPath: /Maps/CRShuttles/isvcobble.yml
   minPlayers: 0
   fallback: true
-  descriptionPath: "/Server Info/ISVCobbleInfo.txt"
+  validShip: true
+  description: |
+    test
   stations:
     ISVCobble:
       mapNameTemplate: '{0} Cobble {1}'

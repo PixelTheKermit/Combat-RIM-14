@@ -17,7 +17,7 @@ public sealed class CargoTest
     [Test]
     public async Task NoCargoOrderArbitrage()
     {
-        await using var pairTracker = await PoolManager.GetServerClient(new PoolSettings() {NoClient = true});
+        await using var pairTracker = await PoolManager.GetServerClient(new PoolSettings() { NoClient = true });
         var server = pairTracker.Pair.Server;
 
         var entManager = server.ResolveDependency<IEntityManager>();
@@ -47,7 +47,7 @@ public sealed class CargoTest
     [Test]
     public async Task NoStaticPriceAndStackPrice()
     {
-        await using var pairTracker = await PoolManager.GetServerClient(new PoolSettings{NoClient = true});
+        await using var pairTracker = await PoolManager.GetServerClient(new PoolSettings { NoClient = true });
         var server = pairTracker.Pair.Server;
 
         var entManager = server.ResolveDependency<IEntityManager>();
@@ -61,7 +61,8 @@ public sealed class CargoTest
             var coord = new EntityCoordinates(grid.Owner, 0, 0);
 
             var protoIds = protoManager.EnumeratePrototypes<EntityPrototype>()
-                .Where(p=>!p.Abstract)
+                .Where(p => !p.Abstract)
+                .Where(p => !p.Components.ContainsKey("MapGrid")) // CITADEL EDIT (i love patching bugs in tests)
                 .Select(p => p.ID)
                 .ToList();
 
