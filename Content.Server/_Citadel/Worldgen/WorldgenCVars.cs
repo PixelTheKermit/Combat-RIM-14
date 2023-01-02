@@ -1,4 +1,4 @@
-﻿using Robust.Shared.Configuration;
+using Robust.Shared.Configuration;
 
 namespace Content.Server._Citadel.Worldgen;
 
@@ -15,7 +15,7 @@ public sealed class WorldgenCVars
     /// The worldgen config to use.
     /// </summary>
     public static readonly CVarDef<string> WorldgenConfig =
-        CVarDef.Create("citadel.worldgen.worldgen_config", "AfterlightDefault", CVar.SERVERONLY); // DEFAULT CHANGED BY AFTERLIGHT
+        CVarDef.Create("citadel.worldgen.worldgen_config", "CombatRimDefault", CVar.SERVERONLY); // DEFAULT CHANGED BY COMBATRIM
 
     /// <summary>
     /// The maximum amount of time the GC can process, in ms.

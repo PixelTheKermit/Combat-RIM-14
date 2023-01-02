@@ -1,71 +1,76 @@
 - type: entity
-  id: LostShipmentAnimals
+  id: BotanicalMerchantPoI
   noSpawn: true
   components:
   - type: BlueprintPlacer
-    blueprint: /Maps/PoiLostShipment/lost_container_animals.yml
+    blueprint: /Maps/Merchants/botanist.yml
     components:
     - type: WorldLoader
       radius: 256
     - type: IFF
+      color: ForestGreen
       flags: HideLabel
 
 - type: entity
-  id: LostShipmentEmpty
+  id: CombatMerchantPoI
   noSpawn: true
   components:
   - type: BlueprintPlacer
-    blueprint: /Maps/PoiLostShipment/lost_container_empty.yml
+    blueprint: /Maps/Merchants/dangerous.yml
     components:
     - type: WorldLoader
       radius: 256
     - type: IFF
+      color: ForestGreen
       flags: HideLabel
 
 - type: entity
-  id: LostShipmentJunk
+  id: BombMerchantPoI
   noSpawn: true
   components:
   - type: BlueprintPlacer
-    blueprint: /Maps/PoiLostShipment/lost_container_junk.yml
+    blueprint: /Maps/Merchants/demoman.yml
     components:
     - type: WorldLoader
       radius: 256
     - type: IFF
+      color: ForestGreen
       flags: HideLabel
 
 - type: entity
-  id: LostShipmentRND
+  id: ShipGunsPoI
   noSpawn: true
   components:
   - type: BlueprintPlacer
-    blueprint: /Maps/PoiLostShipment/lost_container_rnd.yml
+    blueprint: /Maps/Merchants/shipguns.yml
     components:
     - type: WorldLoader
       radius: 256
     - type: IFF
+      color: ForestGreen
       flags: HideLabel
 
 - type: entity
-  id: LostShipmentValuableJunk
+  id: SellMerchantPoI
   noSpawn: true
   components:
   - type: BlueprintPlacer
-    blueprint: /Maps/PoiLostShipment/lost_container_valuable_junk.yml
+    blueprint: /Maps/Merchants/sellmerchant.yml
     components:
     - type: WorldLoader
       radius: 256
     - type: IFF
+      color: Gold
       flags: HideLabel
 
 - type: entity
-  id: RandomLostShipment
+  id: RandomMerchantPoI
   noSpawn: true
   components:
   - type: RandomSpawner
     prototypes:
-    - LostShipmentAnimals
-    - LostShipmentEmpty
-    - LostShipmentJunk
-    - LostShipmentRND
-    - LostShipmentValuableJunk
+    - BotanicalMerchantPoI
+    - CombatMerchantPoI
+    - BombMerchantPoI
+    - ShipGunsPoI
+    - SellMerchantPoI
