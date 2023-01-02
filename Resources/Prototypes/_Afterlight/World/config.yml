@@ -11,7 +11,3 @@
         - AfterlightAsteroidsEmptiness
     - type: ShipSpawning
       loadedSpawnArea: 8
-    - type: StructurePlacement
-      structures:
-      - entity: AfterlightSurveyor
-        amountRange: 1, 5
