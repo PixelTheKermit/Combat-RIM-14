@@ -1,0 +1,59 @@
+- type: entity
+  id: LostShipmentAnimals
+  noSpawn: true
+  components:
+  - type: BlueprintPlacer
+    blueprint: /Maps/PoiLostShipment/lost_container_animals.yml
+    components:
+    - type: WorldLoader
+      radius: 256
+    - type: IFF
+      flags: HideLabel
+
+- type: entity
+  id: LostShipmentEmpty
+  noSpawn: true
+  components:
+  - type: BlueprintPlacer
+    blueprint: /Maps/PoiLostShipment/lost_container_empty.yml
+    components:
+    - type: WorldLoader
+      radius: 256
+    - type: IFF
+      flags: HideLabel
+
+- type: entity
+  id: LostShipmentJunk
+  noSpawn: true
+  components:
+  - type: BlueprintPlacer
+    blueprint: /Maps/PoiLostShipment/lost_container_junk.yml
+    components:
+    - type: WorldLoader
+      radius: 256
+    - type: IFF
+      flags: HideLabel
+
+- type: entity
+  id: LostShipmentRND
+  noSpawn: true
+  components:
+  - type: BlueprintPlacer
+    blueprint: /Maps/PoiLostShipment/lost_container_rnd.yml
+    components:
+    - type: WorldLoader
+      radius: 256
+    - type: IFF
+      flags: HideLabel
+
+- type: entity
+  id: LostShipmentValuableJunk
+  noSpawn: true
+  components:
+  - type: BlueprintPlacer
+    blueprint: /Maps/PoiLostShipment/lost_container_valuable_junk.yml
+    components:
+    - type: WorldLoader
+      radius: 256
+    - type: IFF
+      flags: HideLabel
