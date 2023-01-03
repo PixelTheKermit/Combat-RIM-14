@@ -10,6 +10,20 @@ using Robust.Shared.Utility;
 using Content.Server.Construction;
 using Content.Server.Weapons.Ranged.Systems;
 using Robust.Shared.Random;
+using Content.Shared.Alert;
+using Content.Server.CombatMode;
+using Content.Shared.Weapons.Melee.Events;
+using Content.Shared.Interaction.Events;
+using Content.Shared.Interaction;
+using Robust.Server.GameObjects;
+using Content.Server.Mind.Components;
+using Robust.Shared.Input;
+using Content.Server.Mind;
+using Content.Shared.Input;
+using Robust.Server.Player;
+using Robust.Shared.Physics;
+using Content.Shared.Movement.Events;
+using Content.Server._CombatRim.ControllableMob.Components;
 
 namespace Content.Server._CombatRim.ManualTurret
 {
@@ -23,13 +37,33 @@ namespace Content.Server._CombatRim.ManualTurret
         [Dependency] private readonly ContainerSystem _containerSystem = default!;
         [Dependency] private readonly GunSystem _gunSystem = default!;
         [Dependency] private readonly SharedAppearanceSystem _appearanceSystem = default!;
+        [Dependency] private readonly CombatModeSystem _combatModeSystem = default!;
+        [Dependency] private readonly InputSystem _inputSystem = default!;
 
         public override void Initialize() // VERY IMPORTANT!!!!!!
         {
             base.Initialize();
-            SubscribeLocalEvent<ManualTurretComponent, SignalReceivedEvent>(Signal);
             SubscribeLocalEvent<ManualTurretComponent, RefreshPartsEvent>(PartsRefresh);
             SubscribeLocalEvent<ManualTurretComponent, UpgradeExamineEvent>(OnUpgradeExamine);
+            SubscribeLocalEvent<ManualTurretComponent, ComponentInit>(OnComponentInit);
+            SubscribeLocalEvent<ManualTurretComponent, UpdateCanMoveEvent>(CanMove);
+            SubscribeLocalEvent<ManualTurretComponent, InteractionAttemptEvent>(InteractAttempt);
+        }
+
+        private void OnComponentInit(EntityUid uid, ManualTurretComponent comp, ComponentInit args)
+        {
+            comp.Rotation = Comp<TransformComponent>(uid).WorldRotation;
+        }
+
+        private void CanMove(EntityUid uid, ManualTurretComponent comp, UpdateCanMoveEvent args)
+        {
+            args.Cancel();
+        }
+
+        private void InteractAttempt(EntityUid uid, ManualTurretComponent comp, InteractionAttemptEvent args)
+        {
+            Comp<TransformComponent>(uid).WorldRotation = comp.Rotation;
+            args.Cancel();
         }
 
         /// <summary>
@@ -39,14 +73,36 @@ namespace Content.Server._CombatRim.ManualTurret
         public override void Update(float frameTime)
         {
             base.Update(frameTime);
-            foreach (var (turret, xform) in EntityQuery<ManualTurretComponent, TransformComponent>())
+            foreach (var (comp, actor, transform) in EntityQuery<ManualTurretComponent, ActorComponent, TransformComponent>())
             {
-                xform.LocalRotation += turret.CurRotSpeed / 100;
-                if (turret.Firing)
-                {
-                    TryShooting(turret, turret.Owner);
-                }
+                transform.WorldRotation = comp.Rotation;
+
+                var session = actor.PlayerSession;
+
+                var input = _inputSystem.GetInputStates(session);
+
+                // This probably shouldn't be done on the server (as it isn't done anywhere else). Too bad!
+                if (input.GetState(EngineKeyFunctions.MoveUp) == BoundKeyState.Down)
+                    AttemptShoot(comp, session);
+                else
+                    comp.Firing = false;
+
+                if (input.GetState(EngineKeyFunctions.MoveLeft) == BoundKeyState.Down)
+                    comp.Rotation += comp.RotSpeed / 100;
+                if (input.GetState(EngineKeyFunctions.MoveRight) == BoundKeyState.Down)
+                    comp.Rotation -= comp.RotSpeed / 100;
             }
+        }
+
+        private void AttemptShoot(ManualTurretComponent comp, IPlayerSession session)
+        {
+
+            if (!comp.FullAuto && comp.Firing)
+                return;
+
+            comp.Firing = true;
+
+            TryShooting(comp, comp.Owner);
         }
 
         /// <summary>
@@ -74,44 +130,6 @@ namespace Content.Server._CombatRim.ManualTurret
             args.AddPercentageUpgrade("turret-component-upgrade-speed", 1 / component.FireRateMultiplier);
             args.AddPercentageUpgrade("turret-component-upgrade-charge", 1 / component.ChargeNeededMultiplier);
             args.AddPercentageUpgrade("turret-component-upgrade-accuracy", 1 / component.AccuracyMultiplier);
-        }
-
-        /// <summary>
-        /// For any signal events
-        /// </summary>
-        /// <param name="uid"></param>
-        /// <param name="component"></param>
-        /// <param name="args"></param>
-        private void Signal(EntityUid uid, ManualTurretComponent component, SignalReceivedEvent args)
-        {
-            if (args.Port == component.ClockwiseRot)
-            {
-                component.CurRotSpeed = component.RotSpeed;
-            }
-            if (args.Port == component.AntiClockwiseRot)
-            {
-                component.CurRotSpeed = -component.RotSpeed;
-            }
-            if (args.Port == component.StopRot)
-            {
-                component.CurRotSpeed = 0;
-            }
-            if (args.Port == component.TurretSemi)
-            {
-                TryShooting(component, uid);
-            }
-            if (args.Port == component.TurretAutoToggle)
-            {
-                component.Firing = !component.Firing;
-            }
-            if (args.Port == component.TurretAutoOn)
-            {
-                component.Firing = true;
-            }
-            if (args.Port == component.TurretAutoOff)
-            {
-                component.Firing = false;
-            }
         }
 
         /// <summary>

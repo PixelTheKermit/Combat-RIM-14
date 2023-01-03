@@ -7,7 +7,14 @@
   placement:
     mode: SnapgridCenter
   components:
+    - type: ControllableMob
+    - type: Actions
+    - type: Examiner
+    - type: Eye
+    - type: LagCompensation
+    - type: Mind
     - type: ManualTurret # BRAND NEW COMPONENT FROM PIXEL CO. MADE FROM THE BLOOD AND SWEAT OF ONE POOR CODER!
+      fullAuto: true
       minAngle: 2
       maxAngle: 4
       angleIncrease: 1
@@ -40,15 +47,6 @@
       drawdepth: WallMountedItems
       layers:
         - state: syndie_lethal
-    - type: SignalReceiver
-      inputs:
-        TurretClockwise: []
-        TurretAntiClockwise: []
-        TurretStopRot: []
-        TurretShootSemi: []
-        TurretShootAutoToggle: []
-        TurretShootAutoOn: []
-        TurretShootAutoOff: []
     - type: Damageable
       damageContainer: Inorganic
     - type: Destructible
@@ -133,6 +131,7 @@
       minAngle: 0
       maxAngle: 0
       fireCost: 15
+      fullAuto: true
       soundGunshot: /Audio/Weapons/Guns/Gunshots/laser.ogg
       fireRate: 3
       isBatteryWeapon: true
@@ -155,15 +154,10 @@
       fireCost: 100
       soundGunshot: /Audio/Weapons/Guns/Gunshots/rpgfire.ogg
       fireRate: 0.25
+      fullAuto: false
     - type: Sprite
       layers:
         - state: rocket
-    - type: SignalReceiver
-      inputs:
-        TurretClockwise: []
-        TurretAntiClockwise: []
-        TurretStopRot: []
-        TurretShootSemi: []
     - type: ItemSlots
       slots:
         turret_mag:
@@ -187,15 +181,10 @@
       fireCost: 7.5
       soundGunshot: /Audio/Weapons/Guns/Gunshots/shotgun.ogg
       fireRate: 1.5
+      fullAuto: false
     - type: Sprite
       layers:
         - state: shotgun
-    - type: SignalReceiver
-      inputs:
-        TurretClockwise: []
-        TurretAntiClockwise: []
-        TurretStopRot: []
-        TurretShootSemi: []
     - type: ItemSlots
       slots:
         turret_mag:
