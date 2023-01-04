@@ -210,966 +210,966 @@ entities:
           color: '#FFFFFFFF'
           id: BrickTileWhiteCornerNw
           coordinates: -8,10
-        251:
-          color: '#FF8F00FF'
-          id: shotgun
-          coordinates: -8,6
-        15:
+        14:
           color: '#FFFFFFFF'
           id: BrickTileWhiteInnerNw
           coordinates: -6,10
-        256:
+        15:
+          color: '#FFFFFFFF'
+          id: BrickTileWhiteInnerNw
+          coordinates: -9,8
+        16:
+          color: '#FFFFFFFF'
+          id: BrickTileWhiteInnerNw
+          coordinates: -10,7
+        17:
+          color: '#FFFFFFFF'
+          id: BrickTileWhiteInnerNw
+          coordinates: -11,6
+        18:
+          color: '#FFFFFFFF'
+          id: BrickTileWhiteInnerNw
+          coordinates: -12,5
+        19:
+          color: '#FFFFFFFF'
+          id: BrickTileWhiteCornerSe
+          coordinates: -8,2
+        20:
+          color: '#FFFFFFFF'
+          id: BrickTileWhiteCornerSe
+          coordinates: -7,4
+        21:
+          color: '#FFFFFFFF'
+          id: BrickTileWhiteCornerSe
+          coordinates: -5,5
+        22:
+          color: '#FFFFFFFF'
+          id: BrickTileWhiteCornerNe
+          coordinates: -5,11
+        23:
+          color: '#FFFFFFFF'
+          id: BrickTileWhiteLineE
+          coordinates: -5,10
+        24:
+          color: '#FFFFFFFF'
+          id: BrickTileWhiteLineE
+          coordinates: -5,8
+        25:
+          color: '#FFFFFFFF'
+          id: BrickTileWhiteLineE
+          coordinates: -5,7
+        26:
+          color: '#FFFFFFFF'
+          id: BrickTileWhiteLineE
+          coordinates: -5,6
+        27:
+          color: '#FFFFFFFF'
+          id: BrickTileWhiteLineS
+          coordinates: -6,5
+        28:
+          color: '#FFFFFFFF'
+          id: BrickTileWhiteInnerSe
+          coordinates: -7,5
+        29:
+          color: '#FFFFFFFF'
+          id: BrickTileWhiteInnerSe
+          coordinates: -12,2
+        30:
+          color: '#FFFFFFFF'
+          id: BrickTileWhiteInnerSw
+          coordinates: -12,2
+        31:
+          color: '#FFFFFFFF'
+          id: BrickTileWhiteLineE
+          coordinates: -12,1
+        32:
+          color: '#FFFFFFFF'
+          id: BrickTileWhiteLineW
+          coordinates: -12,1
+        41:
+          color: '#FFFFFFFF'
+          id: BrickTileWhiteLineN
+          coordinates: -14,0
+        42:
+          color: '#FFFFFFFF'
+          id: BrickTileWhiteLineN
+          coordinates: -13,0
+        43:
+          color: '#FFFFFFFF'
+          id: BrickTileWhiteLineN
+          coordinates: -11,0
+        44:
+          color: '#FFFFFFFF'
+          id: BrickTileWhiteLineN
+          coordinates: -10,0
+        45:
+          color: '#FFFFFFFF'
+          id: BrickTileWhiteInnerNe
+          coordinates: -12,0
+        46:
+          color: '#FFFFFFFF'
+          id: BrickTileWhiteInnerNw
+          coordinates: -12,0
+        47:
+          color: '#FFFFFFFF'
+          id: BrickTileWhiteCornerNw
+          coordinates: -15,0
+        50:
+          color: '#FFFFFFFF'
+          id: BrickTileWhiteCornerNe
+          coordinates: -9,0
+        59:
+          color: '#FFFFFFFF'
+          id: BrickTileWhiteInnerSe
+          coordinates: -5,9
+        60:
+          color: '#FFFFFFFF'
+          id: BrickTileWhiteInnerNe
+          coordinates: -5,9
+        61:
+          color: '#FFFFFFFF'
+          id: BrickTileWhiteLineS
+          coordinates: -4,9
+        62:
+          color: '#FFFFFFFF'
+          id: BrickTileWhiteLineN
+          coordinates: -4,9
+        63:
+          color: '#FFFFFFFF'
+          id: BrickTileWhiteInnerNw
+          coordinates: -3,9
+        64:
+          color: '#FFFFFFFF'
+          id: BrickTileWhiteInnerSw
+          coordinates: -3,9
+        65:
+          color: '#FFFFFFFF'
+          id: BrickTileWhiteLineW
+          coordinates: -3,8
+        66:
+          color: '#FFFFFFFF'
+          id: BrickTileWhiteLineW
+          coordinates: -3,7
+        67:
+          color: '#FFFFFFFF'
+          id: BrickTileWhiteLineW
+          coordinates: -3,10
+        68:
+          color: '#FFFFFFFF'
+          id: BrickTileWhiteLineW
+          coordinates: -3,11
+        69:
+          color: '#FFFFFFFF'
+          id: BrickTileWhiteCornerNw
+          coordinates: -3,12
+        70:
+          color: '#FFFFFFFF'
+          id: BrickTileWhiteCornerSw
+          coordinates: -3,6
+        75:
+          color: '#FFFFFFFF'
+          id: BrickTileWhiteLineS
+          coordinates: -1,6
+        76:
+          color: '#FFFFFFFF'
+          id: BrickTileWhiteLineS
+          coordinates: -2,6
+        81:
+          color: '#FFFFFFFF'
+          id: BrickTileWhiteLineN
+          coordinates: -2,12
+        82:
+          color: '#FFFFFFFF'
+          id: BrickTileWhiteLineN
+          coordinates: -1,12
+        121:
+          color: '#FFFFFFFF'
+          id: BrickTileWhiteLineE
+          coordinates: -8,3
+        122:
+          color: '#FFFFFFFF'
+          id: BrickTileWhiteInnerSe
+          coordinates: -8,4
+        123:
+          color: '#FFFFFFFF'
+          id: BrickTileWhiteLineS
+          coordinates: -10,2
+        246:
+          color: '#FFFFFFFF'
+          id: BrickTileWhiteCornerNw
+          coordinates: -6,11
+        247:
+          color: '#FF8F00FF'
+          id: shotgun
+          coordinates: -8,6
+        248:
+          color: '#FFFFFFFF'
+          id: BrickTileWhiteInnerNw
+          coordinates: -8,9
+        249:
           angle: 0.7853981633974483 rad
           color: '#FF8F00FF'
           id: arrow
           coordinates: -11,5
-        17:
-          color: '#FFFFFFFF'
-          id: BrickTileWhiteInnerNw
-          coordinates: -9,8
-        18:
-          color: '#FFFFFFFF'
-          id: BrickTileWhiteInnerNw
-          coordinates: -10,7
-        19:
-          color: '#FFFFFFFF'
-          id: BrickTileWhiteInnerNw
-          coordinates: -11,6
-        20:
-          color: '#FFFFFFFF'
-          id: BrickTileWhiteInnerNw
-          coordinates: -12,5
-        21:
-          color: '#FFFFFFFF'
-          id: BrickTileWhiteCornerSe
-          coordinates: -8,2
-        22:
-          color: '#FFFFFFFF'
-          id: BrickTileWhiteCornerSe
-          coordinates: -7,4
-        23:
-          color: '#FFFFFFFF'
-          id: BrickTileWhiteCornerSe
-          coordinates: -5,5
-        24:
-          color: '#FFFFFFFF'
-          id: BrickTileWhiteCornerNe
-          coordinates: -5,11
-        25:
-          color: '#FFFFFFFF'
-          id: BrickTileWhiteLineE
-          coordinates: -5,10
-        26:
-          color: '#FFFFFFFF'
-          id: BrickTileWhiteLineE
-          coordinates: -5,8
-        27:
-          color: '#FFFFFFFF'
-          id: BrickTileWhiteLineE
-          coordinates: -5,7
-        28:
-          color: '#FFFFFFFF'
-          id: BrickTileWhiteLineE
-          coordinates: -5,6
-        29:
-          color: '#FFFFFFFF'
-          id: BrickTileWhiteLineS
-          coordinates: -6,5
-        30:
-          color: '#FFFFFFFF'
-          id: BrickTileWhiteInnerSe
-          coordinates: -7,5
-        31:
-          color: '#FFFFFFFF'
-          id: BrickTileWhiteInnerSe
-          coordinates: -12,2
-        32:
-          color: '#FFFFFFFF'
-          id: BrickTileWhiteInnerSw
-          coordinates: -12,2
-        33:
-          color: '#FFFFFFFF'
-          id: BrickTileWhiteLineE
-          coordinates: -12,1
-        34:
-          color: '#FFFFFFFF'
-          id: BrickTileWhiteLineW
-          coordinates: -12,1
-        43:
-          color: '#FFFFFFFF'
-          id: BrickTileWhiteLineN
-          coordinates: -14,0
-        44:
-          color: '#FFFFFFFF'
-          id: BrickTileWhiteLineN
-          coordinates: -13,0
-        45:
-          color: '#FFFFFFFF'
-          id: BrickTileWhiteLineN
-          coordinates: -11,0
-        46:
-          color: '#FFFFFFFF'
-          id: BrickTileWhiteLineN
-          coordinates: -10,0
-        47:
-          color: '#FFFFFFFF'
-          id: BrickTileWhiteInnerNe
-          coordinates: -12,0
-        48:
-          color: '#FFFFFFFF'
-          id: BrickTileWhiteInnerNw
-          coordinates: -12,0
-        49:
-          color: '#FFFFFFFF'
-          id: BrickTileWhiteCornerNw
-          coordinates: -15,0
-        52:
-          color: '#FFFFFFFF'
-          id: BrickTileWhiteCornerNe
-          coordinates: -9,0
-        61:
-          color: '#FFFFFFFF'
-          id: BrickTileWhiteInnerSe
-          coordinates: -5,9
-        62:
-          color: '#FFFFFFFF'
-          id: BrickTileWhiteInnerNe
-          coordinates: -5,9
-        63:
-          color: '#FFFFFFFF'
-          id: BrickTileWhiteLineS
-          coordinates: -4,9
-        64:
-          color: '#FFFFFFFF'
-          id: BrickTileWhiteLineN
-          coordinates: -4,9
-        65:
-          color: '#FFFFFFFF'
-          id: BrickTileWhiteInnerNw
-          coordinates: -3,9
-        66:
-          color: '#FFFFFFFF'
-          id: BrickTileWhiteInnerSw
-          coordinates: -3,9
-        67:
-          color: '#FFFFFFFF'
-          id: BrickTileWhiteLineW
-          coordinates: -3,8
-        68:
-          color: '#FFFFFFFF'
-          id: BrickTileWhiteLineW
-          coordinates: -3,7
-        69:
-          color: '#FFFFFFFF'
-          id: BrickTileWhiteLineW
-          coordinates: -3,10
-        70:
-          color: '#FFFFFFFF'
-          id: BrickTileWhiteLineW
-          coordinates: -3,11
-        71:
-          color: '#FFFFFFFF'
-          id: BrickTileWhiteCornerNw
-          coordinates: -3,12
-        72:
-          color: '#FFFFFFFF'
-          id: BrickTileWhiteCornerSw
-          coordinates: -3,6
-        77:
-          color: '#FFFFFFFF'
-          id: BrickTileWhiteLineS
-          coordinates: -1,6
-        78:
-          color: '#FFFFFFFF'
-          id: BrickTileWhiteLineS
-          coordinates: -2,6
-        83:
-          color: '#FFFFFFFF'
-          id: BrickTileWhiteLineN
-          coordinates: -2,12
-        84:
-          color: '#FFFFFFFF'
-          id: BrickTileWhiteLineN
-          coordinates: -1,12
-        123:
-          color: '#FFFFFFFF'
-          id: BrickTileWhiteLineE
-          coordinates: -8,3
-        124:
-          color: '#FFFFFFFF'
-          id: BrickTileWhiteInnerSe
-          coordinates: -8,4
-        125:
-          color: '#FFFFFFFF'
-          id: BrickTileWhiteLineS
-          coordinates: -10,2
         250:
-          color: '#FFFFFFFF'
-          id: BrickTileWhiteCornerNw
-          coordinates: -6,11
-        253:
-          color: '#FFFFFFFF'
-          id: BrickTileWhiteInnerNw
-          coordinates: -8,9
-        257:
           angle: -0.7853981633974483 rad
           color: '#FF8F00FF'
           id: arrow
           coordinates: -7,9
-        259:
+        251:
           angle: 2.356194490192345 rad
           color: '#FF8F00FF'
           id: arrow
           coordinates: -9,4
-        260:
+        252:
           angle: -2.356194490192345 rad
           color: '#FF8F00FF'
           id: arrow
           coordinates: -7,6
       -1,-1:
-        35:
+        33:
           color: '#FFFFFFFF'
           id: BrickTileWhiteLineW
           coordinates: -15,-1
-        36:
+        34:
           color: '#FFFFFFFF'
           id: BrickTileWhiteLineW
           coordinates: -15,-2
-        37:
+        35:
           color: '#FFFFFFFF'
           id: BrickTileWhiteLineW
           coordinates: -15,-3
-        38:
+        36:
           color: '#FFFFFFFF'
           id: BrickTileWhiteLineW
           coordinates: -15,-4
-        39:
+        37:
           color: '#FFFFFFFF'
           id: BrickTileWhiteLineE
           coordinates: -9,-4
-        40:
+        38:
           color: '#FFFFFFFF'
           id: BrickTileWhiteLineE
           coordinates: -9,-3
-        41:
+        39:
           color: '#FFFFFFFF'
           id: BrickTileWhiteLineE
           coordinates: -9,-2
-        42:
+        40:
           color: '#FFFFFFFF'
           id: BrickTileWhiteLineE
           coordinates: -9,-1
-        50:
+        48:
           color: '#FFFFFFFF'
           id: BrickTileWhiteCornerSe
           coordinates: -9,-5
-        51:
+        49:
           color: '#FFFFFFFF'
           id: BrickTileWhiteCornerSw
           coordinates: -15,-5
-        53:
+        51:
           color: '#FFFFFFFF'
           id: BrickTileWhiteLineS
           coordinates: -14,-5
-        54:
+        52:
           color: '#FFFFFFFF'
           id: BrickTileWhiteLineS
           coordinates: -13,-5
-        55:
+        53:
           color: '#FFFFFFFF'
           id: BrickTileWhiteLineS
           coordinates: -11,-5
-        56:
+        54:
           color: '#FFFFFFFF'
           id: BrickTileWhiteLineS
           coordinates: -10,-5
-        57:
+        55:
           color: '#FFFFFFFF'
           id: BrickTileWhiteInnerSe
           coordinates: -12,-5
-        58:
+        56:
           color: '#FFFFFFFF'
           id: BrickTileWhiteInnerSw
           coordinates: -12,-5
-        59:
+        57:
           color: '#FFFFFFFF'
           id: BrickTileWhiteLineW
           coordinates: -12,-6
-        60:
+        58:
           color: '#FFFFFFFF'
           id: BrickTileWhiteLineE
           coordinates: -12,-6
+        103:
+          color: '#FFFFFFFF'
+          id: BrickTileWhiteInnerNe
+          coordinates: -12,-7
+        104:
+          color: '#FFFFFFFF'
+          id: BrickTileWhiteInnerNw
+          coordinates: -12,-7
         105:
           color: '#FFFFFFFF'
           id: BrickTileWhiteInnerNe
-          coordinates: -12,-7
-        106:
-          color: '#FFFFFFFF'
-          id: BrickTileWhiteInnerNw
-          coordinates: -12,-7
-        107:
-          color: '#FFFFFFFF'
-          id: BrickTileWhiteInnerNe
           coordinates: -5,-14
-        108:
+        106:
           color: '#FFFFFFFF'
           id: BrickTileWhiteInnerSe
           coordinates: -5,-14
-        111:
+        109:
           color: '#FFFFFFFF'
           id: BrickTileWhiteInnerNw
+          coordinates: -3,-14
+        111:
+          color: '#FFFFFFFF'
+          id: BrickTileWhiteInnerSw
           coordinates: -3,-14
         113:
           color: '#FFFFFFFF'
-          id: BrickTileWhiteInnerSw
-          coordinates: -3,-14
-        115:
-          color: '#FFFFFFFF'
           id: BrickTileWhiteLineS
           coordinates: -4,-14
-        118:
+        116:
           color: '#FFFFFFFF'
           id: BrickTileWhiteLineN
           coordinates: -4,-14
-        119:
+        117:
           color: '#FFFFFFFF'
           id: BrickTileWhiteLineN
           coordinates: -11,-7
-        120:
+        118:
           color: '#FFFFFFFF'
           id: BrickTileWhiteLineN
           coordinates: -10,-7
-        121:
+        119:
           color: '#FFFFFFFF'
           id: BrickTileWhiteLineN
           coordinates: -9,-7
-        122:
+        120:
           color: '#FFFFFFFF'
           id: BrickTileWhiteLineN
           coordinates: -13,-7
-        206:
+        204:
           color: '#FFFFFFFF'
           id: BrickTileWhiteCornerNw
           coordinates: -3,-11
-        212:
+        210:
           color: '#FFFFFFFF'
           id: BrickTileWhiteLineS
           coordinates: -1,-17
-        213:
+        211:
           color: '#FFFFFFFF'
           id: BrickTileWhiteLineS
           coordinates: -2,-17
-        214:
+        212:
           color: '#FFFFFFFF'
           id: BrickTileWhiteCornerSw
           coordinates: -3,-17
-        215:
+        213:
           color: '#FFFFFFFF'
           id: BrickTileWhiteLineW
           coordinates: -3,-16
-        216:
+        214:
           color: '#FFFFFFFF'
           id: BrickTileWhiteLineW
           coordinates: -3,-15
-        217:
+        215:
           color: '#FFFFFFFF'
           id: BrickTileWhiteCornerSw
           coordinates: -13,-10
-        218:
+        216:
           color: '#FFFFFFFF'
           id: BrickTileWhiteCornerSw
           coordinates: -12,-11
-        219:
+        217:
           color: '#FFFFFFFF'
           id: BrickTileWhiteCornerSw
           coordinates: -11,-12
-        220:
+        218:
           color: '#FFFFFFFF'
           id: BrickTileWhiteCornerSw
           coordinates: -10,-13
-        221:
+        219:
           color: '#FFFFFFFF'
           id: BrickTileWhiteCornerSw
           coordinates: -9,-14
-        222:
+        220:
           color: '#FFFFFFFF'
           id: BrickTileWhiteCornerSw
           coordinates: -8,-15
-        223:
+        221:
           color: '#FFFFFFFF'
           id: BrickTileWhiteCornerSw
           coordinates: -6,-16
-        224:
+        222:
           color: '#FFFFFFFF'
           id: BrickTileWhiteCornerSw
           coordinates: -14,-8
-        225:
+        223:
           color: '#FFFFFFFF'
           id: BrickTileWhiteLineW
           coordinates: -13,-9
-        226:
+        224:
           color: '#FFFFFFFF'
           id: BrickTileWhiteLineS
           coordinates: -7,-15
-        227:
+        225:
           color: '#FFFFFFFF'
           id: BrickTileWhiteInnerSw
           coordinates: -6,-15
-        228:
+        226:
           color: '#FFFFFFFF'
           id: BrickTileWhiteInnerSw
           coordinates: -8,-14
-        229:
+        227:
           color: '#FFFFFFFF'
           id: BrickTileWhiteInnerSw
           coordinates: -9,-13
-        230:
+        228:
           color: '#FFFFFFFF'
           id: BrickTileWhiteInnerSw
           coordinates: -10,-12
-        231:
+        229:
           color: '#FFFFFFFF'
           id: BrickTileWhiteInnerSw
           coordinates: -11,-11
-        232:
+        230:
           color: '#FFFFFFFF'
           id: BrickTileWhiteInnerSw
           coordinates: -12,-10
-        233:
+        231:
           color: '#FFFFFFFF'
           id: BrickTileWhiteInnerSw
           coordinates: -13,-8
-        234:
+        232:
           color: '#FFFFFFFF'
           id: BrickTileWhiteCornerNw
           coordinates: -14,-7
-        235:
+        233:
           color: '#FFFFFFFF'
           id: BrickTileWhiteCornerNe
           coordinates: -8,-7
-        236:
+        234:
           color: '#FFFFFFFF'
           id: BrickTileWhiteCornerNe
           coordinates: -7,-9
-        237:
+        235:
           color: '#FFFFFFFF'
           id: BrickTileWhiteCornerNe
           coordinates: -5,-10
-        238:
+        236:
           color: '#FFFFFFFF'
           id: BrickTileWhiteLineE
           coordinates: -5,-11
-        239:
+        237:
           color: '#FFFFFFFF'
           id: BrickTileWhiteLineE
           coordinates: -5,-12
-        240:
+        238:
           color: '#FFFFFFFF'
           id: BrickTileWhiteLineE
           coordinates: -5,-13
-        241:
+        239:
           color: '#FFFFFFFF'
           id: BrickTileWhiteInnerNe
           coordinates: -5,-14
-        242:
+        240:
           color: '#FFFFFFFF'
           id: BrickTileWhiteInnerSe
           coordinates: -5,-14
-        243:
+        241:
           color: '#FFFFFFFF'
           id: BrickTileWhiteLineE
           coordinates: -5,-15
-        244:
+        242:
           color: '#FFFFFFFF'
           id: BrickTileWhiteCornerSe
           coordinates: -5,-16
-        245:
+        243:
           color: '#FFFFFFFF'
           id: BrickTileWhiteInnerNe
           coordinates: -7,-10
-        246:
+        244:
           color: '#FFFFFFFF'
           id: BrickTileWhiteInnerNe
           coordinates: -8,-9
-        247:
+        245:
           color: '#FFFFFFFF'
           id: BrickTileWhiteLineE
           coordinates: -8,-8
       0,0:
-        73:
+        71:
           color: '#FFFFFFFF'
           id: BrickTileWhiteCornerNe
           coordinates: 2,12
-        74:
+        72:
           color: '#FFFFFFFF'
           id: BrickTileWhiteCornerSe
           coordinates: 2,6
-        75:
+        73:
           color: '#FFFFFFFF'
           id: BrickTileWhiteLineS
           coordinates: 1,6
-        76:
+        74:
           color: '#FFFFFFFF'
           id: BrickTileWhiteLineS
           coordinates: 0,6
-        79:
+        77:
           color: '#FFFFFFFF'
           id: BrickTileWhiteLineE
           coordinates: 2,7
-        80:
+        78:
           color: '#FFFFFFFF'
           id: BrickTileWhiteLineE
           coordinates: 2,8
-        81:
+        79:
           color: '#FFFFFFFF'
           id: BrickTileWhiteLineE
           coordinates: 2,10
-        82:
+        80:
           color: '#FFFFFFFF'
           id: BrickTileWhiteLineE
           coordinates: 2,11
-        85:
+        83:
           color: '#FFFFFFFF'
           id: BrickTileWhiteLineN
           coordinates: 0,12
-        86:
+        84:
           color: '#FFFFFFFF'
           id: BrickTileWhiteLineN
           coordinates: 1,12
-        87:
+        85:
           color: '#FFFFFFFF'
           id: BrickTileWhiteInnerNe
           coordinates: 2,9
-        88:
+        86:
           color: '#FFFFFFFF'
           id: BrickTileWhiteInnerSe
           coordinates: 2,9
-        89:
+        87:
           color: '#FFFFFFFF'
           id: BrickTileWhiteLineN
           coordinates: 3,9
-        90:
+        88:
           color: '#FFFFFFFF'
           id: BrickTileWhiteLineS
           coordinates: 3,9
+        89:
+          color: '#FFFFFFFF'
+          id: BrickTileWhiteInnerSw
+          coordinates: 4,9
+        90:
+          color: '#FFFFFFFF'
+          id: BrickTileWhiteInnerNw
+          coordinates: 4,9
         91:
           color: '#FFFFFFFF'
           id: BrickTileWhiteInnerSw
-          coordinates: 4,9
-        92:
-          color: '#FFFFFFFF'
-          id: BrickTileWhiteInnerNw
-          coordinates: 4,9
-        93:
-          color: '#FFFFFFFF'
-          id: BrickTileWhiteInnerSw
           coordinates: 11,2
-        94:
+        92:
           color: '#FFFFFFFF'
           id: BrickTileWhiteInnerSe
           coordinates: 11,2
-        95:
+        93:
           color: '#FFFFFFFF'
           id: BrickTileWhiteInnerNe
           coordinates: 11,0
-        96:
+        94:
           color: '#FFFFFFFF'
           id: BrickTileWhiteInnerNw
           coordinates: 11,0
-        97:
+        95:
           color: '#FFFFFFFF'
           id: BrickTileWhiteLineE
           coordinates: 11,1
-        98:
+        96:
           color: '#FFFFFFFF'
           id: BrickTileWhiteLineW
           coordinates: 11,1
-        133:
+        131:
           color: '#FFFFFFFF'
           id: BrickTileWhiteCornerNe
           coordinates: 14,0
-        134:
+        132:
           color: '#FFFFFFFF'
           id: BrickTileWhiteLineN
           coordinates: 12,0
-        135:
+        133:
           color: '#FFFFFFFF'
           id: BrickTileWhiteLineN
           coordinates: 13,0
-        138:
+        136:
           color: '#FFFFFFFF'
           id: BrickTileWhiteLineS
           coordinates: 10,2
-        139:
+        137:
           color: '#FFFFFFFF'
           id: BrickTileWhiteLineS
           coordinates: 9,2
-        140:
+        138:
           color: '#FFFFFFFF'
           id: BrickTileWhiteLineS
           coordinates: 8,2
-        141:
+        139:
           color: '#FFFFFFFF'
           id: BrickTileWhiteLineS
           coordinates: 12,2
-        142:
+        140:
           color: '#FFFFFFFF'
           id: BrickTileWhiteCornerSw
           coordinates: 7,2
-        143:
+        141:
           color: '#FFFFFFFF'
           id: BrickTileWhiteCornerSw
           coordinates: 6,4
-        144:
+        142:
           color: '#FFFFFFFF'
           id: BrickTileWhiteCornerSw
           coordinates: 4,5
-        145:
+        143:
           color: '#FFFFFFFF'
           id: BrickTileWhiteCornerNw
           coordinates: 4,11
-        146:
+        144:
           color: '#FFFFFFFF'
           id: BrickTileWhiteCornerNe
           coordinates: 5,11
-        147:
+        145:
           color: '#FFFFFFFF'
           id: BrickTileWhiteCornerNe
           coordinates: 7,10
-        148:
+        146:
           color: '#FFFFFFFF'
           id: BrickTileWhiteCornerNe
           coordinates: 8,9
-        149:
+        147:
           color: '#FFFFFFFF'
           id: BrickTileWhiteCornerNe
           coordinates: 9,8
-        150:
+        148:
           color: '#FFFFFFFF'
           id: BrickTileWhiteCornerNe
           coordinates: 10,7
-        151:
+        149:
           color: '#FFFFFFFF'
           id: BrickTileWhiteCornerNe
           coordinates: 11,6
-        152:
+        150:
           color: '#FFFFFFFF'
           id: BrickTileWhiteCornerNe
           coordinates: 12,5
-        153:
+        151:
           color: '#FFFFFFFF'
           id: BrickTileWhiteCornerNe
           coordinates: 13,3
-        154:
+        152:
           color: '#FFFFFFFF'
           id: BrickTileWhiteCornerSe
           coordinates: 13,2
-        155:
+        153:
           color: '#FFFFFFFF'
           id: BrickTileWhiteLineN
           coordinates: 6,10
-        156:
+        154:
           color: '#FFFFFFFF'
           id: BrickTileWhiteLineE
           coordinates: 12,4
-        157:
+        155:
           color: '#FFFFFFFF'
           id: BrickTileWhiteInnerNe
           coordinates: 12,3
-        158:
+        156:
           color: '#FFFFFFFF'
           id: BrickTileWhiteInnerNe
           coordinates: 11,5
-        159:
+        157:
           color: '#FFFFFFFF'
           id: BrickTileWhiteInnerNe
           coordinates: 10,6
-        160:
+        158:
           color: '#FFFFFFFF'
           id: BrickTileWhiteInnerNe
           coordinates: 9,7
-        161:
+        159:
           color: '#FFFFFFFF'
           id: BrickTileWhiteInnerNe
           coordinates: 8,8
-        162:
+        160:
           color: '#FFFFFFFF'
           id: BrickTileWhiteInnerNe
           coordinates: 7,9
-        163:
+        161:
           color: '#FFFFFFFF'
           id: BrickTileWhiteInnerNe
           coordinates: 5,10
-        164:
+        162:
           color: '#FFFFFFFF'
           id: BrickTileWhiteLineW
           coordinates: 4,10
-        165:
+        163:
           color: '#FFFFFFFF'
           id: BrickTileWhiteLineW
           coordinates: 4,7
-        166:
+        164:
           color: '#FFFFFFFF'
           id: BrickTileWhiteLineW
           coordinates: 4,8
-        167:
+        165:
           color: '#FFFFFFFF'
           id: BrickTileWhiteLineS
           coordinates: 5,5
-        168:
+        166:
           color: '#FFFFFFFF'
           id: BrickTileWhiteInnerSw
           coordinates: 6,5
-        169:
+        167:
           color: '#FFFFFFFF'
           id: BrickTileWhiteInnerSw
           coordinates: 7,4
-        170:
+        168:
           color: '#FFFFFFFF'
           id: BrickTileWhiteLineW
           coordinates: 7,3
-        174:
+        172:
           color: '#FFFFFFFF'
           id: BrickTileWhiteCornerNw
           coordinates: 8,0
-        175:
+        173:
           color: '#FFFFFFFF'
           id: BrickTileWhiteLineN
           coordinates: 9,0
-        176:
+        174:
           color: '#FFFFFFFF'
           id: BrickTileWhiteLineN
           coordinates: 10,0
       0,-1:
-        99:
+        97:
           color: '#FFFFFFFF'
           id: BrickTileWhiteLineW
           coordinates: 11,-6
-        100:
+        98:
           color: '#FFFFFFFF'
           id: BrickTileWhiteLineE
           coordinates: 11,-6
-        101:
+        99:
           color: '#FFFFFFFF'
           id: BrickTileWhiteInnerSw
           coordinates: 11,-5
-        102:
+        100:
           color: '#FFFFFFFF'
           id: BrickTileWhiteInnerSe
           coordinates: 11,-5
-        103:
+        101:
           color: '#FFFFFFFF'
           id: BrickTileWhiteInnerNw
           coordinates: 11,-7
-        104:
+        102:
           color: '#FFFFFFFF'
           id: BrickTileWhiteInnerNe
           coordinates: 11,-7
-        109:
+        107:
           color: '#FFFFFFFF'
           id: BrickTileWhiteInnerSe
+          coordinates: 2,-14
+        108:
+          color: '#FFFFFFFF'
+          id: BrickTileWhiteInnerNe
           coordinates: 2,-14
         110:
           color: '#FFFFFFFF'
-          id: BrickTileWhiteInnerNe
-          coordinates: 2,-14
-        112:
-          color: '#FFFFFFFF'
           id: BrickTileWhiteInnerNw
           coordinates: 4,-14
-        114:
+        112:
           color: '#FFFFFFFF'
           id: BrickTileWhiteInnerSw
           coordinates: 4,-14
-        116:
+        114:
           color: '#FFFFFFFF'
           id: BrickTileWhiteLineS
           coordinates: 3,-14
-        117:
+        115:
           color: '#FFFFFFFF'
           id: BrickTileWhiteLineN
           coordinates: 3,-14
-        126:
+        124:
           color: '#FFFFFFFF'
           id: BrickTileWhiteLineW
           coordinates: 8,-3
-        127:
+        125:
           color: '#FFFFFFFF'
           id: BrickTileWhiteLineW
           coordinates: 8,-2
-        128:
+        126:
           color: '#FFFFFFFF'
           id: BrickTileWhiteLineE
           coordinates: 14,-4
-        129:
+        127:
           color: '#FFFFFFFF'
           id: BrickTileWhiteLineE
           coordinates: 14,-3
-        130:
+        128:
           color: '#FFFFFFFF'
           id: BrickTileWhiteLineE
           coordinates: 14,-2
-        131:
+        129:
           color: '#FFFFFFFF'
           id: BrickTileWhiteLineE
           coordinates: 14,-1
-        132:
+        130:
           color: '#FFFFFFFF'
           id: BrickTileWhiteCornerSe
           coordinates: 14,-5
-        136:
+        134:
           color: '#FFFFFFFF'
           id: BrickTileWhiteLineS
           coordinates: 12,-5
-        137:
+        135:
           color: '#FFFFFFFF'
           id: BrickTileWhiteLineS
           coordinates: 13,-5
-        171:
+        169:
           color: '#FFFFFFFF'
           id: BrickTileWhiteLineN
           coordinates: 12,-7
-        172:
+        170:
           color: '#FFFFFFFF'
           id: BrickTileWhiteEndE
           coordinates: 13,-7
-        173:
+        171:
           color: '#FFFFFFFF'
           id: BrickTileWhiteCornerSe
           coordinates: 12,-9
-        177:
+        175:
           color: '#FFFFFFFF'
           id: BrickTileWhiteLineW
           coordinates: 8,-1
-        178:
+        176:
           color: '#FFFFFFFF'
           id: BrickTileWhiteLineW
           coordinates: 8,-4
-        179:
+        177:
           color: '#FFFFFFFF'
           id: BrickTileWhiteCornerSw
           coordinates: 8,-5
-        180:
+        178:
           color: '#FFFFFFFF'
           id: BrickTileWhiteLineS
           coordinates: 9,-5
-        181:
+        179:
           color: '#FFFFFFFF'
           id: BrickTileWhiteLineS
           coordinates: 10,-5
-        182:
+        180:
           color: '#FFFFFFFF'
           id: BrickTileWhiteInnerSe
           coordinates: 12,-7
-        183:
+        181:
           color: '#FFFFFFFF'
           id: BrickTileWhiteLineE
           coordinates: 12,-8
-        184:
+        182:
           color: '#FFFFFFFF'
           id: BrickTileWhiteLineE
           coordinates: 11,-10
-        185:
+        183:
           color: '#FFFFFFFF'
           id: BrickTileWhiteCornerSe
           coordinates: 11,-11
-        186:
+        184:
           color: '#FFFFFFFF'
           id: BrickTileWhiteCornerSe
           coordinates: 10,-12
-        187:
+        185:
           color: '#FFFFFFFF'
           id: BrickTileWhiteCornerSe
           coordinates: 9,-13
-        188:
+        186:
           color: '#FFFFFFFF'
           id: BrickTileWhiteCornerSe
           coordinates: 8,-14
-        189:
+        187:
           color: '#FFFFFFFF'
           id: BrickTileWhiteCornerSe
           coordinates: 7,-15
-        190:
+        188:
           color: '#FFFFFFFF'
           id: BrickTileWhiteCornerSe
           coordinates: 5,-16
-        191:
+        189:
           color: '#FFFFFFFF'
           id: BrickTileWhiteCornerSw
           coordinates: 4,-16
-        192:
+        190:
           color: '#FFFFFFFF'
           id: BrickTileWhiteCornerNw
           coordinates: 4,-10
-        193:
+        191:
           color: '#FFFFFFFF'
           id: BrickTileWhiteCornerNw
           coordinates: 6,-9
-        194:
+        192:
           color: '#FFFFFFFF'
           id: BrickTileWhiteCornerNw
           coordinates: 7,-7
-        195:
+        193:
           color: '#FFFFFFFF'
           id: BrickTileWhiteLineN
           coordinates: 8,-7
-        196:
+        194:
           color: '#FFFFFFFF'
           id: BrickTileWhiteLineN
           coordinates: 9,-7
-        197:
+        195:
           color: '#FFFFFFFF'
           id: BrickTileWhiteLineW
           coordinates: 7,-8
-        198:
+        196:
           color: '#FFFFFFFF'
           id: BrickTileWhiteInnerNw
           coordinates: 7,-9
-        199:
+        197:
           color: '#FFFFFFFF'
           id: BrickTileWhiteInnerNw
           coordinates: 6,-10
-        200:
+        198:
           color: '#FFFFFFFF'
           id: BrickTileWhiteLineN
           coordinates: 5,-10
-        201:
+        199:
           color: '#FFFFFFFF'
           id: BrickTileWhiteLineW
           coordinates: 4,-11
-        202:
+        200:
           color: '#FFFFFFFF'
           id: BrickTileWhiteLineW
           coordinates: 4,-12
-        203:
+        201:
           color: '#FFFFFFFF'
           id: BrickTileWhiteLineW
           coordinates: 4,-13
-        204:
+        202:
           color: '#FFFFFFFF'
           id: BrickTileWhiteLineW
           coordinates: 4,-15
-        205:
+        203:
           color: '#FFFFFFFF'
           id: BrickTileWhiteCornerSe
           coordinates: 2,-17
-        207:
+        205:
           color: '#FFFFFFFF'
           id: BrickTileWhiteCornerNe
           coordinates: 2,-11
-        208:
+        206:
           color: '#FFFFFFFF'
           id: BrickTileWhiteLineE
           coordinates: 2,-12
-        209:
+        207:
           color: '#FFFFFFFF'
           id: BrickTileWhiteLineE
           coordinates: 2,-13
-        210:
+        208:
           color: '#FFFFFFFF'
           id: BrickTileWhiteLineS
           coordinates: 1,-17
-        211:
+        209:
           color: '#FFFFFFFF'
           id: BrickTileWhiteLineS
           coordinates: 0,-17
@@ -2023,8 +2023,8 @@ entities:
     - volume: 2500
       temperature: 293.15
       moles:
-      - 19.481253
-      - 73.28662
+      - 18.935778
+      - 71.2346
       - 0
       - 0
       - 0
@@ -6538,7 +6538,7 @@ entities:
   components:
   - type: MetaData
   - type: Transform
-  - index: 7
+  - index: 15
     type: Map
   - type: PhysicsMap
   - type: Broadphase
@@ -6733,6 +6733,8 @@ entities:
     pos: -13.5,-11.5
     parent: 3
     type: Transform
+  - currentRot: -1.5707963267948966 rad
+    type: ManualTurret
 - uid: 682
   type: BaseControllerConsole
   components:
@@ -6783,6 +6785,8 @@ entities:
     pos: -13.5,7.5
     parent: 3
     type: Transform
+  - currentRot: -1.5707963267948966 rad
+    type: ManualTurret
 - uid: 688
   type: CableMV
   components:
@@ -7303,6 +7307,8 @@ entities:
     pos: 13.5,7.5
     parent: 3
     type: Transform
+  - currentRot: 1.5707963267948966 rad
+    type: ManualTurret
 - uid: 774
   type: BaseControllerConsole
   components:
@@ -7321,6 +7327,8 @@ entities:
     pos: 13.5,-10.5
     parent: 3
     type: Transform
+  - currentRot: 1.5707963267948966 rad
+    type: ManualTurret
 - uid: 776
   type: WeaponLaserTurretManual
   components:
@@ -7330,6 +7338,8 @@ entities:
     pos: -9.5,11.5
     parent: 3
     type: Transform
+  - currentRot: 3.141592653589793 rad
+    type: ManualTurret
 - uid: 777
   type: SignDirectionalSec
   components:
@@ -7386,6 +7396,8 @@ entities:
     pos: 9.5,11.5
     parent: 3
     type: Transform
+  - currentRot: 3.141592653589793 rad
+    type: ManualTurret
 - uid: 784
   type: SignDirectionalEng
   components:
@@ -7844,7 +7856,7 @@ entities:
   type: Poweredlight
   components:
   - rot: 1.5707963267948966 rad
-    pos: -13.5,-6.5
+    pos: 4.5,-10.5
     parent: 3
     type: Transform
   - powerLoad: 0
@@ -8415,4 +8427,145 @@ entities:
   - pos: 9.5,-5.5
     parent: 3
     type: Transform
+- uid: 939
+  type: Poweredlight
+  components:
+  - rot: 1.5707963267948966 rad
+    pos: -12.5,5.5
+    parent: 3
+    type: Transform
+  - powerLoad: 0
+    type: ApcPowerReceiver
+- uid: 940
+  type: Poweredlight
+  components:
+  - pos: -7.5,10.5
+    parent: 3
+    type: Transform
+  - powerLoad: 0
+    type: ApcPowerReceiver
+- uid: 941
+  type: Poweredlight
+  components:
+  - rot: 1.5707963267948966 rad
+    pos: -14.5,-0.5
+    parent: 3
+    type: Transform
+  - powerLoad: 0
+    type: ApcPowerReceiver
+- uid: 942
+  type: Poweredlight
+  components:
+  - rot: 1.5707963267948966 rad
+    pos: -14.5,-2.5
+    parent: 3
+    type: Transform
+  - powerLoad: 0
+    type: ApcPowerReceiver
+- uid: 943
+  type: Poweredlight
+  components:
+  - rot: 3.141592653589793 rad
+    pos: -7.5,-14.5
+    parent: 3
+    type: Transform
+  - powerLoad: 0
+    type: ApcPowerReceiver
+- uid: 944
+  type: Poweredlight
+  components:
+  - rot: 1.5707963267948966 rad
+    pos: -12.5,-9.5
+    parent: 3
+    type: Transform
+  - powerLoad: 0
+    type: ApcPowerReceiver
+- uid: 945
+  type: Poweredlight
+  components:
+  - pos: -8.5,-6.5
+    parent: 3
+    type: Transform
+  - powerLoad: 0
+    type: ApcPowerReceiver
+- uid: 946
+  type: Poweredlight
+  components:
+  - rot: 3.141592653589793 rad
+    pos: 6.5,-14.5
+    parent: 3
+    type: Transform
+  - powerLoad: 0
+    type: ApcPowerReceiver
+- uid: 947
+  type: Poweredlight
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 12.5,-7.5
+    parent: 3
+    type: Transform
+  - powerLoad: 0
+    type: ApcPowerReceiver
+- uid: 948
+  type: Poweredlight
+  components:
+  - rot: 1.5707963267948966 rad
+    pos: 8.5,-0.5
+    parent: 3
+    type: Transform
+  - powerLoad: 0
+    type: ApcPowerReceiver
+- uid: 949
+  type: Poweredlight
+  components:
+  - rot: 1.5707963267948966 rad
+    pos: 8.5,-3.5
+    parent: 3
+    type: Transform
+  - powerLoad: 0
+    type: ApcPowerReceiver
+- uid: 950
+  type: Poweredlight
+  components:
+  - rot: 1.5707963267948966 rad
+    pos: 4.5,6.5
+    parent: 3
+    type: Transform
+  - powerLoad: 0
+    type: ApcPowerReceiver
+- uid: 951
+  type: Poweredlight
+  components:
+  - rot: 1.5707963267948966 rad
+    pos: 4.5,10.5
+    parent: 3
+    type: Transform
+  - powerLoad: 0
+    type: ApcPowerReceiver
+- uid: 952
+  type: Poweredlight
+  components:
+  - pos: 6.5,10.5
+    parent: 3
+    type: Transform
+  - powerLoad: 0
+    type: ApcPowerReceiver
+- uid: 953
+  type: Poweredlight
+  components:
+  - rot: 3.141592653589793 rad
+    pos: 12.5,2.5
+    parent: 3
+    type: Transform
+  - powerLoad: 0
+    type: ApcPowerReceiver
+- uid: 954
+  type: Poweredlight
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 12.5,4.5
+    parent: 3
+    type: Transform
+  - powerLoad: 0
+    type: ApcPowerReceiver
 ...
