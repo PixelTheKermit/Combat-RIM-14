@@ -1,5 +1,6 @@
 using Content.Server._CombatRim.ControllableMob.Components;
 using Content.Shared.Damage;
+using Content.Shared.MobState;
 
 namespace Content.Server._CombatRim.ControllableMob;
 
@@ -29,7 +30,8 @@ public sealed class ControllerMobSystem : EntitySystem
     private void WasHurt(EntityUid uid, ControllerMobComponent comp, DamageChangedEvent args)
     {
         if (comp.Controlling != null && _entityManager.EntityExists(comp.Controlling)
-            && TryComp<ControllableMobComponent>(comp.Controlling, out var controllableComp))
+            && TryComp<ControllableMobComponent>(comp.Controlling, out var controllableComp)
+            && args.DamageIncreased)
         {
             _contMobSystem.RevokeControl(uid);
             comp.Controlling = null;
