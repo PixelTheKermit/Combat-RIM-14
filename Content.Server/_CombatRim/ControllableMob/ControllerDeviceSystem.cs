@@ -99,8 +99,7 @@ public sealed class ControllerDeviceSystem : EntitySystem
         if (controllableComp.CurrentDeviceOwning == null || controllableComp.CurrentDeviceOwning.Value != uid)
             return;
 
-        _controllableMobSystem.RevokeControl(comp.Controlling.Value);
-        comp.Controlling = null;
+        _controllableMobSystem.RevokeControl(args.User);
         controllerComp.Controlling = null;
         controllableComp.CurrentEntityOwning = null;
     }

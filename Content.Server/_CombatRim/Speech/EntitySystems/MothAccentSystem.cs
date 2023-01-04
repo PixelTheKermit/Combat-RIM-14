@@ -1,7 +1,8 @@
 using System.Text;
-using Content.Server.Speech.Components;
+using Content.Server._CombatRim.Speech.Components;
+using Content.Server.Speech;
 
-namespace Content.Server.Speech.EntitySystems;
+namespace Content.Server._CombatRim.Speech.EntitySystems;
 
 public sealed class MothAccentSystem : EntitySystem
 {

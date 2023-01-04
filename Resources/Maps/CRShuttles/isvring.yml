@@ -210,18 +210,19 @@ entities:
           color: '#FFFFFFFF'
           id: BrickTileWhiteCornerNw
           coordinates: -8,10
-        14:
-          color: '#FFFFFFFF'
-          id: BrickTileWhiteCornerNw
-          coordinates: -6,11
+        251:
+          color: '#FF8F00FF'
+          id: shotgun
+          coordinates: -8,6
         15:
           color: '#FFFFFFFF'
           id: BrickTileWhiteInnerNw
           coordinates: -6,10
-        16:
-          color: '#FFFFFFFF'
-          id: BrickTileWhiteInnerNw
-          coordinates: -8,9
+        256:
+          angle: 0.7853981633974483 rad
+          color: '#FF8F00FF'
+          id: arrow
+          coordinates: -11,5
         17:
           color: '#FFFFFFFF'
           id: BrickTileWhiteInnerNw
@@ -402,6 +403,29 @@ entities:
           color: '#FFFFFFFF'
           id: BrickTileWhiteLineS
           coordinates: -10,2
+        250:
+          color: '#FFFFFFFF'
+          id: BrickTileWhiteCornerNw
+          coordinates: -6,11
+        253:
+          color: '#FFFFFFFF'
+          id: BrickTileWhiteInnerNw
+          coordinates: -8,9
+        257:
+          angle: -0.7853981633974483 rad
+          color: '#FF8F00FF'
+          id: arrow
+          coordinates: -7,9
+        259:
+          angle: 2.356194490192345 rad
+          color: '#FF8F00FF'
+          id: arrow
+          coordinates: -9,4
+        260:
+          angle: -2.356194490192345 rad
+          color: '#FF8F00FF'
+          id: arrow
+          coordinates: -7,6
       -1,-1:
         35:
           color: '#FFFFFFFF'
@@ -1999,8 +2023,8 @@ entities:
     - volume: 2500
       temperature: 293.15
       moles:
-      - 20.04244
-      - 75.39776
+      - 19.481253
+      - 73.28662
       - 0
       - 0
       - 0
@@ -2016,7 +2040,7 @@ entities:
     type: BecomesStation
   - type: OccluderTree
   - type: Shuttle
-  - nextUpdate: 87.5219784
+  - nextUpdate: 564.5581876
     type: GridPathfinding
   - type: RadiationGridResistance
   - nextShake: 0
@@ -4786,7 +4810,7 @@ entities:
     parent: 3
     type: Transform
 - uid: 400
-  type: ReinforcedWindow
+  type: Window
   components:
   - rot: 3.141592653589793 rad
     pos: -12.5,6.5
@@ -6514,7 +6538,7 @@ entities:
   components:
   - type: MetaData
   - type: Transform
-  - index: 8
+  - index: 7
     type: Map
   - type: PhysicsMap
   - type: Broadphase
@@ -6703,170 +6727,62 @@ entities:
 - uid: 681
   type: WeaponLaserTurretManual
   components:
-  - rot: 3.141592653589793 rad
-    pos: 9.5,11.5
-    parent: 3
-    type: Transform
-  - inputs:
-      TurretClockwise:
-      - port: Right
-        uid: 781
-      TurretAntiClockwise:
-      - port: Left
-        uid: 781
-      TurretStopRot:
-      - port: Middle
-        uid: 781
-      TurretShootSemi: []
-      TurretShootAutoToggle:
-      - port: Pressed
-        uid: 776
-      TurretShootAutoOn: []
-      TurretShootAutoOff: []
-    type: SignalReceiver
-- uid: 682
-  type: WeaponLaserTurretManual
-  components:
-  - rot: -1.5707963267948966 rad
-    pos: -13.5,7.5
-    parent: 3
-    type: Transform
-  - inputs:
-      TurretClockwise:
-      - port: Right
-        uid: 779
-      TurretAntiClockwise:
-      - port: Left
-        uid: 779
-      TurretStopRot:
-      - port: Middle
-        uid: 779
-      TurretShootSemi: []
-      TurretShootAutoToggle:
-      - port: Pressed
-        uid: 778
-      TurretShootAutoOn: []
-      TurretShootAutoOff: []
-    type: SignalReceiver
-- uid: 683
-  type: WeaponLaserTurretManual
-  components:
+  - flags: SessionSpecific
+    type: MetaData
   - rot: -1.5707963267948966 rad
     pos: -13.5,-11.5
     parent: 3
     type: Transform
-  - inputs:
-      TurretClockwise:
-      - port: Right
-        uid: 786
-      TurretAntiClockwise:
-      - port: Left
-        uid: 786
-      TurretStopRot:
-      - port: Middle
-        uid: 786
-      TurretShootSemi: []
-      TurretShootAutoToggle:
-      - port: Pressed
-        uid: 772
-      TurretShootAutoOn: []
-      TurretShootAutoOff: []
-    type: SignalReceiver
-- uid: 684
-  type: WeaponLaserTurretManual
+- uid: 682
+  type: BaseControllerConsole
   components:
-  - pos: 9.5,-15.5
+  - rot: 1.5707963267948966 rad
+    pos: -12.5,5.5
     parent: 3
     type: Transform
-  - inputs:
-      TurretClockwise:
-      - port: Right
-        uid: 784
-      TurretAntiClockwise:
-      - port: Left
-        uid: 784
-      TurretStopRot:
-      - port: Middle
-        uid: 784
-      TurretShootSemi: []
-      TurretShootAutoToggle:
-      - port: Pressed
-        uid: 773
-      TurretShootAutoOn: []
-      TurretShootAutoOff: []
-    type: SignalReceiver
-- uid: 685
-  type: WeaponLaserTurretManual
+  - controlling: 687
+    type: ControllerStructure
+- uid: 683
+  type: BaseControllerConsole
+  components:
+  - pos: -6.5,10.5
+    parent: 3
+    type: Transform
+  - controlling: 773
+    type: ControllerStructure
+- uid: 684
+  type: BaseControllerConsole
   components:
   - rot: 3.141592653589793 rad
-    pos: -9.5,11.5
+    pos: -4.5,5.5
     parent: 3
     type: Transform
-  - inputs:
-      TurretClockwise:
-      - port: Right
-        uid: 780
-      TurretAntiClockwise:
-      - port: Left
-        uid: 780
-      TurretStopRot:
-      - port: Middle
-        uid: 780
-      TurretShootSemi: []
-      TurretShootAutoToggle:
-      - port: Pressed
-        uid: 777
-      TurretShootAutoOn: []
-      TurretShootAutoOff: []
-    type: SignalReceiver
+  - controlling: 775
+    type: ControllerStructure
+- uid: 685
+  type: SignDirectionalBridge
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 3.5,10.5
+    parent: 3
+    type: Transform
 - uid: 686
   type: WeaponLaserTurretManual
   components:
-  - rot: 1.5707963267948966 rad
-    pos: 13.5,7.5
+  - flags: SessionSpecific
+    type: MetaData
+  - pos: -9.5,-15.5
     parent: 3
     type: Transform
-  - inputs:
-      TurretClockwise:
-      - port: Right
-        uid: 782
-      TurretAntiClockwise:
-      - port: Left
-        uid: 782
-      TurretStopRot:
-      - port: Middle
-        uid: 782
-      TurretShootSemi: []
-      TurretShootAutoToggle:
-      - port: Pressed
-        uid: 775
-      TurretShootAutoOn: []
-      TurretShootAutoOff: []
-    type: SignalReceiver
 - uid: 687
   type: WeaponLaserTurretManual
   components:
-  - rot: 1.5707963267948966 rad
-    pos: 13.5,-10.5
+  - flags: SessionSpecific
+    type: MetaData
+  - rot: -1.5707963267948966 rad
+    pos: -13.5,7.5
     parent: 3
     type: Transform
-  - inputs:
-      TurretClockwise:
-      - port: Right
-        uid: 783
-      TurretAntiClockwise:
-      - port: Left
-        uid: 783
-      TurretStopRot:
-      - port: Middle
-        uid: 783
-      TurretShootSemi: []
-      TurretShootAutoToggle:
-      - port: Pressed
-        uid: 774
-      TurretShootAutoOn: []
-      TurretShootAutoOff: []
-    type: SignalReceiver
 - uid: 688
   type: CableMV
   components:
@@ -7366,254 +7282,131 @@ entities:
     parent: 3
     type: Transform
 - uid: 771
-  type: SignalButton
+  type: SignDirectionalEng
   components:
-  - rot: 3.141592653589793 rad
-    pos: -7.5,-15.5
+  - rot: 1.5707963267948966 rad
+    pos: 3.5,-12.5
     parent: 3
     type: Transform
-  - canCollide: False
-    type: Physics
-  - state: True
-    type: SignalSwitch
-  - outputs:
-      Pressed:
-      - port: TurretShootAutoToggle
-        uid: 929
-    type: SignalTransmitter
-  - type: ItemCooldown
 - uid: 772
-  type: SignalButton
+  type: SignDirectionalEng
   components:
-  - rot: 1.5707963267948966 rad
-    pos: -13.5,-9.5
+  - pos: 12.5,-5.5
     parent: 3
     type: Transform
-  - canCollide: False
-    type: Physics
-  - outputs:
-      Pressed:
-      - port: TurretShootAutoToggle
-        uid: 683
-    type: SignalTransmitter
 - uid: 773
-  type: SignalButton
+  type: WeaponLaserTurretManual
+  components:
+  - flags: SessionSpecific
+    type: MetaData
+  - rot: 1.5707963267948966 rad
+    pos: 13.5,7.5
+    parent: 3
+    type: Transform
+- uid: 774
+  type: BaseControllerConsole
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: -7.5,3.5
+    parent: 3
+    type: Transform
+  - controlling: 686
+    type: ControllerStructure
+- uid: 775
+  type: WeaponLaserTurretManual
+  components:
+  - flags: SessionSpecific
+    type: MetaData
+  - rot: 1.5707963267948966 rad
+    pos: 13.5,-10.5
+    parent: 3
+    type: Transform
+- uid: 776
+  type: WeaponLaserTurretManual
+  components:
+  - flags: SessionSpecific
+    type: MetaData
+  - rot: 3.141592653589793 rad
+    pos: -9.5,11.5
+    parent: 3
+    type: Transform
+- uid: 777
+  type: SignDirectionalSec
   components:
   - rot: 3.141592653589793 rad
-    pos: 7.5,-15.5
+    pos: -10.5,1.5
     parent: 3
     type: Transform
-  - canCollide: False
-    type: Physics
-  - outputs:
-      Pressed:
-      - port: TurretShootAutoToggle
-        uid: 684
-    type: SignalTransmitter
-- uid: 774
-  type: SignalButton
-  components:
-  - rot: -1.5707963267948966 rad
-    pos: 13.5,-8.5
-    parent: 3
-    type: Transform
-  - canCollide: False
-    type: Physics
-  - outputs:
-      Pressed:
-      - port: TurretShootAutoToggle
-        uid: 687
-    type: SignalTransmitter
-- uid: 775
-  type: SignalButton
-  components:
-  - rot: -1.5707963267948966 rad
-    pos: 13.5,5.5
-    parent: 3
-    type: Transform
-  - canCollide: False
-    type: Physics
-  - outputs:
-      Pressed:
-      - port: TurretShootAutoToggle
-        uid: 686
-    type: SignalTransmitter
-- uid: 776
-  type: SignalButton
-  components:
-  - pos: 7.5,11.5
-    parent: 3
-    type: Transform
-  - canCollide: False
-    type: Physics
-  - outputs:
-      Pressed:
-      - port: TurretShootAutoToggle
-        uid: 681
-    type: SignalTransmitter
-- uid: 777
-  type: SignalButton
-  components:
-  - pos: -7.5,11.5
-    parent: 3
-    type: Transform
-  - canCollide: False
-    type: Physics
-  - outputs:
-      Pressed:
-      - port: TurretShootAutoToggle
-        uid: 685
-    type: SignalTransmitter
 - uid: 778
-  type: SignalButton
+  type: SignDirectionalSec
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: -3.5,8.5
+    parent: 3
+    type: Transform
+- uid: 779
+  type: BaseControllerConsole
   components:
   - rot: 1.5707963267948966 rad
-    pos: -13.5,5.5
+    pos: -12.5,4.5
     parent: 3
     type: Transform
-  - canCollide: False
-    type: Physics
-  - outputs:
-      Pressed:
-      - port: TurretShootAutoToggle
-        uid: 682
-    type: SignalTransmitter
-- uid: 779
-  type: TwoWayLever
-  components:
-  - pos: -12.5,5.5
-    parent: 3
-    type: Transform
-  - outputs:
-      Left:
-      - port: TurretAntiClockwise
-        uid: 682
-      Right:
-      - port: TurretClockwise
-        uid: 682
-      Middle:
-      - port: TurretStopRot
-        uid: 682
-    type: SignalTransmitter
+  - controlling: 776
+    type: ControllerStructure
 - uid: 780
-  type: TwoWayLever
+  type: SignDirectionalBridge
+  components:
+  - rot: 1.5707963267948966 rad
+    pos: -3.5,10.5
+    parent: 3
+    type: Transform
+- uid: 781
+  type: WeaponLaserTurretManual
+  components:
+  - flags: SessionSpecific
+    type: MetaData
+  - pos: 9.5,-15.5
+    parent: 3
+    type: Transform
+- uid: 782
+  type: BaseControllerConsole
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: -7.5,2.5
+    parent: 3
+    type: Transform
+  - controlling: 681
+    type: ControllerStructure
+- uid: 783
+  type: WeaponLaserTurretManual
+  components:
+  - flags: SessionSpecific
+    type: MetaData
+  - rot: 3.141592653589793 rad
+    pos: 9.5,11.5
+    parent: 3
+    type: Transform
+- uid: 784
+  type: SignDirectionalEng
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: -3.5,-12.5
+    parent: 3
+    type: Transform
+- uid: 785
+  type: SignDirectionalEng
+  components:
+  - pos: -10.5,-5.5
+    parent: 3
+    type: Transform
+- uid: 786
+  type: BaseControllerConsole
   components:
   - pos: -7.5,10.5
     parent: 3
     type: Transform
-  - outputs:
-      Left:
-      - port: TurretAntiClockwise
-        uid: 685
-      Right:
-      - port: TurretClockwise
-        uid: 685
-      Middle:
-      - port: TurretStopRot
-        uid: 685
-    type: SignalTransmitter
-- uid: 781
-  type: TwoWayLever
-  components:
-  - pos: 7.5,10.5
-    parent: 3
-    type: Transform
-  - outputs:
-      Left:
-      - port: TurretAntiClockwise
-        uid: 681
-      Right:
-      - port: TurretClockwise
-        uid: 681
-      Middle:
-      - port: TurretStopRot
-        uid: 681
-    type: SignalTransmitter
-- uid: 782
-  type: TwoWayLever
-  components:
-  - pos: 12.5,5.5
-    parent: 3
-    type: Transform
-  - outputs:
-      Left:
-      - port: TurretAntiClockwise
-        uid: 686
-      Right:
-      - port: TurretClockwise
-        uid: 686
-      Middle:
-      - port: TurretStopRot
-        uid: 686
-    type: SignalTransmitter
-- uid: 783
-  type: TwoWayLever
-  components:
-  - pos: 12.5,-8.5
-    parent: 3
-    type: Transform
-  - outputs:
-      Left:
-      - port: TurretAntiClockwise
-        uid: 687
-      Right:
-      - port: TurretClockwise
-        uid: 687
-      Middle:
-      - port: TurretStopRot
-        uid: 687
-    type: SignalTransmitter
-- uid: 784
-  type: TwoWayLever
-  components:
-  - pos: 7.5,-14.5
-    parent: 3
-    type: Transform
-  - outputs:
-      Left:
-      - port: TurretAntiClockwise
-        uid: 684
-      Right:
-      - port: TurretClockwise
-        uid: 684
-      Middle:
-      - port: TurretStopRot
-        uid: 684
-    type: SignalTransmitter
-- uid: 785
-  type: TwoWayLever
-  components:
-  - pos: -7.5,-14.5
-    parent: 3
-    type: Transform
-  - outputs:
-      Left:
-      - port: TurretAntiClockwise
-        uid: 929
-      Right:
-      - port: TurretClockwise
-        uid: 929
-      Middle:
-      - port: TurretStopRot
-        uid: 929
-    type: SignalTransmitter
-- uid: 786
-  type: TwoWayLever
-  components:
-  - pos: -12.5,-9.5
-    parent: 3
-    type: Transform
-  - outputs:
-      Left:
-      - port: TurretAntiClockwise
-        uid: 683
-      Right:
-      - port: TurretClockwise
-        uid: 683
-      Middle:
-      - port: TurretStopRot
-        uid: 683
-    type: SignalTransmitter
+  - controlling: 783
+    type: ControllerStructure
 - uid: 787
   type: CableMV
   components:
@@ -8553,26 +8346,73 @@ entities:
     parent: 3
     type: Transform
 - uid: 929
-  type: WeaponLaserTurretManual
+  type: BaseControllerConsole
   components:
-  - pos: -9.5,-15.5
+  - rot: 3.141592653589793 rad
+    pos: -5.5,5.5
     parent: 3
     type: Transform
-  - inputs:
-      TurretClockwise:
-      - port: Right
-        uid: 785
-      TurretAntiClockwise:
-      - port: Left
-        uid: 785
-      TurretStopRot:
-      - port: Middle
-        uid: 785
-      TurretShootSemi: []
-      TurretShootAutoToggle:
-      - port: Pressed
-        uid: 771
-      TurretShootAutoOn: []
-      TurretShootAutoOff: []
-    type: SignalReceiver
+  - controlling: 781
+    type: ControllerStructure
+- uid: 930
+  type: SignDirectionalDorms
+  components:
+  - rot: 1.5707963267948966 rad
+    pos: 3.5,8.5
+    parent: 3
+    type: Transform
+- uid: 931
+  type: SignDirectionalDorms
+  components:
+  - rot: 3.141592653589793 rad
+    pos: 10.5,1.5
+    parent: 3
+    type: Transform
+- uid: 932
+  type: SignDirectionalCryo
+  components:
+  - rot: 3.141592653589793 rad
+    pos: 12.5,1.5
+    parent: 3
+    type: Transform
+- uid: 933
+  type: SignDirectionalCryo
+  components:
+  - rot: 1.5707963267948966 rad
+    pos: 3.5,7.5
+    parent: 3
+    type: Transform
+- uid: 934
+  type: SignDirectionalSupply
+  components:
+  - pos: 8.5,1.5
+    parent: 3
+    type: Transform
+- uid: 935
+  type: SignDirectionalSupply
+  components:
+  - rot: 3.141592653589793 rad
+    pos: 10.5,-5.5
+    parent: 3
+    type: Transform
+- uid: 936
+  type: SignDirectionalSci
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 3.5,-14.5
+    parent: 3
+    type: Transform
+- uid: 937
+  type: SignDirectionalSci
+  components:
+  - rot: 1.5707963267948966 rad
+    pos: -3.5,-14.5
+    parent: 3
+    type: Transform
+- uid: 938
+  type: SignAtmos
+  components:
+  - pos: 9.5,-5.5
+    parent: 3
+    type: Transform
 ...

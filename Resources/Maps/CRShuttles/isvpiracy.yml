@@ -110,7 +110,7 @@ entities:
   components:
   - type: MetaData
   - type: Transform
-  - index: 7
+  - index: 6
     type: Map
   - type: PhysicsMap
   - type: Broadphase
@@ -347,8 +347,8 @@ entities:
     - volume: 2500
       temperature: 293.15
       moles:
-      - 17.89022
-      - 67.30131
+      - 17.389294
+      - 65.41687
       - 0
       - 0
       - 0
@@ -549,53 +549,17 @@ entities:
     parent: 3
     type: Transform
 - uid: 32
-  type: WeaponLaserTurretManual
+  type: CableMV
   components:
-  - rot: -1.5707963267948966 rad
-    pos: -5.5,-0.5
+  - pos: -5.5,-1.5
     parent: 3
     type: Transform
-  - inputs:
-      TurretClockwise:
-      - port: Right
-        uid: 148
-      TurretAntiClockwise:
-      - port: Left
-        uid: 148
-      TurretStopRot:
-      - port: Middle
-        uid: 148
-      TurretShootSemi: []
-      TurretShootAutoToggle:
-      - port: Pressed
-        uid: 56
-      TurretShootAutoOn: []
-      TurretShootAutoOff: []
-    type: SignalReceiver
 - uid: 33
-  type: WeaponLaserTurretManual
+  type: CableMV
   components:
-  - rot: -1.5707963267948966 rad
-    pos: -5.5,-2.5
+  - pos: 2.5,-1.5
     parent: 3
     type: Transform
-  - inputs:
-      TurretClockwise:
-      - port: Right
-        uid: 148
-      TurretAntiClockwise:
-      - port: Left
-        uid: 148
-      TurretStopRot:
-      - port: Middle
-        uid: 148
-      TurretShootSemi: []
-      TurretShootAutoToggle:
-      - port: Pressed
-        uid: 56
-      TurretShootAutoOn: []
-      TurretShootAutoOff: []
-    type: SignalReceiver
 - uid: 34
   type: GasPipeStraight
   components:
@@ -766,25 +730,20 @@ entities:
     parent: 3
     type: Transform
 - uid: 56
-  type: SignalButton
+  type: BaseControllerConsole
   components:
-  - pos: -2.5,-0.5
+  - pos: -2.5,-1.5
     parent: 3
     type: Transform
-  - canCollide: False
-    type: Physics
-  - outputs:
-      Pressed:
-      - port: TurretShootAutoToggle
-        uid: 32
-      - port: TurretShootAutoToggle
-        uid: 33
-    type: SignalTransmitter
+  - controlling: 152
+    type: ControllerStructure
 - uid: 57
-  type: WallWood
+  type: WeaponLaserTurretManual
   components:
+  - flags: SessionSpecific
+    type: MetaData
   - rot: 1.5707963267948966 rad
-    pos: -4.5,1.5
+    pos: 2.5,-1.5
     parent: 3
     type: Transform
 - uid: 58
@@ -1112,29 +1071,11 @@ entities:
     parent: 3
     type: Transform
 - uid: 110
-  type: WeaponLaserTurretManual
+  type: WallWood
   components:
-  - rot: 1.5707963267948966 rad
-    pos: 2.5,-2.5
+  - pos: -5.5,-3.5
     parent: 3
     type: Transform
-  - inputs:
-      TurretClockwise:
-      - port: Right
-        uid: 116
-      TurretAntiClockwise:
-      - port: Left
-        uid: 116
-      TurretStopRot:
-      - port: Middle
-        uid: 116
-      TurretShootSemi: []
-      TurretShootAutoToggle:
-      - port: Pressed
-        uid: 152
-      TurretShootAutoOn: []
-      TurretShootAutoOff: []
-    type: SignalReceiver
 - uid: 111
   type: WallWood
   components:
@@ -1167,28 +1108,13 @@ entities:
     parent: 3
     type: Transform
 - uid: 116
-  type: TwoWayLever
+  type: BaseControllerConsole
   components:
   - pos: -0.5,-1.5
     parent: 3
     type: Transform
-  - outputs:
-      Left:
-      - port: TurretAntiClockwise
-        uid: 210
-      - port: TurretAntiClockwise
-        uid: 110
-      Right:
-      - port: TurretClockwise
-        uid: 210
-      - port: TurretClockwise
-        uid: 110
-      Middle:
-      - port: TurretStopRot
-        uid: 210
-      - port: TurretStopRot
-        uid: 110
-    type: SignalTransmitter
+  - controlling: 57
+    type: ControllerStructure
 - uid: 117
   type: WallWood
   components:
@@ -1392,28 +1318,11 @@ entities:
     parent: 3
     type: Transform
 - uid: 148
-  type: TwoWayLever
+  type: WallWood
   components:
-  - pos: -2.5,-1.5
+  - pos: 2.5,-3.5
     parent: 3
     type: Transform
-  - outputs:
-      Left:
-      - port: TurretAntiClockwise
-        uid: 33
-      - port: TurretAntiClockwise
-        uid: 32
-      Right:
-      - port: TurretClockwise
-        uid: 33
-      - port: TurretClockwise
-        uid: 32
-      Middle:
-      - port: TurretStopRot
-        uid: 33
-      - port: TurretStopRot
-        uid: 32
-    type: SignalTransmitter
 - uid: 149
   type: CableApcExtension
   components:
@@ -1435,20 +1344,14 @@ entities:
     parent: 3
     type: Transform
 - uid: 152
-  type: SignalButton
+  type: WeaponLaserTurretManual
   components:
-  - pos: -0.5,-0.5
+  - flags: SessionSpecific
+    type: MetaData
+  - rot: -1.5707963267948966 rad
+    pos: -5.5,-1.5
     parent: 3
     type: Transform
-  - canCollide: False
-    type: Physics
-  - outputs:
-      Pressed:
-      - port: TurretShootAutoToggle
-        uid: 110
-      - port: TurretShootAutoToggle
-        uid: 210
-    type: SignalTransmitter
 - uid: 153
   type: CableApcExtension
   components:
@@ -1474,10 +1377,9 @@ entities:
     parent: 3
     type: Transform
 - uid: 157
-  type: WallWood
+  type: ResearchAndDevelopmentServer
   components:
-  - rot: 1.5707963267948966 rad
-    pos: 1.5,1.5
+  - pos: -4.5,1.5
     parent: 3
     type: Transform
 - uid: 158
@@ -1839,33 +1741,15 @@ entities:
     parent: 3
     type: Transform
 - uid: 210
-  type: WeaponLaserTurretManual
+  type: WallWood
   components:
-  - rot: 1.5707963267948966 rad
-    pos: 2.5,-0.5
+  - pos: -5.5,0.5
     parent: 3
     type: Transform
-  - inputs:
-      TurretClockwise:
-      - port: Right
-        uid: 116
-      TurretAntiClockwise:
-      - port: Left
-        uid: 116
-      TurretStopRot:
-      - port: Middle
-        uid: 116
-      TurretShootSemi: []
-      TurretShootAutoToggle:
-      - port: Pressed
-        uid: 152
-      TurretShootAutoOn: []
-      TurretShootAutoOff: []
-    type: SignalReceiver
 - uid: 211
-  type: ResearchAndDevelopmentServer
+  type: WallWood
   components:
-  - pos: -4.5,2.5
+  - pos: 2.5,0.5
     parent: 3
     type: Transform
 - uid: 212

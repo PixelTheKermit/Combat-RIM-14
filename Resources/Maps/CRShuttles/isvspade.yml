@@ -109,9 +109,12 @@ entities:
 - uid: 2
   type: MagazineBoxMinigun
   components:
-  - pos: 5.3697634,-0.55432606
-    parent: 3
+  - flags: InContainer
+    type: MetaData
+  - parent: 48
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 3
   components:
   - type: MetaData
@@ -477,7 +480,7 @@ entities:
     type: BecomesStation
   - type: OccluderTree
   - type: Shuttle
-  - nextUpdate: 0.45
+  - nextUpdate: 45.8456219
     type: GridPathfinding
   - type: RadiationGridResistance
   - nextShake: 0
@@ -584,29 +587,14 @@ entities:
     parent: 3
     type: Transform
 - uid: 20
-  type: TwoWayLever
+  type: BaseControllerConsole
   components:
-  - rot: -1.5707963267948966 rad
-    pos: 11.5,1.5
+  - rot: 1.5707963267948966 rad
+    pos: 8.5,0.5
     parent: 3
     type: Transform
-  - outputs:
-      Left:
-      - port: TurretAntiClockwise
-        uid: 70
-      - port: TurretAntiClockwise
-        uid: 76
-      Right:
-      - port: TurretClockwise
-        uid: 70
-      - port: TurretClockwise
-        uid: 76
-      Middle:
-      - port: TurretStopRot
-        uid: 70
-      - port: TurretStopRot
-        uid: 76
-    type: SignalTransmitter
+  - controlling: 76
+    type: ControllerStructure
 - uid: 21
   type: GasPipeBend
   components:
@@ -778,36 +766,20 @@ entities:
 - uid: 48
   type: WeaponTurretManual
   components:
+  - flags: SessionSpecific
+    type: MetaData
   - rot: 3.141592653589793 rad
-    pos: 5.5,2.5
+    pos: 12.5,3.5
     parent: 3
     type: Transform
   - containers:
-      turret_mag: !type:ContainerSlot {}
+      turret_mag: !type:ContainerSlot
+        ent: 2
       machine_board: !type:Container
         ents: []
       machine_parts: !type:Container
         ents: []
     type: ContainerContainer
-  - inputs:
-      TurretClockwise:
-      - port: Right
-        uid: 109
-      TurretAntiClockwise:
-      - port: Left
-        uid: 109
-      TurretStopRot:
-      - port: Middle
-        uid: 109
-      TurretShootSemi: []
-      TurretShootAutoToggle: []
-      TurretShootAutoOn:
-      - port: On
-        uid: 158
-      TurretShootAutoOff:
-      - port: Off
-        uid: 158
-    type: SignalReceiver
 - uid: 49
   type: AirlockEngineeringGlass
   components:
@@ -885,36 +857,20 @@ entities:
 - uid: 61
   type: WeaponTurretManual
   components:
+  - flags: SessionSpecific
+    type: MetaData
   - rot: 3.141592653589793 rad
-    pos: 6.5,3.5
+    pos: 13.5,2.5
     parent: 3
     type: Transform
   - containers:
-      turret_mag: !type:ContainerSlot {}
+      turret_mag: !type:ContainerSlot
+        ent: 70
       machine_board: !type:Container
         ents: []
       machine_parts: !type:Container
         ents: []
     type: ContainerContainer
-  - inputs:
-      TurretClockwise:
-      - port: Right
-        uid: 109
-      TurretAntiClockwise:
-      - port: Left
-        uid: 109
-      TurretStopRot:
-      - port: Middle
-        uid: 109
-      TurretShootSemi: []
-      TurretShootAutoToggle: []
-      TurretShootAutoOn:
-      - port: On
-        uid: 158
-      TurretShootAutoOff:
-      - port: Off
-        uid: 158
-    type: SignalReceiver
 - uid: 62
   type: WallSolid
   components:
@@ -969,38 +925,14 @@ entities:
     parent: 3
     type: Transform
 - uid: 70
-  type: WeaponTurretManual
+  type: MagazineBoxMinigun
   components:
-  - rot: 3.141592653589793 rad
-    pos: 12.5,3.5
-    parent: 3
+  - flags: InContainer
+    type: MetaData
+  - parent: 61
     type: Transform
-  - containers:
-      turret_mag: !type:ContainerSlot {}
-      machine_board: !type:Container
-        ents: []
-      machine_parts: !type:Container
-        ents: []
-    type: ContainerContainer
-  - inputs:
-      TurretClockwise:
-      - port: Right
-        uid: 20
-      TurretAntiClockwise:
-      - port: Left
-        uid: 20
-      TurretStopRot:
-      - port: Middle
-        uid: 20
-      TurretShootSemi: []
-      TurretShootAutoToggle: []
-      TurretShootAutoOn:
-      - port: On
-        uid: 159
-      TurretShootAutoOff:
-      - port: Off
-        uid: 159
-    type: SignalReceiver
+  - canCollide: False
+    type: Physics
 - uid: 71
   type: AirCanister
   components:
@@ -1035,36 +967,20 @@ entities:
 - uid: 76
   type: WeaponTurretManual
   components:
+  - flags: SessionSpecific
+    type: MetaData
   - rot: 3.141592653589793 rad
-    pos: 13.5,2.5
+    pos: 5.5,2.5
     parent: 3
     type: Transform
   - containers:
-      turret_mag: !type:ContainerSlot {}
+      turret_mag: !type:ContainerSlot
+        ent: 109
       machine_board: !type:Container
         ents: []
       machine_parts: !type:Container
         ents: []
     type: ContainerContainer
-  - inputs:
-      TurretClockwise:
-      - port: Right
-        uid: 20
-      TurretAntiClockwise:
-      - port: Left
-        uid: 20
-      TurretStopRot:
-      - port: Middle
-        uid: 20
-      TurretShootSemi: []
-      TurretShootAutoToggle: []
-      TurretShootAutoOn:
-      - port: On
-        uid: 159
-      TurretShootAutoOff:
-      - port: Off
-        uid: 159
-    type: SignalReceiver
 - uid: 77
   type: CableHV
   components:
@@ -1292,29 +1208,14 @@ entities:
     parent: 3
     type: Transform
 - uid: 109
-  type: TwoWayLever
+  type: MagazineBoxMinigun
   components:
-  - rot: 1.5707963267948966 rad
-    pos: 7.5,1.5
-    parent: 3
+  - flags: InContainer
+    type: MetaData
+  - parent: 76
     type: Transform
-  - outputs:
-      Left:
-      - port: TurretAntiClockwise
-        uid: 48
-      - port: TurretAntiClockwise
-        uid: 61
-      Right:
-      - port: TurretClockwise
-        uid: 48
-      - port: TurretClockwise
-        uid: 61
-      Middle:
-      - port: TurretStopRot
-        uid: 48
-      - port: TurretStopRot
-        uid: 61
-    type: SignalTransmitter
+  - canCollide: False
+    type: Physics
 - uid: 110
   type: ReinforcedWindow
   components:
@@ -1611,47 +1512,31 @@ entities:
     parent: 3
     type: Transform
 - uid: 158
-  type: SignalSwitch
+  type: WeaponTurretManual
   components:
-  - rot: 1.5707963267948966 rad
-    pos: 7.5,0.5
+  - flags: SessionSpecific
+    type: MetaData
+  - rot: 3.141592653589793 rad
+    pos: 6.5,3.5
     parent: 3
     type: Transform
-  - canCollide: False
-    type: Physics
-  - outputs:
-      On:
-      - port: TurretShootAutoOn
-        uid: 61
-      - port: TurretShootAutoOn
-        uid: 48
-      Off:
-      - port: TurretShootAutoOff
-        uid: 61
-      - port: TurretShootAutoOff
-        uid: 48
-    type: SignalTransmitter
+  - containers:
+      turret_mag: !type:ContainerSlot
+        ent: 269
+      machine_board: !type:Container
+        ents: []
+      machine_parts: !type:Container
+        ents: []
+    type: ContainerContainer
 - uid: 159
-  type: SignalSwitch
+  type: BaseControllerConsole
   components:
   - rot: -1.5707963267948966 rad
-    pos: 11.5,0.5
+    pos: 10.5,0.5
     parent: 3
     type: Transform
-  - canCollide: False
-    type: Physics
-  - outputs:
-      On:
-      - port: TurretShootAutoOn
-        uid: 76
-      - port: TurretShootAutoOn
-        uid: 70
-      Off:
-      - port: TurretShootAutoOff
-        uid: 76
-      - port: TurretShootAutoOff
-        uid: 70
-    type: SignalTransmitter
+  - controlling: 61
+    type: ControllerStructure
 - uid: 160
   type: ComputerResearchAndDevelopment
   components:
@@ -2353,14 +2238,17 @@ entities:
 - uid: 269
   type: MagazineBoxMinigun
   components:
-  - pos: 5.388768,-0.36445284
-    parent: 3
+  - flags: InContainer
+    type: MetaData
+  - parent: 158
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 270
   components:
   - type: MetaData
   - type: Transform
-  - index: 10
+  - index: 8
     type: Map
   - type: PhysicsMap
   - type: Broadphase
@@ -2371,4 +2259,22 @@ entities:
   - pos: 6.5,-0.5
     parent: 3
     type: Transform
+- uid: 272
+  type: BaseControllerConsole
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 11.5,1.5
+    parent: 3
+    type: Transform
+  - controlling: 48
+    type: ControllerStructure
+- uid: 273
+  type: BaseControllerConsole
+  components:
+  - rot: 1.5707963267948966 rad
+    pos: 7.5,1.5
+    parent: 3
+    type: Transform
+  - controlling: 158
+    type: ControllerStructure
 ...

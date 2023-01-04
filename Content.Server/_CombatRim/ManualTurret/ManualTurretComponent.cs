@@ -11,8 +11,11 @@ public sealed class ManualTurretComponent : Component
 
     // Stuff for le turret
 
+    [DataField("fullAuto")]
+    public bool FullAuto = false;
+
     [DataField("fireRate")]
-    public float FireRate = 1f;
+    public float FireRate = 1.5f;
 
     public TimeSpan TimeFired = TimeSpan.Zero;
 
@@ -21,8 +24,8 @@ public sealed class ManualTurretComponent : Component
     [DataField("rotSpeed")]
     public float RotSpeed = 1.5f; // This is divided by 100, so rotation is slower than this
 
-    [DataField("curRotSpeed")]
-    public float CurRotSpeed = 0f;
+    [DataField("currentRot")]
+    public Angle Rotation;
 
     [DataField("isBatteryWeapon")]
     public bool IsBatteryWeapon = false;
@@ -45,6 +48,8 @@ public sealed class ManualTurretComponent : Component
     [ViewVariables(VVAccess.ReadWrite), DataField("minAngle")]
     public Angle MinAngle = Angle.FromDegrees(1);
 
+
+
     // Sounds
 
     [DataField("soundGunshot")]
@@ -53,30 +58,8 @@ public sealed class ManualTurretComponent : Component
     [DataField("soundEmpty")]
     public string SoundEmpty = "/Audio/Weapons/Guns/Empty/empty.ogg";
 
-    // SIGNALS PAST THIS POINT
 
-    [DataField("clockwiseRot", customTypeSerializer: typeof(PrototypeIdSerializer<ReceiverPortPrototype>))]
-    public string ClockwiseRot = "TurretClockwise";
-
-    [DataField("antiClockwiseRot", customTypeSerializer: typeof(PrototypeIdSerializer<ReceiverPortPrototype>))]
-    public string AntiClockwiseRot = "TurretAntiClockwise";
-
-    [DataField("stopRot", customTypeSerializer: typeof(PrototypeIdSerializer<ReceiverPortPrototype>))]
-    public string StopRot = "TurretStopRot";
-
-    [DataField("turretShootSemi", customTypeSerializer: typeof(PrototypeIdSerializer<ReceiverPortPrototype>))]
-    public string TurretSemi = "TurretShootSemi";
-
-    [DataField("turretShootAutoToggle", customTypeSerializer: typeof(PrototypeIdSerializer<ReceiverPortPrototype>))]
-    public string TurretAutoToggle = "TurretShootAutoToggle";
-
-    [DataField("turretShootAutoOn", customTypeSerializer: typeof(PrototypeIdSerializer<ReceiverPortPrototype>))]
-    public string TurretAutoOn = "TurretShootAutoOn";
-
-    [DataField("turretShootAutoOff", customTypeSerializer: typeof(PrototypeIdSerializer<ReceiverPortPrototype>))]
-    public string TurretAutoOff = "TurretShootAutoOff";
-
-    // Part stuff past this point
+    // Upgrade stuff.
     [DataField("machinePartFiringSpeed", customTypeSerializer: typeof(PrototypeIdSerializer<MachinePartPrototype>))]
     public string MachinePartFiringSpeed = "Manipulator";
 

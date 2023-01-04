@@ -1,8 +1,9 @@
 using System.Text;
-using Content.Server.Speech.Components;
+using Content.Server._CombatRim.Speech.Components;
+using Content.Server.Speech;
 using Robust.Shared.Random;
 
-namespace Content.Server.Speech.EntitySystems;
+namespace Content.Server._CombatRim.Speech.EntitySystems;
 
 public sealed class GhostAccentSystem : EntitySystem
 {
@@ -43,7 +44,7 @@ public sealed class GhostAccentSystem : EntitySystem
             accentedMessage.Append('!');
 
             if (i < words.Length - 1)
-            accentedMessage.Append(' ');
+                accentedMessage.Append(' ');
         }
 
         return accentedMessage.ToString();
