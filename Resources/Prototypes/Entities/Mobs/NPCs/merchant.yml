@@ -83,7 +83,6 @@
     - TomatoSeeds
     - HydroponicsToolMiniHoe
     - HydroponicsToolClippers
-    - HydroponicsToolShovel
 
 - type: entity
   name: Firearm Merchant
@@ -150,7 +149,7 @@
 
 - type: entity
   name: Demoman Merchant
-  description: A merchant that uses beer as fuel
+  description: What makes me a good merchant? If I were a bad merchant, I wouldn't be sitting here, discussing it with you now would I?
   id: DemomanMerchant
   parent: MerchantBase
   components:

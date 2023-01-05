@@ -40,6 +40,8 @@
   - type: Appearance
     visuals:
     - type: TimerTriggerVisualizer
+  - type: StaticPrice
+    price: 400
 
 - type: entity
   name: flashbang
@@ -82,6 +84,8 @@
     - type: TimerTriggerVisualizer
       countdown_sound:
         path: /Audio/Effects/countdown.ogg
+  - type: StaticPrice
+    price: 500
 
 - type: entity
   name: Syndicate minibomb
@@ -120,6 +124,8 @@
     - type: TimerTriggerVisualizer
       countdown_sound:
         path: /Audio/Effects/minibombcountdown.ogg
+  - type: StaticPrice
+    price: 700
 
 - type: entity
   name: the nuclear option
