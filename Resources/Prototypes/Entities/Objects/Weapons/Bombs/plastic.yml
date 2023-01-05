@@ -57,3 +57,5 @@
           states:
             enum.Trigger.TriggerVisualState.Primed: primed
             enum.Trigger.TriggerVisualState.Unprimed: complete
+    - type: StaticPrice
+      price: 300 # You gotta have cash

@@ -144,6 +144,8 @@
     compatibility: Biological
     symmetry: Left
   - type: MovementSpeedModifier
+    baseWalkSpeed: 3.0
+    baseSprintSpeed: 5.0
 
 - type: entity
   id: RightLegMoth
@@ -163,6 +165,8 @@
     compatibility: Biological
     symmetry: Right
   - type: MovementSpeedModifier
+    baseWalkSpeed: 3.0
+    baseSprintSpeed: 5.0
 
 - type: entity
   id: LeftFootMoth
