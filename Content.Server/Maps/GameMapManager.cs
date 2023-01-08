@@ -41,10 +41,6 @@ public sealed class GameMapManager : IGameMapManager
                 {
                     _configSelectedMap = default!;
                 }
-                else
-                {
-                    Logger.ErrorS("mapsel", $"Unknown map prototype {value} was selected!");
-                }
             }
         }, true);
         _configurationManager.OnValueChanged(CCVars.GameMapRotation, value => _mapRotationEnabled = value, true);

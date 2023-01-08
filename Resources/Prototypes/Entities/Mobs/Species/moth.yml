@@ -15,7 +15,6 @@
     sprite: Mobs/Species/Moth/parts.rsi
     state: full
   - type: Body
-    template: HumanoidTemplate
     prototype: Moth
   - type: DiseaseCarrier
     diseaseResist: 0.1
@@ -30,9 +29,8 @@
   - type: MobState
     thresholds:
       0: Alive
-      85: SoftCrit
-      120: Critical
-      175: Dead
+      85: Critical
+      170: Dead
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Moff # moff

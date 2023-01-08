@@ -93,7 +93,7 @@ namespace Content.Server.Ghost
             if (!EntityManager.TryGetComponent<MindComponent>(uid, out var mind) || !mind.HasMind || mind.Mind!.IsVisitingEntity)
                 return;
 
-            if (component.MustBeDead && (_mobState.IsAlive(uid) || _mobState.IsCritical(uid) || _mobState.IsSoftCrit(uid)))
+            if (component.MustBeDead && (_mobState.IsAlive(uid) || _mobState.IsCritical(uid)))
                 return;
 
             _ticker.OnGhostAttempt(mind.Mind!, component.CanReturn);
@@ -262,7 +262,7 @@ namespace Content.Server.Ghost
 
                     string playerInfo = $"{EntityManager.GetComponent<MetaDataComponent>(attached).EntityName} ({mind?.Mind?.CurrentJob?.Name ?? "Unknown"})";
 
-                    if (_mobState.IsAlive(attached) || _mobState.IsSoftCrit(attached) || _mobState.IsCritical(attached))
+                    if (_mobState.IsAlive(attached) || _mobState.IsCritical(attached))
                         yield return new GhostWarp(attached, playerInfo, false);
                 }
             }

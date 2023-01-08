@@ -90,7 +90,7 @@ namespace Content.Server.DoAfter
 
         private void OnStateChanged(EntityUid uid, DoAfterComponent component, MobStateChangedEvent args)
         {
-            if (!args.CurrentMobState.IsIncapacitated() || !args.CurrentMobState.IsSoftCrit())
+            if (!args.CurrentMobState.IsIncapacitated())
                 return;
 
             foreach (var (doAfter, _) in component.DoAfters)

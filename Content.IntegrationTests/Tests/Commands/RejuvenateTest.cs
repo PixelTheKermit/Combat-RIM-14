@@ -25,8 +25,7 @@ namespace Content.IntegrationTests.Tests.Commands
   - type: MobState
     thresholds:
       0: Alive
-      100: SoftCrit
-      135: Critical
+      100: Critical
       200: Dead
 ";
 
@@ -49,7 +48,6 @@ namespace Content.IntegrationTests.Tests.Commands
                 Assert.True(entManager.TryGetComponent(human, out DamageableComponent damageable));
                 Assert.True(entManager.TryGetComponent(human, out MobStateComponent mobState));
                 Assert.That(mobStateSystem.IsAlive(human, mobState), Is.True);
-                Assert.That(mobStateSystem.IsSoftCrit(human, mobState), Is.False);
                 Assert.That(mobStateSystem.IsCritical(human, mobState), Is.False);
                 Assert.That(mobStateSystem.IsDead(human, mobState), Is.False);
                 Assert.That(mobStateSystem.IsIncapacitated(human, mobState), Is.False);
@@ -63,7 +61,6 @@ namespace Content.IntegrationTests.Tests.Commands
                 // Check that it is dead
                 Assert.That(mobStateSystem.IsAlive(human, mobState), Is.False);
                 Assert.That(mobStateSystem.IsCritical(human, mobState), Is.False);
-                Assert.That(mobStateSystem.IsSoftCrit(human, mobState), Is.False);
                 Assert.That(mobStateSystem.IsDead(human, mobState), Is.True);
                 Assert.That(mobStateSystem.IsIncapacitated(human, mobState), Is.True);
 
@@ -72,7 +69,6 @@ namespace Content.IntegrationTests.Tests.Commands
 
                 // Check that it is alive and with no damage
                 Assert.That(mobStateSystem.IsAlive(human, mobState), Is.True);
-                Assert.That(mobStateSystem.IsSoftCrit(human, mobState), Is.False);
                 Assert.That(mobStateSystem.IsCritical(human, mobState), Is.False);
                 Assert.That(mobStateSystem.IsDead(human, mobState), Is.False);
                 Assert.That(mobStateSystem.IsIncapacitated(human, mobState), Is.False);

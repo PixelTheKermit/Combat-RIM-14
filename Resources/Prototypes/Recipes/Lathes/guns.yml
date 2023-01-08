@@ -1,9 +1,6 @@
 # <Pistols>
 - type: latheRecipe
   id: LatheRecipeLuger
-  icon:
-    sprite: Objects\Weapons\Guns\Pistols\luger.rsi
-    state: base
   result: WeaponPistolLuger
   completetime: 10
   materials:
@@ -12,9 +9,6 @@
 
 - type: latheRecipe
   id: LatheRecipeLugerMag
-  icon:
-    sprite: Objects\Weapons\Guns\Ammunition\Magazine\Pistol\luger_mag.rsi
-    state: mag-1
   result: MagazinePistolLuger
   completetime: 5
   materials:
@@ -23,9 +17,6 @@
 
 - type: latheRecipe
   id: LatheRecipeLugerCartridge
-  icon:
-    sprite: Objects/Weapons/Guns/Ammunition/Casings/ammo_casing.rsi
-    state: base
   result: CartridgePistolLuger
   completetime: 1
   materials:
@@ -33,9 +24,6 @@
 
 - type: latheRecipe
   id: LatheRecipeViper
-  icon:
-    sprite: Objects/Weapons/Guns/Pistols/viper.rsi
-    state: base
   result: WeaponPistolViper
   completetime: 15
   materials:
@@ -44,9 +32,6 @@
 
 - type: latheRecipe
   id: LatheRecipeMk58
-  icon:
-    sprite: Objects/Weapons/Guns/Pistols/mk58.rsi
-    state: base
   result: WeaponPistolMk58
   completetime: 15
   materials:
@@ -55,9 +40,6 @@
 
 - type: latheRecipe
   id: LatheRecipeCobra
-  icon:
-    sprite: Objects/Weapons/Guns/Pistols/cobra.rsi
-    state: base
   result: WeaponPistolCobra
   completetime: 15
   materials:
@@ -66,9 +48,6 @@
 
 - type: latheRecipe
   id: LatheRecipePistolMag
-  icon:
-    sprite: Objects\Weapons\Guns\Ammunition\Magazine\Pistol\pistol_mag.rsi
-    state: red
   result: MagazinePistol
   completetime: 7
   materials:
@@ -77,9 +56,6 @@
 
 - type: latheRecipe
   id: LatheRecipePistolCartridge
-  icon:
-    sprite: Objects/Weapons/Guns/Ammunition/Casings/ammo_casing.rsi
-    state: base
   result: CartridgePistol
   completetime: 2
   materials:
@@ -87,9 +63,6 @@
     
 - type: latheRecipe
   id: LatheRecipeCaselessPistolMag
-  icon:
-    sprite: Objects\Weapons\Guns\Ammunition\Magazine\CaselessRifle\caseless_pistol_mag.rsi
-    state: base
   result: MagazinePistolCaselessRifle
   completetime: 7
   materials:
@@ -99,9 +72,6 @@
 # <Revolvers>
 - type: latheRecipe
   id: WeaponRevolverInspector
-  icon:
-    sprite: Objects/Weapons/Guns/Revolvers/inspector.rsi
-    state: icon
   result: WeaponRevolverInspector
   completetime: 15
   materials:
@@ -110,9 +80,6 @@
 
 - type: latheRecipe
   id: WeaponRevolverMateba
-  icon:
-    sprite: Objects/Weapons/Guns/Revolvers/mateba.rsi
-    state: icon
   result: WeaponRevolverMateba
   completetime: 15
   materials:
@@ -121,9 +88,6 @@
 
 - type: latheRecipe
   id: WeaponRevolverPirate
-  icon:
-    sprite: Objects/Weapons/Guns/Revolvers/pirate_revolver.rsi
-    state: icon
   result: WeaponRevolverPirate
   completetime: 15
   materials:
@@ -132,9 +96,6 @@
 
 - type: latheRecipe
   id: WeaponRevolverPython
-  icon:
-    sprite: Objects/Weapons/Guns/Revolvers/python.rsi
-    state: icon
   result: WeaponRevolverPython
   completetime: 15
   materials:
@@ -143,9 +104,6 @@
 
 - type: latheRecipe
   id: LatheCartridgeMagnum
-  icon:
-    sprite: Objects/Weapons/Guns/Ammunition/Casings/ammo_casing.rsi
-    state: base
   result: CartridgeMagnum
   completetime: 2
   materials:
@@ -153,9 +111,6 @@
     
 - type: latheRecipe
   id: LatheSpeedLoaderMagnum
-  icon:
-    sprite: Objects\Weapons\Guns\Ammunition\SpeedLoaders/Magnum/magnum_speed_loader.rsi
-    state: base
   result: SpeedLoaderMagnum
   completetime: 7
   materials:
@@ -165,9 +120,6 @@
 # <SMGs>
 - type: latheRecipe
   id: LatheRecipeSubMachineGunAtreides
-  icon:
-    sprite: Objects/Weapons/Guns/SMGs/atreides.rsi
-    state: base
   result: WeaponSubMachineGunAtreides
   completetime: 15
   materials:
@@ -176,9 +128,6 @@
 
 - type: latheRecipe
   id: LatheRecipeSubMachineGunWt550
-  icon:
-    sprite: Objects/Weapons/Guns/SMGs/wt550.rsi
-    state: base
   result: WeaponSubMachineGunWt550
   completetime: 15
   materials:
@@ -187,9 +136,6 @@
 
 - type: latheRecipe
   id: LatheRecipeSubMachineGunVector
-  icon:
-    sprite: Objects/Weapons/Guns/SMGs/vector.rsi
-    state: base
   result: WeaponSubMachineGunVector
   completetime: 15
   materials:
@@ -198,9 +144,6 @@
 
 - type: latheRecipe
   id: WeaponSubMachineGunC20r
-  icon:
-    sprite: Objects/Weapons/Guns/SMGs/c20r.rsi
-    state: base
   result: WeaponSubMachineGunC20r
   completetime: 15
   materials:
@@ -209,9 +152,6 @@
 
 - type: latheRecipe
   id: LatheRecipeSubMachineGunTopMountedMag
-  icon:
-    sprite: Objects\Weapons\Guns\Ammunition\Magazine\Pistol\smg_mag_top_mounted.rsi
-    state: base
   result: MagazinePistolSubMachineGunTopMounted
   completetime: 10
   materials:
@@ -220,9 +160,6 @@
 
 - type: latheRecipe
   id: LatheRecipeSubMachineGunMag
-  icon:
-    sprite: Objects\Weapons\Guns\Ammunition\Magazine\Pistol\smg_mag.rsi
-    state: base
   result: MagazinePistolSubMachineGunTopMounted
   completetime: 10
   materials:

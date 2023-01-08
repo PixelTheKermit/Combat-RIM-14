@@ -33,10 +33,10 @@
   id: TurretCartridge
 
 - type: Tag
-  id: TurretShellShotgun
-
-- type: Tag
   id: SellMerchantBlacklist
 
 - type: Tag
   id: SoulContainer
+
+- type: Tag
+  id: ShellTurretShotgun

@@ -10,7 +10,6 @@ namespace Content.Shared.Speech
             base.Initialize();
 
             SubscribeLocalEvent<SpeakAttemptEvent>(OnSpeakAttempt);
-            SubscribeLocalEvent<WhisperAttemptEvent>(OnWhisperAttempt);
             SubscribeLocalEvent<SpeechComponent, ComponentGetState>(OnSpeechGetState);
             SubscribeLocalEvent<SpeechComponent, ComponentHandleState>(OnSpeechHandleState);
         }
@@ -46,12 +45,6 @@ namespace Content.Shared.Speech
             if (!TryComp(args.Uid, out SpeechComponent? speech) || !speech.Enabled)
                 args.Cancel();
         }
-		
-        private void OnWhisperAttempt(WhisperAttemptEvent args)
-        {
-            if (!TryComp(args.Uid, out SpeechComponent? whisper) || !whisper.Enabled)
-                args.Cancel();
-		}
 
         [Serializable, NetSerializable]
         private sealed class SpeechComponentState : ComponentState

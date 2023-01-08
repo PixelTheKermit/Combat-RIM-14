@@ -309,7 +309,7 @@ public sealed partial class ChatSystem : SharedChatSystem
 
     private void SendEntityWhisper(EntityUid source, string originalMessage, bool hideChat, bool hideGlobalGhostChat, RadioChannelPrototype? channel, string? nameOverride)
     {
-        if (!_actionBlocker.CanWhisper(source))
+        if (!_actionBlocker.CanSpeak(source))
             return;
 
         var message = TransformSpeech(source, originalMessage);

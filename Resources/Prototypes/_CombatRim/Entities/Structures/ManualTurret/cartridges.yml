@@ -7,7 +7,7 @@
   - type: Tag
     tags:
     - TurretCartridge
-    - TurretShellShotgun
+    - ShellTurretShotgun
     - SellMerchantBlacklist
   - type: CartridgeAmmo
     count: 8

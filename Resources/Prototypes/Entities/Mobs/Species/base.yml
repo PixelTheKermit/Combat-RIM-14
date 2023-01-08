@@ -198,8 +198,7 @@
   - type: MobState
     thresholds:
       0: Alive
-      100: SoftCrit
-      135: Critical
+      100: Critical
       200: Dead
   - type: Destructible
     thresholds:

@@ -126,7 +126,7 @@ namespace Content.Server.Zombies
                 if (HasComp<ZombieComponent>(entity))
                     args.BonusDamage = -args.BaseDamage * zombieComp.OtherZombieDamageCoefficient;
 
-                if ((mobState.CurrentState == DamageState.Dead || mobState.CurrentState == DamageState.Critical || mobState.CurrentState == DamageState.SoftCrit)
+                if ((mobState.CurrentState == DamageState.Dead || mobState.CurrentState == DamageState.Critical)
                     && !HasComp<ZombieComponent>(entity))
                 {
                     _zombify.ZombifyEntity(entity);

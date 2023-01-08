@@ -117,11 +117,6 @@ namespace Content.Client.Entry
             _prototypeManager.RegisterIgnore("alertLevels");
             _prototypeManager.RegisterIgnore("nukeopsRole");
             _prototypeManager.RegisterIgnore("flavor");
-            _prototypeManager.RegisterIgnore("debris");
-            _prototypeManager.RegisterIgnore("debrisLayout");
-            _prototypeManager.RegisterIgnore("biome");
-            _prototypeManager.RegisterIgnore("pointOfInterest");
-            _prototypeManager.RegisterIgnore("merchantSpawner");
 
             // BEGIN CITADEL EDITS
             _prototypeManager.RegisterIgnore("noiseChannel");

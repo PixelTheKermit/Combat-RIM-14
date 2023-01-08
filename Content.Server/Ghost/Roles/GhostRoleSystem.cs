@@ -65,7 +65,6 @@ namespace Content.Server.Ghost.Roles
                     break;
                 }
                 case DamageState.Critical:
-                case DamageState.SoftCrit:
                 case DamageState.Dead:
                     UnregisterGhostRole(component);
                     break;
