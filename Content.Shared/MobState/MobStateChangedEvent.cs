@@ -36,12 +36,6 @@ namespace Content.Shared.MobState
         }
 
         [Obsolete("Just check for the enum value instead")]
-        public static bool IsSoftCrit(this DamageState state)
-        {
-            return state == DamageState.SoftCrit;
-        }
-
-        [Obsolete("Just check for the enum value instead")]
         public static bool IsCritical(this DamageState state)
         {
             return state == DamageState.Critical;

@@ -1,0 +1,13 @@
+- type: worldTargetAction
+  id: BootsBlink
+  name: action-name-spell-boots-blink
+  description: action-description-boots-spell-blink
+  useDelay: 12.5
+  range: 6
+  itemIconStyle: BigAction
+  checkCanAccess: true
+  repeat: true
+  icon:
+    sprite: Objects/Magic/magicactions.rsi
+    state: shortblink
+  serverEvent: !type:TeleportSpellEvent

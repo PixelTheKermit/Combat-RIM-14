@@ -48,7 +48,7 @@ public sealed class TrappableSoulSystem : EntitySystem
 
         var delay = comp.CaptureTime;
 
-        if (_stateSystem.IsAlive(uid) || _stateSystem.IsSoftCrit(uid))
+        if (_stateSystem.IsAlive(uid))
             delay = comp.AliveCaptureTime;
 
         _popupSystem.PopupEntity(Loc.GetString("soul-trapping-trapping-soul-trapper"), args.User, args.User);

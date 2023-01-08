@@ -147,7 +147,7 @@ namespace Content.Server.Cuffs
             if (args.User == args.Target)
             {
                 // This UncuffAttemptEvent check should probably be In MobStateSystem, not here?
-                if (_mobState.IsIncapacitated(args.User) || _mobState.IsSoftCrit(args.User))
+                if (_mobState.IsIncapacitated(args.User))
                 {
                     args.Cancel();
                 }
