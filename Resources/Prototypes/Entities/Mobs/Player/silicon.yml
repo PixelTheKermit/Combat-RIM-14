@@ -3,6 +3,8 @@
   abstract: true
   id: PlayerSiliconBase #for player controlled silicons
   components:
+  - type: DeathMessage
+    string: "silicon-death-message"
   - type: Reactive
     groups:
       Acidic: [Touch]

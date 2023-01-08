@@ -16,8 +16,6 @@ public sealed partial class MobStateSystem
 
         var component = Comp<MobStateComponent>(uid);
 
-        _popupSystem.PopupEntity(Loc.GetString(component.DeathMessage, ("mob", Comp<MetaDataComponent>(uid).EntityName)), uid,PopupType.SmallCaution);
-
         Alerts.ShowAlert(uid, AlertType.HumanDead);
 
         if (HasComp<StatusEffectsComponent>(uid))

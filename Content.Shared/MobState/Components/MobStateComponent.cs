@@ -35,11 +35,5 @@ namespace Content.Shared.MobState.Components
         public FixedPoint2? CurrentThreshold { get; set; }
 
         public IEnumerable<KeyValuePair<int, DamageState>> _highestToLowestStates => _lowestToHighestStates.Reverse();
-
-        /// <summary>
-        /// The message that shows up when the entity dies.
-        /// </summary>
-        [DataField("deathMessage")]
-        public string DeathMessage = "universal-death-message";
     }
 }
