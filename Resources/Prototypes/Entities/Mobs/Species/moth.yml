@@ -30,9 +30,8 @@
   - type: MobState
     thresholds:
       0: Alive
-      85: SoftCrit
-      120: Critical
-      175: Dead
+      85: Critical
+      170: Dead
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Moff # moff
