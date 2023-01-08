@@ -8,6 +8,7 @@ using Content.Shared.Interaction;
 using Content.Shared.Materials;
 using Content.Shared._OuterRim.Generator;
 using Robust.Server.GameObjects;
+using System.Linq;
 
 namespace Content.Server._OuterRim.Generator;
 
@@ -76,7 +77,7 @@ public sealed class GeneratorSystem : SharedGeneratorSystem
         if (!TryComp(args.Used, out MaterialComponent? mat) || !TryComp(args.Used, out StackComponent? stack) || !TryComp(uid, out SharedSolidFuelGeneratorComponent? generator))
             return;
 
-        if (!mat.MaterialIds.Contains(component.FuelMaterial))
+        if (!mat.Materials.Keys.Contains<String>(component.FuelMaterial))
             return;
 
         generator.RemainingFuel += stack.Count * component.Multiplier;

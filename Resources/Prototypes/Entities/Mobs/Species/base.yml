@@ -5,6 +5,8 @@
   id: BaseMobOrganic
   noSpawn: true
   components:
+  - type: DeathMessage
+    string: "human-death-message"
   - type: TrappableSoul
   - type: ControllerMob
   - type: LagCompensation
