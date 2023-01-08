@@ -47,7 +47,7 @@
 - type: material
   id: Credit
   name: spacebuck
-  stack: Credit
+  stackEntity: SpaceCash
   icon: { sprite: /Textures/Objects/Economy/cash.rsi, state: cash }
   price: 1
 
