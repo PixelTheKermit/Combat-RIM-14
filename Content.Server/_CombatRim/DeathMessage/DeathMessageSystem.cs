@@ -48,7 +48,7 @@ namespace Content.Server._CombatRim.DeathMessage
             if (component.HadSuicided)
                 return;
 
-            _popupSystem.PopupEntity(Loc.GetString(component.Message, ("mob", Comp<MetaDataComponent>(uid).EntityName)), uid, PopupType.SmallCaution);
+            _popupSystem.PopupEntity(Loc.GetString(component.Message, ("mob", uid)), uid, PopupType.SmallCaution);
         }
 
     }
