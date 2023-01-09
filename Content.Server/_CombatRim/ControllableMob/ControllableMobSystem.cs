@@ -41,6 +41,7 @@ public sealed class ControllableMobSystem : EntitySystem
                     RevokeControl(contMob.CurrentEntityOwning.Value);
                     Comp<ControllerMobComponent>(contMob.CurrentEntityOwning.Value).Controlling = null;
                     _popupSystem.PopupEntity(Loc.GetString("device-control-out-of-range"), contMob.CurrentEntityOwning.Value, contMob.CurrentEntityOwning.Value);
+                    contMob.CurrentDeviceOwning = null;
                     contMob.CurrentEntityOwning = null;
                 }
             }

@@ -24,6 +24,7 @@ using Robust.Server.Player;
 using Robust.Shared.Physics;
 using Content.Shared.Movement.Events;
 using Content.Server._CombatRim.ControllableMob.Components;
+using Content.Server._CombatRim.ControllableMob;
 
 namespace Content.Server._CombatRim.ManualTurret
 {
@@ -37,7 +38,7 @@ namespace Content.Server._CombatRim.ManualTurret
         [Dependency] private readonly ContainerSystem _containerSystem = default!;
         [Dependency] private readonly GunSystem _gunSystem = default!;
         [Dependency] private readonly SharedAppearanceSystem _appearanceSystem = default!;
-        [Dependency] private readonly CombatModeSystem _combatModeSystem = default!;
+        [Dependency] private readonly ControllableMobSystem _controllableMobSystem = default!;
         [Dependency] private readonly InputSystem _inputSystem = default!;
 
         public override void Initialize() // VERY IMPORTANT!!!!!!
@@ -91,6 +92,15 @@ namespace Content.Server._CombatRim.ManualTurret
                     comp.Rotation += comp.RotSpeed / 100;
                 if (input.GetState(EngineKeyFunctions.MoveRight) == BoundKeyState.Down)
                     comp.Rotation -= comp.RotSpeed / 100;
+
+                if (TryComp<ControllableMobComponent>(comp.Owner, out var contMob) && contMob.CurrentEntityOwning != null
+                    && input.GetState(EngineKeyFunctions.MoveDown) == BoundKeyState.Down)
+                {
+                    Comp<ControllerMobComponent>(contMob.CurrentEntityOwning.Value).Controlling = null;
+                    contMob.CurrentDeviceOwning = null;
+                    _controllableMobSystem.RevokeControl(contMob.CurrentEntityOwning.Value);
+                    contMob.CurrentEntityOwning = null;
+                }
             }
         }
 
