@@ -63,7 +63,7 @@ namespace Content.Server._CombatRim.ManualTurret
 
         private void InteractAttempt(EntityUid uid, ManualTurretComponent comp, InteractionAttemptEvent args)
         {
-            Comp<TransformComponent>(uid).WorldRotation = comp.Rotation;
+            Comp<TransformComponent>(uid).LocalRotation = comp.Rotation;
             args.Cancel();
         }
 
@@ -76,7 +76,7 @@ namespace Content.Server._CombatRim.ManualTurret
             base.Update(frameTime);
             foreach (var (comp, actor, transform) in EntityQuery<ManualTurretComponent, ActorComponent, TransformComponent>())
             {
-                transform.WorldRotation = comp.Rotation;
+                transform.LocalRotation = comp.Rotation;
 
                 var session = actor.PlayerSession;
 
