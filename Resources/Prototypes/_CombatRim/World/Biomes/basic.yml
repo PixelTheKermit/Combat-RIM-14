@@ -24,11 +24,11 @@
     - type: NoiseDrivenDebrisSelector
       noiseChannel: Wreck
       debrisTable:
-        - id: AfterlightScrapDebrisSmall
-        - id: AfterlightScrapDebrisMedium
-        - id: AfterlightScrapDebrisLarge
+        - id: CombatRimScrapDebrisSmall
+        - id: CombatRimScrapDebrisMedium
+        - id: CombatRimScrapDebrisLarge
           prob: 0.5
-        - id: AfterlightScrapDebrisSmallRecreational
+        - id: CombatRimScrapDebrisSmallRecreational
           prob: 0.1
         - id: RandomMerchantPoI
           prob: 0.05
@@ -63,12 +63,12 @@
     - type: NoiseDrivenDebrisSelector
       noiseChannel: Wreck
       debrisTable:
-        - id: AfterlightScrapDebrisSmall
-        - id: AfterlightScrapDebrisMedium
+        - id: CombatRimScrapDebrisSmall
+        - id: CombatRimScrapDebrisMedium
           prob: 0.1
-        - id: AfterlightScrapDebrisLarge
+        - id: CombatRimScrapDebrisLarge
           prob: 0.05
-        - id: AfterlightScrapDebrisSmallRecreational
+        - id: CombatRimScrapDebrisSmallRecreational
           prob: 0.01
         - id: RandomMerchantPoI
           prob: 0.05
