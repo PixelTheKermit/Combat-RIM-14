@@ -9,6 +9,7 @@
   components:
     - type: ControllableMob
     - type: Actions
+    - type: Input
     - type: Examiner
     - type: Eye
     - type: LagCompensation
