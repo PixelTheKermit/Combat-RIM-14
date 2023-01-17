@@ -1,9 +1,9 @@
 using Content.Server._CombatRim.ControllableMob.Components;
 using Content.Server.Mind.Components;
-using Content.Server.MobState;
 using Content.Shared.Interaction;
-using Content.Shared.MobState;
-using Content.Shared.MobState.Components;
+using Content.Shared.Mobs;
+using Content.Shared.Mobs.Components;
+using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Verbs;
 
@@ -99,7 +99,7 @@ public sealed class ControllableMobSystem : EntitySystem
 
     private void MobStateChanged(EntityUid uid, ControllableMobComponent comp, MobStateChangedEvent args)
     {
-        if (comp.CurrentEntityOwning != null && args.CurrentMobState == DamageState.Dead &&
+        if (comp.CurrentEntityOwning != null && args.NewMobState == MobState.Dead &&
             TryComp<ControllerMobComponent>(comp.CurrentEntityOwning, out var controlComp))
         {
             controlComp.Controlling = null;
@@ -121,7 +121,7 @@ public sealed class ControllableMobSystem : EntitySystem
             return;
         }
 
-        if (TryComp<MobStateComponent>(uid, out var damageState) && _mobStateSystem.IsDead(uid, damageState))
+        if (TryComp<MobThresholdsComponent>(uid, out var damageState) && _mobStateSystem.IsDead(uid))
         {
             _popupSystem.PopupEntity(Loc.GetString("device-control-fail-pair-damaged"), uid, args.User);
             return;

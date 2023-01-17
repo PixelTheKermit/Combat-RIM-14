@@ -76,6 +76,8 @@
   - type: ContainerContainer
     containers:
       AMEController-fuelJarContainer: !type:ContainerSlot {}
+  - type: GuideHelp
+    guides: [ AME, Power ]
 
 - type: entity
   noSpawn: true
@@ -105,6 +107,7 @@
     fixtures:
     - shape:
         !type:PhysShapeAabb
+        bounds: "-0.5,-0.5,0.5,0.5"
       density: 190
       mask:
       - FullTileMask
@@ -148,3 +151,5 @@
   - type: Construction
     graph: AMEShielding
     node: ameShielding
+  - type: GuideHelp
+    guides: [ AME, Power ]

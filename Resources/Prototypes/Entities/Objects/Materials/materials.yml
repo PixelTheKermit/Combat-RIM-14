@@ -31,6 +31,9 @@
   name: cloth
   suffix: Full
   components:
+  - type: FlavorProfile
+    flavors:
+      - fiber
   - type: Stack
     stackType: Cloth
   - type: Material
@@ -50,6 +53,17 @@
       - cloth
       - cloth_2
       - cloth_3
+  - type: Food
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 5
+  - type: EatWhitelist
+    stomachs:
+    - OrganMothStomach
 
 - type: entity
   parent: MaterialCloth

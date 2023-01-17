@@ -1,17 +1,9 @@
 using Content.Server.Chat;
-using Content.Server.MachineLinking.System;
-using Content.Server.MobState;
 using Content.Server.Popups;
-using Content.Shared.Audio;
-using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
-using Content.Shared.MachineLinking;
-using Content.Shared.MobState;
+using Content.Shared.Mobs;
+using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
-using Content.Shared.Verbs;
-using Robust.Server.GameObjects;
-using Robust.Shared.Audio;
-using Robust.Shared.Player;
 
 namespace Content.Server._CombatRim.DeathMessage
 {

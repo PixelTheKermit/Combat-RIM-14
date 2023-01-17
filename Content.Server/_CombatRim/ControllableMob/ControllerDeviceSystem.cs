@@ -1,8 +1,9 @@
 using Content.Server._CombatRim.ControllableMob.Components;
 using Content.Shared.Hands;
 using Content.Shared.Interaction.Events;
-using Content.Shared.MobState;
-using Content.Shared.MobState.Components;
+using Content.Shared.Mobs;
+using Content.Shared.Mobs.Components;
+using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
 
 namespace Content.Server._CombatRim.ControllableMob;
@@ -48,7 +49,7 @@ public sealed class ControllerDeviceSystem : EntitySystem
         if (!comp.Enabled)
             return;
 
-        if (comp.Controlling == null || !_entityManager.EntityExists(comp.Controlling) || TryComp<MobStateComponent>(comp.Controlling, out var damageState) && damageState.CurrentState != null && damageState.CurrentState.Value == DamageState.Dead)
+        if (comp.Controlling == null || !_entityManager.EntityExists(comp.Controlling) || TryComp<MobThresholdsComponent>(comp.Controlling, out var damageState) && damageState.CurrentThresholdState == MobState.Dead)
         {
             _popupSystem.PopupEntity(Loc.GetString("control-device-unable-to-connect"), uid, args.User);
             return;

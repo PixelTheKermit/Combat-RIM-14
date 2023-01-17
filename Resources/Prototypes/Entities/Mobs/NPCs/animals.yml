@@ -96,6 +96,7 @@
       layer:
       - FlyingMobLayer
   - type: MobState
+  - type: MobThresholds
     thresholds:
       0: Alive
       5: Critical
@@ -326,6 +327,7 @@
       layer:
       - FlyingMobLayer
   - type: MobState
+  - type: MobThresholds
     thresholds:
       0: Alive
       5: Critical
@@ -738,10 +740,9 @@
 - type: entity
   name: guidebook monkey
   parent: MobMonkey
+  noSpawn: true
   id: MobGuidebookMonkey
   description: A hopefully helpful monkey whose only purpose in life is for you to click on. Does this count as having a monkey give you a tutorial?
-  components:
-    - type: GuidebookControlsTest
 
 - type: entity
   name: mouse
@@ -783,6 +784,7 @@
       layer:
       - SmallMobLayer
   - type: MobState
+  - type: MobThresholds
     thresholds:
       0: Alive
       10: Critical
@@ -1945,6 +1947,7 @@
       layer:
       - SmallMobLayer
   - type: MobState
+  - type: MobThresholds
     thresholds:
       0: Alive
       40: Critical

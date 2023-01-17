@@ -26,11 +26,11 @@
     speedModifierThresholds:
       70: 0.8
       85: 0.5
-  - type: MobState
+  - type: MobThresholds
     thresholds:
       0: Alive
       85: Critical
-      170: Dead
+      175: Dead
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Moff # moff

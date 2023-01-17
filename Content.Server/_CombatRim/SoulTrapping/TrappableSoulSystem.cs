@@ -1,17 +1,11 @@
 using Content.Server._CombatRim.SoulTrapping.Components;
 using Content.Server.DoAfter;
-using Content.Server.Light.Components;
 using Content.Server.Mind.Components;
-using Content.Server.MobState;
 using Content.Server.Popups;
 using Content.Shared.Containers.ItemSlots;
-using Content.Shared.Damage;
 using Content.Shared.Interaction;
-using Robust.Server.Containers;
+using Content.Shared.Mobs.Systems;
 using Robust.Server.Player;
-using Robust.Shared.GameObjects;
-using Robust.Shared.Player;
-using System;
 using System.Threading;
 
 namespace Content.Server._CombatRim.SoulTrapping;

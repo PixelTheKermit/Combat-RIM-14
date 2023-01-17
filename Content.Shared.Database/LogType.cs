@@ -81,6 +81,8 @@ public enum LogType
     Stamina = 76,
     EntitySpawn = 77,
     Container = 78,
+    AdminMessage = 79,
+    Anomaly = 80,
     // Afterlight edits
     ALSpawnVessel = -3149000,
     ALPlacedStructure = -3149001,

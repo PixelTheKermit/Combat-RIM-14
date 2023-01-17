@@ -10,7 +10,7 @@ namespace Content.Server.Entry
             "AnimationsTest",
             "ItemStatus",
             "Marker",
-            "GuidebookControlsTest",
+            "GuideHelp",
             "Clickable",
             "Icon",
             "ClientEntitySpawner",
