@@ -25,6 +25,7 @@ using Robust.Shared.Physics;
 using Content.Shared.Movement.Events;
 using Content.Server._CombatRim.ControllableMob.Components;
 using Content.Server._CombatRim.ControllableMob;
+using Robust.Shared.Containers;
 
 namespace Content.Server._CombatRim.ManualTurret
 {
@@ -165,73 +166,43 @@ namespace Content.Server._CombatRim.ManualTurret
                 }
             }
 
-            var xform = Comp<TransformComponent>(uid);
-            var rot = xform.WorldRotation;
             comp.TimeFired = curTime;
 
             if (!comp.IsBatteryWeapon)
             {
-                var container = _containerSystem.GetContainer(uid, "turret_mag");
+                var cartSlot = _containerSystem.GetContainer(uid, "turret_cartridge"); // At minimum, a turret SHOULD have a cartridge slot.
 
-                if (container.ContainedEntities.Count == 0)
+                ShootBallistic(uid, comp, cartSlot, batteryComp); // Just because I think this looks cleaner
+
+                // We have a mag? Put a cartridge in the cartridge slot!
+                if (_containerSystem.TryGetContainer(uid, "turret_mag", out var magSlot))
                 {
-                    _audioSystem.Play(comp.SoundEmpty, Filter.Pvs(uid), uid, true);
-                    return;
-                }
+                    var xform = Comp<TransformComponent>(uid);
 
-                var magazine = container.ContainedEntities.First(); // There's probably a better way of doing this but it's good for now
-                var ammoComp = Comp<BallisticAmmoProviderComponent>(magazine); // This prays on the fact that the thing in the gun is a mag.
-
-                if (ammoComp.UnspawnedCount + ammoComp.Entities.Count < 0)
-                {
-                    _audioSystem.Play(comp.SoundEmpty, Filter.Pvs(uid), uid, true);
-                    return;
-                }
-
-                var cartridge = GetCartridge(ammoComp, xform);
-                var angle = GetRecoilAngle(_gameTiming.CurTime, comp, rot);
-
-                if (TryComp<CartridgeAmmoComponent>(cartridge, out var cartridgeComp))
-                {
-                    if (cartridgeComp.Spent) // a wasted bullet is a useless one
+                    if (magSlot.ContainedEntities.Count > 0)
                     {
-                        _entityManager.DeleteEntity(cartridge);
-                        _audioSystem.Play(comp.SoundEmpty, Filter.Pvs(uid), uid, true);
-                        return;
+                        var magazine = magSlot.ContainedEntities[0]; // There's probably a better way of doing this but it's good for now
+
+                        var ammoComp = Comp<BallisticAmmoProviderComponent>(magazine); // This should never be null unless someone fucks up.
+
+                        if (ammoComp.UnspawnedCount + ammoComp.Entities.Count < 0) // WHAT DO YOU MEAN THERE'S NO MORE CARTRIDGES?
+                            return;
+
+                        var cart = GetCartridge(ammoComp, xform);
+
+                        cartSlot.Insert(cart);
+
+                        ammoComp.Entities.Remove(cart);
+
+                        Dirty(magazine);
+                        UpdateAppearance(ammoComp);
                     }
-
-                    _audioSystem.Play(comp.SoundGunshot, Filter.Pvs(uid), uid, true);
-
-                    var bullet = cartridgeComp.Prototype;
-                    if (cartridgeComp.Count > 1) // For shotgun-like bullets
-                    {
-                        var angles = LinearSpread(rot - cartridgeComp.Spread / 2,
-                            rot + cartridgeComp.Spread / 2, cartridgeComp.Count);
-
-                        for (var i = 0; i < cartridgeComp.Count; i++)
-                        {
-                            _gunSystem.ShootProjectile(Spawn(bullet, xform.MapPosition), angles[i].ToWorldVec(), angles[i].ToWorldVec() * 10, uid);
-                        }
-                    }
-                    else
-                        _gunSystem.ShootProjectile(Spawn(bullet, xform.MapPosition), angle.ToWorldVec(), angle.ToWorldVec() * 10, uid);
-
-                    if (batteryComp != null)
-                        batteryComp.CurrentCharge -= comp.FireCost * comp.ChargeNeededMultiplier;
-
-                    _entityManager.DeleteEntity(cartridge); // This is better for performance, for both the client and the server.
                 }
-                else // This is for fun, mostly. Could see some good use later maybe (Spear launcher, anyone?)
-                {
-                    _audioSystem.Play(comp.SoundGunshot, Filter.Pvs(uid), uid, true);
-                    var bullet = cartridge;
-                    ammoComp.Entities.Remove(cartridge);
-                }
-                Dirty(magazine);
-                UpdateAppearance(ammoComp);
             }
             else // Does not support hitscan or shotgun-like patterns YET
             {
+                var xform = Comp<TransformComponent>(uid);
+                var rot = xform.WorldRotation;
                 var angle = GetRecoilAngle(_gameTiming.CurTime, comp, rot);
                 var projComp = Comp<ProjectileBatteryAmmoProviderComponent>(uid);
 
@@ -266,6 +237,76 @@ namespace Content.Server._CombatRim.ManualTurret
             }
         }
 
+        /// <summary>
+        /// Shoot a bullet from a cartridge.
+        /// </summary>
+        /// <param name="uid">The turret</param>
+        /// <param name="comp">The turret component</param>
+        /// <param name="cartSlot">The cartridge slot</param>
+        /// <param name="batteryComp">And the battery component, if it exists.</param>
+        private void ShootBallistic(EntityUid uid, ManualTurretComponent comp, IContainer cartSlot, BatteryComponent? batteryComp)
+        {
+            var xform = Comp<TransformComponent>(uid);
+            var rot = xform.WorldRotation;
+
+
+            if (cartSlot.ContainedEntities.Count == 0) // no cartridge no shoot
+            {
+                _audioSystem.Play(comp.SoundEmpty, Filter.Pvs(uid), uid, true);
+                return;
+            }
+                
+            // Alright let's get to trying to shoot this thing!
+
+            var cartridge = cartSlot.ContainedEntities[0];
+
+            var angle = GetRecoilAngle(_gameTiming.CurTime, comp, rot);
+
+            if (TryComp<CartridgeAmmoComponent>(cartridge, out var cartridgeComp))
+            {
+                if (cartridgeComp.Spent) // I'm disappointed in you
+                {
+                    _entityManager.DeleteEntity(cartridge);
+                    _audioSystem.Play(comp.SoundEmpty, Filter.Pvs(uid), uid, true);
+                    return;
+                }
+
+                // Now this is where the fun begins!
+                _audioSystem.Play(comp.SoundGunshot, Filter.Pvs(uid), uid, true);
+
+                var bullet = cartridgeComp.Prototype;
+
+                if (cartridgeComp.Count > 1) // For more fun bullets.
+                {
+                    var angles = LinearSpread(rot - cartridgeComp.Spread / 2,
+                        rot + cartridgeComp.Spread / 2, cartridgeComp.Count);
+
+                    for (var i = 0; i < cartridgeComp.Count; i++)
+                        _gunSystem.ShootProjectile(Spawn(bullet, xform.MapPosition), angles[i].ToWorldVec(), angles[i].ToWorldVec() * 10, uid);
+                }
+                else // You're no fun!
+                    _gunSystem.ShootProjectile(Spawn(bullet, xform.MapPosition), angle.ToWorldVec(), angle.ToWorldVec() * 10, uid);
+
+                _entityManager.DeleteEntity(cartridge); // This is better for performance, for both the client and the server.
+            }
+            else // This is for fun, mostly. Could see some good use later maybe (Spear launcher, anyone?)
+            {
+                _audioSystem.Play(comp.SoundGunshot, Filter.Pvs(uid), uid, true);
+                var bullet = cartridge;
+                _gunSystem.ShootProjectile(bullet, angle.ToWorldVec(), angle.ToWorldVec() * 10, uid);
+            }
+
+            if (batteryComp != null)
+                batteryComp.CurrentCharge -= comp.FireCost * comp.ChargeNeededMultiplier;
+        }
+
+        /// <summary>
+        /// The angle that one of the bullets should shoot at
+        /// </summary>
+        /// <param name="curTime"></param>
+        /// <param name="component"></param>
+        /// <param name="direction"></param>
+        /// <returns></returns>
         private Angle GetRecoilAngle(TimeSpan curTime, ManualTurretComponent component, Angle direction)
         {
             var timeSinceLastFire = (curTime - component.TimeFired).TotalSeconds;
@@ -278,6 +319,7 @@ namespace Content.Server._CombatRim.ManualTurret
             DebugTools.Assert(spread <= component.MaxAngle.Theta);
             return angle;
         }
+
 
         private Angle[] LinearSpread(Angle start, Angle end, int intervals)
         {

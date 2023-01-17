@@ -1,4 +1,5 @@
 using System.Threading;
+using Content.Server._CombatRim.EatWhitelist;
 using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
 using Content.Server.Chemistry.EntitySystems;
@@ -259,6 +260,13 @@ namespace Content.Server.Nutrition.EntitySystems
                 !EntityManager.TryGetComponent(ev.User, out BodyComponent? body) ||
                 !_bodySystem.TryGetBodyOrganComponents<StomachComponent>(ev.User, out var stomachs, body))
                 return;
+
+            // Start of combat rim edits
+
+            if (HasComp<EatWhitelistComponent>(uid))
+                return;
+
+            // End of combat rim edits
 
             if (EntityManager.TryGetComponent<MobStateComponent>(uid, out var mobState) && _mobStateSystem.IsAlive(uid, mobState))
                 return;

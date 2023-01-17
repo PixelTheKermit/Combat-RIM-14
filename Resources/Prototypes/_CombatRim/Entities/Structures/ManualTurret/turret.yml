@@ -104,6 +104,12 @@
       board: WeaponTurretManualCircuitboard
     - type: ItemSlots
       slots:
+        turret_cartridge:
+          name: Cartridge
+          priority: 2
+          whitelist:
+            tags:
+              - CartridgeHeavyRifle
         turret_mag:
           name: Magazine
           insertSound: /Audio/Weapons/Guns/MagIn/pistol_magin.ogg
@@ -160,6 +166,12 @@
         - state: rocket
     - type: ItemSlots
       slots:
+        turret_cartridge:
+          name: Cartridge
+          priority: 2
+          whitelist:
+            tags:
+              - CartridgeRocket
         turret_mag:
           name: Magazine
           insertSound: /Audio/Weapons/Guns/MagIn/pistol_magin.ogg
@@ -187,6 +199,12 @@
         - state: shotgun
     - type: ItemSlots
       slots:
+        turret_cartridge:
+          name: Cartridge
+          priority: 2
+          whitelist:
+            tags:
+              - ShellTurretShotgun
         turret_mag:
           name: Magazine
           insertSound: /Audio/Weapons/Guns/MagIn/pistol_magin.ogg
