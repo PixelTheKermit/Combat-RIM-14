@@ -342,11 +342,8 @@
       type: ResearchConsoleBoundUserInterface
     - key: enum.ResearchClientUiKey.Key
       type: ResearchClientBoundUserInterface
-  - type: Temperature
-  - type: ApcPassiveHeater
-  - type: AtmosExposed
   - type: ApcPowerReceiver
-    powerLoad: 100
+    powerLoad: 1000
     priority: Low
   - type: Computer
     board: ResearchComputerCircuitboard
@@ -472,14 +469,6 @@
     interfaces:
     - key: enum.BodyScannerUiKey.Key
       type: BodyScannerBoundUserInterface
-  - type: Appearance
-    visuals:
-    - type: ComputerVisualizer
-      key: generic_key
-      screen: generic
-  - type: Temperature
-  - type: ApcPassiveHeater
-  - type: AtmosExposed
   - type: ApcPowerReceiver
     powerLoad: 500
   - type: Computer
@@ -690,14 +679,6 @@
   - type: DeviceList
   - type: DeviceNetwork
     deviceNetId: Wired
-  - type: Appearance
-    visuals:
-    - type: ComputerVisualizer
-      key: generic_key
-      screen: dna
-  - type: Temperature
-  - type: ApcPassiveHeater
-  - type: AtmosExposed
   - type: Sprite
     layers:
     - map: ["computerLayerBody"]
@@ -709,7 +690,7 @@
     - map: ["computerLayerKeys"]
       state: generic_keys
   - type: ApcPowerReceiver
-    powerLoad: 310 #We want this to fail first so I transferred most of the scanner and pod's power here. (3500 in total)
+    powerLoad: 3100 #We want this to fail first so I transferred most of the scanner and pod's power here. (3500 in total)
   - type: Computer
     board: CloningConsoleComputerCircuitboard
   - type: PointLight
@@ -801,47 +782,6 @@
     interfaces:
       - key: enum.SurveillanceCameraMonitorUiKey.Key
         type: SurveillanceCameraMonitorBoundUserInterface
-
-- type: entity
-  parent: ComputerSurveillanceWirelessCameraMonitor
-  id: ComputerTelevision
-  name: wooden television
-  description: Finally, some decent reception around here...
-  components:
-    - type: Appearance
-      visuals:
-        - type: ComputerVisualizer
-          body: television
-          bodyBroken: television_broken
-          screen: detective_television
-    - type: Computer
-      board: ComputerTelevisionCircuitboard
-    - type: Sprite
-      sprite: Structures/Machines/computers.rsi
-      layers:
-        - map: [ "enum.ComputerVisualizer+Layers.KeyboardOn" ]
-          visible: false
-        - map: [ "enum.ComputerVisualizer+Layers.Keyboard" ]
-          visible: false
-        - map: [ "enum.ComputerVisualizer+Layers.Body"]
-          state: television
-        - map: [ "enum.ComputerVisualizer+Layers.Screen" ]
-          state: detective_television
-          shader: unshaded
-    - type: PointLight
-      radius: 1.5
-      energy: 1.6
-      color: "#b89f25"
-    - type: Fixtures
-      fixtures:
-        - shape:
-            !type:PhysShapeAabb
-            bounds: "-0.25,-0.25,0.25,0.25"
-          density: 200
-          mask:
-            - TabletopMachineMask
-          layer:
-            - TabletopMachineLayer
 
 - type: entity
   parent: BaseComputer

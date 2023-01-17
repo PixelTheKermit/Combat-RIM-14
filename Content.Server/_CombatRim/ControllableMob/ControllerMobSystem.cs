@@ -1,6 +1,6 @@
 using Content.Server._CombatRim.ControllableMob.Components;
 using Content.Shared.Damage;
-using Content.Shared.MobState;
+using Content.Shared.Mobs.Systems;
 
 namespace Content.Server._CombatRim.ControllableMob;
 

@@ -1,27 +1,12 @@
 using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
-using Content.Server.Chat;
-using Content.Server.MachineLinking.System;
-using Content.Server.MobState;
 using Content.Server.Nutrition.Components;
 using Content.Server.Nutrition.EntitySystems;
-using Content.Server.Popups;
-using Content.Server.Stack;
-using Content.Shared.Audio;
 using Content.Shared.Body.Components;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
-using Content.Shared.MachineLinking;
-using Content.Shared.MobState;
-using Content.Shared.Popups;
 using Content.Shared.Stacks;
-using Content.Shared.Verbs;
-using Robust.Server.GameObjects;
-using Robust.Shared.Audio;
-using Robust.Shared.Player;
-using Robust.Shared.Prototypes;
 using System.Linq;
-using System.Security.AccessControl;
 
 namespace Content.Server._CombatRim.EatWhitelist
 {

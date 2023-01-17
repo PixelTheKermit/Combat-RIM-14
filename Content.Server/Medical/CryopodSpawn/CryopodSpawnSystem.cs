@@ -4,7 +4,6 @@ using Content.Server.Climbing;
 using Content.Server.GameTicking;
 using Content.Server.Medical.CryopodSpawn;
 using Content.Server.Mind.Components;
-using Content.Server.Popups;
 using Content.Server.Spawners.EntitySystems;
 using Content.Server.Station.Systems;
 using Content.Shared.ActionBlocker;
@@ -13,7 +12,8 @@ using Content.Shared.Destructible;
 using Content.Shared.DragDrop;
 using Content.Shared.Examine;
 using Content.Shared.Interaction.Events;
-using Content.Shared.MobState.Components;
+using Content.Shared.Mobs.Components;
+using Content.Shared.Mobs.Systems;
 using Content.Shared.Preferences;
 using Content.Shared.StatusEffect;
 using Content.Shared.Verbs;
@@ -183,7 +183,7 @@ public sealed class CryopodSpawnSystem : EntitySystem
         if (IsOccupied(component) && !force)
             return false;
 
-        if (!HasComp<MobStateComponent>(toInsert.Value))
+        if (!HasComp<MobThresholdsComponent>(toInsert.Value))
             return false;
 
         if (TryComp<MindComponent>(toInsert, out var mind))
