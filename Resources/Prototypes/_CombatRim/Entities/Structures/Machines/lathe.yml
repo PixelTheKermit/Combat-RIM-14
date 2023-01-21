@@ -25,7 +25,6 @@
           - GunBench
           - Sheet
     - type: Lathe
-      ignoreColor: true
       staticRecipes: # Change these later:tm:
         - LatheRecipeLuger # Pistols
         - LatheRecipeLugerMag
