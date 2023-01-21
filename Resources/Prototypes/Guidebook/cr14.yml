@@ -1,0 +1,17 @@
+﻿- type: guideEntry
+  id: CR14
+  name: guide-entry-cr14-sectors
+  text: "/Server Info/Guidebook/CombatRim/Sectors.xml"
+  children:
+  - CR14Death
+  - CR14Escape
+
+- type: guideEntry
+  id: CR14Death
+  name: guide-entry-cr14-death
+  text: "/Server Info/Guidebook/CombatRim/Death.xml"
+
+- type: guideEntry
+  id: CR14Escape
+  name: guide-entry-cr14-escape
+  text: "/Server Info/Guidebook/CombatRim/Escape.xml"

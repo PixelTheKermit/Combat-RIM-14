@@ -22,7 +22,7 @@ public sealed class ManualTurretComponent : Component
     public bool Firing = false;
 
     [DataField("rotSpeed")]
-    public float RotSpeed = 1.5f; // This is divided by 100, so rotation is slower than this
+    public float RotSpeed = 2f; // This is divided by 100, so rotation is slower than this
 
     [DataField("currentRot")]
     public Angle Rotation;

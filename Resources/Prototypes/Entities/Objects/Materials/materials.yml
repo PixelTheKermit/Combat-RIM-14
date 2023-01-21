@@ -180,6 +180,7 @@
     heldPrefix: bear
   - type: Clothing
     sprite: Clothing/Head/Misc/hides.rsi
+    equippedPrefix: bear
     slots:
       - HEAD
 
