@@ -1,0 +1,16 @@
+- type: entity
+  id: GunbenchMachineCircuitboard
+  parent: BaseMachineCircuitboard
+  name: gunsmithing bench machine board
+  description: A machine printed circuit board for a mechanical gunsmithing bench
+  components:
+    - type: MachineBoard
+      prototype: gunbench
+      tagRequirements:
+        IndustrialWelder:
+          Amount: 1
+          DefaultPrototype: WelderIndustrialAdvanced
+          ExamineName: AdvIndustrialWelder
+      materialRequirements:
+        Steel: 5
+        Glass: 1

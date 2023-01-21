@@ -782,18 +782,3 @@
     interfaces:
       - key: enum.SurveillanceCameraMonitorUiKey.Key
         type: SurveillanceCameraMonitorBoundUserInterface
-
-- type: entity
-  parent: BaseComputer
-  id: BaseControllerConsole
-  name: controller console
-  description: Used to control bots in a wide radius. Needs to be setup with a remote first.
-  components:
-    - type: ControllerStructure
-    - type: ExtensionCableReceiver
-    - type: PointLight
-      radius: 1.5
-      energy: 1.6
-      color: "#43ccb5"
-    - type: Rotatable
-      rotateWhileAnchored: true
