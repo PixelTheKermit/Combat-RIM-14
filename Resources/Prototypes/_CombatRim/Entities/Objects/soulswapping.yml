@@ -19,9 +19,16 @@
         whitelist:
           tags:
             - SoulContainer
+  - type: GenericVisualizer
+    visuals:
+        enum.SoulTrapperVisuals.Inserted:
+          trapped:
+            0: { state: icon }
+            1: { state: inserted }
+            2: { state: active }
   - type: Sprite
     netsync: false
-    sprite: Objects/Souls/souldevice.rsi
+    sprite: CombatRim/Objects/Souls/souldevice.rsi
     layers:
     - state: icon
   - type: Appearance
@@ -43,8 +50,14 @@
     size: 5
   - type: Sprite
     netsync: false
-    sprite: Objects/Souls/soulbottle.rsi
+    sprite: CombatRim/Objects/Souls/soulbottle.rsi
     layers:
     - state: icon
   - type: Appearance
   - type: Mind
+  - type: GenericVisualizer
+    visuals:
+        enum.SoulTrapperVisuals.Inserted:
+          trapped:
+            0: { state: icon }
+            1: { state: soul }

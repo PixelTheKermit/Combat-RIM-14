@@ -310,6 +310,7 @@
       - RipleyPeripheralsElectronics
       - GeneratorPlasmaMachineCircuitboard
       - GeneratorUraniumMachineCircuitboard
+      - GeneratorBiofuelMachineCircuitboard
       - WallmountGeneratorElectronics
       - WallmountGeneratorAPUElectronics
       - WallmountSubstationElectronics
