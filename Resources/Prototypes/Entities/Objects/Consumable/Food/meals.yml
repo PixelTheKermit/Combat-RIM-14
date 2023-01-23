@@ -7,7 +7,7 @@
   parent: FoodInjectableBase
   id: FoodMealBase
   abstract: true
-  description: A delicious meaty meal, cooked with love.
+  description: A delicious meal, cooked with love.
   components:
   - type: Food
   - type: Sprite
@@ -19,9 +19,7 @@
         maxVol: 26
         reagents:
         - ReagentId: Nutriment
-          Quantity: 10
-        - ReagentId: Meat
-          Quantity: 10
+          Quantity: 20
 
 # Meals
 
@@ -252,13 +250,10 @@
       food:
         maxVol: 15
         reagents:
-        - ReagentId: Meat
-          Quantity: 4
         - ReagentId: Nutriment
-          Quantity: 2
+          Quantity: 6
         - ReagentId: Vitamin
           Quantity: 4
-          
 # Tastes like meat, cabbage.
 
 - type: entity
@@ -278,8 +273,8 @@
       food:
         maxVol: 15
         reagents:
-        - ReagentId: Meat
-          Quantity: 5
+        - ReagentId: Nutriment
+          Quantity: 2
         - ReagentId: Vitamin
           Quantity: 5
 # Tastes like meat, salmon.
@@ -302,9 +297,7 @@
         maxVol: 15
         reagents:
         - ReagentId: Nutriment
-          Quantity: 2
-        - ReagentId: Meat
-          Quantity: 4
+          Quantity: 6
         - ReagentId: Vitamin
           Quantity: 1
 # Tastes like meat, butter.
@@ -326,7 +319,7 @@
       food:
         maxVol: 25
         reagents:
-        - ReagentId: Meat
+        - ReagentId: Nutriment
           Quantity: 3
         - ReagentId: Protein
           Quantity: 10
@@ -514,9 +507,7 @@
           maxVol: 10
           reagents:
           - ReagentId: Nutriment
-            Quantity: 3
-          - ReagentId: Meat
-            Quantity: 5
+            Quantity: 8
           - ReagentId: CapsaicinOil
             Quantity: 6
 # What do Europeans eat instead of enchiladas? 25.4 millimeter-iladas.

@@ -12,8 +12,6 @@
   - type: Sprite
     sprite: Objects/Consumable/Food/Baked/bread.rsi
     netsync: false
-  - type: ChemicalFuelGeneratorDirectSource
-    solution: food
   - type: SolutionContainerManager
     solutions:
       food:
@@ -117,7 +115,7 @@
       food:
         maxVol: 45
         reagents:
-        - ReagentId: Meat
+        - ReagentId: Nutriment
           Quantity: 30
         - ReagentId: Vitamin
           Quantity: 5
@@ -142,7 +140,7 @@
       food:
         maxVol: 10
         reagents:
-        - ReagentId: Meat
+        - ReagentId: Nutriment
           Quantity: 6
         - ReagentId: Vitamin
           Quantity: 1.2

@@ -12,10 +12,10 @@
   - type: Produce
   - type: PotencyVisuals
   - type: Appearance
-  - type: ChemicalFuelGeneratorDirectSource
-    solution: food
   - type: Extractable
     grindableSolutionName: food
+  - type: ChemicalFuelGeneratorDirectSource
+    solution: food
 
 # For produce that can be immediately eaten
 
@@ -28,8 +28,6 @@
   - type: Sprite
     netsync: false
     state: produce
-  - type: ChemicalFuelGeneratorDirectSource
-    solution: food
   - type: Produce
   - type: PotencyVisuals
   - type: Appearance

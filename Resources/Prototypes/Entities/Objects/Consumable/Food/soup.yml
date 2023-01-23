@@ -149,9 +149,7 @@
         maxvol: 15
         reagents:
         - ReagentId: Nutriment
-          Quantity: 4
-        - ReagentId: Meat
-          Quantity: 4
+          Quantity: 8
         - ReagentId: Vitamin
           Quantity: 2
         - ReagentId: DoctorsDelight
@@ -318,9 +316,7 @@
         maxvol: 40
         reagents:
         - ReagentId: Nutriment
-          Quantity: 10
-        - ReagentId: Meat
-          Quantity: 8
+          Quantity: 18
         - ReagentId: Vitamin
           Quantity: 7
         - ReagentId: Dexalin ##This is probably a reference to something but I don't get it
@@ -380,9 +376,7 @@
         maxvol: 12
         reagents:
         - ReagentId: Nutriment
-          Quantity: 2
-        - ReagentId: Meat
-          Quantity: 3
+          Quantity: 5
         - ReagentId: Vitamin
           Quantity: 3
         - ReagentId: CapsaicinOil
