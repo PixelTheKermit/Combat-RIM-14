@@ -8,8 +8,6 @@
   - type: FlavorProfile
     flavors:
       - sweet
-  - type: ChemicalFuelGeneratorDirectSource
-    solution: food
   - type: Food
     trash: FoodPlate
   - type: Sprite
