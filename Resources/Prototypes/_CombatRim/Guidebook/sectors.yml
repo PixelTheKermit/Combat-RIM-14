@@ -1,5 +1,5 @@
-﻿- type: guideEntry
-  id: CR14
+- type: guideEntry
+  id: CR14Sectors
   name: guide-entry-cr14-sectors
   text: "/Server Info/Guidebook/CombatRim/Sectors.xml"
   children:

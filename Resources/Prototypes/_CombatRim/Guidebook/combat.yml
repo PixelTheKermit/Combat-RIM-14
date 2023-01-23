@@ -1,0 +1,11 @@
+- type: guideEntry
+  id: CR14Combat
+  name: guide-entry-cr14-combat
+  text: "/Server Info/Guidebook/CombatRim/Combat.xml"
+  children: 
+  - CR14Turrets
+
+- type: guideEntry
+  id: CR14Turrets
+  name: guide-entry-cr14-turrets
+  text: "/Server Info/Guidebook/CombatRim/Turrets.xml"

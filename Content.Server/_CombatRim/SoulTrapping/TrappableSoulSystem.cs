@@ -1,4 +1,5 @@
 using Content.Server._CombatRim.SoulTrapping.Components;
+using Content.Shared._CombatRim.SoulTrapping.Components;
 using Content.Server.DoAfter;
 using Content.Server.Mind.Components;
 using Content.Server.Popups;
@@ -18,6 +19,7 @@ public sealed class TrappableSoulSystem : EntitySystem
     [Dependency] private readonly PopupSystem _popupSystem = default!;
     [Dependency] private readonly ItemSlotsSystem _slotsSystem = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
+    [Dependency] private readonly SharedAppearanceSystem _appearanceSystem = default!;
 
     public override void Initialize() // VERY IMPORTANT!!!!!!
     {
@@ -26,6 +28,21 @@ public sealed class TrappableSoulSystem : EntitySystem
         SubscribeLocalEvent<TrappableSoulComponent, InteractUsingEvent>(OnInteractUsing);
         SubscribeLocalEvent<TrappableSoulComponent, TrappingComplete>(OnTrappingCompleted);
         SubscribeLocalEvent<TrappableSoulComponent, TrappingCancelledEvent>(OnTrappingCancelled);
+    }
+
+    private void UpdateTrapperVisuals(EntityUid uid, EntityUid contain, Mind.Mind? mind)
+    {
+        _appearanceSystem.SetData(uid, SoulTrapperVisuals.Inserted, 1);
+        _appearanceSystem.SetData(contain, SoulTrapperVisuals.Inserted, 0);
+
+        if (mind != null)
+        {
+            _appearanceSystem.SetData(uid, SoulTrapperVisuals.Inserted, 2);
+            _appearanceSystem.SetData(contain, SoulTrapperVisuals.Inserted, 1);
+        }
+
+        Dirty(uid);
+        Dirty(contain);
     }
 
     private void OnInteractUsing(EntityUid uid, TrappableSoulComponent comp, InteractUsingEvent args)
@@ -84,6 +101,8 @@ public sealed class TrappableSoulSystem : EntitySystem
         if (mind2 != null)
             mind2.TransferTo(uid);
 
+        UpdateTrapperVisuals(args.Used, args.ItemSlot.Item.Value, mind);
+
         _popupSystem.PopupEntity(Loc.GetString("soul-trapping-trapping-soul-trapper-success"), args.User, args.User);
         _popupSystem.PopupEntity(Loc.GetString("soul-trapping-trapping-soul-victim-success"), uid, uid);
     }
@@ -93,6 +112,9 @@ public sealed class TrappableSoulSystem : EntitySystem
         component.CancelToken = null;
     }
 
+    /// <summary>
+    /// Called when the soul trapping is completed
+    /// </summary>
     private sealed class TrappingComplete : EntityEventArgs
     {
         public EntityUid Used { get; }
@@ -109,5 +131,8 @@ public sealed class TrappableSoulSystem : EntitySystem
         }
     }
 
+    /// <summary>
+    /// Called when soul trapping fails
+    /// </summary>
     private sealed class TrappingCancelledEvent : EntityEventArgs { }
 }

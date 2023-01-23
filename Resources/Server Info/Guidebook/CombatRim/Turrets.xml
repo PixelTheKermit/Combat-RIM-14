@@ -1,0 +1,36 @@
+﻿<Document>
+# Turrets
+
+Turrets will be the main way you attack other ships. These will be located outside of your shuttle and store medium voltage charge. Most will require physical ammo but for this, I'm going to use the common and cheaper laser turrets.
+
+<Box>
+<GuideEntityEmbed Entity="WeaponLaserTurretManual"/>
+</Box>
+
+## Usage
+
+Turrets are controlled with the same waves that bot remotes and consoles produce, and most shuttles should come with both consoles and turrets. But in any case that they don't you will have to research methods of making them, which will take a while, so if you can you should try teaming up with other ships in the meantime. Pairing a remote to a turret doesn't require much and is quite simple, however using it does take a bit of learning. Most humanoids should know how to use them anyways.
+
+## Upgrading
+
+Turrets can be upgraded with better parts, as most machines can. Here is a list of what upgrades what:
+
+<Box>
+<GuideEntityEmbed Entity="MicroManipulatorStockPart"/>
+</Box>
+
+Micro manipulators upgrade the firing speed of your turret. The better your manipulators, the faster your turrets are going to be at melting through shuttles. This will mean that your ammo will be chewed up quicker aswell however!
+
+<Box>
+<GuideEntityEmbed Entity="MicroLaserStockPart"/>
+</Box>
+
+Lasers help out with the accuracy of your turrets. A poor laser will have sub-optimal spread, while a good quality laser would have tighter spread.
+
+<Box>
+<GuideEntityEmbed Entity="CapacitorStockPart"/>
+</Box>
+
+Capacitors will dictate how much power your turrets waste both charging and firing. The better the capacitor, the longer you can shoot for and the less you have to worry about your shuttle's power, which means less fuel wasted.
+
+</Document>
