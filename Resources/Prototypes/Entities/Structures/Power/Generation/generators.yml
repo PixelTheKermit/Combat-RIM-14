@@ -159,13 +159,13 @@
 - type: entity
   parent: [ BaseGenerator, ConstructibleMachine ]
   id: GeneratorPlasma
-  suffix: Plasma, 20hW
+  suffix: Plasma, 30hW
   components:
   - type: PowerSupplier
     supplyRate: 0
   - type: SolidFuelGenerator
-    targetPower: 2000
-    optimalPower: 2000
+    targetPower: 3000
+    optimalPower: 3000
     optimalBurnRate: 0.02222222222
   - type: SolidFuelGeneratorAdapter
   - type: ActivatableUI
@@ -189,11 +189,11 @@
 - type: entity
   parent: [ BaseGenerator, ConstructibleMachine ]
   id: GeneratorUranium
-  suffix: Uranium, 20hW
+  suffix: Uranium, 30hW
   components:
   - type: SolidFuelGenerator
-    targetPower: 2000
-    optimalPower: 2000
+    targetPower: 3000
+    optimalPower: 3000
     optimalBurnRate: 0.003125
   - type: SolidFuelGeneratorAdapter
     fuelMaterial: Uranium
