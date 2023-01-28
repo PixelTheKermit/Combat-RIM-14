@@ -1,0 +1,39 @@
+- type: listing
+  id: MerchantCaptainSabre
+  name: Captain's Sabre
+  description: A sabre of a captain who rules with an iron fist. Fancy.
+  productEntity: CaptainSabre
+  cost:
+    SpaceCash: 2000
+  categories:
+  - MerchantMelee
+
+- type: listing
+  id: MerchantEnergySword
+  name: Energy Sword
+  description: A cool looking sword. Pratical? Probably not.
+  productEntity: EnergySword
+  cost:
+    SpaceCash: 1650
+  categories:
+  - MerchantMelee
+
+- type: listing
+  id: MerchantCombatKnife
+  name: Combat Knife
+  description: A simple knife for cutting things, including yourself by accident.
+  productEntity: CombatKnife
+  cost:
+    SpaceCash: 500
+  categories:
+  - MerchantMelee
+
+- type: listing
+  id: MerchantFireAxeFlaming
+  name: Fire Axe
+  description: An axe that sets things on fire? Something tells me this isn't safe.
+  productEntity: FireAxeFlaming
+  cost:
+    SpaceCash: 4500
+  categories:
+  - MerchantMelee

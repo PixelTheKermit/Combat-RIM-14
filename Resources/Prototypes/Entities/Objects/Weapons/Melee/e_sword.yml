@@ -50,8 +50,6 @@
         shader: unshaded
   - type: DisarmMalus
     malus: 0
-  - type: StaticPrice
-    price: 700
 
 - type: entity
   name: pen

@@ -20,8 +20,6 @@
     tags:
     - CaptainSabre
   - type: DisarmMalus
-  - type: StaticPrice
-    price: 1000
 
 - type: entity
   name: katana

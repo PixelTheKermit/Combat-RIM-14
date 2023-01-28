@@ -1,0 +1,89 @@
+- type: listing
+  id: MerchantGrenadeFlash
+  name: Flash Grenade
+  description: A grenade for the china lake.
+  productEntity: GrenadeFlash
+  cost:
+    SpaceCash: 10000
+  categories:
+  - MerchantGrenades
+
+- type: listing
+  id: MerchantGrenadeFrag
+  name: Frag Grenade
+  description: A grenade for the china lake.
+  productEntity: GrenadeFrag
+  cost:
+    SpaceCash: 10000
+  categories:
+  - MerchantGrenades
+
+- type: listing
+  id: MerchantGrenadeBaton
+  name: Baton Grenade
+  description: A grenade for the china lake.
+  productEntity: GrenadeBaton
+  cost:
+    SpaceCash: 10000
+  categories:
+  - MerchantGrenades
+
+- type: listing
+  id: MerchantGrenadeBlast
+  name: Blast Grenade
+  description: A grenade for the china lake.
+  productEntity: GrenadeBlast
+  cost:
+    SpaceCash: 10000
+  categories:
+  - MerchantGrenades
+
+- type: listing
+  id: MerchantC4
+  name: C-4
+  description: A useful explosion for breaching into walls. Also quite sticky, don't get this stuck on your bag!
+  productEntity: C4
+  cost:
+    SpaceCash: 5000
+  categories:
+  - MerchantGrenades
+
+- type: listing
+  id: MerchantGrenadeFlashBang
+  name: Flashbang
+  description: Useful for neutralizing an entire room of people.
+  productEntity: GrenadeFlashBang
+  cost:
+    SpaceCash: 2500
+  categories:
+  - MerchantGrenades
+
+- type: listing
+  id: MerchantSyndieMiniBomb
+  name: Mini Bomb
+  description: Good for breaching floors and spacing rooms. A small incision can be seen saying "WEW LAD", not sure what it means.
+  productEntity: SyndieMiniBomb
+  cost:
+    SpaceCash: 6500
+  categories:
+  - MerchantGrenades
+
+- type: listing
+  id: MerchantExGrenade
+  name: Explosive Grenade
+  description: Creates a small but devastating explosion. Good for breaching floors and spacing rooms.
+  productEntity: ExGrenade
+  cost:
+    SpaceCash: 6500
+  categories:
+  - MerchantGrenades
+
+- type: listing
+  id: MerchantClusterBang
+  name: Cluster Bang
+  description: A tool that can store up to 3 flashes. A bit overkill in my opinion.
+  productEntity: ClusterBang
+  cost:
+    SpaceCash: 3000
+  categories:
+  - MerchantGrenades

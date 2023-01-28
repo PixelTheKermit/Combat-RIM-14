@@ -1,0 +1,69 @@
+- type: listing
+  id: MerchantAntiqueLaser
+  name: Antique Laser
+  description: A laser gun from an old time. Still reliable, even when compared to newer generations.
+  productEntity: WeaponAntiqueLaser
+  cost:
+    SpaceCash: 1750
+  categories:
+  - MerchantGuns
+
+- type: listing
+  id: MerchantLauncherChinaLake
+  name: China Lake
+  description: A grenade launcher. Don't think I need to explain how dangerous this is.
+  productEntity: WeaponLauncherChinaLake
+  cost:
+    SpaceCash: 20000
+  categories:
+  - MerchantGuns
+
+- type: listing
+  id: MerchantShotgunBulldog
+  name: Bulldog
+  description: A good, reliable shotgun that uses mags. Quite effective.
+  productEntity: WeaponShotgunBulldog
+  cost:
+    SpaceCash: 2250
+  categories:
+  - MerchantGuns
+
+- type: listing
+  id: MerchantLightMachineGunL6
+  name: L6 Saw
+  description: A light machine gun that chews ammo like nothing.
+  productEntity: WeaponLightMachineGunL6
+  cost:
+    SpaceCash: 4500
+  categories:
+  - MerchantGuns
+
+- type: listing
+  id: MerchantGunParts
+  name: Gun Parts
+  description: Some gun parts. You could probably refine this into something more useable.
+  productEntity: GunParts
+  cost:
+    SpaceCash: 100
+  categories:
+  - MerchantGuns
+
+- type: listing
+  id: MerchantPistolMk58
+  name: mk 58
+  description: A simple pistol, useful for quick and easy self defence.
+  productEntity: WeaponPistolMk58
+  cost:
+    SpaceCash: 750
+  categories:
+  - MerchantGuns
+
+- type: listing
+  id: MerchantMagazinePistol
+  name: mk 58 magazine
+  description: A magazine for any reliable pistol.
+  productEntity: MagazinePistol
+  cost:
+    SpaceCash: 300
+  categories:
+  - MerchantGuns

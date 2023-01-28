@@ -1,0 +1,47 @@
+- type: storePreset
+  id: MerchantPresetBotanical
+  storeName: Botanical Merchant
+  categories:
+  - MerchantBotanical
+  currencyWhitelist:
+  - SpaceCash
+
+- type: storePreset
+  id: MerchantPresetMelee
+  storeName: Melee Merchant
+  categories:
+  - MerchantMelee
+  currencyWhitelist:
+  - SpaceCash
+
+- type: storePreset
+  id: MerchantPresetGuns
+  storeName: Firearm Merchant
+  categories:
+  - MerchantGuns
+  currencyWhitelist:
+  - SpaceCash
+
+- type: storePreset
+  id: MerchantPresetArmor
+  storeName: Armor Merchant
+  categories:
+  - MerchantArmor
+  currencyWhitelist:
+  - SpaceCash
+
+- type: storePreset
+  id: MerchantPresetGrenades
+  storeName: Demoman Merchant
+  categories:
+  - MerchantGrenades
+  currencyWhitelist:
+  - SpaceCash
+
+- type: storePreset
+  id: MerchantPresetShipAmmo
+  storeName: Turret Ammo Merchant
+  categories:
+  - MerchantShipAmmo
+  currencyWhitelist:
+  - SpaceCash
