@@ -1,0 +1,59 @@
+- type: listing
+  id: MerchantArmorReflective
+  name: Reflective Vest
+  description: Armor that's meant to work well against lasers.
+  productEntity: ClothingOuterArmorReflective
+  cost:
+    SpaceCash: 750
+  categories:
+  - MerchantArmor
+
+- type: listing
+  id: MerchantArmorBulletproof
+  name: Reflective Vest
+  description: A bullet-proof vest. You'd never guess what this is good against.
+  productEntity: ClothingOuterArmorBulletproof
+  cost:
+    SpaceCash: 750
+  categories:
+  - MerchantArmor
+
+- type: listing
+  id: MerchantArmorHeavy
+  name: Heavy Vest
+  description: A heavy vest that trades comfort for defence.
+  productEntity: ClothingOuterArmorHeavy
+  cost:
+    SpaceCash: 1250
+  categories:
+  - MerchantArmor
+
+- type: listing
+  id: MerchantArmorCaptainCarapace
+  name: Captain's Carapace
+  description: A fancy looking piece of armor. Works well against damage while also looking good paired with certain suits.
+  productEntity: ClothingOuterArmorCaptainCarapace
+  cost:
+    SpaceCash: 1750
+  categories:
+  - MerchantArmor
+
+- type: listing
+  id: MerchantArmorRiot
+  name: Riot armor
+  description: Armor that's meant to work against riots. Seems useless as you'd not really come against anyone rioting here
+  productEntity: ClothingOuterArmorRiot
+  cost:
+    SpaceCash: 1500
+  categories:
+  - MerchantArmor
+
+- type: listing
+  id: MerchantArmorScaf
+  name: Scaf armor.
+  description: Some old fashioned armor, does not come stained with the blood of demons.
+  productEntity: ClothingOuterArmorScaf
+  cost:
+    SpaceCash: 1250
+  categories:
+  - MerchantArmor

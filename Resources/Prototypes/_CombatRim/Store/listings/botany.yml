@@ -1,0 +1,89 @@
+- type: listing
+  id: MerchantBananaSeeds
+  name: Banana Seeds
+  description: Seeds for growing some bananas. Honk!
+  productEntity: BananaSeeds
+  cost:
+    SpaceCash: 100
+  categories:
+  - MerchantBotanical
+
+- type: listing
+  id: MerchantTowercapSeeds
+  name: Towercap Seeds
+  description: Seeds for growing a few shrooms. Contains 20u of essence.
+  productEntity: TowercapSeeds
+  cost:
+    SpaceCash: 100
+  categories:
+  - MerchantBotanical
+
+- type: listing
+  id: MerchantNettleSeeds
+  name: Nettle Seeds
+  description: Seeds for growing some nettles. Ouch!
+  productEntity: NettleSeeds
+  cost:
+    SpaceCash: 100
+  categories:
+  - MerchantBotanical
+
+- type: listing
+  id: MerchantCornSeeds
+  name: Corn Seeds
+  description: Seeds for growing some corn. Don't have a corny joke for this one.
+  productEntity: CornSeeds
+  cost:
+    SpaceCash: 100
+  categories:
+  - MerchantBotanical
+
+- type: listing
+  id: MerchantWheatSeeds
+  name: Wheat Seeds
+  description: Seeds for growing some wheat. But wheat until you hear about this!
+  productEntity: WheatSeeds
+  cost:
+    SpaceCash: 100
+  categories:
+  - MerchantBotanical
+
+- type: listing
+  id: MerchantCarrotSeeds
+  name: Carrot Seeds
+  description: Seeds for growing some carrots. Do not directly apply to eyes.
+  productEntity: CarrotSeeds
+  cost:
+    SpaceCash: 100
+  categories:
+  - MerchantBotanical
+
+- type: listing
+  id: MerchantTomatoSeeds
+  name: Tomato Seeds
+  description: Seeds for growing some tomatoes... do you say it tomato or tomato?
+  productEntity: TomatoSeeds
+  cost:
+    SpaceCash: 100
+  categories:
+  - MerchantBotanical
+
+- type: listing
+  id: MerchantToolMiniHoe
+  name: Mini Hoe
+  description: A tool, used to remove weeds or in the worst case senario could be a weapon.
+  productEntity: HydroponicsToolMiniHoe
+  cost:
+    SpaceCash: 250
+  categories:
+  - MerchantBotanical
+
+- type: listing
+  id: MerchantToolClippers
+  name: Clippers
+  description: A pair of clippers. Useful for sampling plants or cutting limbs off.
+  productEntity: HydroponicsToolClippers
+  cost:
+    SpaceCash: 250
+  categories:
+  - MerchantBotanical

@@ -71,22 +71,20 @@
     layers:
     - map: [ "enum.DamageStateVisualLayers.Base" ]
       state: botanist
-  - type: Merchant
-    Currency: SpaceCash
-    Products:
-    - BananaSeeds
-    - TowercapSeeds
-    - NettleSeeds
-    - CornSeeds
-    - WheatSeeds
-    - CarrotSeeds
-    - TomatoSeeds
-    - HydroponicsToolMiniHoe
-    - HydroponicsToolClippers
+  - type: UserInterface
+    interfaces:
+    - key: enum.StoreUiKey.Key
+      type: StoreBoundUserInterface
+  - type: ActivatableUI
+    key: enum.StoreUiKey.Key
+  - type: Store
+    preset: MerchantPresetBotanical
+    balance:
+      SpaceCash: 0
 
 - type: entity
   name: Firearm Merchant
-  description: A merchant of certain guns and special bullets
+  description: A merchant of certain, reliable guns
   id: FirearmMerchant
   parent: MerchantBase
   components:
@@ -94,18 +92,16 @@
     layers:
     - map: [ "enum.DamageStateVisualLayers.Base" ]
       state: security
-  - type: Merchant
-    Currency: SpaceCash
-    Products:
-    - WeaponAntiqueLaser
-    - WeaponLauncherChinaLake
-    - WeaponShotgunBulldog
-    - WeaponLightMachineGunL6
-    - WeaponSniperHristov
-    - ShellShotgunSlug
-    - ShellShotgunFlare
-    - MagazineShotgun
-    - GunParts
+  - type: UserInterface
+    interfaces:
+    - key: enum.StoreUiKey.Key
+      type: StoreBoundUserInterface
+  - type: ActivatableUI
+    key: enum.StoreUiKey.Key
+  - type: Store
+    preset: MerchantPresetGuns
+    balance:
+      SpaceCash: 0
 
 - type: entity
   name: Swords n stuff Merchant
@@ -117,15 +113,16 @@
     layers:
     - map: [ "enum.DamageStateVisualLayers.Base" ]
       state: securityblue
-  - type: Merchant
-    Currency: SpaceCash
-    Products:
-    - CaptainSabre
-    - Stunbaton
-    - EnergySword
-    - Spear
-    - CombatKnife
-    - FireAxeFlaming
+  - type: UserInterface
+    interfaces:
+    - key: enum.StoreUiKey.Key
+      type: StoreBoundUserInterface
+  - type: ActivatableUI
+    key: enum.StoreUiKey.Key
+  - type: Store
+    preset: MerchantPresetMelee
+    balance:
+      SpaceCash: 0
 
 - type: entity
   name: Armored Merchant
@@ -137,15 +134,17 @@
     layers:
     - map: [ "enum.DamageStateVisualLayers.Base" ]
       state: scaf
-  - type: Merchant
-    Currency: SpaceCash
-    Products:
-    - ClothingOuterArmorReflective
-    - ClothingOuterArmorBulletproof
-    - ClothingOuterArmorHeavy
-    - ClothingOuterArmorRiot
-    - ClothingOuterArmorScaf
-    - ClothingOuterArmorCaptainCarapace
+  - type: UserInterface
+    interfaces:
+    - key: enum.StoreUiKey.Key
+      type: StoreBoundUserInterface
+  - type: ActivatableUI
+    key: enum.StoreUiKey.Key
+  - type: Store
+    preset: MerchantPresetArmor
+    balance:
+      SpaceCash: 0
+
 
 - type: entity
   name: Demoman Merchant
@@ -157,18 +156,16 @@
     layers:
     - map: [ "enum.DamageStateVisualLayers.Base" ]
       state: demoman
-  - type: Merchant
-    Currency: SpaceCash
-    Products:
-    - GrenadeFlash # For the china lake
-    - GrenadeFrag
-    - GrenadeBaton
-    - GrenadeBlast
-    - C4 # C4
-    - GrenadeFlashBang # Normal grenades
-    - SyndieMiniBomb
-    - ExGrenade
-    - ClusterBang
+  - type: UserInterface
+    interfaces:
+    - key: enum.StoreUiKey.Key
+      type: StoreBoundUserInterface
+  - type: ActivatableUI
+    key: enum.StoreUiKey.Key
+  - type: Store
+    preset: MerchantPresetGrenades
+    balance:
+      SpaceCash: 0
 
 - type: entity
   name: Turret Ammo Merchant
@@ -180,9 +177,13 @@
     layers:
     - map: [ "enum.DamageStateVisualLayers.Base" ]
       state: pirate
-  - type: Merchant
-    Currency: SpaceCash
-    Products:
-    - MagazineBoxMinigun
-    - BoxRockets
-    - TurretBoxLethalshot
+  - type: UserInterface
+    interfaces:
+    - key: enum.StoreUiKey.Key
+      type: StoreBoundUserInterface
+  - type: ActivatableUI
+    key: enum.StoreUiKey.Key
+  - type: Store
+    preset: MerchantPresetShipAmmo
+    balance:
+      SpaceCash: 0

@@ -37,8 +37,6 @@
     qualities:
       - Prying
   - type: TilePrying
-  - type: StaticPrice
-    price: 600
 
 - type: entity
   id: FireAxeFlaming
