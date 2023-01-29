@@ -8,6 +8,7 @@
       - MagazinePistolLuger
   - type: BallisticAmmoProvider
     proto: CartridgePistolLuger
+    capacity: 14
   - type: Item
     size: 1
   - type: Sprite
