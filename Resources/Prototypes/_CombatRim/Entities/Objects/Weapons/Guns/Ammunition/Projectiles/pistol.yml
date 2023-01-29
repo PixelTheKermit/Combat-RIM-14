@@ -1,0 +1,10 @@
+- type: entity
+  id: BulletPistolLuger
+  name: bullet (9mm Parabellum)
+  parent: BaseBullet
+  noSpawn: true
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 14

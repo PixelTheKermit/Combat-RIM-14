@@ -1,0 +1,12 @@
+- type: entity
+  id: CartridgePistolLuger
+  name: cartridge (9mm Parabellum)
+  parent: BaseCartridgePistol
+  components:
+  - type: Item
+    size: 1
+  - type: Tag
+    tags:
+      - CartridgePistolLuger
+  - type: CartridgeAmmo
+    proto: BulletPistolLuger

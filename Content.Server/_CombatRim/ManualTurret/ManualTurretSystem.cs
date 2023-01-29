@@ -54,7 +54,7 @@ namespace Content.Server._CombatRim.ManualTurret
 
         private void OnComponentInit(EntityUid uid, ManualTurretComponent comp, ComponentInit args)
         {
-            comp.Rotation = Comp<TransformComponent>(uid).WorldRotation;
+            comp.Rotation = Comp<TransformComponent>(uid).LocalRotation;
         }
 
         private void CanMove(EntityUid uid, ManualTurretComponent comp, UpdateCanMoveEvent args)
