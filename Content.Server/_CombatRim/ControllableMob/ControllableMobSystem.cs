@@ -1,11 +1,14 @@
 using Content.Server._CombatRim.ControllableMob.Components;
+using Content.Server.DoAfter;
 using Content.Server.Mind.Components;
+using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Interaction;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Verbs;
+using System.Threading;
 
 namespace Content.Server._CombatRim.ControllableMob;
 
@@ -15,6 +18,7 @@ public sealed class ControllableMobSystem : EntitySystem
     [Dependency] private readonly EntityManager _entityManager = default!;
     [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
+    [Dependency] private readonly DoAfterSystem _doAfterSystem = default!;
 
     public override void Initialize() // VERY IMPORTANT!!!!!!
     {
@@ -24,6 +28,8 @@ public sealed class ControllableMobSystem : EntitySystem
         SubscribeLocalEvent<ControllableMobComponent, GetVerbsEvent<ActivationVerb>>(AddActVerb);
         SubscribeLocalEvent<ControllableMobComponent, MobStateChangedEvent>(MobStateChanged);
         SubscribeLocalEvent<ControllableMobComponent, ComponentShutdown>(OnDeleted);
+        SubscribeLocalEvent<ControllableMobComponent, CompleteEvent>(OnDoAfter);
+        SubscribeLocalEvent<ControllableMobComponent, CancelEvent>(OnDoAfterFail);
     }
 
     public override void Update(float frameTime)
@@ -112,7 +118,8 @@ public sealed class ControllableMobSystem : EntitySystem
 
     private void GetInteraction(EntityUid uid, ControllableMobComponent comp, InteractUsingEvent args)
     {
-        if (!TryComp<ControllerDeviceComponent>(args.Used, out var controlDeviceComp))
+
+        if (!TryComp<ControllerDeviceComponent>(args.Used, out var controlDeviceComp) || comp.CancelToken != null)
             return;
 
         if (comp.CurrentEntityOwning != null)
@@ -127,8 +134,18 @@ public sealed class ControllableMobSystem : EntitySystem
             return;
         }
 
-        controlDeviceComp.Controlling = uid;
-        _popupSystem.PopupEntity(Loc.GetString("device-control-paired"), uid, args.User);
+        comp.CancelToken = new CancellationTokenSource();
+
+        _doAfterSystem.DoAfter(new DoAfterEventArgs(uid, comp.Delay*controlDeviceComp.Multiplier, comp.CancelToken.Token, args.User, args.Used)
+        {
+            UserFinishedEvent = new CompleteEvent(args.Used, args.User),
+            UserCancelledEvent = new CancelEvent(),
+            BreakOnDamage = true,
+            BreakOnTargetMove = true,
+            BreakOnUserMove = true,
+            BreakOnStun = true,
+            NeedHand = true,
+        });
     }
 
     private void StopControl(EntityUid uid, ControllableMobComponent comp)
@@ -141,6 +158,22 @@ public sealed class ControllableMobSystem : EntitySystem
 
             comp.CurrentEntityOwning = null;
         }
+    }
+
+    private void OnDoAfter(EntityUid uid, ControllableMobComponent comp, CompleteEvent args)
+    {
+        comp.CancelToken = null;
+
+        if (!TryComp<ControllerDeviceComponent>(args.Used, out var controlDeviceComp))
+            return;
+
+        controlDeviceComp.Controlling = uid;
+        _popupSystem.PopupEntity(Loc.GetString("device-control-paired"), uid, args.User);
+    }
+
+    private void OnDoAfterFail(EntityUid uid, ControllableMobComponent comp, CancelEvent args)
+    {
+        comp.CancelToken = null;
     }
 
     private void AddActVerb(EntityUid uid, ControllableMobComponent comp, GetVerbsEvent<ActivationVerb> args)
@@ -160,4 +193,18 @@ public sealed class ControllableMobSystem : EntitySystem
 
         args.Verbs.Add(verb);
     }
+
+    private sealed class CompleteEvent : EntityEventArgs
+    {
+        public EntityUid Used { get; }
+        public EntityUid User { get; }
+
+        public CompleteEvent(EntityUid used, EntityUid user)
+        {
+            Used = used;
+            User = user;
+        }
+    }
+
+    private sealed class CancelEvent : EntityEventArgs { }
 }

@@ -76,7 +76,7 @@ public sealed class TrappableSoulSystem : EntitySystem
             BreakOnStun = true,
             NeedHand = true,
             ExtraCheck = () => DoAfterExtraChecks(args.Used),
-        }); ; ; ;
+        });
     }
 
     private bool DoAfterExtraChecks(EntityUid used)

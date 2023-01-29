@@ -8,8 +8,10 @@
     mode: SnapgridCenter
   components:
     - type: ControllableMob
+      delay: 45 # So people don't just start shooting your ship with your own turrets. Wack fix I know but shush.
     - type: Actions
     - type: Input
+    - type: DoAfter
     - type: Examiner
     - type: Eye
     - type: LagCompensation

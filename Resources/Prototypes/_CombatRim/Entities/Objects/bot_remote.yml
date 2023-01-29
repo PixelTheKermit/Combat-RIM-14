@@ -14,3 +14,23 @@
       color: "#9f9f00"
     netsync: false
   - type: ControllerDevice
+
+- type: entity
+  parent: BaseItem
+  id: BotRemoteAdmins
+  name: mapper's connector
+  suffix: DO NOT MAP
+  description: An admin tool. If you're seeing this and you're not an admin, then one of us fucked up. Have fun with this tool of chaos
+  components:
+  - type: Sprite
+    sprite: Objects/Devices/door_remote.rsi
+    layers:
+    - state: door_remotebase
+    - state: door_remotelightscolour
+      color: "#FF0000"
+    - state: door_remotescreencolour
+      color: "#CC0000"
+    netsync: false
+  - type: ControllerDevice
+    delayMultiplier: 0
+    enabled: false
