@@ -43,7 +43,7 @@
   - type: Barotrauma
     damage:
       types:
-        Blunt: 0.35 #per second, scales with pressure and other constants.
+        Blunt: 0.5 #per second, scales with pressure and other constants.
   - type: DamageOnHighSpeedImpact
     damage:
       types:
@@ -213,7 +213,6 @@
     speedModifierThresholds:
       60: 0.7
       80: 0.5
-      100: 0.25
   - type: HeatResistance
   - type: DamageVisuals
     thresholds: [ 20, 40, 100 ]
