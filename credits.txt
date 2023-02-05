@@ -1,0 +1,5 @@
+Thank you to: 
+- moony (@moonheart08) for creating Outer rim 14/Afterlight: 3149 as a base for Combat Rim to work off, and also making worldgen v2 for Citadel
+- mirrorcult (@mirrorcult) for their dark UI from their fork which I swiped
+
+and lastly, thank you to the the Space Wizards who made SS14 possible.
