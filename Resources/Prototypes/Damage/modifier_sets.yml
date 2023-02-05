@@ -111,15 +111,6 @@
     Poison: 0.9
 
 - type: damageModifierSet
-  id: Moff
-  coefficients:
-    Blunt: 0.7 # You're hitting fluff.
-    Slash: 1.3
-    Cold: 0.65 # Fluff keeps you warm.
-    Heat: 1.5 # Fluff keeps you too warm.
-    Poison: 1.2 # Honestly I don't know why I increased the poison damage here.
-
-- type: damageModifierSet
   id: Diona
   coefficients:
     Blunt: 0.7
