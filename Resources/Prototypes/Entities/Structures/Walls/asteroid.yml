@@ -42,12 +42,6 @@
     oreChance: 0.2
     oreRarityPrototypeId: RandomOreDistributionStandard
   - type: Appearance
-  - type: DamageVisuals
-    thresholds: [4, 8, 12]
-    damageDivisor: 2
-    trackAllDamage: true
-    damageOverlay:
-      sprite: Structures/Walls/cracks.rsi
 
 - type: entity
   id: AsteroidRockMining

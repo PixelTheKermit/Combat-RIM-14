@@ -48,9 +48,3 @@
   - type: FireVisuals
     sprite: Effects/fire.rsi
     normalState: 1
-  - type: DamageVisuals
-    thresholds: [4, 8, 12]
-    damageDivisor: 2
-    trackAllDamage: true
-    damageOverlay:
-      sprite: Structures/Walls/cracks.rsi
