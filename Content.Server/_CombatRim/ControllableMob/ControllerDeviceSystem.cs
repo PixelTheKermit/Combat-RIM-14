@@ -5,6 +5,9 @@ using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
+using Content.Shared.Interaction;
+using Content.Server.DoAfter;
+using System.Threading;
 
 namespace Content.Server._CombatRim.ControllableMob;
 
@@ -14,12 +17,19 @@ public sealed class ControllerDeviceSystem : EntitySystem
     [Dependency] private readonly EntityManager _entityManager = default!;
     [Dependency] private readonly ControllableMobSystem _controllableMobSystem = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
+    [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
+    [Dependency] private readonly DoAfterSystem _doAfterSystem = default!;
+    [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
+
     public override void Initialize() // VERY IMPORTANT!!!!!!
     {
         base.Initialize();
 
         SubscribeLocalEvent<ControllerDeviceComponent, UseInHandEvent>(Control);
         SubscribeLocalEvent<ControllerDeviceComponent, GotUnequippedHandEvent>(Unequipped);
+        SubscribeLocalEvent<ControllerDeviceComponent, AfterInteractEvent>(GetInteraction);
+        SubscribeLocalEvent<ControllerDeviceComponent, CompleteEvent>(OnDoAfter);
+        SubscribeLocalEvent<ControllerDeviceComponent, CancelEvent>(OnDoAfterFail);
     }
 
     private void OnDeleted(EntityUid uid, ControllerMobComponent comp, ComponentShutdown args)
@@ -62,7 +72,7 @@ public sealed class ControllerDeviceSystem : EntitySystem
             return;
         }
 
-        var calcDist = (Comp<TransformComponent>(uid).WorldPosition - Comp<TransformComponent>(comp.Controlling.Value).WorldPosition).Length;
+        var calcDist = (_transformSystem.GetWorldPosition(uid) - _transformSystem.GetWorldPosition(comp.Controlling.Value)).Length;
         if (calcDist > comp.Range)
         {
             _popupSystem.PopupEntity(Loc.GetString("device-control-out-of-range"), uid, args.User);
@@ -104,4 +114,68 @@ public sealed class ControllerDeviceSystem : EntitySystem
         controllerComp.Controlling = null;
         controllableComp.CurrentEntityOwning = null;
     }
+
+    private void GetInteraction(EntityUid uid, ControllerDeviceComponent comp, AfterInteractEvent args)
+    {
+
+        if (comp.CancelToken != null || args.Target == null || !TryComp<ControllableMobComponent>(args.Target, out var mobComp))
+            return;
+
+        if (mobComp.CurrentEntityOwning != null)
+        {
+            _popupSystem.PopupEntity(Loc.GetString("device-control-fail-pair-controlled"), uid, args.User);
+            return;
+        }
+
+        if (TryComp<MobThresholdsComponent>(uid, out var damageState) && _mobStateSystem.IsDead(uid))
+        {
+            _popupSystem.PopupEntity(Loc.GetString("device-control-fail-pair-damaged"), uid, args.User);
+            return;
+        }
+
+        comp.CancelToken = new CancellationTokenSource();
+
+        _doAfterSystem.DoAfter(new DoAfterEventArgs(uid, mobComp.Delay*comp.Multiplier, comp.CancelToken.Token, args.Target, uid)
+        {
+            UserFinishedEvent = new CompleteEvent(args.Used, args.User, args.Target.Value),
+            UserCancelledEvent = new CancelEvent(),
+            BreakOnDamage = true,
+            BreakOnTargetMove = true,
+            BreakOnUserMove = true,
+            BreakOnStun = true,
+            NeedHand = true,
+        });
+    }
+
+    private void OnDoAfter(EntityUid uid, ControllerDeviceComponent comp, CompleteEvent args)
+    {
+        comp.CancelToken = null;
+
+        if (!TryComp<ControllerDeviceComponent>(uid, out var controlDeviceComp))
+            return;
+
+        controlDeviceComp.Controlling = args.Target;
+        _popupSystem.PopupEntity(Loc.GetString("device-control-paired"), uid, args.User);
+    }
+
+    private void OnDoAfterFail(EntityUid uid, ControllerDeviceComponent comp, CancelEvent args)
+    {
+        comp.CancelToken = null;
+    }
+
+    private sealed class CompleteEvent : EntityEventArgs
+    {
+        public EntityUid Used { get; }
+        public EntityUid User { get; }
+        public EntityUid Target { get; }
+
+        public CompleteEvent(EntityUid used, EntityUid user, EntityUid target)
+        {
+            Used = used;
+            User = user;
+            Target = target;
+        }
+    }
+
+    private sealed class CancelEvent : EntityEventArgs { }
 }

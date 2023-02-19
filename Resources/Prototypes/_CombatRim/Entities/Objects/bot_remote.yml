@@ -14,6 +14,7 @@
       color: "#9f9f00"
     netsync: false
   - type: ControllerDevice
+  - type: DoAfter
 
 - type: entity
   parent: BaseItem
@@ -34,3 +35,4 @@
   - type: ControllerDevice
     delayMultiplier: 0
     enabled: false
+  - type: DoAfter

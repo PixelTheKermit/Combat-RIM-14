@@ -16,6 +16,4 @@ public sealed class ControllableMobComponent : Component
 
     [DataField("delay")]
     public float Delay = 15;
-
-    public CancellationTokenSource? CancelToken;
 }
