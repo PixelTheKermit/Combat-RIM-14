@@ -14,7 +14,6 @@
   - type: Charger
     slotId: charger_slot
   - type: Temperature
-  - type: ApcPassiveHeater
   - type: AtmosExposed
     slotId: charger_slot
   - type: ApcPowerReceiver

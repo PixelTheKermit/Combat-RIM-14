@@ -34,7 +34,6 @@
     drawdepth: SmallObjects
     snapCardinals: true
   - type: Temperature
-  - type: ApcPassiveHeater
   - type: AtmosExposed
   - type: ApcPowerReceiver
     powerLoad: 30

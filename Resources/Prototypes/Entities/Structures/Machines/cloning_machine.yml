@@ -58,7 +58,6 @@
     BoardName: "CloningPod"
     LayoutId: CloningPod
   - type: Temperature
-  - type: ApcPassiveHeater
   - type: AtmosExposed
   - type: ApcPowerReceiver
     powerLoad: 20 #Receives most of its power from the console

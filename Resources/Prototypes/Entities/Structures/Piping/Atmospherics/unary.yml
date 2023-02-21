@@ -28,7 +28,6 @@
     mode: SnapgridCenter
   components:
     - type: Temperature
-    - type: ApcPassiveHeater
     - type: AtmosExposed
     - type: ApcPowerReceiver
     - type: ExtensionCableReceiver
@@ -125,7 +124,6 @@
     mode: SnapgridCenter
   components:
     - type: Temperature
-    - type: ApcPassiveHeater
     - type: AtmosExposed
     - type: ApcPowerReceiver
     - type: ExtensionCableReceiver

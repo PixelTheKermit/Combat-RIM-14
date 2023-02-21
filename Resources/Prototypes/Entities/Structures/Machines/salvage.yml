@@ -67,7 +67,6 @@
     detachingTime: 30
     cooldownTime: 60
   - type: Temperature
-  - type: ApcPassiveHeater
   - type: AtmosExposed
   - type: ApcPowerReceiver
     powerLoad: 250 # TODO change this to a HV power draw that really hits the grid hard WHEN active
@@ -82,7 +81,6 @@
   - type: SalvageMagnet
     offset: 0, -12
   - type: Temperature
-  - type: ApcPassiveHeater
   - type: AtmosExposed
   - type: ApcPowerReceiver
     powerLoad: 100

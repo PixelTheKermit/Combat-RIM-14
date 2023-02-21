@@ -15,7 +15,6 @@
     sprite: Structures/Wallmounts/barsign.rsi
     state: empty
   - type: Temperature
-  - type: ApcPassiveHeater
   - type: AtmosExposed
   - type: ApcPowerReceiver
   - type: ExtensionCableReceiver
@@ -48,7 +47,6 @@
     sprite: Structures/Wallmounts/sylphs.rsi
     state: sylph
   - type: Temperature
-  - type: ApcPassiveHeater
   - type: AtmosExposed
   - type: ApcPowerReceiver
   - type: ExtensionCableReceiver

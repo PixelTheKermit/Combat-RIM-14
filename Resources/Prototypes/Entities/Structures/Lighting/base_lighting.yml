@@ -84,7 +84,6 @@
     containers:
       light_bulb: !type:ContainerSlot
   - type: Temperature
-  - type: ApcPassiveHeater
   - type: AtmosExposed
   - type: ApcPowerReceiver
   - type: ExtensionCableReceiver
@@ -260,7 +259,6 @@
       types:
         Heat: 5
   - type: Temperature
-  - type: ApcPassiveHeater
   - type: AtmosExposed
   - type: ApcPowerReceiver
   - type: ExtensionCableReceiver
@@ -306,7 +304,6 @@
     color: "#FF4020"
     mask: /Textures/Effects/LightMasks/cone.png
   - type: Temperature
-  - type: ApcPassiveHeater
   - type: AtmosExposed
   - type: ApcPowerReceiver
   - type: ExtensionCableReceiver

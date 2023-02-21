@@ -82,7 +82,6 @@
     containers:
       light_bulb: !type:ContainerSlot
   - type: Temperature
-  - type: ApcPassiveHeater
   - type: AtmosExposed
   - type: ApcPowerReceiver
   - type: ExtensionCableReceiver
