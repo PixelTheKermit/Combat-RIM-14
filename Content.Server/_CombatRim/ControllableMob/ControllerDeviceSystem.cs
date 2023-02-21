@@ -118,7 +118,7 @@ public sealed class ControllerDeviceSystem : EntitySystem
     private void GetInteraction(EntityUid uid, ControllerDeviceComponent comp, AfterInteractEvent args)
     {
 
-        if (comp.CancelToken != null || args.Target == null || !TryComp<ControllableMobComponent>(args.Target, out var mobComp))
+        if (comp.CancelToken != null || args.Target == null || args.User == null || !TryComp<ControllableMobComponent>(args.Target, out var mobComp))
             return;
 
         if (mobComp.CurrentEntityOwning != null)
@@ -135,10 +135,10 @@ public sealed class ControllerDeviceSystem : EntitySystem
 
         comp.CancelToken = new CancellationTokenSource();
 
-        _doAfterSystem.DoAfter(new DoAfterEventArgs(uid, mobComp.Delay*comp.Multiplier, comp.CancelToken.Token, args.Target, uid)
+        _doAfterSystem.DoAfter(new DoAfterEventArgs(args.User, mobComp.Delay*comp.Multiplier, comp.CancelToken.Token, args.Target, uid)
         {
-            UserFinishedEvent = new CompleteEvent(args.Used, args.User, args.Target.Value),
-            UserCancelledEvent = new CancelEvent(),
+            UsedFinishedEvent = new CompleteEvent(args.Used, args.User, args.Target.Value),
+            UsedCancelledEvent = new CancelEvent(),
             BreakOnDamage = true,
             BreakOnTargetMove = true,
             BreakOnUserMove = true,

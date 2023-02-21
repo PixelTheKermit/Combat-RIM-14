@@ -44,7 +44,6 @@ public sealed class MagicClothingSystem : EntitySystem
             component.Spells.Add(spell);
         }
 
-        Logger.Warning("work damn it");
         _actionsSystem.AddActions(args.Equipee, component.Spells, uid);
     }
 }
