@@ -5,6 +5,7 @@
   minPlayers: 0
   fallback: true
   validShip: true
+  captain: ChiefShuttleMedic
   description: |
     test
   stations:
@@ -17,4 +18,4 @@
       availableJobs:
         SalvageSpecialist: [ 2, 2 ]
         MedicalDoctor: [ 1, 1 ]
-        ShuttleCaptain: [ 0, 1 ]
+        ChiefShuttleMedic: [ 0, 1 ]

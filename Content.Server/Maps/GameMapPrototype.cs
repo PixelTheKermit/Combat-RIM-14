@@ -43,4 +43,7 @@ public sealed partial class GameMapPrototype : IPrototype
 
     [DataField("validShip")]
     public bool ValidShip = false;
+
+    [DataField("captain")]
+    public string Captain = "ShuttleCaptain";
 }

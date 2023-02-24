@@ -134,7 +134,7 @@ public sealed class ShipSpawningSystem : BaseWorldSystem
             UpdateSpawnEligibility();
 
             if (user != null)
-                _gameTicker.MakeJoinGame(user, (EntityUid) _station.GetOwningStation(grids.First())!, "ShuttleCaptain");
+                _gameTicker.MakeJoinGame(user, (EntityUid) _station.GetOwningStation(grids.First())!, proto.Captain);
             return;
         }
     }

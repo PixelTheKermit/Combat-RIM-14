@@ -1,7 +1,14 @@
+using System.Threading;
+using Content.Server._CombatRim.SoulTrapping.Components;
+using Content.Server.DoAfter;
 using Content.Server.Mind.Components;
+using Content.Server.Popups;
 using Content.Shared._CombatRim.SoulTrapping.Components;
+using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Damage;
 using Content.Shared.Interaction;
+using Content.Shared.Mobs.Systems;
+using Internal.TypeSystem;
 using Robust.Server.Containers;
 using Robust.Shared.Containers;
 
@@ -13,14 +20,63 @@ public sealed class SoulTrapperSystem : EntitySystem
     [Dependency] private readonly EntityManager _entityManager = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearanceSystem = default!;
     [Dependency] private readonly ContainerSystem _containerSystem = default!;
+    [Dependency] private readonly DoAfterSystem _doAfterSystem = default!;
+    [Dependency] private readonly ItemSlotsSystem _slotsSystem = default!;
+    [Dependency] private readonly PopupSystem _popupSystem = default!;
+    [Dependency] private readonly MobStateSystem _stateSystem = default!;
+
     public override void Initialize() // VERY IMPORTANT!!!!!!
     {
         base.Initialize();
 
         SubscribeLocalEvent<SoulTrapperComponent, EntInsertedIntoContainerMessage>(OnInsert);
         SubscribeLocalEvent<SoulTrapperComponent, EntRemovedFromContainerMessage>(OnEject);
+        SubscribeLocalEvent<SoulTrapperComponent, AfterInteractEvent>(GetInteraction);
+        SubscribeLocalEvent<SoulTrapperComponent, TrappingComplete>(OnTrappingCompleted);
+        SubscribeLocalEvent<SoulTrapperComponent, TrappingCancelledEvent>(OnTrappingCancelled);
     }
 
+    private void GetInteraction(EntityUid uid, SoulTrapperComponent comp, AfterInteractEvent args)
+    {
+        if (comp.CancelToken != null || args.Target == null || args.Target == args.User ||
+            !TryComp<TrappableSoulComponent>(args.Target, out var soulComp))
+            return;
+
+        if (!_slotsSystem.TryGetSlot(uid, "soul-container", out var itemSlot) || !itemSlot.HasItem)
+        {
+            _popupSystem.PopupEntity(Loc.GetString("soul-trapping-fail-no-container"), args.User, args.User);
+            return;
+        }
+
+        var delay = soulComp.CaptureTime;
+
+        if (_stateSystem.IsAlive(uid))
+            delay = soulComp.AliveCaptureTime;
+
+        _popupSystem.PopupEntity(Loc.GetString("soul-trapping-trapping-soul-trapper"), args.User, args.User);
+        _popupSystem.PopupEntity(Loc.GetString("soul-trapping-trapping-soul-victim"), args.Target.Value, args.Target.Value);
+
+        comp.CancelToken = new CancellationTokenSource();
+        _doAfterSystem.DoAfter(new DoAfterEventArgs(args.User, delay, comp.CancelToken.Token, args.Target, uid)
+        {
+            UsedFinishedEvent = new TrappingComplete(uid, args.User, args.Target.Value, itemSlot),
+            UsedCancelledEvent = new TrappingCancelledEvent(),
+            BreakOnDamage = true,
+            BreakOnTargetMove = true,
+            BreakOnUserMove = true,
+            BreakOnStun = true,
+            NeedHand = true,
+            ExtraCheck = () => DoAfterExtraChecks(args.Used),
+        });
+    }
+
+    private bool DoAfterExtraChecks(EntityUid used)
+    {
+        if (!_slotsSystem.TryGetSlot(used, "soul-container", out var itemSlot) || !itemSlot.HasItem)
+            return false;
+
+        return true;
+    }
 
     private void OnInsert(EntityUid uid, SoulTrapperComponent comp, EntInsertedIntoContainerMessage args)
     {
@@ -39,4 +95,73 @@ public sealed class SoulTrapperSystem : EntitySystem
         _appearanceSystem.SetData(uid, SoulTrapperVisuals.Inserted, 0);
         Dirty(uid);
     }
+
+    private void OnTrappingCompleted(EntityUid uid, SoulTrapperComponent component, TrappingComplete args)
+    {
+        component.CancelToken = null;
+
+        var mind = Comp<MindComponent>(args.Target).Mind;
+
+        var mind2 = Comp<MindComponent>(args.ItemSlot.Item!.Value).Mind;
+
+        if (mind != null)
+            mind.TransferTo(args.ItemSlot.Item);
+
+        if (mind2 != null)
+            mind2.TransferTo(args.Target);
+
+        UpdateTrapperVisuals(args.Used, args.ItemSlot.Item.Value, mind);
+
+        _popupSystem.PopupEntity(Loc.GetString("soul-trapping-trapping-soul-trapper-success"), args.User, args.User);
+        _popupSystem.PopupEntity(Loc.GetString("soul-trapping-trapping-soul-victim-success"), uid, uid);
+    }
+
+    private void OnTrappingCancelled(EntityUid uid, SoulTrapperComponent component, TrappingCancelledEvent args)
+    {
+        component.CancelToken = null;
+    }
+
+    /// <summary>
+    /// Update the visuals for the soul trapper + the bottle in it
+    /// </summary>
+    private void UpdateTrapperVisuals(EntityUid uid, EntityUid contain, Mind.Mind? mind)
+    {
+        _appearanceSystem.SetData(uid, SoulTrapperVisuals.Inserted, 1);
+        _appearanceSystem.SetData(contain, SoulTrapperVisuals.Inserted, 0);
+
+        if (mind != null)
+        {
+            _appearanceSystem.SetData(uid, SoulTrapperVisuals.Inserted, 2);
+            _appearanceSystem.SetData(contain, SoulTrapperVisuals.Inserted, 1);
+        }
+
+        Dirty(uid);
+        Dirty(contain);
+    }
+
+    /// <summary>
+    /// Called when soul trapping doesn't fail
+    /// </summary>
+
+    private sealed class TrappingComplete : EntityEventArgs
+    {
+        public EntityUid Used { get; }
+        public EntityUid User { get; }
+        public EntityUid Target { get; }
+        public ItemSlot ItemSlot { get; }
+
+        public TrappingComplete(EntityUid used, EntityUid user, EntityUid target, ItemSlot itemSlot)
+        {
+            Used = used;
+            User = user;
+            Target = target;
+            ItemSlot = itemSlot;
+        }
+    }
+
+
+    /// <summary>
+    /// Called when soul trapping fails
+    /// </summary>
+    private sealed class TrappingCancelledEvent : EntityEventArgs { }
 }
