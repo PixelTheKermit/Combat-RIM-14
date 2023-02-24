@@ -17,12 +17,15 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitCMO
     back: ClothingBackpackMedicalFilled
-    shoes: ClothingShoesColorBrown
+    shoes: ClothingShoesColorWhite
     outerClothing: ClothingOuterHardsuitVoidParamed
     id: CMOPDA
     ears: ClothingHeadsetAltMedical
     belt: ClothingBeltMedicalFilled
     head: ClothingHeadHelmetVoidParamed
+    gloves: ClothingHandsGlovesNitrile
+    pocket1: WeaponRevolverDeckard
+    pocket2: SpeedLoaderMagnum
   innerclothingskirt: ClothingUniformJumpskirtCMO
   satchel: ClothingBackpackSatchelMedicalFilled
   duffelbag: ClothingBackpackDuffelMedicalFilled
