@@ -5,12 +5,12 @@ using Content.Shared.Interaction.Events;
 using Content.Shared.Popups;
 using Robust.Shared.Player;
 using Content.Shared.Smoking;
-using Content.Server.Nutrition.EntitySystems;
 using System.Threading;
+using Content.Shared.Interaction;
 
 namespace Content.Server._CombatRim.Cauterize
 {
-    public sealed class CauterizeSystem : EntitySystem
+    public sealed class CauterizeSystem : EntitySystem // ! This likely won't be needed or will be broken as soon as wounds become a thing.
     {
         [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
         [Dependency] private readonly DoAfterSystem _doAfterSystem = default!;
@@ -21,24 +21,24 @@ namespace Content.Server._CombatRim.Cauterize
         {
             base.Initialize();
 
-            SubscribeLocalEvent<CauterizeComponent, UseInHandEvent>(OnInteract);
+            SubscribeLocalEvent<CauterizeComponent, AfterInteractEvent>(OnInteract);
             SubscribeLocalEvent<CauterizeComponent, CauterizeComplete>(OnCauterizeCompleted);
             SubscribeLocalEvent<CauterizeComponent, CauterizeCancelledEvent>(OnCauterizeCancelled);
         }
 
-        private void OnInteract(EntityUid uid, CauterizeComponent component, UseInHandEvent args)
+        private void OnInteract(EntityUid uid, CauterizeComponent component, AfterInteractEvent args) // TODO: Make this work with other forms of flamable objects (like lighters, but probably not welders (yeowch))
         {
-            if (!TryComp<MatchstickComponent>(uid, out var matchComp))
+            if (component.CancelToken != null || args.Target == null || !TryComp<MatchstickComponent>(uid, out var matchComp))
                 return;
-                
+
             if (!args.Handled && matchComp.CurrentState == SmokableState.Lit)
             {
-                _popupSystem.PopupEntity("You try to painfully seal your wounds!", args.User, args.User);
+                _popupSystem.PopupEntity("You try to seal the wounds", args.User, args.User); // TODO: Localisations
                 component.CancelToken = new CancellationTokenSource();
                 _doAfterSystem.DoAfter(new DoAfterEventArgs(uid, component.Delay, component.CancelToken.Token, args.User)
                 {
-                    UserFinishedEvent = new CauterizeComplete(uid, args.User),
-                    UserCancelledEvent = new CauterizeCancelledEvent(),
+                    UsedFinishedEvent = new CauterizeComplete(uid, args.User, args.Target.Value),
+                    UsedCancelledEvent = new CauterizeCancelledEvent(),
                     BreakOnTargetMove = true,
                     BreakOnUserMove = true,
                     BreakOnStun = true,
@@ -50,6 +50,7 @@ namespace Content.Server._CombatRim.Cauterize
         {
             component.CancelToken = null;
 
+            _popupSystem.PopupEntity("You feel a sharp pain where the wound once was!", args.Target, args.Target); // TODO: Localisations
             _damageableSystem.TryChangeDamage(args.User, component.LitCauterizeDamage);
             _audioSystem.Play("/Audio/Effects/lightburn.ogg", Filter.Pvs(args.User), args.User, true);
         }
@@ -63,11 +64,13 @@ namespace Content.Server._CombatRim.Cauterize
         {
             public EntityUid Used { get; }
             public EntityUid User { get; }
+            public EntityUid Target { get; }
 
-            public CauterizeComplete(EntityUid used, EntityUid user)
+            public CauterizeComplete(EntityUid used, EntityUid user, EntityUid target)
             {
                 Used = used;
                 User = user;
+                Target = target;
             }
         }
 
