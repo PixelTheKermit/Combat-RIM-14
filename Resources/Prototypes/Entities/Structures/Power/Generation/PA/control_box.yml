@@ -38,7 +38,10 @@
     - type: Wires
       BoardName: "Mk2 Particle Accelerator"
       LayoutId: ParticleAccelerator
-
+    - type: GuideHelp
+      guides: [ Singularity, Power ]
+      
+      
 # Unfinished
 
 - type: entity
@@ -57,3 +60,5 @@
       graph: ParticleAcceleratorControlBox
       node: start
       defaultTarget: completed
+    - type: GuideHelp
+      guides: [ Singularity, Power ]
