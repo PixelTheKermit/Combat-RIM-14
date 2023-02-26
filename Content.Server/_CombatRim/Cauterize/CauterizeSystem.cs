@@ -33,7 +33,7 @@ namespace Content.Server._CombatRim.Cauterize
 
             if (!args.Handled && matchComp.CurrentState == SmokableState.Lit)
             {
-                _popupSystem.PopupEntity("You try to seal the wounds", args.User, args.User); // TODO: Localisations
+                _popupSystem.PopupEntity("You try to seal the wounds", args.User, args.User); // TODO: Localisations, I'm too lazy to do them now
                 component.CancelToken = new CancellationTokenSource();
                 _doAfterSystem.DoAfter(new DoAfterEventArgs(uid, component.Delay, component.CancelToken.Token, args.User)
                 {
