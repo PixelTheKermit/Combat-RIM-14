@@ -6,6 +6,7 @@ using Content.Shared.Mobs;
 using Content.Shared.Popups;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Mobs.Components;
+using Content.Server.Mind.Components;
 
 namespace Content.Server._CombatRim.ControllableMob;
 
@@ -94,7 +95,7 @@ public sealed class ControllerStructureSystem : EntitySystem
         }
 
         if (!TryComp<ControllableMobComponent>(comp.Controlling, out var controllableComp)
-            || controllableComp.CurrentEntityOwning != null)
+            || controllableComp.CurrentEntityOwning != null || Comp<MindComponent>(comp.Controlling.Value).HasMind)
         {
             _popupSystem.PopupEntity(Loc.GetString("control-device-already-controlled"), uid, args.User);
             return;

@@ -8,6 +8,9 @@ using Content.Shared.Popups;
 using Content.Shared.Interaction;
 using Content.Server.DoAfter;
 using System.Threading;
+using Content.Shared.DoAfter;
+using Content.Server.Mind;
+using Content.Server.Mind.Components;
 
 namespace Content.Server._CombatRim.ControllableMob;
 
@@ -20,6 +23,7 @@ public sealed class ControllerDeviceSystem : EntitySystem
     [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
     [Dependency] private readonly DoAfterSystem _doAfterSystem = default!;
     [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
+    [Dependency] private readonly MindSystem _mindSystem = default!;
 
     public override void Initialize() // VERY IMPORTANT!!!!!!
     {
@@ -28,8 +32,7 @@ public sealed class ControllerDeviceSystem : EntitySystem
         SubscribeLocalEvent<ControllerDeviceComponent, UseInHandEvent>(Control);
         SubscribeLocalEvent<ControllerDeviceComponent, GotUnequippedHandEvent>(Unequipped);
         SubscribeLocalEvent<ControllerDeviceComponent, AfterInteractEvent>(GetInteraction);
-        SubscribeLocalEvent<ControllerDeviceComponent, CompleteEvent>(OnDoAfter);
-        SubscribeLocalEvent<ControllerDeviceComponent, CancelEvent>(OnDoAfterFail);
+        SubscribeLocalEvent<ControllerDeviceComponent, DoAfterEvent>(OnDoAfter);
     }
 
     private void OnDeleted(EntityUid uid, ControllerMobComponent comp, ComponentShutdown args)
@@ -54,7 +57,7 @@ public sealed class ControllerDeviceSystem : EntitySystem
         controllableComp.CurrentEntityOwning = null;
     }
 
-    private void Control(EntityUid uid, ControllerDeviceComponent comp, UseInHandEvent args)
+    private void Control(EntityUid uid, ControllerDeviceComponent comp, UseInHandEvent args) //TODO: Fix a crash that occurs with ghosting (keep this vague so that no one knows what it is)
     {
         if (!comp.Enabled)
             return;
@@ -135,47 +138,26 @@ public sealed class ControllerDeviceSystem : EntitySystem
 
         comp.CancelToken = new CancellationTokenSource();
 
-        _doAfterSystem.DoAfter(new DoAfterEventArgs(args.User, mobComp.Delay*comp.Multiplier, comp.CancelToken.Token, args.Target, uid)
+        var eventArgs = new DoAfterEventArgs(args.User, mobComp.Delay*comp.Multiplier, comp.CancelToken.Token, args.Target, uid)
         {
-            UsedFinishedEvent = new CompleteEvent(args.Used, args.User, args.Target.Value),
-            UsedCancelledEvent = new CancelEvent(),
             BreakOnDamage = true,
             BreakOnTargetMove = true,
             BreakOnUserMove = true,
             BreakOnStun = true,
             NeedHand = true,
-        });
+        };
+
+        _doAfterSystem.DoAfter(eventArgs);
     }
 
-    private void OnDoAfter(EntityUid uid, ControllerDeviceComponent comp, CompleteEvent args)
+    private void OnDoAfter(EntityUid uid, ControllerDeviceComponent comp, DoAfterEvent args)
     {
         comp.CancelToken = null;
 
-        if (!TryComp<ControllerDeviceComponent>(uid, out var controlDeviceComp))
+        if (args.Cancelled || args.Args.Target == null)
             return;
 
-        controlDeviceComp.Controlling = args.Target;
-        _popupSystem.PopupEntity(Loc.GetString("device-control-paired"), uid, args.User);
+        comp.Controlling = args.Args.Target;
+        _popupSystem.PopupEntity(Loc.GetString("device-control-paired"), uid, args.Args.User);
     }
-
-    private void OnDoAfterFail(EntityUid uid, ControllerDeviceComponent comp, CancelEvent args)
-    {
-        comp.CancelToken = null;
-    }
-
-    private sealed class CompleteEvent : EntityEventArgs
-    {
-        public EntityUid Used { get; }
-        public EntityUid User { get; }
-        public EntityUid Target { get; }
-
-        public CompleteEvent(EntityUid used, EntityUid user, EntityUid target)
-        {
-            Used = used;
-            User = user;
-            Target = target;
-        }
-    }
-
-    private sealed class CancelEvent : EntityEventArgs { }
 }

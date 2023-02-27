@@ -7,6 +7,7 @@ using Robust.Shared.Player;
 using Content.Shared.Smoking;
 using System.Threading;
 using Content.Shared.Interaction;
+using Content.Shared.DoAfter;
 
 namespace Content.Server._CombatRim.Cauterize
 {
@@ -22,8 +23,7 @@ namespace Content.Server._CombatRim.Cauterize
             base.Initialize();
 
             SubscribeLocalEvent<CauterizeComponent, AfterInteractEvent>(OnInteract);
-            SubscribeLocalEvent<CauterizeComponent, CauterizeComplete>(OnCauterizeCompleted);
-            SubscribeLocalEvent<CauterizeComponent, CauterizeCancelledEvent>(OnCauterizeCancelled);
+            SubscribeLocalEvent<CauterizeComponent, DoAfterEvent>(OnDoAfter);
         }
 
         private void OnInteract(EntityUid uid, CauterizeComponent component, AfterInteractEvent args) // TODO: Make this work with other forms of flamable objects (like lighters, but probably not welders (yeowch))
@@ -35,45 +35,28 @@ namespace Content.Server._CombatRim.Cauterize
             {
                 _popupSystem.PopupEntity("You try to seal the wounds", args.User, args.User); // TODO: Localisations, I'm too lazy to do them now
                 component.CancelToken = new CancellationTokenSource();
-                _doAfterSystem.DoAfter(new DoAfterEventArgs(uid, component.Delay, component.CancelToken.Token, args.User)
+
+                var eventArgs = new DoAfterEventArgs(args.User, component.Delay, component.CancelToken.Token, uid, args.Target)
                 {
-                    UsedFinishedEvent = new CauterizeComplete(uid, args.User, args.Target.Value),
-                    UsedCancelledEvent = new CauterizeCancelledEvent(),
                     BreakOnTargetMove = true,
                     BreakOnUserMove = true,
                     BreakOnStun = true,
-                });
+                };
+
+                _doAfterSystem.DoAfter(eventArgs);
             }
         }
 
-        private void OnCauterizeCompleted(EntityUid uid, CauterizeComponent component, CauterizeComplete args)
+        private void OnDoAfter(EntityUid uid, CauterizeComponent component, DoAfterEvent args)
         {
             component.CancelToken = null;
 
-            _popupSystem.PopupEntity("You feel a sharp pain where the wound once was!", args.Target, args.Target); // TODO: Localisations
-            _damageableSystem.TryChangeDamage(args.User, component.LitCauterizeDamage);
-            _audioSystem.Play("/Audio/Effects/lightburn.ogg", Filter.Pvs(args.User), args.User, true);
+            if (args.Cancelled || args.Args.Target == null)
+                return;
+
+            _popupSystem.PopupEntity("You feel a sharp pain where the wound once was!", args.Args.Target.Value, args.Args.Target.Value); // TODO: Localisations
+            _damageableSystem.TryChangeDamage(args.Args.User, component.LitCauterizeDamage);
+            _audioSystem.Play("/Audio/Effects/lightburn.ogg", Filter.Pvs(args.Args.User), args.Args.User, true);
         }
-
-        private void OnCauterizeCancelled(EntityUid uid, CauterizeComponent component, CauterizeCancelledEvent args)
-        {
-            component.CancelToken = null;
-        }
-
-        private sealed class CauterizeComplete : EntityEventArgs
-        {
-            public EntityUid Used { get; }
-            public EntityUid User { get; }
-            public EntityUid Target { get; }
-
-            public CauterizeComplete(EntityUid used, EntityUid user, EntityUid target)
-            {
-                Used = used;
-                User = user;
-                Target = target;
-            }
-        }
-
-        private sealed class CauterizeCancelledEvent : EntityEventArgs { }
     }
 }

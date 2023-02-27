@@ -6,6 +6,7 @@ using Content.Server.Popups;
 using Content.Shared._CombatRim.SoulTrapping.Components;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Damage;
+using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
 using Content.Shared.Mobs.Systems;
 using Internal.TypeSystem;
@@ -32,8 +33,7 @@ public sealed class SoulTrapperSystem : EntitySystem
         SubscribeLocalEvent<SoulTrapperComponent, EntInsertedIntoContainerMessage>(OnInsert);
         SubscribeLocalEvent<SoulTrapperComponent, EntRemovedFromContainerMessage>(OnEject);
         SubscribeLocalEvent<SoulTrapperComponent, AfterInteractEvent>(GetInteraction);
-        SubscribeLocalEvent<SoulTrapperComponent, TrappingComplete>(OnTrappingCompleted);
-        SubscribeLocalEvent<SoulTrapperComponent, TrappingCancelledEvent>(OnTrappingCancelled);
+        SubscribeLocalEvent<SoulTrapperComponent, DoAfterEvent>(OnDoAfter);
     }
 
     private void GetInteraction(EntityUid uid, SoulTrapperComponent comp, AfterInteractEvent args)
@@ -57,17 +57,18 @@ public sealed class SoulTrapperSystem : EntitySystem
         _popupSystem.PopupEntity(Loc.GetString("soul-trapping-trapping-soul-victim"), args.Target.Value, args.Target.Value);
 
         comp.CancelToken = new CancellationTokenSource();
-        _doAfterSystem.DoAfter(new DoAfterEventArgs(args.User, delay, comp.CancelToken.Token, args.Target, uid)
+
+        var eventArgs = new DoAfterEventArgs(args.User, delay, comp.CancelToken.Token, args.Target, uid)
         {
-            UsedFinishedEvent = new TrappingComplete(uid, args.User, args.Target.Value, itemSlot),
-            UsedCancelledEvent = new TrappingCancelledEvent(),
             BreakOnDamage = true,
             BreakOnTargetMove = true,
             BreakOnUserMove = true,
             BreakOnStun = true,
             NeedHand = true,
             ExtraCheck = () => DoAfterExtraChecks(args.Used),
-        });
+        };
+
+        _doAfterSystem.DoAfter(eventArgs);
     }
 
     private bool DoAfterExtraChecks(EntityUid used)
@@ -96,29 +97,27 @@ public sealed class SoulTrapperSystem : EntitySystem
         Dirty(uid);
     }
 
-    private void OnTrappingCompleted(EntityUid uid, SoulTrapperComponent component, TrappingComplete args)
+    private void OnDoAfter(EntityUid uid, SoulTrapperComponent component, DoAfterEvent args)
     {
         component.CancelToken = null;
 
-        var mind = Comp<MindComponent>(args.Target).Mind;
+        if (args.Cancelled || args.Args.Target == null || !_slotsSystem.TryGetSlot(uid, "soul-container", out var itemSlot))
+            return;
 
-        var mind2 = Comp<MindComponent>(args.ItemSlot.Item!.Value).Mind;
+        var mind = Comp<MindComponent>(args.Args.Target.Value).Mind;
+
+        var mind2 = Comp<MindComponent>(itemSlot.Item!.Value).Mind;
 
         if (mind != null)
-            mind.TransferTo(args.ItemSlot.Item);
+            mind.TransferTo(itemSlot.Item);
 
         if (mind2 != null)
-            mind2.TransferTo(args.Target);
+            mind2.TransferTo(args.Args.Target);
 
-        UpdateTrapperVisuals(args.Used, args.ItemSlot.Item.Value, mind);
+        UpdateTrapperVisuals(uid, itemSlot.Item.Value, mind);
 
-        _popupSystem.PopupEntity(Loc.GetString("soul-trapping-trapping-soul-trapper-success"), args.User, args.User);
+        _popupSystem.PopupEntity(Loc.GetString("soul-trapping-trapping-soul-trapper-success"), args.Args.User, args.Args.User);
         _popupSystem.PopupEntity(Loc.GetString("soul-trapping-trapping-soul-victim-success"), uid, uid);
-    }
-
-    private void OnTrappingCancelled(EntityUid uid, SoulTrapperComponent component, TrappingCancelledEvent args)
-    {
-        component.CancelToken = null;
     }
 
     /// <summary>

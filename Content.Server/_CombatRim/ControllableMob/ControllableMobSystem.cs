@@ -68,6 +68,9 @@ public sealed class ControllableMobSystem : EntitySystem
         if (mind == null)
             return;
 
+        _entityManager.RemoveComponent<VisitingMindComponent>(latter);
+
+
         mind.Visit(latter);
     }
 

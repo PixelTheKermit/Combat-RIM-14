@@ -15,4 +15,7 @@ public sealed class HeadsetComponent : Component
 
     [DataField("requiredSlot")]
     public SlotFlags RequiredSlot = SlotFlags.EARS;
+
+    [DataField("range")]
+    public float Range = 50f;
 }

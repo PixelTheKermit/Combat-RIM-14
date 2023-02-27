@@ -114,7 +114,7 @@ public sealed class ShipSpawningSystem : BaseWorldSystem
                 continue;
 
             var ev = new TrySpawnShipEvent(proto.ID, coords);
-            RaiseLocalEvent(ref ev);
+            RaiseLocalEvent(ev);
 
             if (ev.CancelledGlobal)
                 return;

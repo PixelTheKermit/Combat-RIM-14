@@ -1,4 +1,4 @@
-﻿- type: biome
+﻿- type: spacebiome
   id: AfterlightAsteroidsStandard
   priority: 0
   noiseRanges: {}
@@ -27,7 +27,7 @@
         - 0.4, 0.6
       noiseChannel: Carver
 
-- type: biome
+- type: spacebiome
   id: AfterlightAsteroidsWastes
   priority: 1
   noiseRanges:
@@ -59,7 +59,7 @@
         - 0.3, 0.7
       noiseChannel: Carver
 
-- type: biome
+- type: spacebiome
   id: AfterlightAsteroidsEmptiness
   priority: 2
   noiseRanges:

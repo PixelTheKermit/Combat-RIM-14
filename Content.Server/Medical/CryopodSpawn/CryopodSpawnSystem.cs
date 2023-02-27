@@ -51,7 +51,7 @@ public sealed class CryopodSpawnSystem : EntitySystem
         SubscribeLocalEvent<CryopodSpawnComponent, SuicideEvent>(OnSuicide);
         SubscribeLocalEvent<CryopodSpawnComponent, ExaminedEvent>(OnExamine);
         SubscribeLocalEvent<CryopodSpawnComponent, DestructionEventArgs>((e,c,_) => EjectBody(e, c));
-        SubscribeLocalEvent<CryopodSpawnComponent, DragDropEvent>(OnDragDrop, before: new []{typeof(ClimbSystem)});
+        SubscribeLocalEvent<CryopodSpawnComponent, DragDropTargetEvent>(OnDragDrop);
         SubscribeLocalEvent<PlayerSpawningEvent>(OnSpawning, before: new [] {typeof(SpawnPointSystem)});
     }
 
@@ -114,7 +114,7 @@ public sealed class CryopodSpawnSystem : EntitySystem
         return null;
     }
 
-    private void OnDragDrop(EntityUid uid, CryopodSpawnComponent component, DragDropEvent args)
+    private void OnDragDrop(EntityUid uid, CryopodSpawnComponent component, ref DragDropTargetEvent args)
     {
         if (args.Handled)
             return;

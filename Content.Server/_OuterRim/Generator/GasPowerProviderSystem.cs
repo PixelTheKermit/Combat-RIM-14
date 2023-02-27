@@ -25,7 +25,8 @@ public sealed class GasPowerProviderSystem : EntitySystem
 
     private void OnDeviceDisabled(EntityUid uid, GasPowerProviderComponent component, AtmosDeviceDisabledEvent args)
     {
-        RaiseLocalEvent(uid, new PowerChangedEvent(true, 0));
+        var ev = new PowerChangedEvent(true, 0);
+        RaiseLocalEvent(uid, ref ev);
     }
 
     private void OnDeviceUpdated(EntityUid uid, GasPowerProviderComponent component, AtmosDeviceUpdateEvent args)

@@ -2,7 +2,7 @@
 # I moved this to a different folder in case of changes made to AL's biomes.
 # Was this nessessary? Probably not.
 
-- type: biome
+- type: spacebiome
   id: CombatRimAsteroidsStandard
   priority: 0
   noiseRanges: {}
@@ -39,7 +39,7 @@
         - 0.4, 0.6
       noiseChannel: Carver
 
-- type: biome
+- type: spacebiome
   id: CombatRimAsteroidsWastes
   priority: 1
   noiseRanges:
@@ -79,7 +79,7 @@
         - 0.3, 0.7
       noiseChannel: Carver
 
-- type: biome
+- type: spacebiome
   id: CombatRimAsteroidsEmptiness
   priority: 2
   noiseRanges:

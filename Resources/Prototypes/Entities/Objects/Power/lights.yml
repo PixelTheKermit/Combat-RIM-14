@@ -123,14 +123,9 @@
   id: ExteriorLightTube
   components:
   - type: LightBulb
-<<<<<<< HEAD
     bulb: Tube
-    color: "#7BB9C9"
-    lightEnergy: 3
-=======
     color: "#B4FCF0"
     lightEnergy: 4.5
->>>>>>> 24121c11688ab10fce05522fe9ab834b1fe93e60
     lightRadius: 12
     lightSoftness: 2
     BurningTemperature: 350
@@ -143,14 +138,9 @@
   id: SodiumLightTube
   components:
   - type: LightBulb
-<<<<<<< HEAD
     bulb: Tube
-    color: "#C78D36"
-    lightEnergy: 3
-=======
     color: "#FFAF38"
     lightEnergy: 4
->>>>>>> 24121c11688ab10fce05522fe9ab834b1fe93e60
     lightRadius: 10
     lightSoftness: 2
     BurningTemperature: 350
