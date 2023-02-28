@@ -36,13 +36,7 @@ namespace Content.Tests.Server.Preferences
 - type: dataset
   id: names_last
   values:
-  - Ackerley
-
-- type: species
-  id: Human
-  name: Human
-  prototype: MobHuman
-  dollPrototype: MobHumanDummy";
+  - Ackerley";
 
         private static HumanoidCharacterProfile CharlieCharlieson()
         {
@@ -69,6 +63,7 @@ namespace Content.Tests.Server.Preferences
                     {SharedGameTicker.FallbackOverflowJob, JobPriority.High}
                 },
                 PreferenceUnavailableMode.StayInLobby,
+                new List<string> (),
                 new List<string> (),
                 new List<string>()
             );
