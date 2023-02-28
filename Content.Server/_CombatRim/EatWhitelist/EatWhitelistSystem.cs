@@ -40,7 +40,7 @@ namespace Content.Server._CombatRim.EatWhitelist
             if (stomach == null || !comp.Stomachs.Any(x => x == Comp<MetaDataComponent>(stomach.Owner).EntityPrototype!.ID))
                 return;
 
-            _foodSystem.TryFeed(args.User, args.User, foodComp);
+            _foodSystem.TryFeed(args.User, args.User, uid, foodComp);
         }
 
         private void OnFeedAttempt(EntityUid uid, EatWhitelistComponent comp, AfterInteractEvent args)
@@ -62,7 +62,7 @@ namespace Content.Server._CombatRim.EatWhitelist
             if (stomach == null || !comp.Stomachs.Any(x => x == Comp<MetaDataComponent>(stomach.Owner).EntityPrototype!.ID))
                 return;
 
-            _foodSystem.TryFeed(args.User, args.Target.Value, foodComp);
+            _foodSystem.TryFeed(args.User, args.Target.Value, uid, foodComp);
         }
 
         private StomachComponent? GetStomach(EntityUid uid, BodyComponent body)

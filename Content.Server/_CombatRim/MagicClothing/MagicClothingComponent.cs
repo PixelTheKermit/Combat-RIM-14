@@ -16,6 +16,10 @@ public sealed class MagicClothingComponent : Component
     [ViewVariables]
     public readonly List<ActionType> Spells = new();
 
+
+    /// <summary>
+    /// The slot used to wear the clothing.
+    /// </summary>
     [DataField("slot")]
     public readonly string Slot = "shoes";
 

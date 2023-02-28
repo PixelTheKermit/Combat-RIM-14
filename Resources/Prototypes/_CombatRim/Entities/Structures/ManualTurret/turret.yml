@@ -94,7 +94,6 @@
       supplyRampTolerance: 10
       supplyRampRate: 5
     - type: Temperature
-    - type: ApcPassiveHeater
     - type: AtmosExposed
 
 - type: entity
@@ -136,7 +135,7 @@
       startingCharge: 0
     - type: Machine
       board: WeaponLaserTurretManualCircuitboard
-    - type: ManualTurret 
+    - type: ManualTurret
       minAngle: 0
       maxAngle: 0
       fireCost: 15

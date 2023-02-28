@@ -1,4 +1,3 @@
-using Content.Server.MachineLinking.Events;
 using System.Linq;
 using Robust.Shared.Timing;
 using Robust.Shared.Player;
@@ -10,18 +9,10 @@ using Robust.Shared.Utility;
 using Content.Server.Construction;
 using Content.Server.Weapons.Ranged.Systems;
 using Robust.Shared.Random;
-using Content.Shared.Alert;
-using Content.Server.CombatMode;
-using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Interaction.Events;
-using Content.Shared.Interaction;
 using Robust.Server.GameObjects;
-using Content.Server.Mind.Components;
 using Robust.Shared.Input;
-using Content.Server.Mind;
-using Content.Shared.Input;
 using Robust.Server.Player;
-using Robust.Shared.Physics;
 using Content.Shared.Movement.Events;
 using Content.Server._CombatRim.ControllableMob.Components;
 using Content.Server._CombatRim.ControllableMob;
@@ -32,7 +23,7 @@ namespace Content.Server._CombatRim.ManualTurret
     public sealed class ManualTurretSystem : EntitySystem
     {
         // Dependencies
-        [Dependency] protected readonly IRobustRandom Random = default!;
+        [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly EntityManager _entityManager = default!;
         [Dependency] private readonly IGameTiming _gameTiming = default!;
         [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
@@ -41,7 +32,7 @@ namespace Content.Server._CombatRim.ManualTurret
         [Dependency] private readonly SharedAppearanceSystem _appearanceSystem = default!;
         [Dependency] private readonly ControllableMobSystem _controllableMobSystem = default!;
         [Dependency] private readonly InputSystem _inputSystem = default!;
-
+        [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
         public override void Initialize() // VERY IMPORTANT!!!!!!
         {
             base.Initialize();
@@ -83,9 +74,9 @@ namespace Content.Server._CombatRim.ManualTurret
 
                 var input = _inputSystem.GetInputStates(session);
 
-                // This probably shouldn't be done on the server (as it isn't done anywhere else). Too bad!
+                // Doing this on the server means no prediction, too bad!
                 if (input.GetState(EngineKeyFunctions.MoveUp) == BoundKeyState.Down)
-                    AttemptShoot(comp, session);
+                    AttemptShoot(comp.Owner, comp, session);
                 else
                     comp.Firing = false;
 
@@ -105,7 +96,7 @@ namespace Content.Server._CombatRim.ManualTurret
             }
         }
 
-        private void AttemptShoot(ManualTurretComponent comp, IPlayerSession session)
+        private void AttemptShoot(EntityUid uid, ManualTurretComponent comp, IPlayerSession session)
         {
 
             if (!comp.FullAuto && comp.Firing)
@@ -113,7 +104,7 @@ namespace Content.Server._CombatRim.ManualTurret
 
             comp.Firing = true;
 
-            TryShooting(comp, comp.Owner);
+            TryShooting(comp, uid);
         }
 
         /// <summary>
@@ -195,14 +186,14 @@ namespace Content.Server._CombatRim.ManualTurret
                         ammoComp.Entities.Remove(cart);
 
                         Dirty(magazine);
-                        UpdateAppearance(ammoComp);
+                        UpdateAppearance(magazine, ammoComp);
                     }
                 }
             }
             else // Does not support hitscan or shotgun-like patterns YET
             {
                 var xform = Comp<TransformComponent>(uid);
-                var rot = xform.WorldRotation;
+                var rot = _transformSystem.GetWorldRotation(uid);
                 var angle = GetRecoilAngle(_gameTiming.CurTime, comp, rot);
                 var projComp = Comp<ProjectileBatteryAmmoProviderComponent>(uid);
 
@@ -247,15 +238,14 @@ namespace Content.Server._CombatRim.ManualTurret
         private void ShootBallistic(EntityUid uid, ManualTurretComponent comp, IContainer cartSlot, BatteryComponent? batteryComp)
         {
             var xform = Comp<TransformComponent>(uid);
-            var rot = xform.WorldRotation;
-
+            var rot = _transformSystem.GetWorldRotation(uid);
 
             if (cartSlot.ContainedEntities.Count == 0) // no cartridge no shoot
             {
                 _audioSystem.Play(comp.SoundEmpty, Filter.Pvs(uid), uid, true);
                 return;
             }
-                
+
             // Alright let's get to trying to shoot this thing!
 
             var cartridge = cartSlot.ContainedEntities[0];
@@ -313,7 +303,7 @@ namespace Content.Server._CombatRim.ManualTurret
             var newTheta = MathHelper.Clamp(component.CurrentAngle.Theta + component.AngleIncrease.Theta * component.AccuracyMultiplier - component.AngleDecay.Theta / component.AccuracyMultiplier * timeSinceLastFire, component.MinAngle.Theta * component.AccuracyMultiplier, component.MaxAngle.Theta * component.AccuracyMultiplier);
             component.CurrentAngle = new Angle(newTheta);
 
-            var random = Random.NextFloat(-0.5f, 0.5f);
+            var random = _random.NextFloat(-0.5f, 0.5f);
             var spread = component.CurrentAngle.Theta * random;
             var angle = new Angle(direction.Theta + component.CurrentAngle.Theta * random);
             DebugTools.Assert(spread <= component.MaxAngle.Theta);
@@ -334,13 +324,13 @@ namespace Content.Server._CombatRim.ManualTurret
             return angles;
         }
 
-        private void UpdateAppearance(BallisticAmmoProviderComponent component)
+        private void UpdateAppearance(EntityUid uid, BallisticAmmoProviderComponent component)
         {
-            if (!_gameTiming.IsFirstTimePredicted || !TryComp<AppearanceComponent>(component.Owner, out var appearance))
+            if (!_gameTiming.IsFirstTimePredicted || !TryComp<AppearanceComponent>(uid, out var appearance))
                 return;
 
-            _appearanceSystem.SetData(appearance.Owner, AmmoVisuals.AmmoCount, component.UnspawnedCount + component.Entities.Count, appearance);
-            _appearanceSystem.SetData(appearance.Owner, AmmoVisuals.AmmoMax, component.Capacity, appearance);
+            _appearanceSystem.SetData(uid, AmmoVisuals.AmmoCount, component.UnspawnedCount + component.Entities.Count, appearance);
+            _appearanceSystem.SetData(uid, AmmoVisuals.AmmoMax, component.Capacity, appearance);
         }
     }
 }

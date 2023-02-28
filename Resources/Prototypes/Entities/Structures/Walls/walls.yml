@@ -48,12 +48,6 @@
   - type: RadiationBlocker
     resistance: 2
   - type: Appearance
-  - type: DamageVisuals
-    thresholds: [4, 8, 12]
-    damageDivisor: 2
-    trackAllDamage: true
-    damageOverlay:
-      sprite: Structures/Walls/cracks.rsi
 
 - type: entity
   parent: BaseWall
@@ -612,9 +606,12 @@
   - type: Sprite
     netsync: false
     drawdepth: Walls
-    # TODO: Icon smoothing support
     sprite: Structures/Walls/shuttle_diagonal.rsi
     state: state0
+  - type: IconSmooth
+    mode: Diagonal
+    key: walls
+    base: state
   - type: Icon
     sprite: Structures/Walls/shuttle_diagonal.rsi
     state: state0

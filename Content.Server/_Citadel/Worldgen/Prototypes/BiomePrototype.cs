@@ -8,8 +8,8 @@ namespace Content.Server._Citadel.Worldgen.Prototypes;
 ///     This is a prototype for biome selection, allowing the component list of a chunk to be amended based on the output
 ///     of noise channels at that location.
 /// </summary>
-[Prototype("biome")]
-public sealed class BiomePrototype : IPrototype, IInheritingPrototype
+[Prototype("spacebiome")]
+public sealed class SpaceBiomePrototype : IPrototype, IInheritingPrototype
 {
     /// <inheritdoc />
     [ParentDataField(typeof(AbstractPrototypeIdArraySerializer<EntityPrototype>))]

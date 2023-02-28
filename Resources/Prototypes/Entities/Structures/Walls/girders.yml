@@ -51,12 +51,6 @@
   - type: StaticPrice
     price: 10
   - type: Appearance
-  - type: DamageVisuals
-    thresholds: [4, 8, 12]
-    damageDivisor: 2
-    trackAllDamage: true
-    damageOverlay:
-      sprite: Structures/Walls/cracks.rsi
 
 - type: entity
   id: ReinforcedGirder

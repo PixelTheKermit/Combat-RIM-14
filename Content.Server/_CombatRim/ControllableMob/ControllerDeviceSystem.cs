@@ -5,6 +5,12 @@ using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
+using Content.Shared.Interaction;
+using Content.Server.DoAfter;
+using System.Threading;
+using Content.Shared.DoAfter;
+using Content.Server.Mind;
+using Content.Server.Mind.Components;
 
 namespace Content.Server._CombatRim.ControllableMob;
 
@@ -14,12 +20,19 @@ public sealed class ControllerDeviceSystem : EntitySystem
     [Dependency] private readonly EntityManager _entityManager = default!;
     [Dependency] private readonly ControllableMobSystem _controllableMobSystem = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
+    [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
+    [Dependency] private readonly DoAfterSystem _doAfterSystem = default!;
+    [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
+    [Dependency] private readonly MindSystem _mindSystem = default!;
+
     public override void Initialize() // VERY IMPORTANT!!!!!!
     {
         base.Initialize();
 
         SubscribeLocalEvent<ControllerDeviceComponent, UseInHandEvent>(Control);
         SubscribeLocalEvent<ControllerDeviceComponent, GotUnequippedHandEvent>(Unequipped);
+        SubscribeLocalEvent<ControllerDeviceComponent, AfterInteractEvent>(GetInteraction);
+        SubscribeLocalEvent<ControllerDeviceComponent, DoAfterEvent>(OnDoAfter);
     }
 
     private void OnDeleted(EntityUid uid, ControllerMobComponent comp, ComponentShutdown args)
@@ -44,7 +57,7 @@ public sealed class ControllerDeviceSystem : EntitySystem
         controllableComp.CurrentEntityOwning = null;
     }
 
-    private void Control(EntityUid uid, ControllerDeviceComponent comp, UseInHandEvent args)
+    private void Control(EntityUid uid, ControllerDeviceComponent comp, UseInHandEvent args) //TODO: Fix a crash that occurs with ghosting (keep this vague so that no one knows what it is)
     {
         if (!comp.Enabled)
             return;
@@ -62,7 +75,7 @@ public sealed class ControllerDeviceSystem : EntitySystem
             return;
         }
 
-        var calcDist = (Comp<TransformComponent>(uid).WorldPosition - Comp<TransformComponent>(comp.Controlling.Value).WorldPosition).Length;
+        var calcDist = (_transformSystem.GetWorldPosition(uid) - _transformSystem.GetWorldPosition(comp.Controlling.Value)).Length;
         if (calcDist > comp.Range)
         {
             _popupSystem.PopupEntity(Loc.GetString("device-control-out-of-range"), uid, args.User);
@@ -103,5 +116,48 @@ public sealed class ControllerDeviceSystem : EntitySystem
         _controllableMobSystem.RevokeControl(args.User);
         controllerComp.Controlling = null;
         controllableComp.CurrentEntityOwning = null;
+    }
+
+    private void GetInteraction(EntityUid uid, ControllerDeviceComponent comp, AfterInteractEvent args)
+    {
+
+        if (comp.CancelToken != null || args.Target == null || args.User == null || !TryComp<ControllableMobComponent>(args.Target, out var mobComp))
+            return;
+
+        if (mobComp.CurrentEntityOwning != null)
+        {
+            _popupSystem.PopupEntity(Loc.GetString("device-control-fail-pair-controlled"), uid, args.User);
+            return;
+        }
+
+        if (TryComp<MobThresholdsComponent>(uid, out var damageState) && _mobStateSystem.IsDead(uid))
+        {
+            _popupSystem.PopupEntity(Loc.GetString("device-control-fail-pair-damaged"), uid, args.User);
+            return;
+        }
+
+        comp.CancelToken = new CancellationTokenSource();
+
+        var eventArgs = new DoAfterEventArgs(args.User, mobComp.Delay*comp.Multiplier, comp.CancelToken.Token, args.Target, uid)
+        {
+            BreakOnDamage = true,
+            BreakOnTargetMove = true,
+            BreakOnUserMove = true,
+            BreakOnStun = true,
+            NeedHand = true,
+        };
+
+        _doAfterSystem.DoAfter(eventArgs);
+    }
+
+    private void OnDoAfter(EntityUid uid, ControllerDeviceComponent comp, DoAfterEvent args)
+    {
+        comp.CancelToken = null;
+
+        if (args.Cancelled || args.Args.Target == null)
+            return;
+
+        comp.Controlling = args.Args.Target;
+        _popupSystem.PopupEntity(Loc.GetString("device-control-paired"), uid, args.Args.User);
     }
 }

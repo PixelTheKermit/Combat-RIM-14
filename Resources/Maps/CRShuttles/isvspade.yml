@@ -1556,46 +1556,6 @@ entities:
   - pos: 8.273378,-3.6547894
     parent: 3
     type: Transform
-- uid: 163
-  type: ThermalPipework
-  components:
-  - pos: 7.5,-1.5
-    parent: 3
-    type: Transform
-- uid: 164
-  type: ThermalPipework
-  components:
-  - pos: 7.5,-3.5
-    parent: 3
-    type: Transform
-- uid: 165
-  type: ThermalPipework
-  components:
-  - rot: 3.141592653589793 rad
-    pos: 11.5,-3.5
-    parent: 3
-    type: Transform
-- uid: 166
-  type: ThermalPipework
-  components:
-  - rot: 3.141592653589793 rad
-    pos: 11.5,-1.5
-    parent: 3
-    type: Transform
-- uid: 167
-  type: ThermalPipework
-  components:
-  - rot: 1.5707963267948966 rad
-    pos: 8.5,-0.5
-    parent: 3
-    type: Transform
-- uid: 168
-  type: ThermalPipework
-  components:
-  - rot: 1.5707963267948966 rad
-    pos: 10.5,-0.5
-    parent: 3
-    type: Transform
 - uid: 169
   type: ChairPilotSeat
   components:

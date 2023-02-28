@@ -1,0 +1,31 @@
+- type: job
+  id: ChiefShuttleMedic
+  name: Chief Shuttle Medic
+  description: job-description-cmo
+  playTimeTracker: JobChiefMedicalOfficer
+  weight: 10
+  startingGear: CSMGear
+  icon: "ChiefMedicalOfficer"
+  requireAdminNotify: false
+  supervisors: job-supervisors-captain
+  canBeAntag: false
+  accessGroups:
+    - AllAccess
+
+- type: startingGear
+  id: CSMGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitCMO
+    back: ClothingBackpackMedicalFilled
+    shoes: ClothingShoesColorWhite
+    outerClothing: ClothingOuterHardsuitVoidParamed
+    id: CMOPDA
+    ears: ClothingHeadsetAltMedical
+    belt: ClothingBeltMedicalFilled
+    head: ClothingHeadHelmetVoidParamed
+    gloves: ClothingHandsGlovesNitrile
+    pocket1: WeaponRevolverDeckard
+    pocket2: SpeedLoaderMagnum
+  innerclothingskirt: ClothingUniformJumpskirtCMO
+  satchel: ClothingBackpackSatchelMedicalFilled
+  duffelbag: ClothingBackpackDuffelMedicalFilled

@@ -14,8 +14,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Content.Server.Database.Migrations.Postgres
 {
     [DbContext(typeof(PostgresServerDbContext))]
-    [Migration("20220101002527_add-species")]
-    partial class addspecies
+    [Migration("20220108185749_add-species")]
+    partial class AddSpecies
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

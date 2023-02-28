@@ -6,6 +6,7 @@ using Content.Shared.Mobs;
 using Content.Shared.Popups;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Mobs.Components;
+using Content.Server.Mind.Components;
 
 namespace Content.Server._CombatRim.ControllableMob;
 
@@ -16,6 +17,7 @@ public sealed class ControllerStructureSystem : EntitySystem
     [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
     [Dependency] private readonly ControllableMobSystem _controllableMobSystem = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
+    [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
     public override void Initialize() // VERY IMPORTANT!!!!!!
     {
         base.Initialize();
@@ -48,7 +50,7 @@ public sealed class ControllerStructureSystem : EntitySystem
 
             // And now checks to ensure we are still able to control the entity
             if (apcReceiver.Powered &&
-                (Comp<TransformComponent>(controllerComp.Owner).WorldPosition - transform.WorldPosition).Length <= SharedInteractionSystem.InteractionRange * 2)
+                (_transformSystem.GetWorldPosition(owner.Value) - _transformSystem.GetWorldPosition(transform)).Length <= SharedInteractionSystem.InteractionRange * 2)
                 continue;
 
             controllerComp.Controlling = null;
@@ -93,13 +95,13 @@ public sealed class ControllerStructureSystem : EntitySystem
         }
 
         if (!TryComp<ControllableMobComponent>(comp.Controlling, out var controllableComp)
-            || controllableComp.CurrentEntityOwning != null)
+            || controllableComp.CurrentEntityOwning != null || Comp<MindComponent>(comp.Controlling.Value).HasMind)
         {
             _popupSystem.PopupEntity(Loc.GetString("control-device-already-controlled"), uid, args.User);
             return;
         }
 
-        var calcDist = (Comp<TransformComponent>(uid).WorldPosition - Comp<TransformComponent>(comp.Controlling.Value).WorldPosition).Length;
+        var calcDist = (_transformSystem.GetWorldPosition(uid) - _transformSystem.GetWorldPosition(comp.Controlling.Value)).Length;
         if (calcDist > comp.Range)
         {
             _popupSystem.PopupEntity(Loc.GetString("device-control-out-of-range"), uid, args.User);

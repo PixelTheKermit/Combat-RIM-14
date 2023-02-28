@@ -54,7 +54,13 @@ jobs:
       uses: appleboy/ssh-action@master
       continue-on-error: true
       with:
-        host: hellomouse.net
-        username: or14-builds
-        key: ${{ secrets.OUTER_RIM_BUILDS_PUSH_KEY }}
-        script: /home/or14-builds/push.ps1 ${{ github.sha }}
+        host: centcomm.spacestation14.io
+        username: wizards-build-push
+        key: ${{ secrets.CENTCOMM_WIZARDS_BUILDS_PUSH_KEY }}
+        script: /home/wizards-build-push/push.ps1 ${{ github.sha }}
+
+    - name: Publish changelog
+      run: Tools/actions_changelogs_since_last_run.py
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        DISCORD_WEBHOOK_URL: ${{ secrets.CHANGELOG_DISCORD_WEBHOOK }}

@@ -14,13 +14,14 @@
       color: "#9f9f00"
     netsync: false
   - type: ControllerDevice
+  - type: DoAfter
 
 - type: entity
   parent: BaseItem
   id: BotRemoteAdmins
   name: mapper's connector
   suffix: DO NOT MAP
-  description: An admin tool. If you're seeing this and you're not an admin, then one of us fucked up. Have fun with this tool of chaos
+  description: An admin tool. If you're seeing this and you're not an admin, then one of us fucked up. Have fun with this tool of possible chaos
   components:
   - type: Sprite
     sprite: Objects/Devices/door_remote.rsi
@@ -34,3 +35,4 @@
   - type: ControllerDevice
     delayMultiplier: 0
     enabled: false
+  - type: DoAfter

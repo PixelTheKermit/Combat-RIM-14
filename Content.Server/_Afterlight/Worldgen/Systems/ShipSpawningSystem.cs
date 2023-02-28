@@ -114,7 +114,7 @@ public sealed class ShipSpawningSystem : BaseWorldSystem
                 continue;
 
             var ev = new TrySpawnShipEvent(proto.ID, coords);
-            RaiseLocalEvent(ref ev);
+            RaiseLocalEvent(ev);
 
             if (ev.CancelledGlobal)
                 return;
@@ -134,7 +134,7 @@ public sealed class ShipSpawningSystem : BaseWorldSystem
             UpdateSpawnEligibility();
 
             if (user != null)
-                _gameTicker.MakeJoinGame(user, (EntityUid) _station.GetOwningStation(grids.First())!, "ShuttleCaptain");
+                _gameTicker.MakeJoinGame(user, (EntityUid) _station.GetOwningStation(grids.First())!, proto.Captain);
             return;
         }
     }

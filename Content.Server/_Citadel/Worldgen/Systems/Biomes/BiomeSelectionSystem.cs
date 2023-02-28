@@ -27,7 +27,7 @@ public sealed class BiomeSelectionSystem : BaseWorldSystem
         var coords = args.Coords;
         foreach (var biomeId in component.Biomes)
         {
-            var biome = _proto.Index<BiomePrototype>(biomeId);
+            var biome = _proto.Index<SpaceBiomePrototype>(biomeId);
             if (!CheckBiomeValidity(args.Chunk, biome, coords))
                 continue;
 
@@ -42,7 +42,7 @@ public sealed class BiomeSelectionSystem : BaseWorldSystem
     {
         // surely this can't be THAAAAAAAAAAAAAAAT bad right????
         var sorted = component.Biomes
-            .Select(x => (Id: x, _proto.Index<BiomePrototype>(x).Priority))
+            .Select(x => (Id: x, _proto.Index<SpaceBiomePrototype>(x).Priority))
             .OrderByDescending(x => x.Priority)
             .Select(x => x.Id)
             .ToList();
@@ -50,7 +50,7 @@ public sealed class BiomeSelectionSystem : BaseWorldSystem
         component.Biomes = sorted; // my hopes and dreams rely on this being pre-sorted by priority.
     }
 
-    private bool CheckBiomeValidity(EntityUid chunk, BiomePrototype biome, Vector2i coords)
+    private bool CheckBiomeValidity(EntityUid chunk, SpaceBiomePrototype biome, Vector2i coords)
     {
         foreach (var (noise, ranges) in biome.NoiseRanges)
         {

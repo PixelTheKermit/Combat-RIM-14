@@ -15,7 +15,6 @@
     node: computer
   - type: Computer
   - type: Temperature
-  - type: ApcPassiveHeater
   - type: AtmosExposed
   - type: ApcPowerReceiver
     powerLoad: 20

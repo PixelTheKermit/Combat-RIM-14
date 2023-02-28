@@ -1,0 +1,12 @@
+# Spikes
+- type: marking
+  id: ArachnidSpikesDefault
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Arachnid]
+  sprites:
+  - sprite: CombatRim/Species/Customization/arachnid.rsi
+    state: spikes
+
+
+# Other markings

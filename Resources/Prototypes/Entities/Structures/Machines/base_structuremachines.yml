@@ -41,7 +41,6 @@
   id: BaseMachinePowered
   components:
   - type: Temperature
-  - type: ApcPassiveHeater
   - type: AtmosExposed
   - type: ApcPowerReceiver
     powerLoad: 100

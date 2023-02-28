@@ -80,11 +80,14 @@ public enum LogType
     Stripping = 75,
     Stamina = 76,
     EntitySpawn = 77,
-    Container = 78,
-    AdminMessage = 79,
-    Anomaly = 80,
     // Afterlight edits
     ALSpawnVessel = -3149000,
     ALPlacedStructure = -3149001,
     // End afterlight edits
+    AdminMessage = 78,
+    Anomaly = 79,
+    WireHacking = 80,
+    Teleport = 81,
+    EntityDelete = 82,
+    Vote = 83,
 }

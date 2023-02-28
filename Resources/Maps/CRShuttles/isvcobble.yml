@@ -769,32 +769,6 @@ entities:
   - pos: 5.1054688,-2.0717297
     parent: 3
     type: Transform
-- uid: 62
-  type: ThermalPipework
-  components:
-  - pos: 7.5,-3.5
-    parent: 3
-    type: Transform
-- uid: 63
-  type: ThermalPipework
-  components:
-  - pos: 10.5,-3.5
-    parent: 3
-    type: Transform
-- uid: 64
-  type: ThermalPipework
-  components:
-  - rot: -1.5707963267948966 rad
-    pos: 7.5,1.5
-    parent: 3
-    type: Transform
-- uid: 65
-  type: ThermalPipework
-  components:
-  - rot: -1.5707963267948966 rad
-    pos: 10.5,1.5
-    parent: 3
-    type: Transform
 - uid: 66
   type: SpawnPointLatejoin
   components:

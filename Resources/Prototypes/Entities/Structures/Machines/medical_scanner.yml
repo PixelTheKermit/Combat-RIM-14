@@ -43,6 +43,9 @@
   - type: SignalReceiver
     inputs:
       MedicalScannerReceiver: []
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: StrongMetallic
   - type: Destructible
     thresholds:
     - trigger:
@@ -63,7 +66,6 @@
     - type: MedicalScannerVisualizer
   - type: Climbable
   - type: Temperature
-  - type: ApcPassiveHeater
   - type: AtmosExposed
   - type: ApcPowerReceiver
     powerLoad: 20 #Receives most of its power from the console

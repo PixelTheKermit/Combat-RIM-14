@@ -20,16 +20,15 @@ public sealed class ControllableMobSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
     [Dependency] private readonly DoAfterSystem _doAfterSystem = default!;
 
+    [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
+
     public override void Initialize() // VERY IMPORTANT!!!!!!
     {
         base.Initialize();
 
-        SubscribeLocalEvent<ControllableMobComponent, InteractUsingEvent>(GetInteraction);
         SubscribeLocalEvent<ControllableMobComponent, GetVerbsEvent<ActivationVerb>>(AddActVerb);
         SubscribeLocalEvent<ControllableMobComponent, MobStateChangedEvent>(MobStateChanged);
         SubscribeLocalEvent<ControllableMobComponent, ComponentShutdown>(OnDeleted);
-        SubscribeLocalEvent<ControllableMobComponent, CompleteEvent>(OnDoAfter);
-        SubscribeLocalEvent<ControllableMobComponent, CancelEvent>(OnDoAfterFail);
     }
 
     public override void Update(float frameTime)
@@ -40,7 +39,7 @@ public sealed class ControllableMobSystem : EntitySystem
         {
             if (contMob.CurrentEntityOwning != null)
             {
-                var calcDist = (Comp<TransformComponent>(contMob.CurrentEntityOwning.Value).WorldPosition - xform.WorldPosition).Length;
+                var calcDist = (_transformSystem.GetWorldPosition(contMob.CurrentEntityOwning.Value) - _transformSystem.GetWorldPosition(xform)).Length;
 
                 if (calcDist > contMob.Range)
                 {
@@ -57,8 +56,8 @@ public sealed class ControllableMobSystem : EntitySystem
     /// <summary>
     /// Give temporary control to an entity.
     /// </summary>
-    /// <param name="former">The original entity.</param> 
-    /// <param name="latter">The entity that you want to temporarily control.</param> 
+    /// <param name="former">The original entity.</param>
+    /// <param name="latter">The entity that you want to temporarily control.</param>
     public void GiveControl(EntityUid former, EntityUid latter)
     {
         if (!_entityManager.TryGetComponent<MindComponent>(former, out var mindComp))
@@ -68,6 +67,9 @@ public sealed class ControllableMobSystem : EntitySystem
 
         if (mind == null)
             return;
+
+        _entityManager.RemoveComponent<VisitingMindComponent>(latter);
+
 
         mind.Visit(latter);
     }
@@ -116,38 +118,6 @@ public sealed class ControllableMobSystem : EntitySystem
         }
     }
 
-    private void GetInteraction(EntityUid uid, ControllableMobComponent comp, InteractUsingEvent args)
-    {
-
-        if (!TryComp<ControllerDeviceComponent>(args.Used, out var controlDeviceComp) || comp.CancelToken != null)
-            return;
-
-        if (comp.CurrentEntityOwning != null)
-        {
-            _popupSystem.PopupEntity(Loc.GetString("device-control-fail-pair-controlled"), uid, args.User);
-            return;
-        }
-
-        if (TryComp<MobThresholdsComponent>(uid, out var damageState) && _mobStateSystem.IsDead(uid))
-        {
-            _popupSystem.PopupEntity(Loc.GetString("device-control-fail-pair-damaged"), uid, args.User);
-            return;
-        }
-
-        comp.CancelToken = new CancellationTokenSource();
-
-        _doAfterSystem.DoAfter(new DoAfterEventArgs(uid, comp.Delay*controlDeviceComp.Multiplier, comp.CancelToken.Token, args.User, args.Used)
-        {
-            UserFinishedEvent = new CompleteEvent(args.Used, args.User),
-            UserCancelledEvent = new CancelEvent(),
-            BreakOnDamage = true,
-            BreakOnTargetMove = true,
-            BreakOnUserMove = true,
-            BreakOnStun = true,
-            NeedHand = true,
-        });
-    }
-
     private void StopControl(EntityUid uid, ControllableMobComponent comp)
     {
         if (comp.CurrentEntityOwning != null && TryComp<ControllerMobComponent>(comp.CurrentEntityOwning, out var controlComp))
@@ -158,22 +128,6 @@ public sealed class ControllableMobSystem : EntitySystem
 
             comp.CurrentEntityOwning = null;
         }
-    }
-
-    private void OnDoAfter(EntityUid uid, ControllableMobComponent comp, CompleteEvent args)
-    {
-        comp.CancelToken = null;
-
-        if (!TryComp<ControllerDeviceComponent>(args.Used, out var controlDeviceComp))
-            return;
-
-        controlDeviceComp.Controlling = uid;
-        _popupSystem.PopupEntity(Loc.GetString("device-control-paired"), uid, args.User);
-    }
-
-    private void OnDoAfterFail(EntityUid uid, ControllableMobComponent comp, CancelEvent args)
-    {
-        comp.CancelToken = null;
     }
 
     private void AddActVerb(EntityUid uid, ControllableMobComponent comp, GetVerbsEvent<ActivationVerb> args)
@@ -193,18 +147,4 @@ public sealed class ControllableMobSystem : EntitySystem
 
         args.Verbs.Add(verb);
     }
-
-    private sealed class CompleteEvent : EntityEventArgs
-    {
-        public EntityUid Used { get; }
-        public EntityUid User { get; }
-
-        public CompleteEvent(EntityUid used, EntityUid user)
-        {
-            Used = used;
-            User = user;
-        }
-    }
-
-    private sealed class CancelEvent : EntityEventArgs { }
 }

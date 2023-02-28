@@ -15,7 +15,6 @@
     pack: ChemDispenserStandardInventory
     emagPack: ChemDispenserEmaggedInventory
   - type: Temperature
-  - type: ApcPassiveHeater
   - type: AtmosExposed
   - type: ApcPowerReceiver
     powerLoad: 3000
