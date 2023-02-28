@@ -1,0 +1,12 @@
+# Nearsighted
+
+- type: loadout
+  id: LoadoutNearsightedEyesGlasses
+  name: Prescription glasses
+  description: "For 'yer peepers"
+  category: Traits
+  cost: 0
+  whitelist:
+    components:
+      - Nearsighted
+  item: ClothingEyesGlasses
