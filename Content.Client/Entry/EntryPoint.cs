@@ -127,6 +127,10 @@ namespace Content.Client.Entry
             _prototypeManager.RegisterIgnore("gcQueue");
             // END CITADEL EDITS
 
+            // ! BEGIN CR EDITS
+            _prototypeManager.RegisterIgnore("economicEvent");
+            // ! END CR EDITS
+
             _componentFactory.GenerateNetIds();
             _adminManager.Initialize();
             _stylesheetManager.Initialize();

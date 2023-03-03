@@ -110,7 +110,7 @@ namespace Content.Shared.CCVar
         ///     Controls if the game should run station events
         /// </summary>
         public static readonly CVarDef<bool>
-            EventsEnabled = CVarDef.Create("events.enabled", false, CVar.ARCHIVE | CVar.SERVERONLY);
+            EventsEnabled = CVarDef.Create("events.enabled", false, CVar.ARCHIVE | CVar.SERVERONLY); // ! This should never be true, CR with station events is a bad idea.
 
         /// <summary>
         ///     Average time (in minutes) for when the ramping event scheduler should stop increasing the chaos modifier.
@@ -908,7 +908,7 @@ namespace Content.Shared.CCVar
         /// Whether or not OOC chat should be enabled during a round.
         /// </summary>
         public static readonly CVarDef<bool> OocEnableDuringRound =
-            CVarDef.Create("ooc.enable_during_round", false, CVar.NOTIFY | CVar.REPLICATED |CVar.SERVER);
+            CVarDef.Create("ooc.enable_during_round", true, CVar.NOTIFY | CVar.REPLICATED |CVar.SERVER);
 
         /*
          * LOOC
@@ -1102,14 +1102,14 @@ namespace Content.Shared.CCVar
         ///     Time in minutes after round start to auto-call the shuttle. Set to zero to disable.
         /// </summary>
         public static readonly CVarDef<int> EmergencyShuttleAutoCallTime =
-            CVarDef.Create("shuttle.auto_call_time", 90, CVar.SERVERONLY);
+            CVarDef.Create("shuttle.auto_call_time", 360, CVar.SERVERONLY);
 
         /// <summary>
         ///     Time in minutes after the round was extended (by recalling the shuttle) to call
         ///     the shuttle again.
         /// </summary>
         public static readonly CVarDef<int> EmergencyShuttleAutoCallExtensionTime =
-            CVarDef.Create("shuttle.auto_call_extension_time", 45, CVar.SERVERONLY);
+            CVarDef.Create("shuttle.auto_call_extension_time", 60, CVar.SERVERONLY);
 
         /// <summary>
         /// The map to load for CentCom for the emergency shuttle to dock to.
@@ -1157,7 +1157,7 @@ namespace Content.Shared.CCVar
         ///     Disabled: Cloning has full biomass cost and reclaimer can reclaim corpses with souls. (Playtested and balanced for MRP+).
         /// </summary>
         public static readonly CVarDef<bool> BiomassEasyMode =
-            CVarDef.Create("biomass.easy_mode", true, CVar.SERVERONLY);
+            CVarDef.Create("biomass.easy_mode", false, CVar.SERVERONLY); // It's a PvP fork, also revival methods should be difficult.
 
         /*
          * Anomaly

@@ -60,7 +60,7 @@ namespace Content.Server._CombatRim.ManualTurret
         }
 
         /// <summary>
-        /// This shit happens every fucking frame
+        /// This shit happens every frame, probably a better way of doing this?
         /// </summary>
         /// <param name="frameTime"></param>
         public override void Update(float frameTime)
