@@ -28,8 +28,6 @@ namespace Content.Server._CombatRim.Traits.Pushover
             if (!HasComp<StaminaComponent>(uid) || !args.DamageIncreased || args.DamageDelta == null)
                 return;
 
-            Logger.Debug("Fuck");
-
             if (args.DamageDelta.TryGetDamageInGroup(_protoManager.Index<DamageGroupPrototype>("Brute"), out var damage))
             {
                 _staminaSystem.TakeStaminaDamage(uid, damage.Float() * 1.75f);

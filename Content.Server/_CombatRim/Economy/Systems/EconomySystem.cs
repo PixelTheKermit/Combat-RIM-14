@@ -73,6 +73,8 @@ namespace Content.Server._CombatRim.Economy
             credits += randEvent.AddedOn;
             credits *= randEvent.Multiplier;
 
+            credits = (int) credits;
+
             if (credits < 0)
                 credits = 0;
 
