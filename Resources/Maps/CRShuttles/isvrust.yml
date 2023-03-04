@@ -1044,6 +1044,13 @@ entities:
   - pos: -0.5,-5.5
     parent: 3
     type: Transform
+- uid: 69
+  type: RedspaceVendor
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 0.5,-1.5
+    parent: 3
+    type: Transform
 - uid: 70
   type: Gyroscope
   components:

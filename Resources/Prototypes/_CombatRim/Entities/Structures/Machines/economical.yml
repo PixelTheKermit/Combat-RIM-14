@@ -5,39 +5,79 @@
   placement:
     mode: SnapgridCenter
   components:
-    - type: Sprite
-      sprite: CombatRim\Structures\sellpad.rsi
-      netsync: false
-      layers:
-        - state: redspace
-          shader: unshaded
-        - state: icon
-    - type: Clickable
-    - type: InteractionOutline
-    - type: SignalReceiver
-      inputs:
-        Sell: []
-    - type: SellPlatform
-      blacklist:
-        components:
-        - MobThresholds
-        tags:
-        - SpaceCash
-    - type: Anchorable
-      delay: 2
-    - type: Physics
-      bodyType: Static
-      canCollide: true
-    - type: Fixtures
-      fixtures:
-      - shape:
-          !type:PhysShapeAabb
-          bounds: "-0.35,-0.35,0.35,0.35"
-        density: 190
-        mask:
-        - MachineMask
-        layer:
-        - Impassable
-        - MidImpassable
-        - LowImpassable
-        hard: False
+  - type: Sprite
+    sprite: CombatRim\Structures\sellpad.rsi
+    netsync: false
+    layers:
+      - state: redspace
+        shader: unshaded
+      - state: icon
+  - type: Clickable
+  - type: InteractionOutline
+  - type: SignalReceiver
+    inputs:
+      Sell: []
+  - type: SellPlatform
+    blacklist:
+      components:
+      - MobThresholds
+      tags:
+      - SpaceCash
+  - type: Anchorable
+    delay: 2
+  - type: Physics
+    bodyType: Static
+    canCollide: true
+  - type: Fixtures
+    fixtures:
+    - shape:
+        !type:PhysShapeAabb
+        bounds: "-0.35,-0.35,0.35,0.35"
+      density: 190
+      mask:
+      - MachineMask
+      layer:
+      - Impassable
+      - MidImpassable
+      - LowImpassable
+      hard: False
+
+- type: entity
+  id: RedspaceVendor
+  name: Redspace Vendor
+  description: A vendor utilizing redspace technology to get goods to you.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    sprite: CombatRim\Structures\redspacevendor.rsi
+    netsync: false
+    layers:
+      - state: icon
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Anchorable
+    delay: 2
+  - type: Physics
+    bodyType: Static
+    canCollide: true
+  - type: Fixtures
+    fixtures:
+    - shape:
+        !type:PhysShapeAabb
+        bounds: "-0.25,-0.35,0.25,0.35"
+      density: 190
+      mask:
+      - MachineMask
+      layer:
+      - MachineLayer
+  - type: UserInterface
+    interfaces:
+    - key: enum.StoreUiKey.Key
+      type: StoreBoundUserInterface
+  - type: ActivatableUI
+    key: enum.StoreUiKey.Key
+  - type: Store
+    preset: MerchantPresetAll
+    balance:
+      SpaceCash: 0

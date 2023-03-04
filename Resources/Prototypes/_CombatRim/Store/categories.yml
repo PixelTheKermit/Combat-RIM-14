@@ -1,29 +1,29 @@
 - type: storeCategory
-  id: MerchantBotanical
-  name: Botanical
-  priority: 1
-
-- type: storeCategory
-  id: MerchantMelee
+  id: VendorMelee
   name: Melee
   priority: 1
 
 - type: storeCategory
-  id: MerchantGuns
+  id: VendorGuns
   name: Guns
-  priority: 1
+  priority: 2
 
 - type: storeCategory
-  id: MerchantGrenades
+  id: VendorGrenades
   name: Grenades
-  priority: 1
+  priority: 3
 
 - type: storeCategory
-  id: MerchantArmor
+  id: VendorArmor
   name: Armor
-  priority: 1
+  priority: 4
 
 - type: storeCategory
-  id: MerchantShipAmmo
+  id: VendorShipAmmo
   name: Ship Ammo
-  priority: 1
+  priority: 5
+
+- type: storeCategory
+  id: VendorBotanical
+  name: Botanical
+  priority: 6

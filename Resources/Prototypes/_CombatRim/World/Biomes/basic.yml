@@ -17,8 +17,6 @@
           prob: 0.7
         - id: AfterlightAsteroidDebrisLarger
           prob: 0.4
-        - id: RandomMerchantPoI
-          prob: 0.05
         - id: RandomLostShipment
           prob: 0.01
     - type: NoiseDrivenDebrisSelector
@@ -30,8 +28,6 @@
           prob: 0.5
         - id: CombatRimScrapDebrisSmallRecreational
           prob: 0.1
-        - id: RandomMerchantPoI
-          prob: 0.05
         - id: RandomLostShipment
           prob: 0.01
     - type: NoiseRangeCarver
@@ -56,8 +52,6 @@
           prob: 0.7
         - id: AfterlightAsteroidDebrisLarger
           prob: 0.4
-        - id: RandomMerchantPoI
-          prob: 0.05
         - id: RandomLostShipment
           prob: 0.01
     - type: NoiseDrivenDebrisSelector
@@ -70,8 +64,6 @@
           prob: 0.05
         - id: CombatRimScrapDebrisSmallRecreational
           prob: 0.01
-        - id: RandomMerchantPoI
-          prob: 0.05
         - id: RandomLostShipment
           prob: 0.01
     - type: NoiseRangeCarver
@@ -98,8 +90,6 @@
           prob: 0.7
         - id: AfterlightAsteroidDebrisLarger
           prob: 0.4
-        - id: RandomMerchantPoI
-          prob: 0.05
         - id: RandomLostShipment
           prob: 0.01
     - type: NoiseRangeCarver
