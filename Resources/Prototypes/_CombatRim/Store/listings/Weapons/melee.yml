@@ -6,7 +6,7 @@
   cost:
     SpaceCash: 2000
   categories:
-  - VendorMelee
+  - VendorWeapons
 
 - type: listing
   id: VendorEnergySword
@@ -16,7 +16,7 @@
   cost:
     SpaceCash: 1650
   categories:
-  - VendorMelee
+  - VendorWeapons
 
 - type: listing
   id: VendorCombatKnife
@@ -26,7 +26,7 @@
   cost:
     SpaceCash: 500
   categories:
-  - VendorMelee
+  - VendorWeapons
 
 - type: listing
   id: VendorFireAxeFlaming
@@ -36,4 +36,4 @@
   cost:
     SpaceCash: 4500
   categories:
-  - VendorMelee
+  - VendorWeapons

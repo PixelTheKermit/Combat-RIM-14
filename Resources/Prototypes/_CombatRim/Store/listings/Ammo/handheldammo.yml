@@ -1,0 +1,9 @@
+- type: listing
+  id: VendorMagazinePistol
+  name: mk 58 magazine
+  description: A magazine for any reliable pistol.
+  productEntity: MagazinePistol
+  cost:
+    SpaceCash: 300
+  categories:
+  - VendorAmmo

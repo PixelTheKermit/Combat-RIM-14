@@ -42,12 +42,7 @@ namespace Content.Server._CombatRim.Economy
                 if (!TryComp<TransformComponent>(uid, out var xform))
                     return;
 
-                var tileRef = xform.Coordinates.GetTileRef();
-
-                if (tileRef == null)
-                    return;
-
-                foreach (var otherUid in _entityLookup.GetEntitiesIntersecting(tileRef.Value))
+                foreach (var otherUid in _entityLookup.GetEntitiesIntersecting(uid, LookupFlags.Dynamic))
                 {
                     if (otherUid == uid || (comp.Blacklist != null && comp.Blacklist.IsValid(otherUid)))
                         continue;

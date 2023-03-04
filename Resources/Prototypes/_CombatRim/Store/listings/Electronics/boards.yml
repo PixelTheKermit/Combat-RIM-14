@@ -1,0 +1,52 @@
+- type: listing
+  id: VendorTurretMachineCircuitboard
+  name: Turret Circuitboard
+  description: An effective turret, firing minigun rounds.
+  productEntity: WeaponTurretManualCircuitboard
+  cost:
+    SpaceCash: 3000
+  categories:
+  - VendorElectronics
+
+- type: listing
+  id: VendorLaserTurretMachineCircuitboard
+  name: Laser Turret Circuitboard
+  description: A cheap turret. Still useful and effective.
+  productEntity: WeaponLaserTurretManualCircuitboard
+  cost:
+    SpaceCash: 1750
+  categories:
+  - VendorElectronics
+
+- type: listing
+  id: VendorShotgunTurretMachineCircuitboard
+  name: Shotgun Turret Circuitboard
+  description: A turret designed for wide hull damage.
+  productEntity: WeaponShotgunTurretManualCircuitboard
+  cost:
+    SpaceCash: 4000
+  categories:
+  - VendorElectronics
+
+- type: listing
+  id: VendorRocketTurretMachineCircuitboard
+  name: Rocket Turret Circuitboard
+  description: '"Can you guess why I made this expensive? Too high of a demand, production cannot keep up!" - Overworld Johnson'
+  productEntity: WeaponRocketTurretManualCircuitboard
+  cost:
+    SpaceCash: 15000
+  categories:
+  - VendorElectronics
+
+# ManualTurretMachineCircuitboard
+# ManualLaserTurretMachineCircuitboard
+# ManualShotgunTurretMachineCircuitboard
+# ManualRocketTurretMachineCircuitboard
+# ThrusterMachineCircuitboard
+# OreProcessorMachineCircuitboard
+# ArtifactAnalyzerMachineCircuitboard
+# CircuitImprinterMachineCircuitboard
+# ProtolatheMachineCircuitboard
+# AutolatheMachineCircuitboard
+# HydroponicsTrayMachineCircuitboard
+# GeneratorPlasmaMachineCircuitboard

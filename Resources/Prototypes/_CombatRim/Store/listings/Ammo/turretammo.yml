@@ -6,7 +6,7 @@
   cost:
     SpaceCash: 2500
   categories:
-  - VendorShipAmmo
+  - VendorAmmo
 
 - type: listing
   id: VendorBoxRockets
@@ -14,9 +14,10 @@
   description: It's a box of rockets. Don't go dropping them!
   productEntity: BoxRockets
   cost:
-    SpaceCash: 5000
+    SpaceCash: 7500
   categories:
-  - VendorShipAmmo
+  - VendorAmmo
+  - VendorExplosives
 
 - type: listing
   id: VendorTurretBoxLethalshot
@@ -26,4 +27,4 @@
   cost:
     SpaceCash: 3000
   categories:
-  - VendorShipAmmo
+  - VendorAmmo

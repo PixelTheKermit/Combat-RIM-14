@@ -2,11 +2,13 @@
   id: MerchantPresetAll
   storeName: Redspace Vendor
   categories:
-  - VendorBotanical
-  - VendorMelee
-  - VendorGuns
+  - VendorTools
+  - VendorSeeds
+  - VendorWeapons
+  - VendorResources
   - VendorArmor
-  - VendorGrenades
-  - VendorShipAmmo
+  - VendorExplosives
+  - VendorAmmo
+  - VendorElectronics
   currencyWhitelist:
   - SpaceCash

@@ -6,7 +6,7 @@
   cost:
     SpaceCash: 1750
   categories:
-  - VendorGuns
+  - VendorWeapons
 
 - type: listing
   id: VendorLauncherChinaLake
@@ -16,7 +16,7 @@
   cost:
     SpaceCash: 20000
   categories:
-  - VendorGuns
+  - VendorWeapons
 
 - type: listing
   id: VendorShotgunBulldog
@@ -26,7 +26,7 @@
   cost:
     SpaceCash: 2250
   categories:
-  - VendorGuns
+  - VendorWeapons
 
 - type: listing
   id: VendorLightMachineGunL6
@@ -36,17 +36,7 @@
   cost:
     SpaceCash: 4500
   categories:
-  - VendorGuns
-
-- type: listing
-  id: VendorGunParts
-  name: Gun Parts
-  description: Some gun parts. You could probably refine this into something more useable.
-  productEntity: GunParts
-  cost:
-    SpaceCash: 100
-  categories:
-  - VendorGuns
+  - VendorWeapons
 
 - type: listing
   id: VendorPistolMk58
@@ -56,14 +46,4 @@
   cost:
     SpaceCash: 750
   categories:
-  - VendorGuns
-
-- type: listing
-  id: VendorMagazinePistol
-  name: mk 58 magazine
-  description: A magazine for any reliable pistol.
-  productEntity: MagazinePistol
-  cost:
-    SpaceCash: 300
-  categories:
-  - VendorGuns
+  - VendorWeapons

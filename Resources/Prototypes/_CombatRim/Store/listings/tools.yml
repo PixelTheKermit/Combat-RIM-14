@@ -1,0 +1,19 @@
+- type: listing
+  id: VendorToolMiniHoe
+  name: Mini Hoe
+  description: A tool, used to remove weeds or in the worst case senario could be a weapon.
+  productEntity: HydroponicsToolMiniHoe
+  cost:
+    SpaceCash: 250
+  categories:
+  - VendorTools
+
+- type: listing
+  id: VendorToolClippers
+  name: Clippers
+  description: A pair of clippers. Useful for sampling plants or cutting limbs off.
+  productEntity: HydroponicsToolClippers
+  cost:
+    SpaceCash: 250
+  categories:
+  - VendorTools

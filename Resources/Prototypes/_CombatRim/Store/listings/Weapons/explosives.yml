@@ -6,7 +6,8 @@
   cost:
     SpaceCash: 10000
   categories:
-  - VendorGrenades
+  - VendorAmmo
+  - VendorExplosives
 
 - type: listing
   id: VendorGrenadeFrag
@@ -16,7 +17,8 @@
   cost:
     SpaceCash: 10000
   categories:
-  - VendorGrenades
+  - VendorAmmo
+  - VendorExplosives
 
 - type: listing
   id: VendorGrenadeBaton
@@ -26,7 +28,8 @@
   cost:
     SpaceCash: 10000
   categories:
-  - VendorGrenades
+  - VendorAmmo
+  - VendorExplosives
 
 - type: listing
   id: VendorGrenadeBlast
@@ -36,7 +39,8 @@
   cost:
     SpaceCash: 10000
   categories:
-  - VendorGrenades
+  - VendorAmmo
+  - VendorExplosives
 
 - type: listing
   id: VendorC4
@@ -46,7 +50,7 @@
   cost:
     SpaceCash: 5000
   categories:
-  - VendorGrenades
+  - VendorExplosives
 
 - type: listing
   id: VendorGrenadeFlashBang
@@ -56,7 +60,7 @@
   cost:
     SpaceCash: 2500
   categories:
-  - VendorGrenades
+  - VendorExplosives
 
 - type: listing
   id: VendorSyndieMiniBomb
@@ -66,7 +70,7 @@
   cost:
     SpaceCash: 6500
   categories:
-  - VendorGrenades
+  - VendorExplosives
 
 - type: listing
   id: VendorExGrenade
@@ -76,7 +80,7 @@
   cost:
     SpaceCash: 6500
   categories:
-  - VendorGrenades
+  - VendorExplosives
 
 - type: listing
   id: VendorClusterBang
@@ -86,4 +90,4 @@
   cost:
     SpaceCash: 3000
   categories:
-  - VendorGrenades
+  - VendorExplosives

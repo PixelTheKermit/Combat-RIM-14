@@ -1,16 +1,16 @@
 - type: storeCategory
-  id: VendorMelee
-  name: Melee
+  id: VendorWeapons
+  name: Weapons
   priority: 1
 
 - type: storeCategory
-  id: VendorGuns
-  name: Guns
+  id: VendorTools
+  name: Tools
   priority: 2
 
 - type: storeCategory
-  id: VendorGrenades
-  name: Grenades
+  id: VendorExplosives
+  name: Explosives
   priority: 3
 
 - type: storeCategory
@@ -19,11 +19,21 @@
   priority: 4
 
 - type: storeCategory
-  id: VendorShipAmmo
-  name: Ship Ammo
+  id: VendorAmmo
+  name: Ammo
   priority: 5
 
 - type: storeCategory
-  id: VendorBotanical
-  name: Botanical
+  id: VendorResources
+  name: Resources
   priority: 6
+
+- type: storeCategory
+  id: VendorElectronics
+  name: Electronics
+  priority: 7
+
+- type: storeCategory
+  id: VendorSeeds
+  name: Seeds
+  priority: 8
