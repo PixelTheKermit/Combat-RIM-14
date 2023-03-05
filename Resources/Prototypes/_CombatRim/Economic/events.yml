@@ -1,19 +1,20 @@
 - type: economicEvent
-  id: EconomicCrash
-  text: economic-crash
-  multiplier: 0.7
+  id: BankRaid
+  text: bank-raid
+  addedOn: -1000
 
 - type: economicEvent
-  id: MoneyPrinting
-  text: money-printing
-  addedOn: -5000
+  id: GoldMining
+  text: gold-mining
+  inflationMultiplier: .7
 
 - type: economicEvent
-  id: EconomicResurgance
-  text: economic-resurgance
-  multiplier: 1.65
+  id: TaxDonation
+  text: tax-donation
+  addedOn: 5000
 
 - type: economicEvent
-  id: HighTrading
-  text: high-trading
-  addedOn: 10000
+  id: EconomicInflation
+  text: economic-inflation
+  multiplier: 1.25
+  inflationMultiplier: 1.25

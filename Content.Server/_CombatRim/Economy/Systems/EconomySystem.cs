@@ -3,7 +3,10 @@ using System.Diagnostics;
 using System.Linq;
 using Content.Server.Chat.Systems;
 using Content.Server.GameTicking.Events;
+using Content.Server.Store.Components;
+using Content.Shared.FixedPoint;
 using Content.Shared.GameTicking;
+using Robust.Shared.GameObjects;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
@@ -22,9 +25,9 @@ namespace Content.Server._CombatRim.Economy
         [Dependency] private readonly IPrototypeManager _protoManager = default!;
 
         public float credits = 0f;
-
+        public float inflationMultiplier = 1f;
+        public String currencyId = "SpaceCash"; // ! Should probably be moved to be a cvar, actually a lot of this does
         private TimeSpan? nextEconomicCrisis;
-
         private string announcer = "Bank of the Death Sector";
 
         public override void Initialize() // TODO: Once there is an event for checking if an item has been brought from a store, make it add to the economy
@@ -33,6 +36,7 @@ namespace Content.Server._CombatRim.Economy
 
             SubscribeLocalEvent<RoundStartingEvent>(RoundStarted);
             SubscribeLocalEvent<RoundRestartCleanupEvent>(RoundEnded);
+            SubscribeLocalEvent<StoreComponent, ComponentInit>(StoreCompStartup);
         }
 
         public override void Update(float frameTime)
@@ -43,8 +47,19 @@ namespace Content.Server._CombatRim.Economy
 
             if (curTime > nextEconomicCrisis)
             {
-                nextEconomicCrisis = _gameTiming.CurTime + TimeSpan.FromMinutes(_random.Next(10, 25));
+                nextEconomicCrisis = _gameTiming.CurTime + TimeSpan.FromMinutes(_random.Next(1, 2));
                 DoRandomEvent();
+            }
+        }
+
+        private void StoreCompStartup(EntityUid uid, StoreComponent comp, ComponentInit args)
+        {
+            foreach (var listing in comp.Listings)
+            {
+                if (listing.Cost.Any(x => x.Key == currencyId))
+                {
+                    listing.Cost[currencyId] *= inflationMultiplier;
+                }
             }
         }
 
@@ -52,7 +67,8 @@ namespace Content.Server._CombatRim.Economy
         {
             credits = _random.Next(1, 3)*10000;
             Logger.Info("Credits: " + credits);
-            nextEconomicCrisis = _gameTiming.CurTime + TimeSpan.FromMinutes(_random.Next(10, 25));
+            nextEconomicCrisis = _gameTiming.CurTime + TimeSpan.FromMinutes(_random.Next(1, 2));
+            inflationMultiplier = 1f;
         }
 
         private void RoundEnded(RoundRestartCleanupEvent args)
@@ -78,7 +94,28 @@ namespace Content.Server._CombatRim.Economy
             if (credits < 0)
                 credits = 0;
 
+            EconomicInflation(randEvent.InflationMultiplier);
+
             _chatSystem.DispatchGlobalAnnouncement(Loc.GetString(randEvent.Text), announcer, true, null, Color.Violet);
+        }
+
+        private void EconomicInflation(float multiplier)
+        {
+            var oldMultiplier = inflationMultiplier;
+
+            inflationMultiplier *= multiplier;
+
+            foreach (var comp in EntityQuery<StoreComponent>())
+            {
+                foreach (var listing in comp.Listings)
+                {
+                    if (listing.Cost.Any(x => x.Key == currencyId))
+                    {
+                        listing.Cost[currencyId] /= oldMultiplier;
+                        listing.Cost[currencyId] *= inflationMultiplier;
+                    }
+                }
+            }
         }
 
     /// <summary>

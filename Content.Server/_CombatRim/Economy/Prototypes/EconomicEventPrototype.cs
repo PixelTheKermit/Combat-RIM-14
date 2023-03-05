@@ -15,6 +15,9 @@ namespace Content.Server._CombatRim.Economy
         [DataField("multiplier")]
         public float Multiplier = 1f;
 
+        [DataField("inflationMultiplier")]
+        public float InflationMultiplier = 1f;
+
         [DataField("addedOn")]
         public int AddedOn = 0;
     }
