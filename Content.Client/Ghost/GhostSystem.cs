@@ -18,15 +18,6 @@ namespace Content.Client.Ghost
         [Dependency] private readonly IPlayerManager _playerManager = default!;
         [Dependency] private readonly IUserInterfaceManager _uiManager = default!;
 
-        public override void Update(float frameTime)
-        {
-            foreach (var ghost in EntityManager.EntityQuery<GhostComponent>(true))
-            {
-                var ui = _uiManager.GetActiveUIWidgetOrNull<GhostGui>();
-                if (ui != null && Player != null)
-                    ui.UpdateRespawn(Player?.TimeOfDeath);
-            }
-        }
         [Dependency] private readonly SharedActionsSystem _actions = default!;
         [Dependency] private readonly ILightManager _lightManager = default!;
         [Dependency] private readonly IEyeManager _eye = default!;

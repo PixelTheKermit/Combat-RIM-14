@@ -276,12 +276,6 @@ namespace Content.Shared.CCVar
         public static readonly CVarDef<bool> GameTableBonk =
             CVarDef.Create("game.table_bonk", false, CVar.SERVERONLY);
 
-        public static readonly CVarDef<bool> AllowRespawns =
-            CVarDef.Create("game.allow_respawns", true, CVar.REPLICATED | CVar.SERVER);
-
-        public static readonly CVarDef<float> RespawnTime =
-            CVarDef.Create("game.respawn_time", 300.0f, CVar.REPLICATED | CVar.SERVER);
-
 #if EXCEPTION_TOLERANCE
         /// <summary>
         ///     Amount of times round start must fail before the server is shut down.

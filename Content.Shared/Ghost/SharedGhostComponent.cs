@@ -6,6 +6,7 @@ namespace Content.Shared.Ghost
     [NetworkedComponent()]
     public abstract class SharedGhostComponent : Component
     {
+        [ViewVariables]
         public TimeSpan TimeOfDeath { get; set; } = TimeSpan.Zero;
 
         [ViewVariables(VVAccess.ReadWrite)]

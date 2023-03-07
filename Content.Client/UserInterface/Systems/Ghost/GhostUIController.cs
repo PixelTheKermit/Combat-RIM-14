@@ -53,14 +53,7 @@ public sealed class GhostUIController : UIController, IOnSystemChanged<GhostSyst
         }
 
         Gui.Visible = _system?.IsGhost ?? false;
-        Gui.Update(_system?.AvailableGhostRoleCount, _system?.Player?.CanReturnToBody,
-            _cfg.GetCVar(CCVars.AllowRespawns) ? _system?.Player?.TimeOfDeath : null,
-            _cfg.GetCVar(CCVars.RespawnTime));
-    }
-
-    private void UpdateRespawn()
-    {
-        Gui?.UpdateRespawn(_system?.Player?.TimeOfDeath);
+        Gui.Update(_system?.Player?.CanReturnToBody, _system?.Player?.TimeOfDeath);
     }
 
     private void OnPlayerRemoved(GhostComponent component)
@@ -71,7 +64,6 @@ public sealed class GhostUIController : UIController, IOnSystemChanged<GhostSyst
     private void OnPlayerUpdated(GhostComponent component)
     {
         UpdateGui();
-        UpdateRespawn();
     }
 
     private void OnPlayerAttached(GhostComponent component)
@@ -81,7 +73,6 @@ public sealed class GhostUIController : UIController, IOnSystemChanged<GhostSyst
 
         Gui.Visible = true;
         UpdateGui();
-        UpdateRespawn();
     }
 
     private void OnPlayerDetached()
@@ -114,16 +105,14 @@ public sealed class GhostUIController : UIController, IOnSystemChanged<GhostSyst
         if (Gui == null)
             return;
 
-        Gui.RequestWarpsPressed += RequestWarps;
         Gui.ReturnToBodyPressed += ReturnToBody;
-        Gui.GhostRolesPressed += GhostRolesPressed;
-        Gui.TargetWindow.WarpClicked += OnWarpClicked;
-        Gui.GhostRolesRespawnPressed += GuiOnGhostRolesRespawnPressed;
+        Gui.GhostRespawnPressed += GuiOnGhostRespawnPressed;
 
         UpdateGui();
     }
 
-    private void GuiOnGhostRolesRespawnPressed()
+
+    private void GuiOnGhostRespawnPressed()
     {
         _consoleHost.ExecuteCommand("ghostrespawn");
     }
@@ -133,11 +122,8 @@ public sealed class GhostUIController : UIController, IOnSystemChanged<GhostSyst
         if (Gui == null)
             return;
 
-        Gui.RequestWarpsPressed -= RequestWarps;
         Gui.ReturnToBodyPressed -= ReturnToBody;
-        Gui.GhostRolesPressed -= GhostRolesPressed;
-        Gui.TargetWindow.WarpClicked -= OnWarpClicked;
-        Gui.GhostRolesRespawnPressed -= GuiOnGhostRolesRespawnPressed;
+        Gui.GhostRespawnPressed -= GuiOnGhostRespawnPressed;
 
         Gui.Hide();
     }
