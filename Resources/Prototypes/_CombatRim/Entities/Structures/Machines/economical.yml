@@ -38,9 +38,10 @@
         !type:PhysShapeAabb
         bounds: "-0.35,-0.35,0.35,0.35"
       density: 190
-      hard: false
       layer:
-        - LowImpassable
+        - SlipLayer
+      mask:
+        - ItemMask
 
 - type: entity
   id: RedspaceVendor
@@ -54,6 +55,7 @@
     netsync: false
     layers:
       - state: icon
+  - type: EcoContributor
   - type: Clickable
   - type: InteractionOutline
   - type: Pullable

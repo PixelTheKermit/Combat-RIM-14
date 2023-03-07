@@ -50,6 +50,42 @@ public sealed partial class StoreSystem
     }
 
     /// <summary>
+    /// ! And now, we await the merge conflicts.
+    /// ! Likely a sin against god, too bad!
+    /// </summary>
+    /// <param name="uid"></param>
+    /// <param name="comp"></param>
+    /// <param name="msg"></param>
+    /// <returns></returns>
+    public bool ValidPurchase(EntityUid uid, StoreComponent comp, EntityUid buyer, ListingData? listing)
+    {
+        if (listing == null)
+            return false;
+
+        if (!ListingHasCategory(listing, comp.Categories))
+            return false;
+
+        if (listing.Conditions != null)
+        {
+            var args = new ListingConditionArgs(comp.AccountOwner ?? buyer, uid, listing, EntityManager);
+            var conditionsMet = listing.Conditions.All(condition => condition.Condition(args));
+
+            if (!conditionsMet)
+                return false;
+        }
+
+        foreach (var currency in listing.Cost)
+        {
+            if (!comp.Balance.TryGetValue(currency.Key, out var balance) || balance < currency.Value)
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    /// <summary>
     /// Updates the user interface for a store and refreshes the listings
     /// </summary>
     /// <param name="user">The person who if opening the store ui. Listings are filtered based on this.</param>
@@ -103,39 +139,15 @@ public sealed partial class StoreSystem
     private void OnBuyRequest(EntityUid uid, StoreComponent component, StoreBuyListingMessage msg)
     {
         var listing = component.Listings.FirstOrDefault(x => x.Equals(msg.Listing));
-        if (listing == null) //make sure this listing actually exists
-        {
-            Logger.Debug("listing does not exist");
-            return;
-        }
 
         if (msg.Session.AttachedEntity is not { Valid: true } buyer)
             return;
 
-        //verify that we can actually buy this listing and it wasn't added
-        if (!ListingHasCategory(listing, component.Categories))
+        if (!ValidPurchase(uid, component, buyer, listing))
             return;
 
-        //condition checking because why not
-        if (listing.Conditions != null)
-        {
-            var args = new ListingConditionArgs(component.AccountOwner ?? buyer, uid, listing, EntityManager);
-            var conditionsMet = listing.Conditions.All(condition => condition.Condition(args));
-
-            if (!conditionsMet)
-                return;
-        }
-
-        //check that we have enough money
-        foreach (var currency in listing.Cost)
-        {
-            if (!component.Balance.TryGetValue(currency.Key, out var balance) || balance < currency.Value)
-            {
-                return;
-            }
-        }
         //subtract the cash
-        foreach (var currency in listing.Cost)
+        foreach (var currency in listing!.Cost)
         {
             component.Balance[currency.Key] -= currency.Value;
         }
