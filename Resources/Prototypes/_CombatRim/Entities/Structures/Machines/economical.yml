@@ -38,8 +38,6 @@
         !type:PhysShapeAabb
         bounds: "-0.35,-0.35,0.35,0.35"
       density: 190
-      layer:
-        - SlipLayer
       mask:
         - ItemMask
 

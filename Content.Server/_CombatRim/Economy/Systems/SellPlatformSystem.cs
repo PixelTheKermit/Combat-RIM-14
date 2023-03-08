@@ -3,6 +3,7 @@ using Content.Server.MachineLinking.Events;
 using Content.Server.Stack;
 using Content.Shared.Examine;
 using Content.Shared.Tag;
+using Robust.Shared.Configuration;
 using Robust.Server.GameObjects;
 using Robust.Shared.Map;
 
@@ -18,6 +19,7 @@ namespace Content.Server._CombatRim.Economy
         [Dependency] private readonly EntityLookupSystem _entityLookup = default!;
         [Dependency] private readonly TransformSystem _transformSystem = default!;
         [Dependency] private readonly IMapManager _mapManager = default!;
+        [Dependency] private readonly IConfigurationManager _cfg = default!;
 
         public override void Initialize()
         {
@@ -49,13 +51,14 @@ namespace Content.Server._CombatRim.Economy
                     if (otherUid == uid || (comp.Blacklist != null && comp.Blacklist.IsValid(otherUid)))
                         continue;
 
-                    var cost = _pricingSystem.GetPrice(otherUid)*ecoComp.inflationMultiplier*comp.TaxCut;
+                    var cost = _pricingSystem.GetPrice(otherUid)*ecoComp.inflationMultiplier*(1-comp.TaxCut);
 
-                    if (!_economySystem.TryCapitalism((int) cost))
+                    if (ecoComp.credits < cash + cost)
                         continue;
 
                     cash += (int) cost;
-                    _entityManager.DeleteEntity(otherUid);
+                    ecoComp.credits -= (int) cost;
+                    _entityManager.QueueDeleteEntity(otherUid);
                 }
 
                 if (cash <= 0)

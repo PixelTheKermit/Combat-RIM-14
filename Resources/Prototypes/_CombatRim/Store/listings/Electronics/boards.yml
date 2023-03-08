@@ -38,15 +38,82 @@
   categories:
   - VendorElectronics
 
-# ManualTurretMachineCircuitboard
-# ManualLaserTurretMachineCircuitboard
-# ManualShotgunTurretMachineCircuitboard
-# ManualRocketTurretMachineCircuitboard
-# ThrusterMachineCircuitboard
-# OreProcessorMachineCircuitboard
-# ArtifactAnalyzerMachineCircuitboard
-# CircuitImprinterMachineCircuitboard
-# ProtolatheMachineCircuitboard
-# AutolatheMachineCircuitboard
-# HydroponicsTrayMachineCircuitboard
-# GeneratorPlasmaMachineCircuitboard
+- type: listing
+  id: ThrusterMachineCircuitboard
+  name: Thruster Circuitboard
+  description: More thrusters means more likely to explode.
+  productEntity: WeaponRocketTurretManualCircuitboard
+  cost:
+    SpaceCash: 1250
+  categories:
+  - VendorElectronics
+
+- type: listing
+  id: OreProcessorMachineCircuitboard
+  name: Ore Processor Circuitboard
+  description: If you're having to resort to buying this... there may be a problem.
+  productEntity: OreProcessorMachineCircuitboard
+  cost:
+    SpaceCash: 750
+  categories:
+  - VendorElectronics
+
+- type: listing
+  id: ArtifactAnalyzerMachineCircuitboard
+  name: Artifact Analyzer Circuitboard
+  description: Analyzer... Analyser... which is it?
+  productEntity: ArtifactAnalyzerMachineCircuitboard
+  cost:
+    SpaceCash: 1450
+  categories:
+  - VendorElectronics
+
+- type: listing
+  id: CircuitImprinterMachineCircuitboard
+  name: Circuit Imprinter Circuitboard
+  description: Imprints circuits... I have nothing funny to say about this.
+  productEntity: CircuitImprinterMachineCircuitboard
+  cost:
+    SpaceCash: 2350
+  categories:
+  - VendorElectronics
+
+- type: listing
+  id: ProtolatheMachineCircuitboard
+  name: Protolathe Circuitboard
+  description: Not an autolathe.
+  productEntity: ProtolatheMachineCircuitboard
+  cost:
+    SpaceCash: 2000
+  categories:
+  - VendorElectronics
+
+- type: listing
+  id: AutolatheMachineCircuitboard
+  name: Autolathe Circuitboard
+  description: Not a protolathe
+  productEntity: AutolatheMachineCircuitboard
+  cost:
+    SpaceCash: 1250
+  categories:
+  - VendorElectronics
+
+- type: listing
+  id: HydroponicsTrayMachineCircuitboard
+  name: Hydroponics Tray Circuitboard
+  description: We all know you're going to use this to grow drugs.
+  productEntity: HydroponicsTrayMachineCircuitboard
+  cost:
+    SpaceCash: 1250
+  categories:
+  - VendorElectronics
+
+- type: listing
+  id: GeneratorPlasmaMachineCircuitboard
+  name: Ore Processor Circuitboard
+  description: A simple plasma gen. Uses cheap plasma fuel.
+  productEntity: GeneratorPlasmaMachineCircuitboard
+  cost:
+    SpaceCash: 2500
+  categories:
+  - VendorElectronics

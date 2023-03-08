@@ -9,6 +9,7 @@ using Content.Shared.FixedPoint;
 using Content.Shared.GameTicking;
 using Content.Shared.Store;
 using Robust.Server.GameObjects;
+using Robust.Shared.Configuration;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
@@ -31,6 +32,7 @@ namespace Content.Server._CombatRim.Economy
         [Dependency] private readonly TransformSystem _transformSystem = default!;
         [Dependency] private readonly IMapManager _mapManager = default!;
         [Dependency] private readonly IEntityManager _entityManager = default!;
+        [Dependency] private readonly IConfigurationManager _cfg = default!;
         public override void Initialize()
         {
             base.Initialize();
@@ -53,7 +55,7 @@ namespace Content.Server._CombatRim.Economy
 
             if (curTime > comp.nextEconomicCrisis)
             {
-                comp.nextEconomicCrisis = _gameTiming.CurTime + TimeSpan.FromMinutes(_random.Next(15, 45));
+                comp.nextEconomicCrisis = _gameTiming.CurTime + TimeSpan.FromMinutes(_random.Next(_cfg.GetCVar<int>(CombatRimCVars.EcoEventMinInterval), _cfg.GetCVar<int>(CombatRimCVars.EcoEventMaxInterval)));
                 DoRandomEvent();
             }
         }
@@ -65,17 +67,21 @@ namespace Content.Server._CombatRim.Economy
             if (ecoComp == null)
                 return;
 
+            var mainCur = _cfg.GetCVar<string>(CombatRimCVars.MainCurrency);
+
             foreach (var listing in comp.Listings)
             {
-                if (listing.Cost.Any(x => x.Key == ecoComp.currencyId))
+                if (listing.Cost.Any(x => x.Key == mainCur))
                 {
-                    listing.Cost[ecoComp.currencyId] *= ecoComp.inflationMultiplier;
+                    listing.Cost[mainCur] *= ecoComp.inflationMultiplier;
                 }
             }
         }
 
         private void StoreBuyListing(EntityUid uid, EcoContributorComponent contribComp, StoreBuyListingMessage msg)
         {
+            var mainCur = _cfg.GetCVar<string>(CombatRimCVars.MainCurrency);
+
             if (!TryComp<StoreComponent>(uid, out var comp))
                 return;
 
@@ -92,9 +98,9 @@ namespace Content.Server._CombatRim.Economy
             if (!_storeSystem.ValidPurchase(uid, comp, buyer, listing))
                 return;
 
-            if (listing!.Cost.Any(x => x.Key == ecoComp.currencyId))
+            if (listing!.Cost.Any(x => x.Key == mainCur))
             {
-                TryCapitalism((int) -listing.Cost[ecoComp.currencyId]);
+                ecoComp.credits += (int) listing.Cost[mainCur];
             }
         }
 
@@ -104,7 +110,7 @@ namespace Content.Server._CombatRim.Economy
             var comp = _entityManager.AddComponent<EconomyComponent>(ent);
             comp.credits = _random.Next(1, 3)*10000;
             Logger.Info("Credits: " + comp.credits);
-            comp.nextEconomicCrisis = _gameTiming.CurTime + TimeSpan.FromMinutes(_random.Next(15, 45));
+            comp.nextEconomicCrisis = _gameTiming.CurTime + TimeSpan.FromMinutes(_random.Next(_cfg.GetCVar<int>(CombatRimCVars.EcoEventMinInterval), _cfg.GetCVar<int>(CombatRimCVars.EcoEventMaxInterval)));
             comp.inflationMultiplier = 1f;
         }
 
@@ -132,7 +138,7 @@ namespace Content.Server._CombatRim.Economy
 
             EconomicInflation(ecoComp, randEvent.InflationMultiplier);
 
-            _chatSystem.DispatchGlobalAnnouncement(Loc.GetString(randEvent.Text), ecoComp.announcer, true, null, Color.Violet);
+            _chatSystem.DispatchGlobalAnnouncement(Loc.GetString(randEvent.Text), _cfg.GetCVar<string>(CombatRimCVars.BankAnnouncer), true, null, Color.Violet);
         }
 
         private void EconomicInflation(EconomyComponent ecoComp, float multiplier)
@@ -141,39 +147,20 @@ namespace Content.Server._CombatRim.Economy
 
             ecoComp.inflationMultiplier *= multiplier;
 
+            var mainCur = _cfg.GetCVar<string>(CombatRimCVars.MainCurrency);
+
             foreach (var comp in EntityQuery<StoreComponent>())
             {
                 foreach (var listing in comp.Listings)
                 {
-                    if (listing.Cost.Any(x => x.Key == ecoComp.currencyId))
+                    if (listing.Cost.Any(x => x.Key == mainCur))
                     {
-                        listing.Cost[ecoComp.currencyId] /= oldMultiplier;
-                        listing.Cost[ecoComp.currencyId] *= ecoComp.inflationMultiplier;
+                        listing.Cost[mainCur] /= oldMultiplier;
+                        listing.Cost[mainCur] *= ecoComp.inflationMultiplier;
                     }
                 }
             }
         }
-
-    /// <summary>
-    /// Remove from or contribute to the economy!
-    /// WE DO CAPITALISM HERE ON THE DEATH SECTORS!
-    /// </summary>
-    /// <param name="price">Positive if removing from economy, negative if contributing. Confusing I know. You may ask why, it's because I want to fuck with you.</param>
-    /// <returns></returns>
-        public bool TryCapitalism(int price)
-        {
-            var ecoComp = GetEconomyComponent();
-
-            if (ecoComp == null)
-                return false;
-
-            if (ecoComp.credits < price)
-                return false;
-
-            ecoComp.credits -= price;
-            return true;
-        }
-
         public EconomyComponent? GetEconomyComponent()
         {
             if (!EntityQuery<EconomyComponent>().Any())

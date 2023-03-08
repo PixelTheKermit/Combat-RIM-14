@@ -1,0 +1,19 @@
+- type: listing
+  id: VendorMaterialPlasma
+  name: Plasma
+  description: A stack of plasma. Thankfully not in gas form.
+  productEntity: SheetPlasma
+  cost:
+    SpaceCash: 1200
+  categories:
+  - VendorResources
+
+- type: listing
+  id: VendorMaterialUranium
+  name: Uranium
+  description: ...I should probably not be selling this to you... too bad!
+  productEntity: SheetUranium
+  cost:
+    SpaceCash: 1800
+  categories:
+  - VendorResources

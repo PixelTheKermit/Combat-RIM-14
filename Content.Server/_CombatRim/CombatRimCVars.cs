@@ -1,0 +1,31 @@
+using Robust.Shared.Configuration;
+
+namespace Content.Server._CombatRim;
+
+[CVarDefs]
+public sealed class CombatRimCVars
+{
+    /// <summary>
+    /// What is the main entity used for buying and selling goods?
+    /// </summary>
+    public static readonly CVarDef<string> MainCurrency =
+        CVarDef.Create("combatrim.economy.main_currency", "SpaceCash", CVar.SERVERONLY);
+
+    /// <summary>
+    /// What should be the name of the bank announcer?
+    /// </summary>
+    public static readonly CVarDef<string> BankAnnouncer =
+        CVarDef.Create("combatrim.economy.announcer", "Bank of the Death Sector", CVar.SERVERONLY);
+
+    /// <summary>
+    /// Min interval of the economic events.
+    /// </summary>
+    public static readonly CVarDef<int> EcoEventMinInterval =
+        CVarDef.Create("combatrim.economy.min_interval", 15, CVar.SERVERONLY);
+
+    /// <summary>
+    /// Max interval of the economic events.
+    /// </summary>
+    public static readonly CVarDef<int> EcoEventMaxInterval =
+        CVarDef.Create("combatrim.economy.max_interval", 45, CVar.SERVERONLY);
+}
