@@ -28,4 +28,10 @@ public sealed class CombatRimCVars
     /// </summary>
     public static readonly CVarDef<int> EcoEventMaxInterval =
         CVarDef.Create("combatrim.economy.max_interval", 45, CVar.SERVERONLY);
+
+    /// <summary>
+    /// The "border" of the sector, measured by tiles and value is multiplied by 128.
+    /// </summary>
+    public static readonly CVarDef<int> SectorBorderDist =
+        CVarDef.Create("combatrim.border.damage_dist", 32, CVar.SERVERONLY);
 }
