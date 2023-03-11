@@ -11,6 +11,7 @@ using Content.Shared.Tag;
 using Content.Shared.Tools;
 using Content.Shared.Tools.Components;
 using Robust.Shared.Map;
+using Robust.Shared.Map.Components;
 using Robust.Shared.Physics.Components;
 
 namespace Content.Server.Construction
@@ -100,7 +101,12 @@ namespace Content.Server.Construction
                 return false;
 
             var tileIndices = grid.TileIndicesFor(coordinates);
-            var enumerator = grid.GetAnchoredEntitiesEnumerator(tileIndices);
+            return TileFree(grid, tileIndices, anchorBody.CollisionLayer, anchorBody.CollisionMask);
+        }
+
+        public bool TileFree(MapGridComponent grid, Vector2i gridIndices, int collisionLayer = 0, int collisionMask = 0)
+        {
+            var enumerator = grid.GetAnchoredEntitiesEnumerator(gridIndices);
             var bodyQuery = GetEntityQuery<PhysicsComponent>();
             var tagQuery = GetEntityQuery<TagComponent>();
 
@@ -116,8 +122,8 @@ namespace Content.Server.Construction
                     continue;
                 }
 
-                if ((body.CollisionMask & anchorBody.CollisionLayer) != 0x0 ||
-                    (body.CollisionLayer & anchorBody.CollisionMask) != 0x0)
+                if ((body.CollisionMask & collisionLayer) != 0x0 ||
+                    (body.CollisionLayer & collisionMask) != 0x0)
                 {
                     return false;
                 }
