@@ -81,9 +81,9 @@ namespace Content.Server._CombatRim.ManualTurret
                     comp.Firing = false;
 
                 if (input.GetState(EngineKeyFunctions.MoveLeft) == BoundKeyState.Down)
-                    comp.Rotation += comp.RotSpeed / 100;
+                    comp.Rotation += comp.RotSpeed*frameTime;
                 if (input.GetState(EngineKeyFunctions.MoveRight) == BoundKeyState.Down)
-                    comp.Rotation -= comp.RotSpeed / 100;
+                    comp.Rotation -= comp.RotSpeed*frameTime;
 
                 if (TryComp<ControllableMobComponent>(comp.Owner, out var contMob) && contMob.CurrentEntityOwning != null
                     && input.GetState(EngineKeyFunctions.MoveDown) == BoundKeyState.Down)
