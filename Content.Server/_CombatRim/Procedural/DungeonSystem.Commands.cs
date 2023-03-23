@@ -52,7 +52,7 @@ public sealed partial class DungeonSystem
             seed = new Random().Next();
         }
 
-        var xform = Comp<TransformComponent>(shell.Player.AttachedEntity.Value);
+        var xform = Transform(shell.Player.AttachedEntity.Value);
 
         var mapGrid = _mapManager.CreateGrid(xform.MapID);
         var position = _transform.GetWorldPosition(xform).Floored();
