@@ -40,6 +40,7 @@ public sealed partial class DungeonSystem : EntitySystem
         base.Initialize();
         _sawmill = Logger.GetSawmill("dungen");
         _console.RegisterCommand("dungen", Loc.GetString("cmd-dungen-desc"), Loc.GetString("cmd-dungen-help"), GenerateDungeon, CompletionCallback);
+        _console.RegisterCommand("spacedungen", Loc.GetString("cmd-dungen-desc"), Loc.GetString("cmd-dungen-help"), GenerateSpaceDungeon);
         _prototype.PrototypesReloaded += PrototypeReload;
         SubscribeLocalEvent<RoundStartingEvent>(OnRoundStart);
     }
