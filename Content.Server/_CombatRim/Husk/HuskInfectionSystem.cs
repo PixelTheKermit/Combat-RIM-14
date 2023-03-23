@@ -72,15 +72,17 @@ namespace Content.Server._CombatRim.Husk
                 if (HasComp<HuskifiedComponent>(uid))
                     continue;
 
-                if (host.LastStage + TimeSpan.FromMinutes(.25f) < _gameTiming.CurTime)
+                if (host.LastStage + TimeSpan.FromMinutes(host.InfectionTime) < _gameTiming.CurTime)
                 {
                     host.LastStage = _gameTiming.CurTime;
-                    host.Stage += 1;
+                    if (host.Stage < 4)
+                        host.Stage += 1;
                 }
-                else if (host.Stage > -1 && host.LastStage - TimeSpan.FromSeconds(30) > _gameTiming.CurTime) // TODO: a treatment, not a cure.
+                else if (host.LastStage - TimeSpan.FromSeconds(30) > _gameTiming.CurTime)
                 {
-                    host.LastStage = _gameTiming.CurTime;
-                    host.Stage -= 1;
+                    host.LastStage = _gameTiming.CurTime + TimeSpan.FromMinutes(host.InfectionTime) - TimeSpan.FromSeconds(30);
+                    if (host.Stage > -1)
+                        host.Stage -= 1;
                 }
 
                 if (host.Stage >= 4)

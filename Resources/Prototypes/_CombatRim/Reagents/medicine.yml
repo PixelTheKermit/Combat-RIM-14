@@ -1,0 +1,17 @@
+- type: reagent
+  id: Calyxanide
+  name: reagent-name-bicaridine
+  group: Medicine
+  desc: reagent-desc-bicaridine
+  physicalDesc: reagent-physical-desc-opaque
+  flavor: acidic
+  color: "#ffaa00"
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Caustic: 0.2
+      - !type:HuskTreatment
+        treatmentValue: 3
