@@ -14,6 +14,10 @@ namespace Content.Server._CombatRim.Husk
         [DataField("infectionTime")]
         public float InfectionTime = 1f;
 
+        /// <summary>
+        /// The cure threshold, in seconds.
+        /// </summary>
+        public float CureThreshold = 5f;
         public TimeSpan? LastStage;
     }
 }

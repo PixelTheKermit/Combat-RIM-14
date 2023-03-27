@@ -6,7 +6,18 @@
   fallback: true
   validShip: true
   description: |
-    test
+    The air smells like fresh fruit and sea water...
+    For some reason, you have the urge to sing sea shanties...
+    The walls feel like they're made of... wood?
+    -STATS-
+    Crew: 1 Captain (You), 1 Botanist, 1 Bartender, 1 Chef and 1 Salvage Specialist
+    Difficulty: ?
+    Vessel Size: Medium
+    Notes:
+    - Runs off food and bio-matter
+    - You have 4 laser turrets, that's more than 3!
+    - Singing sea shanties is not required, but it helps bring morale up!
+      (or down, if you're a terrible singer!)
   stations:
     IsvPiracy:
       mapNameTemplate: '{0} Piracy {1}'

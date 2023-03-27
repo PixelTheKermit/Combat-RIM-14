@@ -8,7 +8,7 @@
   - type: DeathMessage
     string: "human-death-message"
   - type: TrappableSoul
-  - type: ControllerMob
+  - type: CanControl
   - type: LagCompensation
   - type: RangedDamageSound
     soundGroups:

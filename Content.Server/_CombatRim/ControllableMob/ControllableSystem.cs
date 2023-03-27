@@ -1,4 +1,4 @@
-using Content.Server._CombatRim.ControllableMob.Components;
+using Content.Server._CombatRim.Control.Components;
 using Content.Server.DoAfter;
 using Content.Server.Mind.Components;
 using Content.Shared.Containers.ItemSlots;
@@ -10,9 +10,9 @@ using Content.Shared.Popups;
 using Content.Shared.Verbs;
 using System.Threading;
 
-namespace Content.Server._CombatRim.ControllableMob;
+namespace Content.Server._CombatRim.Control;
 
-public sealed class ControllableMobSystem : EntitySystem
+public sealed class ControllableSystem : EntitySystem
 {
     // Dependencies
     [Dependency] private readonly EntityManager _entityManager = default!;
@@ -26,16 +26,16 @@ public sealed class ControllableMobSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<ControllableMobComponent, GetVerbsEvent<ActivationVerb>>(AddActVerb);
-        SubscribeLocalEvent<ControllableMobComponent, MobStateChangedEvent>(MobStateChanged);
-        SubscribeLocalEvent<ControllableMobComponent, ComponentShutdown>(OnDeleted);
+        SubscribeLocalEvent<ControllableComponent, GetVerbsEvent<ActivationVerb>>(AddActVerb);
+        SubscribeLocalEvent<ControllableComponent, MobStateChangedEvent>(MobStateChanged);
+        SubscribeLocalEvent<ControllableComponent, ComponentShutdown>(OnDeleted);
     }
 
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
 
-        foreach (var (contMob, xform) in EntityQuery<ControllableMobComponent, TransformComponent>())
+        foreach (var (contMob, xform) in EntityQuery<ControllableComponent, TransformComponent>())
         {
             if (contMob.CurrentEntityOwning != null)
             {
@@ -44,7 +44,7 @@ public sealed class ControllableMobSystem : EntitySystem
                 if (calcDist > contMob.Range)
                 {
                     RevokeControl(contMob.CurrentEntityOwning.Value);
-                    Comp<ControllerMobComponent>(contMob.CurrentEntityOwning.Value).Controlling = null;
+                    Comp<CanControlComponent>(contMob.CurrentEntityOwning.Value).Controlling = null;
                     _popupSystem.PopupEntity(Loc.GetString("device-control-out-of-range"), contMob.CurrentEntityOwning.Value, contMob.CurrentEntityOwning.Value);
                     contMob.CurrentDeviceOwning = null;
                     contMob.CurrentEntityOwning = null;
@@ -91,10 +91,10 @@ public sealed class ControllableMobSystem : EntitySystem
 
     }
 
-    private void OnDeleted(EntityUid uid, ControllableMobComponent comp, ComponentShutdown args)
+    private void OnDeleted(EntityUid uid, ControllableComponent comp, ComponentShutdown args)
     {
         if (comp.CurrentEntityOwning != null &&
-            TryComp<ControllerMobComponent>(comp.CurrentEntityOwning, out var controlComp))
+            TryComp<CanControlComponent>(comp.CurrentEntityOwning, out var controlComp))
         {
             controlComp.Controlling = null;
 
@@ -104,10 +104,10 @@ public sealed class ControllableMobSystem : EntitySystem
         }
     }
 
-    private void MobStateChanged(EntityUid uid, ControllableMobComponent comp, MobStateChangedEvent args)
+    private void MobStateChanged(EntityUid uid, ControllableComponent comp, MobStateChangedEvent args)
     {
         if (comp.CurrentEntityOwning != null && args.NewMobState == MobState.Dead &&
-            TryComp<ControllerMobComponent>(comp.CurrentEntityOwning, out var controlComp))
+            TryComp<CanControlComponent>(comp.CurrentEntityOwning, out var controlComp))
         {
             controlComp.Controlling = null;
 
@@ -117,9 +117,9 @@ public sealed class ControllableMobSystem : EntitySystem
         }
     }
 
-    private void StopControl(EntityUid uid, ControllableMobComponent comp)
+    private void StopControl(EntityUid uid, ControllableComponent comp)
     {
-        if (comp.CurrentEntityOwning != null && TryComp<ControllerMobComponent>(comp.CurrentEntityOwning, out var controlComp))
+        if (comp.CurrentEntityOwning != null && TryComp<CanControlComponent>(comp.CurrentEntityOwning, out var controlComp))
         {
             controlComp.Controlling = null;
 
@@ -129,7 +129,7 @@ public sealed class ControllableMobSystem : EntitySystem
         }
     }
 
-    private void AddActVerb(EntityUid uid, ControllableMobComponent comp, GetVerbsEvent<ActivationVerb> args)
+    private void AddActVerb(EntityUid uid, ControllableComponent comp, GetVerbsEvent<ActivationVerb> args)
     {
         if (args.User != uid || !_entityManager.EntityExists(uid))
             return;

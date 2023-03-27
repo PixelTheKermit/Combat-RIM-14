@@ -1,20 +1,7 @@
-
-using Content.Server._CombatRim.ControllableMob.Components;
-using Content.Server.DoAfter;
-using Content.Server.Mind.Components;
-using Content.Server.Storage.EntitySystems;
-using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Damage;
-using Content.Shared.Interaction;
 using Content.Shared.Item;
-using Content.Shared.Mobs;
-using Content.Shared.Mobs.Components;
-using Content.Shared.Mobs.Systems;
-using Content.Shared.Popups;
-using Content.Shared.Verbs;
 using Robust.Server.Containers;
 using Robust.Shared.Configuration;
-using System.Threading;
 
 namespace Content.Server._CombatRim.ControllableMob;
 

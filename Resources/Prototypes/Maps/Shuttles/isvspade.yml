@@ -6,7 +6,17 @@
   fallback: true
   validShip: true
   description: |
-    test
+    You feel... alone...
+    You don't think anyone is watching you...
+    It feels cramped in here!
+    -STATS-
+    Crew: Just you
+    Difficulty: ?
+    Vessel Size: Small
+    Notes:
+    - Runs off uranium
+    - Has 2 ballistic turrets, require reloading
+    - Contains a simple atmos system
   stations:
     IsvSpade:
       mapNameTemplate: '{0} Spade {1}'

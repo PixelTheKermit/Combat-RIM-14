@@ -2,7 +2,7 @@
   abstract: true
   parent: BaseItem
   id: SheetMetalBase
-  description: A sheet of metal, used often on the station in various applications.
+  description: A sheet of metal, used often in various applications.
   components:
   - type: PersistenceControl
     mode: Delete

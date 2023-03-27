@@ -2,7 +2,7 @@
   id: PottedPlantBase
   parent: BaseStructureDynamic
   name: potted plant
-  description: A little bit of nature contained in a pot.
+  description: A little bit of nature contained in a pot. It makes an audible breathing sound.
   abstract: true
   components:
   - type: Transform
@@ -111,7 +111,7 @@
   id: PottedPlantBioluminscent #PottedPlant9 but i didn't want map conflicts
   parent: PottedPlantBase
   name: "bioluminescent potted plant"
-  description: "It produces light!"
+  description: "It produces light! Sounds like a heart..."
   components:
   - type: Sprite
     state: plant-09
@@ -122,7 +122,7 @@
 - type: entity
   id: PottedPlant10
   parent: PottedPlantBase
-  description: A pretty piece of nature contained in a pot.
+  description: A pretty piece of nature contained in a pot. Sounds like distant yells.
   components:
   - type: Sprite
     state: plant-10
@@ -240,7 +240,7 @@
   id: PottedPlant26
   parent: PottedPlantBase
   name: plastic potted plant
-  description: A fake, cheap looking, plastic tree. Perfect for people who kill every plant they touch.
+  description: A fake, cheap looking, plastic tree. At least it isn't making odd sounds.
   components:
   - type: Sprite
     state: plant-26

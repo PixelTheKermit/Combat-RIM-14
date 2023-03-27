@@ -1,10 +1,10 @@
 - type: entity
   parent: BaseComputer
   id: BaseControllerConsole
-  name: controller console
-  description: Used to control bots in a wide radius. Needs to be setup with a remote first.
+  name: bot console
+  description: Used to control bots in a wide radius. Needs to be setup with a remote or pairer.
   components:
-    - type: ControllerStructure
+    - type: ControlStructure
     - type: ExtensionCableReceiver
     - type: PointLight
       radius: 1.5

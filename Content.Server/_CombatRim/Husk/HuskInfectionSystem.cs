@@ -65,7 +65,7 @@ namespace Content.Server._CombatRim.Husk
             var hosts = EntityQueryEnumerator<HuskHostComponent>();
 
             DamageSpecifier damage = new();
-            damage.DamageDict.Add("Piercing", 5f); // ! Damage should be high.
+            damage.DamageDict.Add("Piercing", 3f); // ! Damage should be high.
 
             while (hosts.MoveNext(out var uid, out var host))
             {
@@ -74,13 +74,15 @@ namespace Content.Server._CombatRim.Husk
 
                 if (host.LastStage + TimeSpan.FromMinutes(host.InfectionTime) < _gameTiming.CurTime)
                 {
-                    host.LastStage = _gameTiming.CurTime;
                     if (host.Stage < 4)
+                    {
+                        host.LastStage = _gameTiming.CurTime;
                         host.Stage += 1;
+                    }
                 }
-                else if (host.LastStage - TimeSpan.FromSeconds(30) > _gameTiming.CurTime)
+                else if (host.LastStage - TimeSpan.FromSeconds(host.CureThreshold) > _gameTiming.CurTime)
                 {
-                    host.LastStage = _gameTiming.CurTime + TimeSpan.FromMinutes(host.InfectionTime) - TimeSpan.FromSeconds(30);
+                    host.LastStage = _gameTiming.CurTime + TimeSpan.FromMinutes(host.InfectionTime) - TimeSpan.FromSeconds(host.CureThreshold);
                     if (host.Stage > -1)
                         host.Stage -= 1;
                 }

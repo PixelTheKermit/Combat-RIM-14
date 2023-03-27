@@ -107,3 +107,16 @@
     stripTimeReduction: 9999
     stealthy: true
   - type: Stripping
+  - type: IntrinsicRadioReceiver
+  - type: ActiveRadio
+    channels:
+    - Common
+    - Command
+    - CentCom
+    - Engineering
+    - Medical
+    - Science
+    - Security
+    - Service
+    - Supply
+    - Syndicate

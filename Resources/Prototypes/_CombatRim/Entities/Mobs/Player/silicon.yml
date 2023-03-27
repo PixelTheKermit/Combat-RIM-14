@@ -5,7 +5,7 @@
   components:
   - type: Body
     prototype: Drone2
-  - type: ControllableMob
+  - type: Controllable
   - type: CombatMode
   - type: InputMover
   - type: InnateTool
@@ -97,7 +97,7 @@
   components:
   - type: Body
     prototype: Drone3
-  - type: ControllableMob
+  - type: Controllable
   - type: CombatMode
   - type: InputMover
   - type: InnateTool

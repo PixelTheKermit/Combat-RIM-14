@@ -28,19 +28,6 @@
   - type: Examiner
     skipChecks: true
   - type: Ghost
-  - type: IntrinsicRadioReceiver
-  - type: ActiveRadio
-    channels:
-    - Common
-    - Command
-    - CentCom
-    - Engineering
-    - Medical
-    - Science
-    - Security
-    - Service
-    - Supply
-    - Syndicate
   - type: Sprite
     overrideContainerOcclusion: true # Ghosts always show up regardless of where they're contained.
     netsync: false

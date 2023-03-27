@@ -1,7 +1,7 @@
-namespace Content.Server._CombatRim.ControllableMob.Components;
+namespace Content.Server._CombatRim.Control.Components;
 
 [RegisterComponent]
-public sealed class ControllerStructureComponent : Component
+public sealed class ControlStructureComponent : Component
 {
     [DataField("range")]
     public float Range = 150f;

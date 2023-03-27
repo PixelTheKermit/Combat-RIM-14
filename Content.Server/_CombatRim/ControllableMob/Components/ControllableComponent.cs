@@ -1,13 +1,10 @@
 using System.Threading;
 
-namespace Content.Server._CombatRim.ControllableMob.Components;
+namespace Content.Server._CombatRim.Control.Components;
 
 [RegisterComponent]
-public sealed class ControllableMobComponent : Component
+public sealed class ControllableComponent : Component
 {
-    [ViewVariables(VVAccess.ReadWrite)]
-    public float Range = 50f;
-
     [ViewVariables(VVAccess.ReadWrite)]
     public EntityUid? CurrentEntityOwning;
 
@@ -16,4 +13,6 @@ public sealed class ControllableMobComponent : Component
 
     [DataField("delay")]
     public float Delay = 15;
+
+    public float Range = 0f;
 }

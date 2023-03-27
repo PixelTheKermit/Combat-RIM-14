@@ -58,46 +58,47 @@ tilemap:
   51: FloorMetalDiamond
   52: FloorMime
   53: FloorMono
-  54: FloorPlanetGrass
-  55: FloorPlastic
-  56: FloorRGlass
-  57: FloorReinforced
-  58: FloorRockVault
-  59: FloorShowroom
-  60: FloorShuttleBlue
-  61: FloorShuttleOrange
-  62: FloorShuttlePurple
-  63: FloorShuttleRed
-  64: FloorShuttleWhite
-  65: FloorSilver
-  66: FloorSnow
-  67: FloorSteel
-  68: FloorSteelDiagonal
-  69: FloorSteelDiagonalMini
-  70: FloorSteelDirty
-  71: FloorSteelHerringbone
-  72: FloorSteelMini
-  73: FloorSteelMono
-  74: FloorSteelOffset
-  75: FloorSteelPavement
-  76: FloorSteelPavementVertical
-  77: FloorTechMaint
-  78: FloorTechMaint2
-  79: FloorTechMaint3
-  80: FloorWhite
-  81: FloorWhiteDiagonal
-  82: FloorWhiteDiagonalMini
-  83: FloorWhiteHerringbone
-  84: FloorWhiteMini
-  85: FloorWhiteMono
-  86: FloorWhiteOffset
-  87: FloorWhitePavement
-  88: FloorWhitePavementVertical
-  89: FloorWhitePlastic
-  90: FloorWood
-  91: FloorWoodTile
-  92: Lattice
-  93: Plating
+  54: FloorPlanetDirt
+  55: FloorPlanetGrass
+  56: FloorPlastic
+  57: FloorRGlass
+  58: FloorReinforced
+  59: FloorRockVault
+  60: FloorShowroom
+  61: FloorShuttleBlue
+  62: FloorShuttleOrange
+  63: FloorShuttlePurple
+  64: FloorShuttleRed
+  65: FloorShuttleWhite
+  66: FloorSilver
+  67: FloorSnow
+  68: FloorSteel
+  69: FloorSteelDiagonal
+  70: FloorSteelDiagonalMini
+  71: FloorSteelDirty
+  72: FloorSteelHerringbone
+  73: FloorSteelMini
+  74: FloorSteelMono
+  75: FloorSteelOffset
+  76: FloorSteelPavement
+  77: FloorSteelPavementVertical
+  78: FloorTechMaint
+  79: FloorTechMaint2
+  80: FloorTechMaint3
+  81: FloorWhite
+  82: FloorWhiteDiagonal
+  83: FloorWhiteDiagonalMini
+  84: FloorWhiteHerringbone
+  85: FloorWhiteMini
+  86: FloorWhiteMono
+  87: FloorWhiteOffset
+  88: FloorWhitePavement
+  89: FloorWhitePavementVertical
+  90: FloorWhitePlastic
+  91: FloorWood
+  92: FloorWoodTile
+  93: Lattice
+  94: Plating
 entities:
 - uid: 0
   type: WallReinforced
@@ -115,7 +116,7 @@ entities:
   components:
   - type: MetaData
   - type: Transform
-  - index: 5
+  - index: 18
     type: Map
   - type: PhysicsMap
   - type: Broadphase
@@ -129,16 +130,16 @@ entities:
   - chunks:
       0,0:
         ind: 0,0
-        tiles: AAAAAF0AAABdAAAAXQAAAF0AAABdAAAAXQAAAF0AAABDAAAAQwAAAF0AAABdAAAAXQAAAB0AAAAdAAAAXQAAAAAAAABdAAAARAAAAEQAAAJEAAAARAAAAl0AAABEAAABRAAAAUQAAABEAAAAXQAAABcAAAAXAAABFwAAABcAAAAAAAAAXQAAAEQAAANEAAADRAAAA0QAAAJEAAADRAAAAUQAAANEAAACRAAAA10AAAAXAAACFwAAARcAAAAXAAADAAAAAF0AAABEAAADRAAAAkQAAAFEAAABRAAAA0QAAANEAAACRAAAAUQAAAJdAAAAFwAAAhcAAAIXAAABFwAAAQAAAABdAAAARAAAAEQAAAFEAAACRAAAA10AAABEAAADRAAAAUQAAABEAAACXQAAABcAAAIXAAADFwAAAhcAAAMAAAAAXQAAAF0AAABdAAAAXQAAAF0AAABdAAAAXQAAAF0AAABdAAAAXQAAAF0AAABdAAAAXQAAAF0AAABdAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
+        tiles: AAAAAF4AAABeAAAAXgAAAF4AAABeAAAAXgAAAF4AAABEAAAARAAAAF4AAABeAAAAXgAAAB0AAAAdAAAAXgAAAAAAAABeAAAARQAAAEUAAAJFAAAARQAAAl4AAABFAAABRQAAAUUAAABFAAAAXgAAABcAAAAXAAABFwAAABcAAAAAAAAAXgAAAEUAAANFAAADRQAAA0UAAAJFAAADRQAAAUUAAANFAAACRQAAA14AAAAXAAACFwAAARcAAAAXAAADAAAAAF4AAABFAAADRQAAAkUAAAFFAAABRQAAA0UAAANFAAACRQAAAUUAAAJeAAAAFwAAAhcAAAIXAAABFwAAAQAAAABeAAAARQAAAEUAAAFFAAACRQAAA14AAABFAAADRQAAAUUAAABFAAACXgAAABcAAAIXAAADFwAAAhcAAAMAAAAAXgAAAF4AAABeAAAAXgAAAF4AAABeAAAAXgAAAF4AAABeAAAAXgAAAF4AAABeAAAAXgAAAF4AAABeAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
       0,-1:
         ind: 0,-1
-        tiles: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABcAAAAXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAXAAAAFwAAAAAAAAAAAAAAAAAAABcAAAAXAAAAFwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFwAAABcAAAAXAAAAAAAAABcAAAAXAAAAFwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAXAAAAFwAAAAAAAAAXAAAAFwAAABcAAAAXAAAAFwAAABcAAAAXAAAAFwAAABcAAAAXAAAAFwAAABcAAAAXAAAAFwAAABcAAAAAAAAAF0AAABdAAAAXQAAAF0AAABdAAAAXQAAAF0AAABdAAAAXQAAAF0AAABdAAAAXQAAAF0AAABdAAAAXQAAAAAAAABdAAAAUQAAAFEAAAFRAAACUQAAAF0AAABaAAACWgAAAloAAAJaAAABXQAAAF0AAABdAAAAXQAAAF0AAAAAAAAAXQAAAFEAAANRAAAAUQAAA1EAAAFdAAAAWgAAAloAAABaAAABWgAAA1oAAAFdAAAAXQAAAF0AAABdAAAAAAAAAF0AAABRAAACUQAAA1EAAAJRAAADXQAAAFoAAABaAAAAWgAAAloAAAFaAAACXQAAAF0AAABdAAAAXQAAAAAAAABdAAAAUQAAA1EAAAFRAAACUQAAAl0AAABaAAADWgAAAFoAAANaAAABXQAAAF0AAABdAAAAXQAAAF0AAAAAAAAAXQAAAF0AAABTAAAAUwAAAF0AAABdAAAAXQAAAEMAAAJDAAADXQAAAF0AAABdAAAAXQAAAF0AAABdAAAAAAAAAF0AAABTAAAAUwAAAVMAAANTAAAAXQAAAEMAAABDAAAAQwAAA0MAAAJdAAAAHQAAAx0AAAEdAAABHQAAAAAAAABdAAAAUwAAAlMAAAJTAAABUwAAA0MAAAFDAAAAQwAAA0MAAABDAAAAQwAAAh0AAAEdAAAAHQAAAR0AAAAAAAAAXQAAAFMAAAJTAAAAUwAAAVMAAAFDAAABQwAAAkMAAABDAAABQwAAA0MAAAAdAAACHQAAAB0AAAEdAAABAAAAAF0AAABTAAABUwAAAlMAAANTAAAAXQAAAEMAAAFDAAABQwAAAUMAAAFdAAAAHQAAAh0AAAEdAAABHQAAAA==
+        tiles: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABdAAAAXQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAXQAAAF0AAAAAAAAAAAAAAAAAAABdAAAAXQAAAF0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAF0AAABdAAAAXQAAAAAAAABdAAAAXQAAAF0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAXQAAAF0AAAAAAAAAXQAAAF0AAABdAAAAXQAAAF0AAABdAAAAXQAAAF0AAABdAAAAXQAAAF0AAABdAAAAXQAAAF0AAABdAAAAAAAAAF4AAABeAAAAXgAAAF4AAABeAAAAXgAAAF4AAABeAAAAXgAAAF4AAABeAAAAXgAAAF4AAABeAAAAXgAAAAAAAABeAAAAUgAAAFIAAAFSAAACUgAAAF4AAABbAAACWwAAAlsAAAJbAAABXgAAAF4AAABeAAAAXgAAAF4AAAAAAAAAXgAAAFIAAANSAAAAUgAAA1IAAAFeAAAAWwAAAlsAAABbAAABWwAAA1sAAAFeAAAAXgAAAF4AAABeAAAAAAAAAF4AAABSAAACUgAAA1IAAAJSAAADXgAAAFsAAABbAAAAWwAAAlsAAAFbAAACXgAAAF4AAABeAAAAXgAAAAAAAABeAAAAUgAAA1IAAAFSAAACUgAAAl4AAABbAAADWwAAAFsAAANbAAABXgAAAF4AAABeAAAAXgAAAF4AAAAAAAAAXgAAAF4AAABUAAAAVAAAAF4AAABeAAAAXgAAAEQAAAJEAAADXgAAAF4AAABeAAAAXgAAAF4AAABeAAAAAAAAAF4AAABUAAAAVAAAAVQAAANUAAAAXgAAAEQAAABEAAAARAAAA0QAAAJeAAAAHQAAAx0AAAEdAAABHQAAAAAAAABeAAAAVAAAAlQAAAJUAAABVAAAA0QAAAFEAAAARAAAA0QAAABEAAAARAAAAh0AAAEdAAAAHQAAAR0AAAAAAAAAXgAAAFQAAAJUAAAAVAAAAVQAAAFEAAABRAAAAkQAAABEAAABRAAAA0QAAAAdAAACHQAAAB0AAAEdAAABAAAAAF4AAABUAAABVAAAAlQAAANUAAAAXgAAAEQAAAFEAAABRAAAAUQAAAFeAAAAHQAAAh0AAAEdAAABHQAAAA==
       1,0:
         ind: 1,0
-        tiles: XQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAF0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABdAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAXQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAF0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABdAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
+        tiles: XgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAF4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABeAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAXgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAF4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABeAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
       1,-1:
         ind: 1,-1
-        tiles: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAXQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAF0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABdAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAXQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAF0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABdAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAXQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAF0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABdAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAXQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
+        tiles: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABdAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAXgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAF4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABeAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAXgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAF4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABeAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAXgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAF4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABeAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAXgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
     type: MapGrid
   - type: Broadphase
   - angularDamping: 0.05
@@ -153,665 +154,293 @@ entities:
       path: /Audio/Effects/alert.ogg
     type: Gravity
   - chunkCollection:
-      0,-1:
-        0:
+      version: 2
+      nodes:
+      - node:
           color: '#FFFFFFFF'
-          id: BrickTileSteelCornerNw
-          coordinates: 6,-2
-        1:
+          id: BoxGreyscale
+        decals:
+          30: 12,3
+          31: 15,3
+          32: 15,2
+          33: 12,2
+          34: 12,1
+      - node:
           color: '#FFFFFFFF'
-          id: BrickTileSteelCornerSw
-          coordinates: 6,-3
-        2:
-          color: '#FFFFFFFF'
-          id: BrickTileSteelCornerSw
-          coordinates: 7,-4
-        3:
-          color: '#FFFFFFFF'
-          id: BrickTileSteelCornerNw
-          coordinates: 7,-1
-        4:
-          color: '#FFFFFFFF'
-          id: BrickTileSteelCornerNe
-          coordinates: 10,-1
-        5:
-          color: '#FFFFFFFF'
-          id: BrickTileSteelCornerNe
-          coordinates: 11,-2
-        7:
-          color: '#FFFFFFFF'
-          id: BrickTileSteelCornerSe
-          coordinates: 10,-4
-        8:
-          color: '#FFFFFFFF'
-          id: BrickTileSteelCornerSe
-          coordinates: 11,-3
-        9:
-          color: '#FFFFFFFF'
-          id: BrickTileSteelCornerSe
-          coordinates: 9,-5
-        11:
-          color: '#FFFFFFFF'
-          id: BrickTileSteelCornerSw
-          coordinates: 8,-5
-        12:
-          color: '#FFFFFFFF'
-          id: BrickTileWhiteLineS
-          coordinates: 3,-5
-        13:
-          color: '#FFFFFFFF'
-          id: BrickTileWhiteLineS
-          coordinates: 4,-5
-        14:
-          color: '#FFFFFFFF'
-          id: BrickTileDarkLineW
-          coordinates: 12,-2
-        15:
-          color: '#FFFFFFFF'
-          id: BrickTileDarkLineW
-          coordinates: 12,-3
-        16:
-          color: '#FFFFFFFF'
-          id: BrickTileDarkLineS
-          coordinates: 13,-4
-        17:
-          color: '#FFFFFFFF'
-          id: BrickTileDarkLineS
-          coordinates: 14,-4
-        18:
-          color: '#FFFFFFFF'
-          id: BrickTileDarkLineE
-          coordinates: 15,-3
-        19:
-          color: '#FFFFFFFF'
-          id: BrickTileDarkLineE
-          coordinates: 15,-2
-        20:
-          color: '#FFFFFFFF'
-          id: BrickTileDarkCornerSw
-          coordinates: 12,-4
-        21:
+          id: BrickTileDarkCornerNe
+        decals:
+          23: 15,-1
+          24: 14,0
+      - node:
           color: '#FFFFFFFF'
           id: BrickTileDarkCornerNw
-          coordinates: 12,-1
-        22:
+        decals:
+          21: 12,-1
+          25: 13,0
+      - node:
           color: '#FFFFFFFF'
           id: BrickTileDarkCornerSe
-          coordinates: 15,-4
-        23:
+        decals:
+          22: 15,-4
+      - node:
           color: '#FFFFFFFF'
-          id: BrickTileDarkCornerNe
-          coordinates: 15,-1
-        26:
-          color: '#FFFFFFFF'
-          id: BrickTileDarkInnerNw
-          coordinates: 13,-1
-        27:
+          id: BrickTileDarkCornerSw
+        decals:
+          20: 12,-4
+      - node:
           color: '#FFFFFFFF'
           id: BrickTileDarkInnerNe
-          coordinates: 14,-1
-        35:
+        decals:
+          27: 14,-1
+      - node:
           color: '#FFFFFFFF'
-          id: BrickTileSteelInnerSw
-          coordinates: 8,-4
-        36:
+          id: BrickTileDarkInnerNw
+        decals:
+          26: 13,-1
+      - node:
           color: '#FFFFFFFF'
-          id: BrickTileSteelInnerSw
-          coordinates: 7,-3
-        37:
+          id: BrickTileDarkLineE
+        decals:
+          18: 15,-3
+          19: 15,-2
+      - node:
           color: '#FFFFFFFF'
-          id: BrickTileSteelInnerNw
-          coordinates: 7,-2
-        38:
+          id: BrickTileDarkLineS
+        decals:
+          16: 13,-4
+          17: 14,-4
+      - node:
           color: '#FFFFFFFF'
-          id: BrickTileSteelInnerNw
-          coordinates: 8,-1
-        39:
-          color: '#FFFFFFFF'
-          id: BrickTileSteelInnerNe
-          coordinates: 9,-1
-        40:
-          color: '#FFFFFFFF'
-          id: BrickTileSteelInnerNe
-          coordinates: 10,-2
-        41:
-          color: '#FFFFFFFF'
-          id: BrickTileSteelInnerSe
-          coordinates: 10,-3
-        42:
-          color: '#FFFFFFFF'
-          id: BrickTileSteelInnerSe
-          coordinates: 9,-4
-        43:
-          color: '#007C7F7F'
-          id: ThreeQuarterTileOverlayGreyscale
-          coordinates: 9,-3
-        44:
-          color: '#007C7F7F'
-          id: ThreeQuarterTileOverlayGreyscale180
-          coordinates: 8,-2
-        45:
-          color: '#007C7F7F'
-          id: ThreeQuarterTileOverlayGreyscale270
-          coordinates: 9,-2
-        46:
-          color: '#007C7F7F'
-          id: ThreeQuarterTileOverlayGreyscale90
-          coordinates: 8,-3
-        47:
-          color: '#007C7F7F'
-          id: HalfTileOverlayGreyscale
-          coordinates: 7,-3
-        48:
-          color: '#007C7F7F'
-          id: HalfTileOverlayGreyscale
-          coordinates: 10,-3
-        49:
-          color: '#007C7F7F'
-          id: HalfTileOverlayGreyscale180
-          coordinates: 7,-2
-        50:
-          color: '#007C7F7F'
-          id: HalfTileOverlayGreyscale180
-          coordinates: 10,-2
-        51:
-          color: '#007C7F7F'
-          id: HalfTileOverlayGreyscale90
-          coordinates: 8,-1
-        52:
-          color: '#007C7F7F'
-          id: HalfTileOverlayGreyscale270
-          coordinates: 9,-1
-        53:
-          color: '#007C7F7F'
-          id: HalfTileOverlayGreyscale270
-          coordinates: 9,-4
-        54:
-          color: '#007C7F7F'
-          id: HalfTileOverlayGreyscale90
-          coordinates: 8,-4
-      0,0:
-        6:
+          id: BrickTileDarkLineW
+        decals:
+          14: 12,-2
+          15: 12,-3
+      - node:
           color: '#FFFFFFFF'
           id: BrickTileSteelCornerNe
-          coordinates: 9,0
-        10:
+        decals:
+          4: 10,-1
+          5: 11,-2
+          6: 9,0
+      - node:
           color: '#FFFFFFFF'
           id: BrickTileSteelCornerNw
-          coordinates: 8,0
-        24:
+        decals:
+          0: 6,-2
+          3: 7,-1
+          10: 8,0
+      - node:
           color: '#FFFFFFFF'
-          id: BrickTileDarkCornerNe
-          coordinates: 14,0
-        25:
+          id: BrickTileSteelCornerSe
+        decals:
+          7: 10,-4
+          8: 11,-3
+          9: 9,-5
+      - node:
           color: '#FFFFFFFF'
-          id: BrickTileDarkCornerNw
-          coordinates: 13,0
-        28:
+          id: BrickTileSteelCornerSw
+        decals:
+          1: 6,-3
+          2: 7,-4
+          11: 8,-5
+      - node:
+          color: '#FFFFFFFF'
+          id: BrickTileSteelInnerNe
+        decals:
+          39: 9,-1
+          40: 10,-2
+      - node:
+          color: '#FFFFFFFF'
+          id: BrickTileSteelInnerNw
+        decals:
+          37: 7,-2
+          38: 8,-1
+      - node:
+          color: '#FFFFFFFF'
+          id: BrickTileSteelInnerSe
+        decals:
+          41: 10,-3
+          42: 9,-4
+      - node:
+          color: '#FFFFFFFF'
+          id: BrickTileSteelInnerSw
+        decals:
+          35: 8,-4
+          36: 7,-3
+      - node:
+          color: '#FFFFFFFF'
+          id: BrickTileWhiteLineS
+        decals:
+          12: 3,-5
+          13: 4,-5
+      - node:
+          color: '#007C7F7F'
+          id: HalfTileOverlayGreyscale
+        decals:
+          47: 7,-3
+          48: 10,-3
+      - node:
+          color: '#007C7F7F'
+          id: HalfTileOverlayGreyscale180
+        decals:
+          49: 7,-2
+          50: 10,-2
+      - node:
+          color: '#007C7F7F'
+          id: HalfTileOverlayGreyscale270
+        decals:
+          52: 9,-1
+          53: 9,-4
+      - node:
+          color: '#007C7F7F'
+          id: HalfTileOverlayGreyscale90
+        decals:
+          51: 8,-1
+          54: 8,-4
+      - node:
           color: '#FFFFFFFF'
           id: StandClear
-          coordinates: 13,4
-        29:
-          color: '#FFFFFFFF'
-          id: StandClear
-          coordinates: 14,4
-        30:
-          color: '#FFFFFFFF'
-          id: BoxGreyscale
-          coordinates: 12,3
-        31:
-          color: '#FFFFFFFF'
-          id: BoxGreyscale
-          coordinates: 15,3
-        32:
-          color: '#FFFFFFFF'
-          id: BoxGreyscale
-          coordinates: 15,2
-        33:
-          color: '#FFFFFFFF'
-          id: BoxGreyscale
-          coordinates: 12,2
-        34:
-          color: '#FFFFFFFF'
-          id: BoxGreyscale
-          coordinates: 12,1
+        decals:
+          28: 13,4
+          29: 14,4
+      - node:
+          color: '#007C7F7F'
+          id: ThreeQuarterTileOverlayGreyscale
+        decals:
+          43: 9,-3
+      - node:
+          color: '#007C7F7F'
+          id: ThreeQuarterTileOverlayGreyscale180
+        decals:
+          44: 8,-2
+      - node:
+          color: '#007C7F7F'
+          id: ThreeQuarterTileOverlayGreyscale270
+        decals:
+          45: 9,-2
+      - node:
+          color: '#007C7F7F'
+          id: ThreeQuarterTileOverlayGreyscale90
+        decals:
+          46: 8,-3
     type: DecalGrid
-  - tiles:
-      -2,-2: 0
-      -2,-1: 0
-      -1,-2: 0
-      -1,-1: 0
-      -2,0: 0
-      -1,0: 0
-      0,0: 0
-      0,-2: 0
-      0,-1: 0
-      -4,-3: 0
-      -4,-2: 0
-      -4,-1: 0
-      -3,-3: 0
-      -3,-2: 0
-      -3,-1: 0
-      -2,-3: 0
-      -1,-3: 0
-      -4,0: 0
-      -4,1: 0
-      -4,2: 0
-      -4,8: 0
-      -4,9: 0
-      -4,10: 0
-      -4,11: 0
-      -4,12: 0
-      -4,13: 0
-      -3,0: 0
-      -3,1: 0
-      -3,2: 0
-      -3,8: 0
-      -3,9: 0
-      -3,10: 0
-      -3,11: 0
-      -3,12: 0
-      -3,13: 0
-      -2,1: 0
-      -2,2: 0
-      -2,3: 0
-      -2,4: 0
-      -2,5: 0
-      -2,6: 0
-      -2,7: 0
-      -2,8: 0
-      -2,9: 0
-      -2,10: 0
-      -2,11: 0
-      -2,12: 0
-      -2,13: 0
-      -1,1: 0
-      -1,2: 0
-      -1,8: 0
-      -1,9: 0
-      -1,10: 0
-      -1,11: 0
-      -1,12: 0
-      -1,13: 0
-      0,1: 0
-      0,2: 0
-      0,8: 0
-      0,9: 0
-      0,10: 0
-      0,11: 0
-      0,12: 0
-      0,13: 0
-      1,0: 0
-      1,1: 0
-      6,0: 0
-      6,1: 0
-      7,0: 0
-      7,1: 0
-      8,0: 0
-      8,1: 0
-      9,0: 0
-      9,1: 0
-      10,0: 0
-      10,1: 0
-      11,0: 0
-      11,1: 0
-      0,-3: 0
-      1,-3: 0
-      1,-2: 0
-      1,-1: 0
-      2,-1: 0
-      3,-1: 0
-      4,-1: 0
-      5,-1: 0
-      6,-3: 0
-      6,-2: 0
-      6,-1: 0
-      7,-7: 0
-      7,-6: 0
-      7,-5: 0
-      7,-4: 0
-      7,-3: 0
-      7,-2: 0
-      7,-1: 0
-      8,-7: 0
-      8,-6: 0
-      8,-5: 0
-      8,-4: 0
-      8,-3: 0
-      8,-2: 0
-      8,-1: 0
-      9,-7: 0
-      9,-6: 0
-      9,-5: 0
-      9,-4: 0
-      9,-3: 0
-      9,-2: 0
-      9,-1: 0
-      10,-7: 0
-      10,-6: 0
-      10,-5: 0
-      10,-4: 0
-      10,-3: 0
-      10,-2: 0
-      10,-1: 0
-      11,-3: 0
-      11,-2: 0
-      11,-1: 0
-      12,-1: 0
-      13,-1: 0
-      14,-1: 0
-      15,-1: 0
-      16,-3: 0
-      16,-2: 0
-      16,-1: 0
-      17,-3: 0
-      17,-2: 0
-      17,-1: 0
-      18,-3: 0
-      18,-2: 0
-      18,-1: 0
-      19,-3: 0
-      19,-2: 0
-      19,-1: 0
-      20,-3: 0
-      20,-2: 0
-      20,-1: 0
-      21,-3: 0
-      21,-2: 0
-      21,-1: 0
-      16,0: 0
-      16,1: 0
-      17,0: 0
-      17,1: 0
-      18,0: 0
-      18,1: 0
-      19,0: 0
-      19,1: 0
-      20,0: 0
-      20,1: 0
-      21,0: 0
-      21,1: 0
-      2,0: 0
-      3,0: 0
-      3,1: 0
-      4,0: 0
-      4,1: 0
-      4,2: 0
-      5,0: 0
-      5,1: 0
-      5,2: 0
-      12,0: 0
-      12,1: 0
-      12,2: 0
-      13,0: 0
-      13,1: 0
-      13,2: 0
-      14,0: 0
-      15,0: 0
-      15,1: 0
-      2,-2: 0
-      3,-3: 0
-      3,-2: 0
-      4,-3: 0
-      4,-2: 0
-      5,-3: 0
-      5,-2: 0
-      12,-3: 0
-      12,-2: 0
-      13,-3: 0
-      13,-2: 0
-      14,-2: 0
-      15,-2: 0
-      2,1: 0
-      2,2: 0
-      2,3: 0
-      2,4: 0
-      2,5: 0
-      3,2: 0
-      3,3: 0
-      3,4: 0
-      3,5: 0
-      4,3: 0
-      4,4: 0
-      4,5: 0
-      5,3: 0
-      5,4: 0
-      5,5: 0
-      6,2: 0
-      6,3: 0
-      6,4: 0
-      6,5: 0
-      7,2: 0
-      7,3: 0
-      7,4: 0
-      7,5: 0
-      8,2: 0
-      8,3: 0
-      8,4: 0
-      8,5: 0
-      9,2: 0
-      9,3: 0
-      9,4: 0
-      9,5: 0
-      10,2: 0
-      10,3: 0
-      10,4: 0
-      10,5: 0
-      11,2: 0
-      11,3: 0
-      11,4: 0
-      11,5: 0
-      12,3: 0
-      12,4: 1
-      12,5: 0
-      13,3: 0
-      13,4: 0
-      13,5: 0
-      14,1: 0
-      14,2: 0
-      14,3: 0
-      14,4: 0
-      14,5: 0
-      15,2: 0
-      15,3: 0
-      15,4: 0
-      15,5: 0
-      2,-8: 0
-      2,-7: 0
-      2,-6: 0
-      2,-5: 0
-      2,-4: 0
-      2,-3: 0
-      3,-8: 0
-      3,-7: 0
-      3,-6: 0
-      3,-5: 0
-      3,-4: 0
-      4,-8: 0
-      4,-7: 0
-      4,-6: 0
-      4,-5: 0
-      4,-4: 0
-      5,-8: 0
-      5,-7: 0
-      5,-6: 0
-      5,-5: 0
-      5,-4: 0
-      6,-8: 0
-      6,-7: 0
-      6,-6: 0
-      6,-5: 0
-      6,-4: 0
-      7,-8: 0
-      8,-8: 0
-      9,-8: 0
-      10,-8: 0
-      11,-8: 0
-      11,-7: 0
-      11,-6: 0
-      11,-5: 0
-      11,-4: 0
-      12,-8: 0
-      12,-7: 0
-      12,-6: 0
-      12,-5: 0
-      12,-4: 0
-      13,-8: 0
-      13,-7: 0
-      13,-6: 0
-      13,-5: 0
-      13,-4: 0
-      14,-8: 0
-      14,-7: 0
-      14,-6: 0
-      14,-5: 0
-      14,-4: 0
-      14,-3: 0
-      15,-8: 0
-      15,-7: 0
-      15,-6: 0
-      15,-5: 0
-      15,-4: 0
-      15,-3: 0
-      1,2: 2
-      1,3: 2
-      1,4: 2
-      1,5: 2
-      1,-12: 2
-      1,-11: 2
-      1,-10: 2
-      1,-9: 2
-      1,-8: 2
-      1,-7: 2
-      1,-6: 2
-      1,-5: 2
-      1,-4: 2
-      2,-13: 2
-      2,-12: 2
-      2,-11: 2
-      2,-10: 2
-      2,-9: 2
-      3,-13: 2
-      3,-12: 2
-      3,-11: 2
-      3,-10: 2
-      3,-9: 2
-      4,-13: 2
-      4,-12: 2
-      4,-11: 2
-      4,-10: 2
-      4,-9: 2
-      5,-13: 2
-      5,-11: 2
-      5,-10: 2
-      5,-9: 2
-      6,-11: 2
-      6,-10: 2
-      6,-9: 2
-      7,-11: 2
-      7,-10: 2
-      7,-9: 2
-      8,-11: 2
-      8,-10: 2
-      8,-9: 2
-      9,-11: 2
-      9,-10: 2
-      9,-9: 2
-      10,-11: 2
-      10,-10: 2
-      10,-9: 2
-      11,-11: 2
-      11,-10: 2
-      11,-9: 2
-      12,-13: 2
-      12,-11: 2
-      12,-10: 2
-      12,-9: 2
-      13,-13: 2
-      13,-12: 2
-      13,-11: 2
-      13,-10: 2
-      13,-9: 2
-      14,-13: 2
-      14,-12: 2
-      14,-11: 2
-      14,-10: 2
-      14,-9: 2
-      15,-13: 2
-      15,-12: 2
-      15,-11: 2
-      15,-10: 2
-      15,-9: 2
-      16,2: 2
-      16,3: 2
-      16,4: 2
-      16,5: 2
-      16,-12: 2
-      16,-11: 2
-      16,-10: 2
-      16,-9: 2
-      16,-8: 2
-      16,-7: 2
-      16,-6: 2
-      16,-5: 2
-      16,-4: 2
-      3,-14: 2
-      4,-14: 2
-      13,-14: 2
-      14,-14: 2
-    uniqueMixes:
-    - volume: 2500
-      temperature: 293.15
-      moles:
-      - 21.824879
-      - 82.10312
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-    - volume: 2500
-      temperature: 293.15
-      moles:
-      - 16.429127
-      - 61.804813
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-    - volume: 2500
-      temperature: 293.15
-      moles:
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
+  - version: 2
+    data:
+      tiles:
+        -1,-1:
+          0: 65520
+        -1,0:
+          0: 20479
+        0,0:
+          0: 61439
+        0,-1:
+          0: 65534
+        -1,2:
+          0: 65535
+        -1,3:
+          0: 255
+        -1,1:
+          0: 17476
+        0,2:
+          0: 4369
+        0,3:
+          0: 17
+        1,0:
+          0: 65535
+        2,0:
+          0: 65535
+        1,-1:
+          0: 65535
+        1,-2:
+          0: 65535
+        2,-2:
+          0: 65535
+        2,-1:
+          0: 65535
+        3,-1:
+          0: 65535
+        4,-1:
+          0: 65521
+        5,-1:
+          0: 13104
+        4,0:
+          0: 4607
+        5,0:
+          0: 51
+        3,0:
+          0: 65535
+        0,1:
+          0: 238
+        1,1:
+          0: 255
+        2,1:
+          0: 255
+        3,1:
+          1: 1
+          0: 254
+        0,-2:
+          0: 61166
+        3,-2:
+          0: 65535
+        0,-3:
+          0: 61166
+        0,-4:
+          0: 51200
+        1,-4:
+          0: 12544
+        1,-3:
+          0: 65521
+        2,-3:
+          0: 65520
+        3,-4:
+          0: 62976
+        3,-3:
+          0: 65534
+        4,1:
+          0: 17
+        4,-3:
+          0: 4369
+        4,-2:
+          0: 4369
+      uniqueMixes:
+      - volume: 2500
+        temperature: 293.15
+        moles:
+        - 21.824879
+        - 82.10312
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+      - volume: 2500
+        temperature: 293.15
+        moles:
+        - 20.078888
+        - 75.53487
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+      chunkSize: 4
     type: GridAtmosphere
   - id: IsvBox
     type: BecomesStation
   - type: RadiationGridResistance
   - type: OccluderTree
   - type: Shuttle
-  - nextUpdate: 155.3423632
+  - nextUpdate: 2907.766282
     type: GridPathfinding
   - nextShake: 0
     shakeTimes: 10
@@ -829,6 +458,8 @@ entities:
   - pos: 10.5,-4.5
     parent: 3
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 6
   type: CableMV
   components:
@@ -836,19 +467,22 @@ entities:
     parent: 3
     type: Transform
 - uid: 7
-  type: GasPort
+  type: GasPipeBend
   components:
-  - pos: 12.5,-0.5
+  - pos: 12.5,-2.5
     parent: 3
     type: Transform
+  - bodyType: Static
+    type: Physics
 - uid: 8
-  type: GasPressurePump
+  type: GasPipeStraight
   components:
-  - pos: 15.5,-1.5
+  - rot: -1.5707963267948966 rad
+    pos: 12.5,-1.5
     parent: 3
     type: Transform
-  - targetPressure: 10
-    type: GasPressurePump
+  - bodyType: Static
+    type: Physics
 - uid: 9
   type: AtmosDeviceFanTiny
   components:
@@ -869,12 +503,13 @@ entities:
     parent: 3
     type: Transform
 - uid: 12
-  type: GasVentScrubber
+  type: GasPipeBend
   components:
-  - rot: -1.5707963267948966 rad
-    pos: 14.5,-2.5
+  - pos: 13.5,-1.5
     parent: 3
     type: Transform
+  - bodyType: Static
+    type: Physics
 - uid: 13
   type: CableApcExtension
   components:
@@ -887,6 +522,8 @@ entities:
   - pos: 11.5,3.5
     parent: 3
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 15
   type: Grille
   components:
@@ -918,17 +555,20 @@ entities:
     parent: 3
     type: Transform
 - uid: 20
-  type: AirCanister
+  type: TableGlass
   components:
-  - pos: 12.5,-0.5
+  - pos: 5.5,-6.5
     parent: 3
     type: Transform
 - uid: 21
-  type: SheetSteel
+  type: GasPressurePump
   components:
-  - pos: 12.747558,-8.5488205
+  - rot: -1.5707963267948966 rad
+    pos: 11.5,-2.5
     parent: 3
     type: Transform
+  - bodyType: Static
+    type: Physics
 - uid: 22
   type: CableApcExtension
   components:
@@ -995,6 +635,8 @@ entities:
   - pos: 5.5,5.5
     parent: 3
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 33
   type: CableApcExtension
   components:
@@ -1002,11 +644,13 @@ entities:
     parent: 3
     type: Transform
 - uid: 34
-  type: chem_master
+  type: GasPipeStraight
   components:
-  - pos: 5.5,-8.5
+  - pos: 13.5,-3.5
     parent: 3
     type: Transform
+  - bodyType: Static
+    type: Physics
 - uid: 35
   type: CableApcExtension
   components:
@@ -1019,12 +663,16 @@ entities:
   - pos: 12.5,-4.5
     parent: 3
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 37
   type: CableApcExtension
   components:
   - pos: 12.5,-5.5
     parent: 3
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 38
   type: ReinforcedWindow
   components:
@@ -1037,6 +685,8 @@ entities:
   - pos: 12.5,-6.5
     parent: 3
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 40
   type: ReinforcedWindow
   components:
@@ -1044,19 +694,20 @@ entities:
     parent: 3
     type: Transform
 - uid: 41
-  type: GasPipeBend
+  type: SheetPlasma10
   components:
-  - rot: 1.5707963267948966 rad
-    pos: 12.5,-2.5
+  - pos: 12.509071,-8.412264
     parent: 3
     type: Transform
 - uid: 42
-  type: GasPort
+  type: GasVentPump
   components:
-  - rot: 3.141592653589793 rad
-    pos: 12.5,-3.5
+  - rot: 1.5707963267948966 rad
+    pos: 10.5,-2.5
     parent: 3
     type: Transform
+  - bodyType: Static
+    type: Physics
 - uid: 43
   type: CableMV
   components:
@@ -1088,17 +739,21 @@ entities:
     parent: 3
     type: Transform
 - uid: 48
-  type: SheetPlasma
+  type: GasPipeStraight
   components:
-  - pos: 14.374567,-8.60779
+  - pos: 12.5,-3.5
     parent: 3
     type: Transform
+  - bodyType: Static
+    type: Physics
 - uid: 49
   type: CableMV
   components:
   - pos: 13.5,-5.5
     parent: 3
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 50
   type: CableApcExtension
   components:
@@ -1167,9 +822,9 @@ entities:
     parent: 3
     type: Transform
 - uid: 61
-  type: GasPipeStraight
+  type: ReinforcedWindow
   components:
-  - pos: 15.5,-7.5
+  - pos: 10.5,-9.5
     parent: 3
     type: Transform
 - uid: 62
@@ -1209,11 +864,15 @@ entities:
     parent: 3
     type: Transform
 - uid: 68
-  type: SheetPlastic
+  type: GasPipeStraight
   components:
-  - pos: 13.558923,-8.5140705
+  - pos: 13.5,-4.5
     parent: 3
     type: Transform
+  - bodyType: Static
+    type: Physics
+  - enabled: True
+    type: AmbientSound
 - uid: 69
   type: CableMV
   components:
@@ -1250,6 +909,8 @@ entities:
   - pos: 13.5,-6.5
     parent: 3
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 75
   type: WallSolid
   components:
@@ -1280,13 +941,17 @@ entities:
   - pos: 15.5,0.5
     parent: 3
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 80
-  type: GasPressurePump
+  type: GasPipeStraight
   components:
   - rot: 1.5707963267948966 rad
-    pos: 13.5,-1.5
+    pos: 11.5,-1.5
     parent: 3
     type: Transform
+  - bodyType: Static
+    type: Physics
 - uid: 81
   type: WallSolid
   components:
@@ -1306,13 +971,11 @@ entities:
     parent: 3
     type: Transform
 - uid: 84
-  type: GravityGeneratorMini
+  type: SheetPlasma10
   components:
-  - pos: 14.5,-5.5
+  - pos: 13.50761,-8.4193535
     parent: 3
     type: Transform
-  - powerLoad: 50
-    type: ApcPowerReceiver
 - uid: 85
   type: CableApcExtension
   components:
@@ -1326,11 +989,13 @@ entities:
     parent: 3
     type: Transform
 - uid: 87
-  type: WallReinforced
+  type: GasPipeStraight
   components:
-  - pos: 7.5,-9.5
+  - pos: 13.5,-2.5
     parent: 3
     type: Transform
+  - bodyType: Static
+    type: Physics
 - uid: 88
   type: WallSolid
   components:
@@ -1356,37 +1021,46 @@ entities:
     parent: 3
     type: Transform
 - uid: 92
-  type: GasPipeBend
+  type: TableGlass
   components:
-  - rot: 3.141592653589793 rad
-    pos: 12.5,-1.5
+  - pos: 5.5,-7.5
     parent: 3
     type: Transform
 - uid: 93
+  type: GasVentScrubber
+  components:
+  - rot: 1.5707963267948966 rad
+    pos: 10.5,-1.5
+    parent: 3
+    type: Transform
+  - bodyType: Static
+    type: Physics
+- uid: 94
   type: GasPipeStraight
   components:
-  - pos: 15.5,-3.5
+  - pos: 12.5,-4.5
     parent: 3
     type: Transform
-- uid: 94
-  type: GasPressurePump
-  components:
-  - rot: -1.5707963267948966 rad
-    pos: 13.5,-2.5
-    parent: 3
-    type: Transform
+  - bodyType: Static
+    type: Physics
+  - enabled: True
+    type: AmbientSound
 - uid: 95
-  type: GasPipeFourway
+  type: CableHV
   components:
-  - pos: 15.5,-10.5
+  - pos: 15.5,-7.5
     parent: 3
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 96
   type: CableMV
   components:
   - pos: 12.5,5.5
     parent: 3
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 97
   type: CableApcExtension
   components:
@@ -1406,21 +1080,23 @@ entities:
     parent: 3
     type: Transform
 - uid: 100
-  type: GasPipeStraight
-  components:
-  - pos: 15.5,-2.5
-    parent: 3
-    type: Transform
-- uid: 101
-  type: GasPipeStraight
+  type: CableHV
   components:
   - pos: 15.5,-8.5
     parent: 3
     type: Transform
-- uid: 102
-  type: SheetPlasma
+  - enabled: True
+    type: AmbientSound
+- uid: 101
+  type: GeneratorPlasma
   components:
-  - pos: 14.906694,-8.493866
+  - pos: 14.5,-8.5
+    parent: 3
+    type: Transform
+- uid: 102
+  type: GeneratorPlasma
+  components:
+  - pos: 15.5,-8.5
     parent: 3
     type: Transform
 - uid: 103
@@ -1447,10 +1123,12 @@ entities:
   - pos: 15.5,-6.5
     parent: 3
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 107
-  type: StorageCanister
+  type: TableGlass
   components:
-  - pos: 12.5,-3.5
+  - pos: 5.5,-8.5
     parent: 3
     type: Transform
 - uid: 108
@@ -1460,11 +1138,14 @@ entities:
     parent: 3
     type: Transform
 - uid: 109
-  type: GasPipeStraight
+  type: GasPort
   components:
-  - pos: 15.5,-4.5
+  - rot: 3.141592653589793 rad
+    pos: 12.5,-5.5
     parent: 3
     type: Transform
+  - bodyType: Static
+    type: Physics
 - uid: 110
   type: CableApcExtension
   components:
@@ -1483,12 +1164,16 @@ entities:
   - pos: 13.5,-8.5
     parent: 3
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 113
   type: CableApcExtension
   components:
   - pos: 12.5,-7.5
     parent: 3
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 114
   type: CableApcExtension
   components:
@@ -1525,6 +1210,8 @@ entities:
   - pos: 11.5,-5.5
     parent: 3
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 120
   type: CableMV
   components:
@@ -1565,10 +1252,9 @@ entities:
   - powerLoad: 0
     type: ApcPowerReceiver
 - uid: 126
-  type: GasVentPump
+  type: TableGlass
   components:
-  - rot: -1.5707963267948966 rad
-    pos: 14.5,-1.5
+  - pos: 5.5,-5.5
     parent: 3
     type: Transform
 - uid: 127
@@ -1625,6 +1311,8 @@ entities:
   - pos: 12.5,5.5
     parent: 3
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 136
   type: CableApcExtension
   components:
@@ -1643,6 +1331,8 @@ entities:
   - pos: 5.5,0.5
     parent: 3
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 139
   type: CableMV
   components:
@@ -1668,9 +1358,9 @@ entities:
     parent: 3
     type: Transform
 - uid: 143
-  type: SubstationBasic
+  type: MedkitFilled
   components:
-  - pos: 15.5,-5.5
+  - pos: 2.5,-8.5
     parent: 3
     type: Transform
 - uid: 144
@@ -1698,9 +1388,9 @@ entities:
     parent: 3
     type: Transform
 - uid: 148
-  type: Table
+  type: ReinforcedWindow
   components:
-  - pos: 15.5,-8.5
+  - pos: 7.5,-9.5
     parent: 3
     type: Transform
 - uid: 149
@@ -1709,24 +1399,32 @@ entities:
   - pos: 15.5,-6.5
     parent: 3
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 150
   type: CableMV
   components:
   - pos: 14.5,-5.5
     parent: 3
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 151
   type: CableMV
   components:
   - pos: 15.5,-5.5
     parent: 3
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 152
   type: CableHV
   components:
   - pos: 15.5,-5.5
     parent: 3
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 153
   type: WallReinforced
   components:
@@ -1776,6 +1474,8 @@ entities:
     pos: 9.5,3.5
     parent: 3
     type: Transform
+  - bodyType: Static
+    type: Physics
 - uid: 161
   type: CableApcExtension
   components:
@@ -1783,9 +1483,9 @@ entities:
     parent: 3
     type: Transform
 - uid: 162
-  type: Table
+  type: ReinforcedWindow
   components:
-  - pos: 14.5,-8.5
+  - pos: 9.5,-9.5
     parent: 3
     type: Transform
 - uid: 163
@@ -1812,12 +1512,16 @@ entities:
   - pos: 14.5,-4.5
     parent: 3
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 167
   type: CableMV
   components:
   - pos: 15.5,0.5
     parent: 3
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 168
   type: CableMV
   components:
@@ -1866,6 +1570,8 @@ entities:
   - pos: 10.5,-4.5
     parent: 3
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 176
   type: CableMV
   components:
@@ -1935,6 +1641,8 @@ entities:
   - pos: 12.5,-6.5
     parent: 3
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 187
   type: CableMV
   components:
@@ -1947,6 +1655,8 @@ entities:
   - pos: 11.5,3.5
     parent: 3
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 189
   type: CableApcExtension
   components:
@@ -1995,6 +1705,8 @@ entities:
   - pos: 5.5,5.5
     parent: 3
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 197
   type: CableApcExtension
   components:
@@ -2063,6 +1775,8 @@ entities:
   - pos: 10.5,0.5
     parent: 3
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 206
   type: CableMV
   components:
@@ -2076,9 +1790,9 @@ entities:
     parent: 3
     type: Transform
 - uid: 208
-  type: GeneratorPlasma
+  type: ReinforcedWindow
   components:
-  - pos: 15.5,-6.5
+  - pos: 8.5,-9.5
     parent: 3
     type: Transform
 - uid: 209
@@ -2095,9 +1809,9 @@ entities:
     parent: 3
     type: Transform
 - uid: 211
-  type: GeneratorPlasma
+  type: MedkitFilled
   components:
-  - pos: 15.5,-7.5
+  - pos: 2.5,-6.5
     parent: 3
     type: Transform
 - uid: 212
@@ -2136,6 +1850,8 @@ entities:
   - pos: 12.5,-7.5
     parent: 3
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 218
   type: WallReinforced
   components:
@@ -2187,8 +1903,13 @@ entities:
     pos: 15.5,-12.5
     parent: 3
     type: Transform
+  - enabled: True
+    type: AmbientSound
+  - bodyType: Static
+    type: Physics
   - fixtures:
     - shape: !type:PolygonShape
+        radius: 0.01
         vertices:
         - 0.45,-0.45
         - 0.45,0.45
@@ -2202,49 +1923,63 @@ entities:
       - MidImpassable
       - LowImpassable
       density: 60
+      hard: True
+      restitution: 0
+      friction: 0.4
+      id: null
     - shape: !type:PolygonShape
+        radius: 0.01
         vertices:
         - 0.4,0.5
         - 0.1,1.2
         - -0.1,1.2
         - -0.4,0.5
+      mask: []
       layer:
       - Impassable
       - MidImpassable
       - HighImpassable
       - LowImpassable
       - InteractImpassable
+      density: 1
       hard: False
+      restitution: 0
+      friction: 0.4
       id: thruster-burn
     type: Fixtures
 - uid: 225
-  type: GasPipeStraight
+  type: MedkitFilled
   components:
-  - pos: 15.5,-9.5
+  - pos: 2.5,-5.5
     parent: 3
     type: Transform
 - uid: 226
-  type: PlasmaCanister
+  type: CableHV
   components:
-  - pos: 15.5,-0.5
+  - pos: 14.5,-8.5
     parent: 3
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 227
-  type: GasPort
+  type: MedkitFilled
   components:
-  - pos: 15.5,-0.5
+  - pos: 2.5,-7.5
     parent: 3
     type: Transform
 - uid: 228
-  type: GasPipeStraight
+  type: GasPort
   components:
-  - pos: 15.5,-5.5
+  - rot: 3.141592653589793 rad
+    pos: 13.5,-5.5
     parent: 3
     type: Transform
+  - bodyType: Static
+    type: Physics
 - uid: 229
-  type: GasPipeStraight
+  type: Firelock
   components:
-  - pos: 15.5,-6.5
+  - pos: 8.5,-4.5
     parent: 3
     type: Transform
 - uid: 230
@@ -2319,10 +2054,9 @@ entities:
   - powerLoad: 0
     type: ApcPowerReceiver
 - uid: 241
-  type: GasPipeStraight
+  type: Firelock
   components:
-  - rot: -1.5707963267948966 rad
-    pos: 14.5,-10.5
+  - pos: 9.5,-4.5
     parent: 3
     type: Transform
 - uid: 242
@@ -2363,6 +2097,8 @@ entities:
   - pos: 14.5,-8.5
     parent: 3
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 248
   type: WallReinforced
   components:
@@ -2393,14 +2129,21 @@ entities:
   - pos: 5.5,-4.5
     parent: 3
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 253
   type: ThrusterGas
   components:
   - pos: 13.5,-12.5
     parent: 3
     type: Transform
+  - enabled: True
+    type: AmbientSound
+  - bodyType: Static
+    type: Physics
   - fixtures:
     - shape: !type:PolygonShape
+        radius: 0.01
         vertices:
         - 0.45,-0.45
         - 0.45,0.45
@@ -2414,19 +2157,28 @@ entities:
       - MidImpassable
       - LowImpassable
       density: 60
+      hard: True
+      restitution: 0
+      friction: 0.4
+      id: null
     - shape: !type:PolygonShape
+        radius: 0.01
         vertices:
         - 0.4,0.5
         - 0.1,1.2
         - -0.1,1.2
         - -0.4,0.5
+      mask: []
       layer:
       - Impassable
       - MidImpassable
       - HighImpassable
       - LowImpassable
       - InteractImpassable
+      density: 1
       hard: False
+      restitution: 0
+      friction: 0.4
       id: thruster-burn
     type: Fixtures
 - uid: 254
@@ -2436,11 +2188,14 @@ entities:
     pos: 14.5,-13.5
     parent: 3
     type: Transform
+  - bodyType: Static
+    type: Physics
+  - enabled: True
+    type: AmbientSound
 - uid: 255
-  type: GasPipeTJunction
+  type: Firelock
   components:
-  - rot: -1.5707963267948966 rad
-    pos: 15.5,-11.5
+  - pos: 6.5,-1.5
     parent: 3
     type: Transform
 - uid: 256
@@ -2455,6 +2210,8 @@ entities:
   - pos: 10.5,0.5
     parent: 3
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 258
   type: WallReinforced
   components:
@@ -2470,6 +2227,7 @@ entities:
     type: Transform
   - fixtures:
     - shape: !type:PolygonShape
+        radius: 0.01
         vertices:
         - 0.49,-0.49
         - 0.49,0.49
@@ -2488,10 +2246,19 @@ entities:
       - InteractImpassable
       - Opaque
       density: 100
+      hard: True
+      restitution: 0
+      friction: 0.4
+      id: null
     - shape: !type:PhysShapeCircle
         radius: 0.2
         position: 0,-0.5
+      mask: []
+      layer: []
+      density: 1
       hard: False
+      restitution: 0
+      friction: 0.4
       id: docking
     type: Fixtures
 - uid: 260
@@ -2512,6 +2279,8 @@ entities:
   - pos: 14.5,-4.5
     parent: 3
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 263
   type: WallReinforced
   components:
@@ -2533,6 +2302,7 @@ entities:
     type: Transform
   - fixtures:
     - shape: !type:PolygonShape
+        radius: 0.01
         vertices:
         - 0.49,-0.49
         - 0.49,0.49
@@ -2551,10 +2321,19 @@ entities:
       - InteractImpassable
       - Opaque
       density: 100
+      hard: True
+      restitution: 0
+      friction: 0.4
+      id: null
     - shape: !type:PhysShapeCircle
         radius: 0.2
         position: 0,-0.5
+      mask: []
+      layer: []
+      density: 1
       hard: False
+      restitution: 0
+      friction: 0.4
       id: docking
     type: Fixtures
 - uid: 266
@@ -2569,6 +2348,8 @@ entities:
   - pos: 14.5,-9.5
     parent: 3
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 268
   type: WallReinforced
   components:
@@ -2576,38 +2357,33 @@ entities:
     parent: 3
     type: Transform
 - uid: 269
-  type: GasPipeStraight
+  type: Firelock
   components:
-  - rot: -1.5707963267948966 rad
-    pos: 13.5,-10.5
+  - pos: 6.5,-2.5
     parent: 3
     type: Transform
 - uid: 270
-  type: GasPipeStraight
+  type: Firelock
   components:
-  - rot: -1.5707963267948966 rad
-    pos: 12.5,-10.5
+  - pos: 11.5,-1.5
     parent: 3
     type: Transform
 - uid: 271
-  type: GasPipeStraight
+  type: Firelock
   components:
-  - rot: -1.5707963267948966 rad
-    pos: 11.5,-10.5
+  - pos: 11.5,-2.5
     parent: 3
     type: Transform
 - uid: 272
-  type: GasPipeStraight
+  type: Firelock
   components:
-  - rot: -1.5707963267948966 rad
-    pos: 10.5,-10.5
+  - pos: 8.5,0.5
     parent: 3
     type: Transform
 - uid: 273
-  type: GasPipeStraight
+  type: Firelock
   components:
-  - rot: -1.5707963267948966 rad
-    pos: 9.5,-10.5
+  - pos: 9.5,0.5
     parent: 3
     type: Transform
 - uid: 274
@@ -2616,23 +2392,24 @@ entities:
   - pos: 14.5,-10.5
     parent: 3
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 275
-  type: CableApcExtension
+  type: Firelock
   components:
-  - pos: 3.5,-10.5
+  - pos: 6.5,2.5
     parent: 3
     type: Transform
 - uid: 276
-  type: GasPipeBend
+  type: Firelock
   components:
-  - rot: 3.141592653589793 rad
-    pos: 3.5,-13.5
+  - pos: 6.5,3.5
     parent: 3
     type: Transform
 - uid: 277
-  type: CableApcExtension
+  type: Firelock
   components:
-  - pos: 15.5,-2.5
+  - pos: 4.5,-4.5
     parent: 3
     type: Transform
 - uid: 278
@@ -2707,6 +2484,8 @@ entities:
   - pos: 5.5,-4.5
     parent: 3
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 290
   type: CableApcExtension
   components:
@@ -2719,12 +2498,16 @@ entities:
   - pos: 12.5,-4.5
     parent: 3
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 292
   type: CableMV
   components:
   - pos: 12.5,-5.5
     parent: 3
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 293
   type: CableMV
   components:
@@ -2765,6 +2548,8 @@ entities:
     pos: 8.5,3.5
     parent: 3
     type: Transform
+  - bodyType: Static
+    type: Physics
 - uid: 299
   type: CableApcExtension
   components:
@@ -2772,21 +2557,21 @@ entities:
     parent: 3
     type: Transform
 - uid: 300
-  type: TableGlass
+  type: Firelock
   components:
-  - pos: 4.5,-8.5
+  - pos: 3.5,-4.5
     parent: 3
     type: Transform
 - uid: 301
-  type: TableGlass
+  type: Firelock
   components:
-  - pos: 3.5,-8.5
+  - pos: 13.5,0.5
     parent: 3
     type: Transform
 - uid: 302
-  type: SheetGlass
+  type: Firelock
   components:
-  - pos: 13.08381,-8.4571085
+  - pos: 14.5,0.5
     parent: 3
     type: Transform
 - uid: 303
@@ -2807,6 +2592,8 @@ entities:
   - pos: 3.5,0.5
     parent: 3
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 306
   type: CableMV
   components:
@@ -2879,12 +2666,16 @@ entities:
   - pos: 14.5,-6.5
     parent: 3
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 318
   type: CableApcExtension
   components:
   - pos: 14.5,-7.5
     parent: 3
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 319
   type: CableApcExtension
   components:
@@ -2921,6 +2712,8 @@ entities:
   - pos: 5.5,0.5
     parent: 3
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 325
   type: CableMV
   components:
@@ -2939,6 +2732,8 @@ entities:
   - pos: 14.5,-5.5
     parent: 3
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 328
   type: MedicalBed
   components:
@@ -2946,21 +2741,21 @@ entities:
     parent: 3
     type: Transform
 - uid: 329
-  type: WallReinforced
+  type: Grille
   components:
-  - pos: 10.5,-9.5
+  - pos: 7.5,-9.5
     parent: 3
     type: Transform
 - uid: 330
-  type: WallReinforced
+  type: Grille
   components:
-  - pos: 9.5,-9.5
+  - pos: 8.5,-9.5
     parent: 3
     type: Transform
 - uid: 331
-  type: WallReinforced
+  type: Grille
   components:
-  - pos: 8.5,-9.5
+  - pos: 9.5,-9.5
     parent: 3
     type: Transform
 - uid: 332
@@ -3072,65 +2867,23 @@ entities:
     parent: 3
     type: Transform
 - uid: 350
-  type: GasPipeStraight
+  type: Grille
   components:
-  - rot: -1.5707963267948966 rad
-    pos: 8.5,-10.5
+  - pos: 10.5,-9.5
     parent: 3
     type: Transform
 - uid: 351
-  type: GasPipeStraight
+  type: GravityGeneratorMini
   components:
-  - rot: -1.5707963267948966 rad
-    pos: 7.5,-10.5
+  - pos: 14.5,-5.5
     parent: 3
     type: Transform
+  - powerLoad: 50
+    type: ApcPowerReceiver
 - uid: 352
-  type: GasPipeStraight
+  type: SubstationBasic
   components:
-  - rot: -1.5707963267948966 rad
-    pos: 6.5,-10.5
-    parent: 3
-    type: Transform
-- uid: 353
-  type: GasPipeStraight
-  components:
-  - rot: -1.5707963267948966 rad
-    pos: 5.5,-10.5
-    parent: 3
-    type: Transform
-- uid: 354
-  type: GasPipeStraight
-  components:
-  - rot: -1.5707963267948966 rad
-    pos: 4.5,-10.5
-    parent: 3
-    type: Transform
-- uid: 355
-  type: GasPipeStraight
-  components:
-  - rot: -1.5707963267948966 rad
-    pos: 3.5,-10.5
-    parent: 3
-    type: Transform
-- uid: 356
-  type: GasPipeTJunction
-  components:
-  - pos: 2.5,-10.5
-    parent: 3
-    type: Transform
-- uid: 357
-  type: GasPipeTJunction
-  components:
-  - rot: 1.5707963267948966 rad
-    pos: 2.5,-11.5
-    parent: 3
-    type: Transform
-- uid: 358
-  type: GasPipeBend
-  components:
-  - rot: -1.5707963267948966 rad
-    pos: 4.5,-13.5
+  - pos: 15.5,-5.5
     parent: 3
     type: Transform
 - uid: 359
@@ -3140,129 +2893,10 @@ entities:
     pos: 14.5,-12.5
     parent: 3
     type: Transform
-- uid: 360
-  type: Gyroscope
-  components:
-  - pos: 3.5,-11.5
-    parent: 3
-    type: Transform
-- uid: 361
-  type: ThrusterGas
-  components:
-  - rot: 3.141592653589793 rad
-    pos: 2.5,-12.5
-    parent: 3
-    type: Transform
-  - fixtures:
-    - shape: !type:PolygonShape
-        vertices:
-        - 0.45,-0.45
-        - 0.45,0.45
-        - -0.45,0.45
-        - -0.45,-0.45
-      mask:
-      - Impassable
-      - MidImpassable
-      - LowImpassable
-      layer:
-      - MidImpassable
-      - LowImpassable
-      density: 60
-    - shape: !type:PolygonShape
-        vertices:
-        - 0.4,0.5
-        - 0.1,1.2
-        - -0.1,1.2
-        - -0.4,0.5
-      layer:
-      - Impassable
-      - MidImpassable
-      - HighImpassable
-      - LowImpassable
-      - InteractImpassable
-      hard: False
-      id: thruster-burn
-    type: Fixtures
-- uid: 362
-  type: ThrusterGas
-  components:
-  - pos: 4.5,-12.5
-    parent: 3
-    type: Transform
-  - fixtures:
-    - shape: !type:PolygonShape
-        vertices:
-        - 0.45,-0.45
-        - 0.45,0.45
-        - -0.45,0.45
-        - -0.45,-0.45
-      mask:
-      - Impassable
-      - MidImpassable
-      - LowImpassable
-      layer:
-      - MidImpassable
-      - LowImpassable
-      density: 60
-    - shape: !type:PolygonShape
-        vertices:
-        - 0.4,0.5
-        - 0.1,1.2
-        - -0.1,1.2
-        - -0.4,0.5
-      layer:
-      - Impassable
-      - MidImpassable
-      - HighImpassable
-      - LowImpassable
-      - InteractImpassable
-      hard: False
-      id: thruster-burn
-    type: Fixtures
-- uid: 363
-  type: ThrusterGas
-  components:
-  - rot: 1.5707963267948966 rad
-    pos: 1.5,-10.5
-    parent: 3
-    type: Transform
-  - fixtures:
-    - shape: !type:PolygonShape
-        vertices:
-        - 0.45,-0.45
-        - 0.45,0.45
-        - -0.45,0.45
-        - -0.45,-0.45
-      mask:
-      - Impassable
-      - MidImpassable
-      - LowImpassable
-      layer:
-      - MidImpassable
-      - LowImpassable
-      density: 60
-    - shape: !type:PolygonShape
-        vertices:
-        - 0.4,0.5
-        - 0.1,1.2
-        - -0.1,1.2
-        - -0.4,0.5
-      layer:
-      - Impassable
-      - MidImpassable
-      - HighImpassable
-      - LowImpassable
-      - InteractImpassable
-      hard: False
-      id: thruster-burn
-    type: Fixtures
-- uid: 364
-  type: GasPipeStraight
-  components:
-  - rot: 3.141592653589793 rad
-    pos: 3.5,-12.5
-    parent: 3
-    type: Transform
+  - bodyType: Static
+    type: Physics
+  - enabled: True
+    type: AmbientSound
 - uid: 365
   type: GasPipeBend
   components:
@@ -3270,79 +2904,40 @@ entities:
     pos: 13.5,-13.5
     parent: 3
     type: Transform
+  - bodyType: Static
+    type: Physics
+  - enabled: True
+    type: AmbientSound
 - uid: 366
   type: SpawnPointLatejoin
   components:
   - pos: 7.5,-5.5
     parent: 3
     type: Transform
-- uid: 367
-  type: GasPipeBend
-  components:
-  - pos: 3.5,-11.5
-    parent: 3
-    type: Transform
-- uid: 368
-  type: ThrusterGas
-  components:
-  - rot: -1.5707963267948966 rad
-    pos: 16.5,-10.5
-    parent: 3
-    type: Transform
-  - fixtures:
-    - shape: !type:PolygonShape
-        vertices:
-        - 0.45,-0.45
-        - 0.45,0.45
-        - -0.45,0.45
-        - -0.45,-0.45
-      mask:
-      - Impassable
-      - MidImpassable
-      - LowImpassable
-      layer:
-      - MidImpassable
-      - LowImpassable
-      density: 60
-    - shape: !type:PolygonShape
-        vertices:
-        - 0.4,0.5
-        - 0.1,1.2
-        - -0.1,1.2
-        - -0.4,0.5
-      layer:
-      - Impassable
-      - MidImpassable
-      - HighImpassable
-      - LowImpassable
-      - InteractImpassable
-      hard: False
-      id: thruster-burn
-    type: Fixtures
 - uid: 369
   type: CableApcExtension
   components:
   - pos: 14.5,-8.5
     parent: 3
     type: Transform
-- uid: 370
-  type: CableApcExtension
-  components:
-  - pos: 3.5,-11.5
-    parent: 3
-    type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 371
   type: CableApcExtension
   components:
   - pos: 14.5,-11.5
     parent: 3
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 372
   type: CableApcExtension
   components:
   - pos: 3.5,-9.5
     parent: 3
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 373
   type: Chair
   components:
@@ -3350,6 +2945,8 @@ entities:
     pos: 2.5,1.5
     parent: 3
     type: Transform
+  - bodyType: Static
+    type: Physics
 - uid: 374
   type: Chair
   components:
@@ -3357,6 +2954,8 @@ entities:
     pos: 3.5,1.5
     parent: 3
     type: Transform
+  - bodyType: Static
+    type: Physics
 - uid: 375
   type: Chair
   components:
@@ -3364,6 +2963,8 @@ entities:
     pos: 4.5,1.5
     parent: 3
     type: Transform
+  - bodyType: Static
+    type: Physics
 - uid: 376
   type: Chair
   components:
@@ -3371,70 +2972,18 @@ entities:
     pos: 5.5,1.5
     parent: 3
     type: Transform
+  - bodyType: Static
+    type: Physics
 - uid: 377
   type: PottedPlantBioluminscent
   components:
   - pos: 2.5,4.5
     parent: 3
     type: Transform
-- uid: 378
-  type: PottedPlantRandom
-  components:
-  - pos: 4.5,4.5
-    parent: 3
-    type: Transform
 - uid: 379
   type: PottedPlantRandom
   components:
   - pos: 5.5,4.5
-    parent: 3
-    type: Transform
-- uid: 380
-  type: MedkitAdvancedFilled
-  components:
-  - pos: 2.5354996,-5.575059
-    parent: 3
-    type: Transform
-- uid: 381
-  type: MedkitBruteFilled
-  components:
-  - pos: 2.5545034,-5.9358187
-    parent: 3
-    type: Transform
-- uid: 382
-  type: MedkitBurnFilled
-  components:
-  - pos: 2.592513,-6.372527
-    parent: 3
-    type: Transform
-- uid: 383
-  type: MedkitCombatFilled
-  components:
-  - pos: 2.592513,-6.63835
-    parent: 3
-    type: Transform
-- uid: 384
-  type: MedkitFilled
-  components:
-  - pos: 2.6305218,-7.018097
-    parent: 3
-    type: Transform
-- uid: 385
-  type: MedkitOxygenFilled
-  components:
-  - pos: 2.611517,-7.302907
-    parent: 3
-    type: Transform
-- uid: 386
-  type: MedkitRadiationFilled
-  components:
-  - pos: 2.611517,-7.6256914
-    parent: 3
-    type: Transform
-- uid: 387
-  type: MedkitToxinFilled
-  components:
-  - pos: 2.70654,-7.8725276
     parent: 3
     type: Transform
 - uid: 388
@@ -3466,12 +3015,6 @@ entities:
       - port: Sell
         uid: 389
     type: SignalTransmitter
-- uid: 391
-  type: RedspaceVendor
-  components:
-  - pos: 10.5,-0.5
-    parent: 3
-    type: Transform
 - uid: 425
   type: Poweredlight
   components:
@@ -3700,6 +3243,24 @@ entities:
   - pos: 12.5,4.5
     parent: 3
     type: Transform
+  - air:
+      volume: 200
+      immutable: False
+      temperature: 293.14948
+      moles:
+      - 3.0603204
+      - 11.512634
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    type: EntityStorage
 - uid: 454
   type: VendingMachineSalvage
   components:
@@ -3714,6 +3275,8 @@ entities:
   - pos: 14.5,-11.5
     parent: 3
     type: Transform
+  - bodyType: Static
+    type: Physics
 - uid: 456
   type: GasPipeBend
   components:
@@ -3721,6 +3284,10 @@ entities:
     pos: 14.5,-11.5
     parent: 3
     type: Transform
+  - bodyType: Static
+    type: Physics
+  - enabled: True
+    type: AmbientSound
 - uid: 457
   type: SpawnPointLatejoin
   components:
@@ -3752,30 +3319,32 @@ entities:
   - pos: 9.5,-9.5
     parent: 3
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 462
   type: CableMV
   components:
   - pos: 9.5,-10.5
     parent: 3
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 463
   type: CableMV
   components:
   - pos: 8.5,-10.5
     parent: 3
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 464
   type: CableMV
   components:
   - pos: 7.5,-10.5
     parent: 3
     type: Transform
-- uid: 465
-  type: CableMV
-  components:
-  - pos: 10.5,-10.5
-    parent: 3
-    type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 466
   type: WeaponLaserTurretManual
   components:
@@ -3784,6 +3353,8 @@ entities:
   - pos: 7.5,-10.5
     parent: 3
     type: Transform
+  - bodyType: Static
+    type: Physics
 - uid: 467
   type: WeaponLaserTurretManual
   components:
@@ -3792,6 +3363,8 @@ entities:
   - pos: 10.5,-10.5
     parent: 3
     type: Transform
+  - bodyType: Static
+    type: Physics
 - uid: 468
   type: BaseControllerConsole
   components:
@@ -3800,7 +3373,7 @@ entities:
     parent: 3
     type: Transform
   - controlling: 466
-    type: ControllerStructure
+    type: ControlStructure
 - uid: 469
   type: BaseControllerConsole
   components:
@@ -3809,5 +3382,5 @@ entities:
     parent: 3
     type: Transform
   - controlling: 467
-    type: ControllerStructure
+    type: ControlStructure
 ...

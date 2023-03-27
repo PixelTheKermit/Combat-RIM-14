@@ -6,7 +6,21 @@
   fallback: true
   validShip: true
   description: |
-    test
+    It's getting harder to breathe...
+    The air feels empty...
+    You have a bad feeling about this...
+    -STATS-
+    Crew: Just you
+    Difficulty: Very hard
+    Vessel Size: Very Small
+    WARNINGS:
+    - ONLY FOR THOSE WHO ARE SEEKING A CHALLENGE
+    - USES URANIUM AS FUEL
+    - 2 THRUSTERS
+    - NO MACHINES
+    - NO TURRETS
+    - DON'T SAY I DIDN'T WARN YOU.
+
   stations:
     IsvRust:
       mapNameTemplate: '{0} Rust {1}'

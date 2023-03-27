@@ -13,7 +13,8 @@
     - state: door_remotescreencolour
       color: "#9f9f00"
     netsync: false
-  - type: ControllerDevice
+  - type: ControlHand
+  - type: RemotePairer
   - type: DoAfter
 
 - type: entity
@@ -32,7 +33,6 @@
     - state: door_remotescreencolour
       color: "#CC0000"
     netsync: false
-  - type: ControllerDevice
-    delayMultiplier: 0
-    enabled: false
+  - type: RemotePairer
+    devMode: true
   - type: DoAfter

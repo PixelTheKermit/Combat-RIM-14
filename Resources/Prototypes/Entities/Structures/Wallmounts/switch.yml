@@ -32,7 +32,7 @@
 - type: entity
   id: SignalButton
   name: signal button
-  description: It's a button for activating something.
+  description: A man named Stanley would like this!
   placement:
     mode: SnapgridCenter
     snap:

@@ -72,7 +72,7 @@
   parent: PlayerSiliconBase
   components:
   - type: InputMover
-  - type: ControllableMob
+  - type: Controllable
   - type: InnateTool
     tools:
       - id: ClothingBackpackSatchelDrone
