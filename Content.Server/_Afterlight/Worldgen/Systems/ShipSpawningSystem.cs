@@ -61,10 +61,11 @@ public sealed class ShipSpawningSystem : BaseWorldSystem
 
     private void OnLoadingMaps(LoadingMapsEvent ev)
     {
+        ev.Maps.Clear();
+
         if (!_cfg.GetCVar<bool>(AfterlightCVars.ShipSpawningEnabled))
             return;
 
-        ev.Maps.Clear();
         var valid = _prototype.EnumeratePrototypes<GameMapPrototype>().Where(x => x.ValidShip).ToList();
 
         var slotsLeft = _player.PlayerCount;

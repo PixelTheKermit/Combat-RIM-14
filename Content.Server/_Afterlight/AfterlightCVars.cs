@@ -9,7 +9,7 @@ public sealed class AfterlightCVars
     /// Whether or not ship spawning is enabled.
     /// </summary>
     public static readonly CVarDef<bool> ShipSpawningEnabled =
-        CVarDef.Create("afterlight.shipspawning.enabled", true, CVar.SERVERONLY);
+        CVarDef.Create("afterlight.shipspawning.enabled", false, CVar.SERVERONLY);
 
     /// <summary>
     /// Whether or not story management is enabled.

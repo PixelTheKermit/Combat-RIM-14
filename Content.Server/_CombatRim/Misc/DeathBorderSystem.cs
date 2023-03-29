@@ -3,7 +3,7 @@ using Content.Shared.Item;
 using Robust.Server.Containers;
 using Robust.Shared.Configuration;
 
-namespace Content.Server._CombatRim.ControllableMob;
+namespace Content.Server._CombatRim.DeathBorder;
 
 public sealed class DeathBorderSystem : EntitySystem
 {
