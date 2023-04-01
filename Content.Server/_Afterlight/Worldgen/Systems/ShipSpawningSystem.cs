@@ -165,7 +165,7 @@ public sealed class ShipSpawningSystem : BaseWorldSystem
 
                     if (debris.OwnedDebris.Count != 0)
                         continue;
-                    comp.FreeCoordinates.Add(new MapCoordinates(WorldGen.ChunkToWorldCoordsCentered(cCoords), Comp<MapComponent>(comp.Owner).WorldMap));
+                    comp.FreeCoordinates.Add(new MapCoordinates(WorldGen.ChunkToWorldCoordsCentered(cCoords), Comp<MapComponent>(comp.Owner).MapId));
                 }
             }
 

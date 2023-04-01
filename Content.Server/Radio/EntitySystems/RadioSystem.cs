@@ -50,7 +50,7 @@ public sealed class RadioSystem : EntitySystem
     {
         if (TryComp(uid, out ActorComponent? actor))
         {
-            var calcDist = (Transform(uid).WorldPosition - Transform(args.Source).WorldPosition).Length;
+            var calcDist = (Transform(uid).WorldPosition - Transform(args.MessageSource).WorldPosition).Length;
             if (calcDist <= component.Range)
                 _netMan.ServerSendMessage(args.ChatMsg, actor.PlayerSession.ConnectedClient);
         }
@@ -101,7 +101,7 @@ public sealed class RadioSystem : EntitySystem
             var needServer = !channel.LongRange && (!hasMicro || !speakerQuery.HasComponent(receiver));
             if (needServer && !hasActiveServer)
                 continue;
-                
+
             // check if message can be sent to specific receiver
             var attemptEv = new RadioReceiveAttemptEvent(channel, radioSource, receiver);
             RaiseLocalEvent(ref attemptEv);
