@@ -8,3 +8,6 @@ enabled = true
 
 [shuttle]
 auto_call_time = 0
+
+[combatrim]
+economy.events.enabled = false

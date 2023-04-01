@@ -6,7 +6,7 @@
     mode: SnapgridCenter
   components:
   - type: Sprite
-    sprite: CombatRim\Structures\sellpad.rsi
+    sprite: CombatRim/Structures/sellpad.rsi
     netsync: false
     layers:
       - state: redspace
@@ -21,10 +21,11 @@
   - type: SellPlatform
     blacklist:
       components:
-      - MobThresholds
-      - Ghost
+      - MobThresholds # REDSPACE LORE.
+      - Ghost # Ghosts are valuable! Unfortunately you can't sell them because... yeah...
       tags:
-      - SpaceCash
+      - SpaceCash # This is obvious
+      - Ore # For some reason, ores have more "resource" than their solid counterparts??? Anyways this is obviously very bad for the economy.
   - type: Anchorable
     delay: 2
   - type: Transform
@@ -49,7 +50,7 @@
     mode: SnapgridCenter
   components:
   - type: Sprite
-    sprite: CombatRim\Structures\redspacevendor.rsi
+    sprite: CombatRim/Structures/redspacevendor.rsi
     netsync: false
     layers:
       - state: icon

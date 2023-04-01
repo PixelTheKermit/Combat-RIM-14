@@ -11,7 +11,7 @@
 - type: listing
   id: VendorMaterialUranium
   name: Uranium
-  description: ...I should probably not be selling this to you... too bad!
+  description: "I should probably not be selling this to you... Eh whatever as long as you're not making nukes with it."
   productEntity: SheetUranium
   cost:
     SpaceCash: 1800

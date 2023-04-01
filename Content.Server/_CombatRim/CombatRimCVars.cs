@@ -11,23 +11,26 @@ public sealed class CombatRimCVars
     public static readonly CVarDef<string> MainCurrency =
         CVarDef.Create("combatrim.economy.main_currency", "SpaceCash", CVar.SERVERONLY);
 
+    public static readonly CVarDef<bool> DoEcoEvents =
+        CVarDef.Create("combatrim.economy.events.enabled", true, CVar.SERVERONLY);
+
     /// <summary>
     /// What should be the name of the bank announcer?
     /// </summary>
     public static readonly CVarDef<string> BankAnnouncer =
-        CVarDef.Create("combatrim.economy.announcer", "Bank of the Death Sector", CVar.SERVERONLY);
+        CVarDef.Create("combatrim.economy.events.announcer", "Bank of the Death Sector", CVar.SERVERONLY);
 
     /// <summary>
     /// Min interval of the economic events.
     /// </summary>
     public static readonly CVarDef<int> EcoEventMinInterval =
-        CVarDef.Create("combatrim.economy.min_interval", 15, CVar.SERVERONLY);
+        CVarDef.Create("combatrim.economy.events.min_interval", 10, CVar.SERVERONLY);
 
     /// <summary>
     /// Max interval of the economic events.
     /// </summary>
     public static readonly CVarDef<int> EcoEventMaxInterval =
-        CVarDef.Create("combatrim.economy.max_interval", 45, CVar.SERVERONLY);
+        CVarDef.Create("combatrim.economy.events.max_interval", 45, CVar.SERVERONLY);
 
     /// <summary>
     /// The "border" of the sector, measured by tiles and value is multiplied by 128.

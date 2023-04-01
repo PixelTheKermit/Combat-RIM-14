@@ -20,12 +20,9 @@
   id: BoxRockets
   description: A box full of lethal rockets, designed for RPGs.
   components:
-    - type: StaticPrice
-      price: 12500
     - type: Tag
       tags:
       - RocketAmmoBox
-      - SellMerchantBlacklist
     - type: BallisticAmmoProvider
       whitelist:
         tags:
@@ -42,8 +39,6 @@
   id: TurretBoxLethalshot
   description: A box full of lethal pellet shots, designed for shotgun turrets.
   components:
-    - type: StaticPrice
-      price: 8000
     - type: Tag
       tags:
       - ShotgunAmmoBox

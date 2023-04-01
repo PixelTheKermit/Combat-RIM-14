@@ -56,7 +56,8 @@ namespace Content.Server._CombatRim.Economy
             if (curTime > comp.nextEconomicCrisis)
             {
                 comp.nextEconomicCrisis = _gameTiming.CurTime + TimeSpan.FromMinutes(_random.Next(_cfg.GetCVar<int>(CombatRimCVars.EcoEventMinInterval), _cfg.GetCVar<int>(CombatRimCVars.EcoEventMaxInterval)));
-                DoRandomEvent();
+                if (_cfg.GetCVar<bool>(CombatRimCVars.DoEcoEvents))
+                    DoRandomEvent();
             }
         }
 
