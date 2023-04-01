@@ -223,6 +223,7 @@
       - MailingUnitElectronics
       - Bucket
       - MopItem
+      - AdvMopItem
       - SprayBottle
       - FireExtinguisher
       - KitchenKnife
