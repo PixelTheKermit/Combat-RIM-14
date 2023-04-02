@@ -1,3 +1,4 @@
+using Content.Server.GameTicking;
 using Content.Shared.Damage;
 using Content.Shared.Item;
 using Robust.Server.Containers;
@@ -12,6 +13,7 @@ public sealed class DeathBorderSystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly ContainerSystem _containerSystem = default!;
+    [Dependency] private readonly GameTicker _gameTicker = default!;
 
 
     List<(EntityUid, float)> queued = new();
@@ -34,6 +36,9 @@ public sealed class DeathBorderSystem : EntitySystem
 
         while (e.MoveNext(out var uid, out var damageable, out var xform))
         {
+            if (xform.MapID != _gameTicker.DefaultMap)
+                continue;
+
             var distFrom0 = _transformSystem.GetWorldPosition(xform).Length;
             if (distFrom0 > maxDist)
             {

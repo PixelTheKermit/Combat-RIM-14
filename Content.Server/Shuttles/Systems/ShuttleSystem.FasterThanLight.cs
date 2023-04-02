@@ -96,8 +96,8 @@ public sealed partial class ShuttleSystem
             return false;
         }
 
-        reason = null;
-        return true;
+        reason = Loc.GetString("cr-ftl-prevent");
+        return false; // People shouldn't be able to FTL at all...
     }
 
     /// <summary>
