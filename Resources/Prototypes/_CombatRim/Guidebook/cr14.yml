@@ -2,6 +2,7 @@
   id: CR14
   name: guide-entry-cr14
   text: "/Server Info/Guidebook/CombatRim/Base.xml"
-  children: 
+  children:
   - CR14Sectors
   - CR14Combat
+  - CR14Economy
