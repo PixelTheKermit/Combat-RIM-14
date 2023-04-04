@@ -72,6 +72,14 @@
     naturalImmunities:
     - Ultragigacancer
     - BleedersBite
+  - type: DamageVisuals
+    damageOverlayGroups:
+      Brute:
+        sprite: Mobs/Effects/brute_damage.rsi
+        color: "#2cf274"
+      Burn:
+        sprite: Mobs/Effects/burn_damage.rsi
+
 
 - type: entity
   save: false
