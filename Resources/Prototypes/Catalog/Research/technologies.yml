@@ -28,7 +28,7 @@
 
 - type: technology
   name: technologies-cleaning-technology
-  id: MopBucket
+  id: CleaningTechnology
   description: technologies-cleaning-technology-description
   icon:
     sprite: Objects/Specific/Janitorial/janitorial.rsi
@@ -41,6 +41,19 @@
   - MopItem
   - SprayBottle
   - BodyBag
+- type: technology
+  name: technologies-advanced-cleaning-technology
+  id: AdvancedCleaningTechnology
+  description: technologies-advanced-cleaning-technology-description
+  icon:
+    sprite: Objects/Specific/Janitorial/advmop.rsi
+    state: advmop
+  requiredPoints: 5000
+  requiredTechnologies:
+    - BasicResearch
+    - CleaningTechnology
+  unlockedRecipes:
+    - AdvMopItem
 
 # Food/Bev Service Technology Tree
 
@@ -405,6 +418,7 @@
   - SignalTrigger
   - VoiceTrigger
   - TimerTrigger
+  - TelecomServerCircuitboard
 
 - type: technology
   name: technologies-electrical-engineering
@@ -517,7 +531,7 @@
   id: TurretTechnology
   description: technologies-turret-technology-description
   icon:
-    sprite: Objects/Weapons/Guns/turrets.rsi
+    sprite: Objects/Weapons/Guns/Turrets/turrets.rsi
     state: shotgun
   requiredPoints: 2500
   requiredTechnologies:
@@ -528,7 +542,7 @@
     - ManualLaserTurretMachineCircuitboard
     - ManualShotgunTurretMachineCircuitboard
     - ManualRocketTurretMachineCircuitboard
-    
+
 # Entertainment Technology Tree
 
 - type: technology

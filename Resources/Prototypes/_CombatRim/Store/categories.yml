@@ -1,29 +1,39 @@
 - type: storeCategory
-  id: MerchantBotanical
-  name: Botanical
+  id: VendorWeapons
+  name: Weapons
   priority: 1
 
 - type: storeCategory
-  id: MerchantMelee
-  name: Melee
-  priority: 1
+  id: VendorTools
+  name: Tools
+  priority: 2
 
 - type: storeCategory
-  id: MerchantGuns
-  name: Guns
-  priority: 1
+  id: VendorExplosives
+  name: Explosives
+  priority: 3
 
 - type: storeCategory
-  id: MerchantGrenades
-  name: Grenades
-  priority: 1
-
-- type: storeCategory
-  id: MerchantArmor
+  id: VendorArmor
   name: Armor
-  priority: 1
+  priority: 4
 
 - type: storeCategory
-  id: MerchantShipAmmo
-  name: Ship Ammo
-  priority: 1
+  id: VendorAmmo
+  name: Ammo
+  priority: 5
+
+- type: storeCategory
+  id: VendorResources
+  name: Resources
+  priority: 6
+
+- type: storeCategory
+  id: VendorElectronics
+  name: Electronics
+  priority: 7
+
+- type: storeCategory
+  id: VendorSeeds
+  name: Seeds
+  priority: 8

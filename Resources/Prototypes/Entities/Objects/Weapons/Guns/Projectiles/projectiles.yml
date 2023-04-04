@@ -376,10 +376,10 @@
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
-    maxIntensity: 40
+    maxIntensity: 20
     intensitySlope: 6
     totalIntensity: 200
-    maxTileBreak: 1
+    maxTileBreak: 0
   - type: PointLight
     radius: 3.5
     color: orange
@@ -490,3 +490,20 @@
     damage:
       types:
         Piercing: 0
+
+- type: entity
+  id: BulletAcid
+  name: acid spit
+  parent: BaseBullet
+  noSpawn: true
+  components:
+    - type: Projectile
+      damage:
+        types:
+          Caustic: 5
+    - type: Sprite
+      sprite: Objects/Weapons/Guns/Projectiles/xeno_toxic.rsi
+      layers:
+        - state: xeno_toxic
+    - type: Ammo
+      muzzleFlash: null

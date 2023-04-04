@@ -1,0 +1,119 @@
+- type: listing
+  id: VendorTurretMachineCircuitboard
+  name: Turret Circuitboard
+  description: An effective turret, firing minigun rounds.
+  productEntity: WeaponTurretManualCircuitboard
+  cost:
+    SpaceCash: 3000
+  categories:
+  - VendorElectronics
+
+- type: listing
+  id: VendorLaserTurretMachineCircuitboard
+  name: Laser Turret Circuitboard
+  description: A cheap turret. Still useful and effective.
+  productEntity: WeaponLaserTurretManualCircuitboard
+  cost:
+    SpaceCash: 1750
+  categories:
+  - VendorElectronics
+
+- type: listing
+  id: VendorShotgunTurretMachineCircuitboard
+  name: Shotgun Turret Circuitboard
+  description: A turret designed for wide hull damage.
+  productEntity: WeaponShotgunTurretManualCircuitboard
+  cost:
+    SpaceCash: 4000
+  categories:
+  - VendorElectronics
+
+- type: listing
+  id: VendorRocketTurretMachineCircuitboard
+  name: Rocket Turret Circuitboard
+  description: '"Can you guess why I made this expensive? Too high of a demand, production cannot keep up!" - Overworld Johnson'
+  productEntity: WeaponRocketTurretManualCircuitboard
+  cost:
+    SpaceCash: 15000
+  categories:
+  - VendorElectronics
+
+- type: listing
+  id: ThrusterMachineCircuitboard
+  name: Thruster Circuitboard
+  description: More thrusters means more likely to explode.
+  productEntity: WeaponRocketTurretManualCircuitboard
+  cost:
+    SpaceCash: 1250
+  categories:
+  - VendorElectronics
+
+- type: listing
+  id: OreProcessorMachineCircuitboard
+  name: Ore Processor Circuitboard
+  description: If you're having to resort to buying this... there may be a problem.
+  productEntity: OreProcessorMachineCircuitboard
+  cost:
+    SpaceCash: 750
+  categories:
+  - VendorElectronics
+
+- type: listing
+  id: ArtifactAnalyzerMachineCircuitboard
+  name: Artifact Analyzer Circuitboard
+  description: Analyzer... Analyser... which is it?
+  productEntity: ArtifactAnalyzerMachineCircuitboard
+  cost:
+    SpaceCash: 1450
+  categories:
+  - VendorElectronics
+
+- type: listing
+  id: CircuitImprinterMachineCircuitboard
+  name: Circuit Imprinter Circuitboard
+  description: Imprints circuits... I have nothing funny to say about this.
+  productEntity: CircuitImprinterMachineCircuitboard
+  cost:
+    SpaceCash: 2350
+  categories:
+  - VendorElectronics
+
+- type: listing
+  id: ProtolatheMachineCircuitboard
+  name: Protolathe Circuitboard
+  description: Not an autolathe.
+  productEntity: ProtolatheMachineCircuitboard
+  cost:
+    SpaceCash: 2000
+  categories:
+  - VendorElectronics
+
+- type: listing
+  id: AutolatheMachineCircuitboard
+  name: Autolathe Circuitboard
+  description: Not a protolathe
+  productEntity: AutolatheMachineCircuitboard
+  cost:
+    SpaceCash: 1250
+  categories:
+  - VendorElectronics
+
+- type: listing
+  id: HydroponicsTrayMachineCircuitboard
+  name: Hydroponics Tray Circuitboard
+  description: We all know you're going to use this to grow drugs.
+  productEntity: HydroponicsTrayMachineCircuitboard
+  cost:
+    SpaceCash: 1250
+  categories:
+  - VendorElectronics
+
+- type: listing
+  id: GeneratorPlasmaMachineCircuitboard
+  name: Ore Processor Circuitboard
+  description: A simple plasma gen. Uses cheap plasma fuel.
+  productEntity: GeneratorPlasmaMachineCircuitboard
+  cost:
+    SpaceCash: 2500
+  categories:
+  - VendorElectronics

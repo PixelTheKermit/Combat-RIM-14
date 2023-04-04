@@ -64,7 +64,7 @@
   parent: Bed
   id: MedicalBed
   name: medical bed
-  description: A hospital bed for patients to recover in. Resting here provides fairly slow healing.
+  description: A hospital bed for patients to recover in... It feels odd...
   components:
   - type: Sprite
     state: bed-MED

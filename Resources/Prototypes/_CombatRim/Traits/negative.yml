@@ -1,0 +1,11 @@
+- type: trait
+  id: Pushover
+  name: Pushover
+  description: You are able to be staggered from any brute damage done to you.
+  cost: 2
+  category: Negative
+  whitelist:
+    components:
+      - Stamina
+  components:
+    - type: Pushover

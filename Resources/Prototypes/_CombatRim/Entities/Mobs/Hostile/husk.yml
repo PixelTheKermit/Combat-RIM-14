@@ -1,0 +1,17 @@
+- type: entity
+  id: RandomHumanoidSpawnerSyndicateAgentHusk
+  name: Syndicate Agent [Husk]
+  components:
+    - type: Sprite
+      netsync: false
+      sprite: Mobs/Species/Human/parts.rsi
+      state: full
+    - type: RandomHumanoidSpawner
+      settings: SyndicateAgentHusk
+
+- type: randomHumanoidSettings
+  id: SyndicateAgentHusk
+  components:
+    - type: Loadout
+      prototypes: [SyndicateOperativeGearExtremelyBasic]
+    - type: Huskify

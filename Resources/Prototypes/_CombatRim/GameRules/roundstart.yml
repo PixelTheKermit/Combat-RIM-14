@@ -1,0 +1,5 @@
+- type: gameRule
+  id: Escape
+  config:
+    !type:GenericGameRuleConfiguration
+    id: Escape

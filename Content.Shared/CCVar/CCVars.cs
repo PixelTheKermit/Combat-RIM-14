@@ -110,7 +110,7 @@ namespace Content.Shared.CCVar
         ///     Controls if the game should run station events
         /// </summary>
         public static readonly CVarDef<bool>
-            EventsEnabled = CVarDef.Create("events.enabled", false, CVar.ARCHIVE | CVar.SERVERONLY);
+            EventsEnabled = CVarDef.Create("events.enabled", false, CVar.ARCHIVE | CVar.SERVERONLY); // ! This should never be true, CR with station events is a bad idea.
 
         /// <summary>
         ///     Average time (in minutes) for when the ramping event scheduler should stop increasing the chaos modifier.
@@ -158,13 +158,13 @@ namespace Content.Shared.CCVar
         ///     Controls the default game preset.
         /// </summary>
         public static readonly CVarDef<string>
-            GameLobbyDefaultPreset = CVarDef.Create("game.defaultpreset", "secret", CVar.ARCHIVE);
+            GameLobbyDefaultPreset = CVarDef.Create("game.defaultpreset", "crdefault", CVar.ARCHIVE);
 
         /// <summary>
         ///     Controls if the game can force a different preset if the current preset's criteria are not met.
         /// </summary>
         public static readonly CVarDef<bool>
-            GameLobbyFallbackEnabled = CVarDef.Create("game.fallbackenabled", true, CVar.ARCHIVE);
+            GameLobbyFallbackEnabled = CVarDef.Create("game.fallbackenabled", false, CVar.ARCHIVE);
 
         /// <summary>
         ///     The preset for the game to fall back to if the selected preset could not be used, and fallback is enabled.
@@ -275,12 +275,6 @@ namespace Content.Shared.CCVar
         /// </summary>
         public static readonly CVarDef<bool> GameTableBonk =
             CVarDef.Create("game.table_bonk", false, CVar.SERVERONLY);
-
-        public static readonly CVarDef<bool> AllowRespawns =
-            CVarDef.Create("game.allow_respawns", true, CVar.REPLICATED | CVar.SERVER);
-
-        public static readonly CVarDef<float> RespawnTime =
-            CVarDef.Create("game.respawn_time", 300.0f, CVar.REPLICATED | CVar.SERVER);
 
 #if EXCEPTION_TOLERANCE
         /// <summary>
@@ -908,7 +902,7 @@ namespace Content.Shared.CCVar
         /// Whether or not OOC chat should be enabled during a round.
         /// </summary>
         public static readonly CVarDef<bool> OocEnableDuringRound =
-            CVarDef.Create("ooc.enable_during_round", false, CVar.NOTIFY | CVar.REPLICATED |CVar.SERVER);
+            CVarDef.Create("ooc.enable_during_round", true, CVar.NOTIFY | CVar.REPLICATED |CVar.SERVER);
 
         /*
          * LOOC
@@ -1038,6 +1032,16 @@ namespace Content.Shared.CCVar
             CVarDef.Create("ban.hardware_ids", true, CVar.SERVERONLY);
 
         /*
+         * Procgen
+         */
+
+        /// <summary>
+        /// Should we pre-load all of the procgen atlasses.
+        /// </summary>
+        public static readonly CVarDef<bool> ProcgenPreload =
+            CVarDef.Create("procgen.preload", true, CVar.SERVERONLY);
+
+        /*
          * Shuttles
          */
 
@@ -1050,6 +1054,30 @@ namespace Content.Shared.CCVar
         /// </summary>
         public static readonly CVarDef<bool> CameraRotationLocked =
             CVarDef.Create("shuttle.camera_rotation_locked", false, CVar.REPLICATED);
+
+        /// <summary>
+        /// Whether the arrivals shuttle is enabled.
+        /// </summary>
+        public static readonly CVarDef<bool> ArrivalsShuttles =
+            CVarDef.Create("shuttle.arrivals", false, CVar.SERVERONLY);
+
+        /// <summary>
+        /// The map to use for the arrivals station.
+        /// </summary>
+        public static readonly CVarDef<ResourcePath> ArrivalsMap =
+            CVarDef.Create("shuttle.arrivals_map", new ResourcePath("/Maps/Misc/terminal.yml"), CVar.SERVERONLY);
+
+        /// <summary>
+        /// Cooldown between arrivals departures. This should be longer than the FTL time or it will double cycle.
+        /// </summary>
+        public static readonly CVarDef<float> ArrivalsCooldown =
+            CVarDef.Create("shuttle.arrivals_cooldown", 90f, CVar.SERVERONLY);
+
+        /// <summary>
+        /// Are players allowed to return on the arrivals shuttle.
+        /// </summary>
+        public static readonly CVarDef<bool> ArrivalsReturns =
+            CVarDef.Create("shuttle.arrivals_returns", false, CVar.SERVERONLY);
 
         /// <summary>
         /// Whether cargo shuttles are enabled.
@@ -1071,7 +1099,7 @@ namespace Content.Shared.CCVar
         /// How long the emergency shuttle remains docked with the station, in seconds.
         /// </summary>
         public static readonly CVarDef<float> EmergencyShuttleDockTime =
-            CVarDef.Create("shuttle.emergency_dock_time", 180f, CVar.SERVERONLY);
+            CVarDef.Create("shuttle.emergency_dock_time", 1800f, CVar.SERVERONLY); // 30 minutes.
 
         /// <summary>
         /// How long after the console is authorized for the shuttle to early launch.
@@ -1080,16 +1108,22 @@ namespace Content.Shared.CCVar
             CVarDef.Create("shuttle.emergency_authorize_time", 10f, CVar.SERVERONLY);
 
         /// <summary>
-        /// How long after the console is authorized for the shuttle to early launch.
+        /// The minimum time for the emergency shuttle to arrive at centcomm.
         /// </summary>
-        public static readonly CVarDef<float> EmergencyShuttleTransitTime =
-            CVarDef.Create("shuttle.emergency_transit_time", 60f, CVar.SERVERONLY);
+        public static readonly CVarDef<float> EmergencyShuttleMinTransitTime =
+            CVarDef.Create("shuttle.emergency_transit_time_min", 60f, CVar.SERVERONLY);
+
+        /// <summary>
+        /// The maximum time for the emergency shuttle to arrive at centcomm.
+        /// </summary>
+        public static readonly CVarDef<float> EmergencyShuttleMaxTransitTime =
+            CVarDef.Create("shuttle.emergency_transit_time_max", 180f, CVar.SERVERONLY);
 
         /// <summary>
         /// Whether the emergency shuttle is enabled or should the round just end.
         /// </summary>
         public static readonly CVarDef<bool> EmergencyShuttleEnabled =
-            CVarDef.Create("shuttle.emergency_enabled", true, CVar.SERVERONLY);
+            CVarDef.Create("shuttle.emergency", true, CVar.SERVERONLY);
 
         /// <summary>
         ///     The percentage of time passed from the initial call to when the shuttle can no longer be recalled.
@@ -1102,14 +1136,14 @@ namespace Content.Shared.CCVar
         ///     Time in minutes after round start to auto-call the shuttle. Set to zero to disable.
         /// </summary>
         public static readonly CVarDef<int> EmergencyShuttleAutoCallTime =
-            CVarDef.Create("shuttle.auto_call_time", 90, CVar.SERVERONLY);
+            CVarDef.Create("shuttle.auto_call_time", 360, CVar.SERVERONLY);
 
         /// <summary>
         ///     Time in minutes after the round was extended (by recalling the shuttle) to call
         ///     the shuttle again.
         /// </summary>
         public static readonly CVarDef<int> EmergencyShuttleAutoCallExtensionTime =
-            CVarDef.Create("shuttle.auto_call_extension_time", 45, CVar.SERVERONLY);
+            CVarDef.Create("shuttle.auto_call_extension_time", 60, CVar.SERVERONLY);
 
         /// <summary>
         /// The map to load for CentCom for the emergency shuttle to dock to.
@@ -1157,7 +1191,7 @@ namespace Content.Shared.CCVar
         ///     Disabled: Cloning has full biomass cost and reclaimer can reclaim corpses with souls. (Playtested and balanced for MRP+).
         /// </summary>
         public static readonly CVarDef<bool> BiomassEasyMode =
-            CVarDef.Create("biomass.easy_mode", true, CVar.SERVERONLY);
+            CVarDef.Create("biomass.easy_mode", false, CVar.SERVERONLY); // It's a PvP fork, also revival methods should be difficult.
 
         /*
          * Anomaly
@@ -1205,6 +1239,11 @@ namespace Content.Shared.CCVar
         public static readonly CVarDef<string> UILayout =
             CVarDef.Create("ui.layout", "Separated", CVar.CLIENTONLY | CVar.ARCHIVE);
 
+        public static readonly CVarDef<string> DefaultScreenChatSize =
+            CVarDef.Create("ui.default_chat_size", "", CVar.CLIENTONLY | CVar.ARCHIVE);
+
+        public static readonly CVarDef<string> SeparatedScreenChatSize =
+            CVarDef.Create("ui.separated_chat_size", "0.6,0", CVar.CLIENTONLY | CVar.ARCHIVE);
 
 
         /*
@@ -1219,6 +1258,15 @@ namespace Content.Shared.CCVar
 
         public static readonly CVarDef<bool> ChatShowTypingIndicator =
             CVarDef.Create("chat.show_typing_indicator", true, CVar.CLIENTONLY);
+
+        /// <summary>
+        /// A message broadcast to each player that joins the lobby.
+        /// May be changed by admins ingame through use of the "set-motd" command.
+        /// In this case the new value, if not empty, is broadcast to all connected players and saved between rounds.
+        /// May be requested by any player through use of the "get-motd" command.
+        /// </summary>
+        public static readonly CVarDef<string> MOTD =
+            CVarDef.Create("chat.motd", "", CVar.SERVER | CVar.SERVERONLY | CVar.ARCHIVE, "A message broadcast to each player that joins the lobby.");
 
         /*
          * AFK
@@ -1257,6 +1305,18 @@ namespace Content.Shared.CCVar
         /// </summary>
         public static readonly CVarDef<bool> ICNameCase =
             CVarDef.Create("ic.name_case", true, CVar.SERVER | CVar.REPLICATED);
+
+        /// <summary>
+        /// Whether or not players' characters are randomly generated rather than using their selected characters in the creator.
+        /// </summary>
+        public static readonly CVarDef<bool> ICRandomCharacters =
+            CVarDef.Create("ic.random_characters", false, CVar.SERVER);
+
+        /// <summary>
+        /// A weighted random prototype used to determine the species selected for random characters.
+        /// </summary>
+        public static readonly CVarDef<string> ICRandomSpeciesWeights =
+            CVarDef.Create("ic.random_species_weights", "SpeciesWeights", CVar.SERVER);
 
         /*
          * Salvage
@@ -1471,6 +1531,12 @@ namespace Content.Shared.CCVar
         /// </summary>
         public static readonly CVarDef<string> InfoLinksBugReport =
             CVarDef.Create("infolinks.bug_report", "", CVar.SERVER | CVar.REPLICATED);
+
+        /// <summary>
+        /// Link to site handling ban appeals. Shown in ban disconnect messages.
+        /// </summary>
+        public static readonly CVarDef<string> InfoLinksAppeal =
+            CVarDef.Create("infolinks.appeal", "", CVar.SERVER | CVar.REPLICATED);
 
         /*
          * CONFIG

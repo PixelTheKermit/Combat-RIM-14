@@ -48,7 +48,6 @@ public sealed class CryopodSpawnSystem : EntitySystem
 
         SubscribeLocalEvent<CryopodSpawnComponent, ComponentInit>(OnInit);
         SubscribeLocalEvent<CryopodSpawnComponent, GetVerbsEvent<AlternativeVerb>>(AddAlternativeVerbs);
-        SubscribeLocalEvent<CryopodSpawnComponent, SuicideEvent>(OnSuicide);
         SubscribeLocalEvent<CryopodSpawnComponent, ExaminedEvent>(OnExamine);
         SubscribeLocalEvent<CryopodSpawnComponent, DestructionEventArgs>((e,c,_) => EjectBody(e, c));
         SubscribeLocalEvent<CryopodSpawnComponent, DragDropTargetEvent>(OnDragDrop);
@@ -153,19 +152,6 @@ public sealed class CryopodSpawnSystem : EntitySystem
         }
     }
 
-    private void OnSuicide(EntityUid uid, CryopodSpawnComponent component, SuicideEvent args)
-    {
-        if (args.Handled)
-            return;
-
-        if (args.Victim != component.BodyContainer.ContainedEntity)
-            return;
-
-        QueueDel(args.Victim);
-        _audio.PlayPvs(component.LeaveSound, uid);
-        args.SetHandled(SuicideKind.Special);
-    }
-
     private void OnExamine(EntityUid uid, CryopodSpawnComponent component, ExaminedEvent args)
     {
         var message = component.BodyContainer.ContainedEntity == null
@@ -186,52 +172,9 @@ public sealed class CryopodSpawnSystem : EntitySystem
         if (!HasComp<MobThresholdsComponent>(toInsert.Value))
             return false;
 
-        if (TryComp<MindComponent>(toInsert, out var mind))
-        {
-            var session = mind.Mind?.Session;
-            if (session is not null && session.Status == SessionStatus.Disconnected)
-            {
-                CryoStoreBody(toInsert.Value, component);
-                return true; // goodbye.
-            }
-        }
-
         var success = component.BodyContainer.Insert(toInsert.Value, EntityManager);
 
-        if (success && mind?.Mind?.Session != null)
-        {
-            _quickDialog.OpenDialog(mind.Mind.Session, "Enter cryogenic storage?", () =>
-            {
-                CryoStoreBody(toInsert.Value, component);
-            });
-        }
-
         return success;
-    }
-
-    private void CryoStoreBody(EntityUid body, CryopodSpawnComponent pod)
-    {
-        if (!TryComp(body, out MindComponent? mind) || mind.Mind is null)
-        {
-            QueueDel(body);
-            return;
-        }
-
-        var jobProto = mind.Mind.CurrentJob?.Prototype;
-        if (jobProto is not null)
-        {
-            var station = _stationSystem.GetOwningStation(pod.Owner);
-
-            if (station is null)
-                return; // Whuh?!
-
-            _jobsSystem.TryAdjustJobSlot(station.Value, jobProto, 1, false, true);
-        }
-
-        _gameTicker.OnGhostAttempt(mind.Mind, false);
-        var storage = GetStorageMap();
-        var xform = Transform(body);
-        xform.Coordinates = new EntityCoordinates(storage, Vector2.Zero);
     }
 
     public bool EjectBody(EntityUid pod, CryopodSpawnComponent component)

@@ -6,7 +6,16 @@
   fallback: true
   validShip: true
   description: |
-    test
+    You feel like your head is spinning...
+    The air here feels like... Ah! It burns!
+    -STATS-
+    Crew: 1 Research Director (You), 2 Scientists and 2 Salvage Specialists
+    Difficulty: ?
+    Vessel Size: Big
+    Notes:
+    - Runs off plasma
+    - You have 8 laser turrets... jesus christ why did I give you this much
+    - Nerd.
   stations:
     IsvRing:
       mapNameTemplate: '{0} Ring {1}'
@@ -16,5 +25,5 @@
       overflowJobs: []
       availableJobs:
         ShuttleCaptain: [ 0, 1 ]
-        Scientist: [ 3, 3 ]
+        Scientist: [ 2, 2 ]
         SalvageSpecialist: [ 2, 2 ]

@@ -6,7 +6,16 @@
   fallback: true
   validShip: true
   description: |
-    test
+    You can hear screams of terror... but from where?
+    Destruction echos in your ear, this feels like a bad idea...
+    The air here feels old...
+    -STATS-
+    Crew: 3 Salvage Specialists
+    Difficulty: Hard
+    Vessel Size: Small
+    Notes:
+    - Runs off uranium
+    - Your situation may be bad, but it can get worse
   stations:
     ISVCobble:
       mapNameTemplate: '{0} Cobble {1}'

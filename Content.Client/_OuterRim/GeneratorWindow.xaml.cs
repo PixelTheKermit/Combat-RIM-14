@@ -16,7 +16,7 @@ public sealed partial class GeneratorWindow : FancyWindow
         IoCManager.InjectDependencies(this);
 
         EntityView.Sprite = IoCManager.Resolve<IEntityManager>().GetComponent<SpriteComponent>(vis);
-        TargetPower.ValueChanged += (_, args) =>
+        TargetPower.ValueChanged += (args) =>
         {
             bui.SetTargetPower(args.Value);
         };

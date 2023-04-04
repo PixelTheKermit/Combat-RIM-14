@@ -1,4 +1,3 @@
-# I cannot be bothered to sort these, like most stuff in my life.
 - type: Tag
   id: MagazineBoxMinigunBase
 
@@ -13,10 +12,10 @@
 
 - type: Tag
   id: CartridgePistolLuger
-  
+
 - type: Tag
   id: GunBench
-  
+
 - type: Tag
   id: IndustrialWelder
 
@@ -40,3 +39,6 @@
 
 - type: Tag
   id: ShellTurretShotgun
+
+- type: Tag
+  id: HuskImmune

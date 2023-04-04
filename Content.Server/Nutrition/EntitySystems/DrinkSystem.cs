@@ -4,6 +4,7 @@ using Content.Server.Chemistry.Components.SolutionManager;
 using Content.Server.Chemistry.EntitySystems;
 using Content.Server.DoAfter;
 using Content.Server.Fluids.EntitySystems;
+using Content.Server.Forensics;
 using Content.Server.Nutrition.Components;
 using Content.Server.Popups;
 using Content.Shared.Administration.Logs;
@@ -217,7 +218,7 @@ namespace Content.Server.Nutrition.EntitySystems
 
         private bool TryDrink(EntityUid user, EntityUid target, DrinkComponent drink, EntityUid item)
         {
-            if (!EntityManager.HasComponent<BodyComponent>(target) || drink.ForceDrink)
+            if (!EntityManager.HasComponent<BodyComponent>(target) || drink.Drinking)
                 return false;
 
             if (!drink.Opened)
@@ -241,6 +242,7 @@ namespace Content.Server.Nutrition.EntitySystems
             if (!_interactionSystem.InRangeUnobstructed(user, item, popup: true))
                 return true;
 
+            drink.Drinking = true;
             drink.ForceDrink = user != target;
 
             if (drink.ForceDrink)
@@ -258,7 +260,6 @@ namespace Content.Server.Nutrition.EntitySystems
                 // log voluntary drinking
                 _adminLogger.Add(LogType.Ingestion, LogImpact.Low, $"{ToPrettyString(target):target} is drinking {ToPrettyString(item):drink} {SolutionContainerSystem.ToPrettyString(drinkSolution)}");
             }
-            var moveBreak = user != target;
 
             var flavors = _flavorProfileSystem.GetLocalizedFlavorsMessage(user, drinkSolution);
 
@@ -267,10 +268,12 @@ namespace Content.Server.Nutrition.EntitySystems
             var doAfterEventArgs = new DoAfterEventArgs(user, drink.ForceDrink ? drink.ForceFeedDelay : drink.Delay,
                 target: target, used: item)
             {
-                BreakOnUserMove = moveBreak,
+                RaiseOnTarget = user != target,
+                RaiseOnUser = false,
+                BreakOnUserMove = drink.ForceDrink,
                 BreakOnDamage = true,
                 BreakOnStun = true,
-                BreakOnTargetMove = moveBreak,
+                BreakOnTargetMove = drink.ForceDrink,
                 MovementThreshold = 0.01f,
                 DistanceThreshold = 1.0f,
                 NeedHand = true
@@ -286,24 +289,23 @@ namespace Content.Server.Nutrition.EntitySystems
         /// </summary>
         private void OnDoAfter(EntityUid uid, DrinkComponent component, DoAfterEvent<DrinkData> args)
         {
-            //Special cancel if they're force feeding someone.
-            //Allows self to drink multiple times but prevents force feeding drinks to others rapidly.
-            if (args.Cancelled && component.ForceDrink)
+            if (args.Cancelled)
             {
                 component.ForceDrink = false;
+                component.Drinking = false;
                 return;
             }
 
-            if (args.Handled || args.Cancelled || component.Deleted)
+            if (args.Handled || component.Deleted)
                 return;
 
             if (!TryComp<BodyComponent>(args.Args.Target, out var body))
                 return;
 
+            component.Drinking = false;
+
             var transferAmount = FixedPoint2.Min(component.TransferAmount, args.AdditionalData.DrinkSolution.Volume);
             var drained = _solutionContainerSystem.Drain(uid, args.AdditionalData.DrinkSolution, transferAmount);
-
-            //var forceDrink = args.Args.Target.Value != args.Args.User;
 
             if (!_bodySystem.TryGetBodyOrganComponents<StomachComponent>(args.Args.Target.Value, out var stomachs, body))
             {
@@ -376,6 +378,10 @@ namespace Content.Server.Nutrition.EntitySystems
 
             component.ForceDrink = false;
             args.Handled = true;
+
+            var comp = EnsureComp<ForensicsComponent>(uid);
+            if (TryComp<DnaComponent>(args.Args.Target, out var dna))
+                comp.DNAs.Add(dna.DNA);
         }
 
         private void AddDrinkVerb(EntityUid uid, DrinkComponent component, GetVerbsEvent<AlternativeVerb> ev)

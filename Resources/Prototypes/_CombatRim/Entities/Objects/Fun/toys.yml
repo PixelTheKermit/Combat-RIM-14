@@ -1,0 +1,9 @@
+- type: entity
+  parent: BasePlushie
+  id: PlushiePixel
+  name: Pixel plushie
+  description: A plushie of someone. Appears to be cheaply made and badly sewn.
+  components:
+  - type: Sprite
+    sprite: CombatRim/Objects/Fun/plush.rsi
+    state: pixel

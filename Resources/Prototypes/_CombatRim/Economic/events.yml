@@ -1,0 +1,20 @@
+- type: economicEvent
+  id: BankRaid
+  text: bank-raid
+  addedOn: -1000
+
+- type: economicEvent
+  id: GoldMining
+  text: gold-mining
+  inflationMultiplier: .7
+
+- type: economicEvent
+  id: TaxDonation
+  text: tax-donation
+  addedOn: 5000
+
+- type: economicEvent
+  id: EconomicInflation
+  text: economic-inflation
+  multiplier: 1.25
+  inflationMultiplier: 1.25

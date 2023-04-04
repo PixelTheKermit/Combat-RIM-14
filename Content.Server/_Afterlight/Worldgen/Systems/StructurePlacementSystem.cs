@@ -37,7 +37,7 @@ public sealed class StructurePlacementSystem : EntitySystem
         var totalLocations = (int)(component.Structures.Sum(x => x.AmountRange.Y) * 2f);
 
         var locations = GetRandomValidPoints(uid, component, totalLocations);
-        var mapId = Comp<MapComponent>(uid).WorldMap;
+        var mapId = Comp<MapComponent>(uid).MapId;
         var safetyBox = Box2.UnitCentered.Enlarged(component.SafetyRadius);
 
         foreach (var config in component.Structures)

@@ -7,7 +7,17 @@
   validShip: true
   captain: ChiefShuttleMedic
   description: |
-    test
+    The air smells oddly of medicine...
+    It also feels comforting...
+    You don't feel in danger...
+    -STATS-
+    Crew: CMO (You), 1 Medical Doctor and 2 Salvage Specialists
+    Difficulty: ?
+    Vessel Size: Medium
+    Notes:
+    - Only 2 laser turrets with bad positioning
+    - Has a few medical supplies
+    - Runs off plasma
   stations:
     IsvBox:
       mapNameTemplate: '{0} Box {1}'

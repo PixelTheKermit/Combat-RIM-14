@@ -1,0 +1,30 @@
+- type: listing
+  id: VendorMagazineBoxMinigun
+  name: Minigun magazine
+  description: A minigun mag. Can be used on the ballistic turret.
+  productEntity: MagazineBoxMinigun
+  cost:
+    SpaceCash: 2500
+  categories:
+  - VendorAmmo
+
+- type: listing
+  id: VendorBoxRockets
+  name: Box of rockets
+  description: It's a box of rockets. Don't go dropping them!
+  productEntity: BoxRockets
+  cost:
+    SpaceCash: 7500
+  categories:
+  - VendorAmmo
+  - VendorExplosives
+
+- type: listing
+  id: VendorTurretBoxLethalshot
+  name: Box of turret shotgun slugs
+  description: A box of very lethal shotgun shells, made for destroying ship hulls.
+  productEntity: TurretBoxLethalshot
+  cost:
+    SpaceCash: 3000
+  categories:
+  - VendorAmmo

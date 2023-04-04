@@ -14,11 +14,6 @@
   id: Matchstick
   description: A simple match stick, used for lighting fine smokables.
   components:
-  - type: Cauterize
-    litCauterizeDamage:
-      types: # When lit, should give heat damage and heal slash
-        Heat: 2
-        Slash: -3
   - type: Tag
     tags:
     - Matchstick

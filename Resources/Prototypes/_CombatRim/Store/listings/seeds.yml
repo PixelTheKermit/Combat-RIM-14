@@ -1,0 +1,69 @@
+- type: listing
+  id: VendorBananaSeeds
+  name: Banana Seeds
+  description: Seeds for growing some bananas. Honk!
+  productEntity: BananaSeeds
+  cost:
+    SpaceCash: 100
+  categories:
+  - VendorSeeds
+
+- type: listing
+  id: VendorTowercapSeeds
+  name: Towercap Seeds
+  description: Seeds for growing a few shrooms. Contains 20u of essence.
+  productEntity: TowercapSeeds
+  cost:
+    SpaceCash: 100
+  categories:
+  - VendorSeeds
+
+- type: listing
+  id: VendorNettleSeeds
+  name: Nettle Seeds
+  description: Seeds for growing some nettles. Ouch!
+  productEntity: NettleSeeds
+  cost:
+    SpaceCash: 100
+  categories:
+  - VendorSeeds
+
+- type: listing
+  id: VendorCornSeeds
+  name: Corn Seeds
+  description: Seeds for growing some corn. Don't have a corny joke for this one.
+  productEntity: CornSeeds
+  cost:
+    SpaceCash: 100
+  categories:
+  - VendorSeeds
+
+- type: listing
+  id: VendorWheatSeeds
+  name: Wheat Seeds
+  description: Seeds for growing some wheat. But wheat until you hear about this!
+  productEntity: WheatSeeds
+  cost:
+    SpaceCash: 100
+  categories:
+  - VendorSeeds
+
+- type: listing
+  id: VendorCarrotSeeds
+  name: Carrot Seeds
+  description: Seeds for growing some carrots. Do not directly apply to eyes.
+  productEntity: CarrotSeeds
+  cost:
+    SpaceCash: 100
+  categories:
+  - VendorSeeds
+
+- type: listing
+  id: VendorTomatoSeeds
+  name: Tomato Seeds
+  description: Seeds for growing some tomatoes... do you say it tomato or tomato?
+  productEntity: TomatoSeeds
+  cost:
+    SpaceCash: 100
+  categories:
+  - VendorSeeds

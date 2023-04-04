@@ -45,6 +45,15 @@
       - id: MaterialWoodPlank10
         amount: 1
 
+- type: entity
+  id: CrateMaterialCardboard
+  parent: CrateGenericSteel
+  components:
+  - type: StorageFill
+    contents:
+      - id: MaterialCardboard
+        amount: 2
+
 #- type: entity
 #  id: CrateMaterialHFuelTank
 #  name:  fueltank crate

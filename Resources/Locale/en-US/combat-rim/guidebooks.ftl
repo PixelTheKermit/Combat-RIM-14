@@ -6,3 +6,5 @@ guide-entry-cr14-escape = Escape
 
 guide-entry-cr14-combat = Combat
 guide-entry-cr14-turrets = Turrets
+
+guide-entry-cr14-economy = Economy

@@ -14,8 +14,8 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Input;
 using Robust.Server.Player;
 using Content.Shared.Movement.Events;
-using Content.Server._CombatRim.ControllableMob.Components;
-using Content.Server._CombatRim.ControllableMob;
+using Content.Server._CombatRim.Control.Components;
+using Content.Server._CombatRim.Control;
 using Robust.Shared.Containers;
 
 namespace Content.Server._CombatRim.ManualTurret
@@ -30,7 +30,7 @@ namespace Content.Server._CombatRim.ManualTurret
         [Dependency] private readonly ContainerSystem _containerSystem = default!;
         [Dependency] private readonly GunSystem _gunSystem = default!;
         [Dependency] private readonly SharedAppearanceSystem _appearanceSystem = default!;
-        [Dependency] private readonly ControllableMobSystem _controllableMobSystem = default!;
+        [Dependency] private readonly ControllableSystem _controllableSystem = default!;
         [Dependency] private readonly InputSystem _inputSystem = default!;
         [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
         public override void Initialize() // VERY IMPORTANT!!!!!!
@@ -60,7 +60,7 @@ namespace Content.Server._CombatRim.ManualTurret
         }
 
         /// <summary>
-        /// This shit happens every fucking frame
+        /// This shit happens every frame, probably a better way of doing this?
         /// </summary>
         /// <param name="frameTime"></param>
         public override void Update(float frameTime)
@@ -81,16 +81,16 @@ namespace Content.Server._CombatRim.ManualTurret
                     comp.Firing = false;
 
                 if (input.GetState(EngineKeyFunctions.MoveLeft) == BoundKeyState.Down)
-                    comp.Rotation += comp.RotSpeed / 100;
+                    comp.Rotation += comp.RotSpeed*frameTime;
                 if (input.GetState(EngineKeyFunctions.MoveRight) == BoundKeyState.Down)
-                    comp.Rotation -= comp.RotSpeed / 100;
+                    comp.Rotation -= comp.RotSpeed*frameTime;
 
-                if (TryComp<ControllableMobComponent>(comp.Owner, out var contMob) && contMob.CurrentEntityOwning != null
+                if (TryComp<ControllableComponent>(comp.Owner, out var contMob) && contMob.CurrentEntityOwning != null
                     && input.GetState(EngineKeyFunctions.MoveDown) == BoundKeyState.Down)
                 {
-                    Comp<ControllerMobComponent>(contMob.CurrentEntityOwning.Value).Controlling = null;
+                    Comp<CanControlComponent>(contMob.CurrentEntityOwning.Value).Controlling = null;
                     contMob.CurrentDeviceOwning = null;
-                    _controllableMobSystem.RevokeControl(contMob.CurrentEntityOwning.Value);
+                    _controllableSystem.RevokeControl(contMob.CurrentEntityOwning.Value);
                     contMob.CurrentEntityOwning = null;
                 }
             }

@@ -1,0 +1,10 @@
+- type: gamePreset
+  id: Escape
+  alias:
+  - escape
+  - crdefault
+  name: escape-title
+  showInVote: true
+  description: escape-description
+  rules:
+    - Escape

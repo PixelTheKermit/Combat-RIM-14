@@ -2,7 +2,7 @@
   id: MachineCryopod
   parent: BaseMachine
   name: cryopod
-  description: Perfect for a month's nap.
+  description: You don't want to go back in there...
   suffix: Spawns
   components:
   - type: InteractionOutline
