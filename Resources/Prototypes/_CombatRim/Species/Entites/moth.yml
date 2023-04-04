@@ -9,6 +9,11 @@
     species: Moth
   - type: GasFly
   - type: MothAccent
+  - type: Vocal
+    sounds:
+      Male: UnisexMoth
+      Female: UnisexMoth
+      Unsexed: UnisexMoth
   - type: Hunger
   - type: Thirst
   - type: Icon

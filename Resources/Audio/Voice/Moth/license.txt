@@ -1,0 +1,2 @@
+Below taken from https://github.com/tgstation/tgstation/tree/master/sound/voice/moth
+scream_moth.ogg
