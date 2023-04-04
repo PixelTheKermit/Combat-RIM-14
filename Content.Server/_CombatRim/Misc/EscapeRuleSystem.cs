@@ -18,7 +18,7 @@ namespace Content.Server._CombatRim.Rules
 {
     public sealed class EscapeRuleSystem : GameRuleSystem
     {
-        public override string Prototype => "CREscape";
+        public override string Prototype => "Escape";
 
         [Dependency] private readonly MindTrackerSystem _mindTracker = default!;
         [Dependency] private readonly GameTicker _gameTicker = default!;
