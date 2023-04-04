@@ -82,7 +82,7 @@ namespace Content.Server._CombatRim.Rules
 
             foreach (var (name, user, cash) in escapees)
             {
-                args.AddLine(Loc.GetString("cr-end-round-escapee", ("name", name), ("user", user), ("cash", cash))); // TODO: Display how many spacebucks you made it out with
+                args.AddLine(Loc.GetString("cr-end-round-escapee", ("name", name), ("user", user), ("cash", cash)));
             }
             args.AddLine(Loc.GetString("cr-end-round-postscript"));
         }
