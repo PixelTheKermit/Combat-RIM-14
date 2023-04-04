@@ -24,7 +24,7 @@ maskseed = 3551
 type = "points"
 closecolor = "#3D415C"
 pointsize = 2
-count = 1000
+count = 2000
 seed = 3472
 mask = true
 masknoise_type = "fbm"
@@ -40,7 +40,7 @@ maskseed = 3551
 [[layers]]
 type = "points"
 closecolor = "#FFD363"
-count = 30
+count = 60
 seed = 6454
 
 # And their dim edge.
@@ -48,7 +48,7 @@ seed = 6454
 type = "points"
 closecolor = "#43371A"
 pointsize = 2
-count = 30
+count = 60
 seed = 6454
 
 # Colour-to-alpha.
