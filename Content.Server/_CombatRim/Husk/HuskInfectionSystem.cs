@@ -2,6 +2,7 @@
 using Content.Server.Atmos.Components;
 using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
+using Content.Server.Disease.Components;
 using Content.Server.GameTicking;
 using Content.Server.Ghost;
 using Content.Server.Mind;
@@ -18,6 +19,9 @@ using Content.Shared.Movement.Components;
 using Content.Shared.NPC;
 using Content.Shared.Popups;
 using Content.Shared.Speech;
+using Content.Shared.Tag;
+using Content.Shared.Weapons.Melee.Events;
+using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
 namespace Content.Server._CombatRim.Husk
@@ -34,8 +38,9 @@ namespace Content.Server._CombatRim.Husk
         [Dependency] private readonly BloodstreamSystem _bloodstream = default!;
         [Dependency] private readonly NPCSystem _npcSystem = default!;
         [Dependency] private readonly FactionSystem _factionSystem = default!;
-        [Dependency] private readonly EntityManager _entityManager = default!;
+        [Dependency] private readonly TagSystem _tagSystem = default!;
         [Dependency] private readonly PopupSystem _popupSystem = default!;
+        [Dependency] private readonly IRobustRandom _random = default!;
 
         public override void Initialize()
         {
@@ -46,6 +51,8 @@ namespace Content.Server._CombatRim.Husk
             SubscribeLocalEvent<HuskHostComponent, MobStateChangedEvent>(OnStateChanged);
 
             SubscribeLocalEvent<HuskifyComponent, ComponentInit>(OnHuskifyComp);
+
+            SubscribeLocalEvent<HuskInfectorComponent, MeleeHitEvent>(OnInfectorHit);
         }
 
         private void OnInitialInfected(EntityUid uid, HuskHostComponent comp, ComponentInit args)
@@ -56,6 +63,20 @@ namespace Content.Server._CombatRim.Husk
         private void OnHuskifyComp(EntityUid uid, HuskifyComponent comp, ComponentInit args)
         {
             HuskifyEntity(uid);
+        }
+
+        private void OnInfectorHit(EntityUid uid, HuskInfectorComponent comp, MeleeHitEvent args)
+        {
+            foreach (var ent in args.HitEntities)
+            {
+                if (_tagSystem.HasTag(ent, "HuskImmune"))
+                    continue;
+
+                if (HasComp<DiseaseCarrierComponent>(ent) && _random.Prob(comp.InfChance))
+                {
+                    EnsureComp<HuskHostComponent>(ent);
+                }
+            }
         }
 
         public override void Update(float frameTime)
@@ -117,13 +138,14 @@ namespace Content.Server._CombatRim.Husk
                 HuskifyEntity(uid);
         }
 
-        public void HuskifyEntity(EntityUid uid)
+        public void HuskifyEntity(EntityUid uid) // ! This overall needs to be done better as it's all hardcoded! ARGH! Needs to grab from a prototype or something
         {
             if (HasComp<HuskifiedComponent>(uid))
                 return;
 
             // You've conformed to the husk. You are no longer the host of your own body.
             AddComp<HuskifiedComponent>(uid);
+            EnsureComp<HuskInfectorComponent>(uid);
 
             // The parasite probably doesn't care if you can't breathe or not, it just needs a vessel.
             RemComp<BarotraumaComponent>(uid);
@@ -135,6 +157,7 @@ namespace Content.Server._CombatRim.Husk
 
             // Don't think husks should be player controlled... however this makes them unclonable aswell... too bad!
             // TODO: Allow the original host to return to a cloned body, shouldn't be hard to do... right?
+            // ! In CR this doesn't really matter much does it?
             if (TryComp<MindComponent>(uid, out var mindComp) && mindComp.Mind != null)
                 _gameTicker.OnGhostAttempt(mindComp.Mind, false);
 
