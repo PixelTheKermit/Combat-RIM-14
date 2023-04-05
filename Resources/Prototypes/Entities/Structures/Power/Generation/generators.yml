@@ -155,10 +155,10 @@
 - type: entity
   parent: BaseGenerator
   id: GeneratorBasic
-  suffix: Basic, 3kW
+  suffix: Basic, 30kW
   components:
   - type: PowerSupplier
-    supplyRate: 300
+    supplyRate: 3000
 
 - type: entity
   parent: [ BaseGenerator, ConstructibleMachine ]
