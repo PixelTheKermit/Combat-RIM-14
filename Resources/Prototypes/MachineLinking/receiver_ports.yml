@@ -64,11 +64,6 @@
   description: signal-port-description-med-scanner-receiver
 
 - type: receiverPort
-  id: Sell
-  name: Sell
-  description: sell
-
-- type: receiverPort
   id: ArtifactAnalyzerReceiver
   name: signal-port-name-artifact-analyzer-receiver
   description: signal-port-description-artifact-analyzer-receiver

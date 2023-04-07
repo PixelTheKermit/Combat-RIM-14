@@ -9,6 +9,7 @@
     tags:
       - MagazineBoxMinigunBase
       - SellMerchantBlacklist
+      - TurretAmmoBox
   - type: BallisticAmmoProvider
     whitelist:
       tags:
@@ -36,12 +37,11 @@
   id: MagazineBoxMinigun
   name: ammunition box (.10 rifle)
   components:
-  - type: StaticPrice
-    price: 5000
   - type: Tag
     tags:
       - MagazineBoxMinigun
       - SellMerchantBlacklist
+      - TurretAmmoBox
   - type: BallisticAmmoProvider
     proto: CartridgeMinigun
     capacity: 200

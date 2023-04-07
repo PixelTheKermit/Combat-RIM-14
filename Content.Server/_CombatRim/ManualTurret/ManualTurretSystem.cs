@@ -17,6 +17,9 @@ using Content.Shared.Movement.Events;
 using Content.Server._CombatRim.Control.Components;
 using Content.Server._CombatRim.Control;
 using Robust.Shared.Containers;
+using Content.Server.MachineLinking.Components;
+using Robust.Shared.GameObjects;
+using Content.Shared._CombatRim.ManualTurret;
 
 namespace Content.Server._CombatRim.ManualTurret
 {
@@ -33,6 +36,7 @@ namespace Content.Server._CombatRim.ManualTurret
         [Dependency] private readonly ControllableSystem _controllableSystem = default!;
         [Dependency] private readonly InputSystem _inputSystem = default!;
         [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
+
         public override void Initialize() // VERY IMPORTANT!!!!!!
         {
             base.Initialize();
@@ -41,6 +45,7 @@ namespace Content.Server._CombatRim.ManualTurret
             SubscribeLocalEvent<ManualTurretComponent, ComponentInit>(OnComponentInit);
             SubscribeLocalEvent<ManualTurretComponent, UpdateCanMoveEvent>(CanMove);
             SubscribeLocalEvent<ManualTurretComponent, InteractionAttemptEvent>(InteractAttempt);
+            SubscribeNetworkEvent<TurretRotateEvent>(OnTurretRotate);
         }
 
         private void OnComponentInit(EntityUid uid, ManualTurretComponent comp, ComponentInit args)
@@ -66,9 +71,11 @@ namespace Content.Server._CombatRim.ManualTurret
         public override void Update(float frameTime)
         {
             base.Update(frameTime);
-            foreach (var (comp, actor, transform) in EntityQuery<ManualTurretComponent, ActorComponent, TransformComponent>())
+            foreach (var (comp, actor, xform) in EntityQuery<ManualTurretComponent, ActorComponent, TransformComponent>())
             {
-                transform.LocalRotation = comp.Rotation;
+                _transformSystem.SetWorldRotation(xform, comp.Rotation);
+
+                comp.Rotation += comp.CurRotSpeed*frameTime;
 
                 var session = actor.PlayerSession;
 
@@ -76,14 +83,9 @@ namespace Content.Server._CombatRim.ManualTurret
 
                 // Doing this on the server means no prediction, too bad!
                 if (input.GetState(EngineKeyFunctions.MoveUp) == BoundKeyState.Down)
-                    AttemptShoot(comp.Owner, comp, session);
+                    AttemptShoot(comp.Owner, comp);
                 else
                     comp.Firing = false;
-
-                if (input.GetState(EngineKeyFunctions.MoveLeft) == BoundKeyState.Down)
-                    comp.Rotation += comp.RotSpeed*frameTime;
-                if (input.GetState(EngineKeyFunctions.MoveRight) == BoundKeyState.Down)
-                    comp.Rotation -= comp.RotSpeed*frameTime;
 
                 if (TryComp<ControllableComponent>(comp.Owner, out var contMob) && contMob.CurrentEntityOwning != null
                     && input.GetState(EngineKeyFunctions.MoveDown) == BoundKeyState.Down)
@@ -96,9 +98,27 @@ namespace Content.Server._CombatRim.ManualTurret
             }
         }
 
-        private void AttemptShoot(EntityUid uid, ManualTurretComponent comp, IPlayerSession session)
+        private void OnTurretRotate(TurretRotateEvent args)
         {
+            if (!TryComp<ManualTurretComponent>(args.Uid, out var comp))
+                return;
 
+            // TODO: Checks to ensure the inputs were legitimate.
+            if (args.Rotation == RotateType.anticlock)
+                comp.CurRotSpeed = comp.RotSpeed;
+            else if (args.Rotation == RotateType.clock)
+                comp.CurRotSpeed = -comp.RotSpeed;
+            else if (args.Rotation == RotateType.none)
+                comp.CurRotSpeed = 0;
+
+            if (args.ClientRot != comp.Rotation)
+                RaiseNetworkEvent(new ResetClientRotationEvent(args.Uid, comp.Rotation));
+
+            Dirty(args.Uid);
+        }
+
+        private void AttemptShoot(EntityUid uid, ManualTurretComponent comp)
+        {
             if (!comp.FullAuto && comp.Firing)
                 return;
 
@@ -135,7 +155,8 @@ namespace Content.Server._CombatRim.ManualTurret
         }
 
         /// <summary>
-        /// Fired when the turret wants to shoot
+        /// Fired when the turret wants to shoot, which should be 100% of the time?
+        /// God would kill me for the amount of nesting here.
         /// </summary>
         /// <param name="comp"></param>
         /// <param name="uid"></param>
@@ -159,38 +180,7 @@ namespace Content.Server._CombatRim.ManualTurret
 
             comp.TimeFired = curTime;
 
-            if (!comp.IsBatteryWeapon)
-            {
-                var cartSlot = _containerSystem.GetContainer(uid, "turret_cartridge"); // At minimum, a turret SHOULD have a cartridge slot.
-
-                ShootBallistic(uid, comp, cartSlot, batteryComp); // Just because I think this looks cleaner
-
-                // We have a mag? Put a cartridge in the cartridge slot!
-                if (_containerSystem.TryGetContainer(uid, "turret_mag", out var magSlot))
-                {
-                    var xform = Comp<TransformComponent>(uid);
-
-                    if (magSlot.ContainedEntities.Count > 0)
-                    {
-                        var magazine = magSlot.ContainedEntities[0]; // There's probably a better way of doing this but it's good for now
-
-                        var ammoComp = Comp<BallisticAmmoProviderComponent>(magazine); // This should never be null unless someone fucks up.
-
-                        if (ammoComp.UnspawnedCount + ammoComp.Entities.Count < 0) // WHAT DO YOU MEAN THERE'S NO MORE CARTRIDGES?
-                            return;
-
-                        var cart = GetCartridge(ammoComp, xform);
-
-                        cartSlot.Insert(cart);
-
-                        ammoComp.Entities.Remove(cart);
-
-                        Dirty(magazine);
-                        UpdateAppearance(magazine, ammoComp);
-                    }
-                }
-            }
-            else // Does not support hitscan or shotgun-like patterns YET
+            if (comp.IsBatteryWeapon)
             {
                 var xform = Comp<TransformComponent>(uid);
                 var rot = _transformSystem.GetWorldRotation(uid);
@@ -203,6 +193,87 @@ namespace Content.Server._CombatRim.ManualTurret
                 var bullet = projComp.Prototype;
                 _audioSystem.Play(comp.SoundGunshot, Filter.Pvs(uid), uid, true);
                 _gunSystem.ShootProjectile(Spawn(bullet, xform.MapPosition), angle.ToWorldVec(), angle.ToWorldVec() * 10, uid);
+            }
+            else
+            {
+                var cartSlot = _containerSystem.GetContainer(uid, "turret_cartridge"); // At minimum, a turret SHOULD have a cartridge slot.
+
+                ShootBallistic(uid, comp, cartSlot, batteryComp); // Just because I think this looks cleaner
+
+                var xform = Comp<TransformComponent>(uid);
+
+                // We have a mag? Put a cartridge in the cartridge slot!
+                if (_containerSystem.TryGetContainer(uid, "turret_mag", out var magSlot))
+                {
+                    if (magSlot.ContainedEntities.Count > 0)
+                    {
+                        var magazine = magSlot.ContainedEntities[0]; // There's probably a better way of doing this but it's good for now
+
+                        var ammoComp = Comp<BallisticAmmoProviderComponent>(magazine); // This should never be null unless someone fucks up.
+
+                        if (ammoComp.UnspawnedCount + ammoComp.Entities.Count <= 0) // WHAT DO YOU MEAN THERE'S NO MORE CARTRIDGES?
+                        {
+                            AutoMagSwap(uid, magSlot);
+                            return;
+                        }
+
+                        var cart = GetCartridge(ammoComp, xform);
+
+                        cartSlot.Insert(cart);
+
+                        ammoComp.Entities.Remove(cart);
+
+                        Dirty(magazine);
+                        UpdateAppearance(magazine, ammoComp);
+                    }
+                    else //Oh we don't have a mag? Auto load one in!
+                    {
+                        AutoMagSwap(uid, magSlot);
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Moved into a function for my eyes and sanity
+        /// </summary>
+        /// <param name="uid">The turret uid</param>
+        /// <param name="magSlot">The turret's mag slot</param>
+        private void AutoMagSwap(EntityUid uid, IContainer magSlot)
+        {
+            if (TryComp<SignalReceiverComponent>(uid, out var signalComp))
+            {
+                if (!signalComp.Inputs.AsReadOnly().ContainsKey("AutoAmmoInserter"))
+                    return;
+
+                foreach (var portId in signalComp.Inputs["AutoAmmoInserter"])
+                {
+                    if (_containerSystem.TryGetContainer(portId.Uid, "turret_mag", out var autoMagSlot)
+                        && autoMagSlot.ContainedEntities.Count > 0)
+                    {
+                        var newMag = autoMagSlot.ContainedEntities[0];
+                        var ammoComp = Comp<BallisticAmmoProviderComponent>(newMag);
+
+                        if (ammoComp.UnspawnedCount + ammoComp.Entities.Count <= 0)
+                            continue;
+
+                        EntityUid? oldMag = null;
+
+                        if (magSlot.ContainedEntities.Count > 0)
+                        {
+                            oldMag = magSlot.ContainedEntities[0];
+                            magSlot.Remove(oldMag.Value);
+                        }
+
+                        autoMagSlot.Remove(newMag);
+                        magSlot.Insert(newMag);
+
+                        if (oldMag != null)
+                            autoMagSlot.Insert(oldMag.Value);
+
+                        break;
+                    }
+                }
             }
         }
 

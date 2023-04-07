@@ -1,0 +1,9 @@
+- type: receiverPort
+  id: Sell
+  name: Sell
+  description: sell
+
+- type: receiverPort
+  id: AutoAmmoInserter
+  name: Ammo Input
+  description: auto ammo input

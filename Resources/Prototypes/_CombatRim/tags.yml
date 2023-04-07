@@ -42,3 +42,6 @@
 
 - type: Tag
   id: HuskImmune
+
+- type: Tag
+  id: TurretAmmoBox

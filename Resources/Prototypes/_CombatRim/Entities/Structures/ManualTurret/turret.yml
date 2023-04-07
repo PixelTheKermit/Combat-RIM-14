@@ -69,6 +69,10 @@
                 SheetSteel1:
                   min: 3
                   max: 5
+    - type: SignalReceiver
+      inputs:
+        AutoAmmoInserter: []
+
 - type: entity
   abstract: true
   parent: WeaponBaseTurretManual

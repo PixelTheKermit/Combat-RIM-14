@@ -1,28 +1,27 @@
+
 using Content.Shared.Construction.Prototypes;
-using Content.Shared.MachineLinking;
+using Robust.Shared.GameStates;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
-using Robust.Shared.Timing;
 
-namespace Content.Server._CombatRim.ManualTurret;
+namespace Content.Shared._CombatRim.ManualTurret;
 
-[RegisterComponent]
+[RegisterComponent, NetworkedComponent]
 public sealed class ManualTurretComponent : Component
 {
-
     // Stuff for le turret
+
+    [DataField("rotSpeed")]
+    public float RotSpeed = 1.5f;
+
+    public float CurRotSpeed = 0f;
 
     [DataField("fullAuto")]
     public bool FullAuto = false;
 
     [DataField("fireRate")]
     public float FireRate = 1.5f;
-
     public TimeSpan TimeFired = TimeSpan.Zero;
-
     public bool Firing = false;
-
-    [DataField("rotSpeed")]
-    public float RotSpeed = 2f; // This is divided by 100, so rotation is slower than this
 
     [DataField("currentRot")]
     public Angle Rotation;
