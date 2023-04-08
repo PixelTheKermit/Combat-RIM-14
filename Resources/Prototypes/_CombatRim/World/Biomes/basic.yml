@@ -1,7 +1,3 @@
-# This is just AL's biomes, but I put in lost shipments around.
-# I moved this to a different folder in case of changes made to AL's biomes.
-# Was this nessessary? Probably not.
-
 - type: spacebiome
   id: CombatRimAsteroidsStandard
   priority: 0
@@ -13,23 +9,19 @@
       debrisTable:
         - id: AfterlightAsteroidDebrisSmall
         - id: AfterlightAsteroidDebrisMedium
-        - id: AfterlightAsteroidDebrisLarge
           prob: 0.7
+        - id: AfterlightAsteroidDebrisLarge
+          prob: 0.5
         - id: AfterlightAsteroidDebrisLarger
-          prob: 0.4
-        - id: RandomLostShipment
-          prob: 0.01
+          prob: 0.3
     - type: NoiseDrivenDebrisSelector
       noiseChannel: Wreck
       debrisTable:
         - id: CombatRimScrapDebrisSmall
         - id: CombatRimScrapDebrisMedium
+          prob: 0.7
         - id: CombatRimScrapDebrisLarge
           prob: 0.5
-        - id: CombatRimScrapDebrisSmallRecreational
-          prob: 0.1
-        - id: RandomLostShipment
-          prob: 0.01
     - type: NoiseRangeCarver
       ranges:
         - 0.4, 0.6
@@ -52,8 +44,6 @@
           prob: 0.7
         - id: AfterlightAsteroidDebrisLarger
           prob: 0.4
-        - id: RandomLostShipment
-          prob: 0.01
     - type: NoiseDrivenDebrisSelector
       noiseChannel: Wreck
       debrisTable:
@@ -62,10 +52,6 @@
           prob: 0.1
         - id: CombatRimScrapDebrisLarge
           prob: 0.05
-        - id: CombatRimScrapDebrisSmallRecreational
-          prob: 0.01
-        - id: RandomLostShipment
-          prob: 0.01
     - type: NoiseRangeCarver
       ranges:
         - 0.3, 0.7
@@ -86,12 +72,11 @@
       debrisTable:
         - id: AfterlightAsteroidDebrisSmall
         - id: AfterlightAsteroidDebrisMedium
-        - id: AfterlightAsteroidDebrisLarge
           prob: 0.7
+        - id: AfterlightAsteroidDebrisLarge
+          prob: 0.5
         - id: AfterlightAsteroidDebrisLarger
-          prob: 0.4
-        - id: RandomLostShipment
-          prob: 0.01
+          prob: 0.2
     - type: NoiseRangeCarver
       ranges:
         - 0.3, 0.8

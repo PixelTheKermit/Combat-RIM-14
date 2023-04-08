@@ -1,6 +1,6 @@
 ﻿- type: entity
-  name: Afterlight Salvage Material Crate Spawner
-  id: AfterlightSalvageMaterialCrateSpawner
+  name: Combat Rim Salvage Material Crate Spawner
+  id: CombatRimSalvageMaterialCrateSpawner
   parent: MarkerBase
   components:
     - type: Sprite
@@ -10,6 +10,6 @@
           state: icon
     - type: RandomSpawner
       prototypes:
-        - AfterlightCrateSalvageAssortedGoodies
+        - CombatRimCrateSalvageAssortedGoodies
       chance: 0.9
       offset: 0.0
