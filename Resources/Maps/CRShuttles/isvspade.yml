@@ -5,98 +5,8 @@ meta:
   postmapinit: false
 tilemap:
   0: Space
-  1: FloorArcadeBlue
-  2: FloorArcadeBlue2
-  3: FloorArcadeRed
-  4: FloorAsteroidCoarseSand0
-  5: FloorAsteroidCoarseSandDug
-  6: FloorAsteroidIronsand1
-  7: FloorAsteroidIronsand2
-  8: FloorAsteroidIronsand3
-  9: FloorAsteroidIronsand4
-  10: FloorAsteroidSand
-  11: FloorAsteroidTile
-  12: FloorBar
-  13: FloorBasalt
-  14: FloorBlue
-  15: FloorBlueCircuit
-  16: FloorBoxing
-  17: FloorCarpetClown
-  18: FloorCarpetOffice
-  19: FloorCave
-  20: FloorCaveDrought
-  21: FloorClown
-  22: FloorDark
   23: FloorDarkDiagonal
-  24: FloorDarkDiagonalMini
-  25: FloorDarkHerringbone
-  26: FloorDarkMini
-  27: FloorDarkMono
-  28: FloorDarkOffset
-  29: FloorDarkPavement
-  30: FloorDarkPavementVertical
   31: FloorDarkPlastic
-  32: FloorDesert
-  33: FloorDirt
-  34: FloorEighties
-  35: FloorElevatorShaft
-  36: FloorFlesh
-  37: FloorFreezer
-  38: FloorGlass
-  39: FloorGold
-  40: FloorGrass
-  41: FloorGrassDark
-  42: FloorGrassJungle
-  43: FloorGrassLight
-  44: FloorGreenCircuit
-  45: FloorGym
-  46: FloorHydro
-  47: FloorKitchen
-  48: FloorLaundry
-  49: FloorLino
-  50: FloorLowDesert
-  51: FloorMetalDiamond
-  52: FloorMime
-  53: FloorMono
-  54: FloorPlanetDirt
-  55: FloorPlanetGrass
-  56: FloorPlastic
-  57: FloorRGlass
-  58: FloorReinforced
-  59: FloorRockVault
-  60: FloorShowroom
-  61: FloorShuttleBlue
-  62: FloorShuttleOrange
-  63: FloorShuttlePurple
-  64: FloorShuttleRed
-  65: FloorShuttleWhite
-  66: FloorSilver
-  67: FloorSnow
-  68: FloorSteel
-  69: FloorSteelDiagonal
-  70: FloorSteelDiagonalMini
-  71: FloorSteelDirty
-  72: FloorSteelHerringbone
-  73: FloorSteelMini
-  74: FloorSteelMono
-  75: FloorSteelOffset
-  76: FloorSteelPavement
-  77: FloorSteelPavementVertical
-  78: FloorTechMaint
-  79: FloorTechMaint2
-  80: FloorTechMaint3
-  81: FloorWhite
-  82: FloorWhiteDiagonal
-  83: FloorWhiteDiagonalMini
-  84: FloorWhiteHerringbone
-  85: FloorWhiteMini
-  86: FloorWhiteMono
-  87: FloorWhiteOffset
-  88: FloorWhitePavement
-  89: FloorWhitePavementVertical
-  90: FloorWhitePlastic
-  91: FloorWood
-  92: FloorWoodTile
   93: Lattice
   94: Plating
 entities:
@@ -107,36 +17,32 @@ entities:
     parent: 3
     type: Transform
 - uid: 1
-  type: WallReinforced
+  type: Firelock
   components:
-  - pos: 3.5,-1.5
+  - rot: -1.5707963267948966 rad
+    pos: 9.5,-0.5
     parent: 3
     type: Transform
 - uid: 2
-  type: MagazineBoxMinigun
+  type: WallReinforced
   components:
-  - flags: InContainer
-    type: MetaData
-  - parent: 48
+  - rot: 1.5707963267948966 rad
+    pos: 15.5,-3.5
+    parent: 3
     type: Transform
-  - canCollide: False
-    type: Physics
 - uid: 3
   components:
   - type: MetaData
   - pos: 0.484375,0.5
-    parent: 270
+    parent: 173
     type: Transform
   - chunks:
       0,0:
         ind: 0,0
-        tiles: AAAAAAAAAAAAAAAAAAAAAF4AAABeAAAAXgAAAF4AAAAXAAAAFwAAAhcAAAJeAAAAXgAAAF4AAABeAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAXgAAAF4AAAAXAAABFwAAAxcAAAIXAAAAFwAAAl4AAABeAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAF0AAABeAAAAXgAAABcAAAMXAAAAFwAAAl4AAABeAAAAXQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAXQAAAF4AAABeAAAAFwAAAl4AAABeAAAAXQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAXgAAAF4AAABeAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABeAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
+        tiles: AAAAAAAAAAAAAAAAAAAAAF4AAABeAAAAXgAAAF4AAAAXAAAAFwAAAhcAAAJeAAAAXgAAAF4AAABeAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAXgAAAF4AAAAXAAABFwAAAxcAAAIXAAAAFwAAAl4AAABeAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAF0AAABeAAAAXgAAABcAAAMXAAAAFwAAAl4AAABeAAAAXQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAF4AAABeAAAAFwAAAl4AAABeAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAXgAAAF4AAABeAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
       0,-1:
         ind: 0,-1
-        tiles: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAXQAAAF4AAABeAAAAXgAAABcAAAJeAAAAXgAAAF4AAABdAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAXgAAAF4AAAAXAAABXgAAAF4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABdAAAAXQAAAAAAAABeAAAAFwAAA14AAAAAAAAAXQAAAF0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABeAAAAXgAAAF4AAABdAAAAXgAAABcAAABeAAAAXQAAAF4AAABeAAAAXgAAAAAAAAAAAAAAAAAAAAAAAABeAAAAXgAAABcAAABeAAAAXgAAAF4AAAAfAAAAXgAAAF4AAABeAAAAFwAAAF4AAABeAAAAAAAAAAAAAABeAAAAXgAAABcAAAAXAAAAFwAAAF4AAAAfAAAAHwAAAB8AAAJeAAAAFwAAABcAAAEXAAACXgAAAAAAAAAAAAAAXgAAABcAAAMXAAACFwAAARcAAAMfAAAAHwAAAh8AAAEfAAABHwAAAhcAAAIXAAAAFwAAABcAAAEAAAAAAAAAAF4AAABeAAAAFwAAAxcAAAIXAAAAXgAAAB8AAAMfAAADHwAAAF4AAAAXAAAAFwAAABcAAABeAAAAAAAAAAAAAAAAAAAAXgAAAF4AAAAXAAAAFwAAAl4AAABeAAAAHwAAAF4AAABeAAAAFwAAARcAAAFeAAAAXgAAAA==
-      1,-1:
-        ind: 1,-1
-        tiles: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAXgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAF4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABeAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
+        tiles: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAF0AAABeAAAAXgAAABcAAAJeAAAAXgAAAF0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAXQAAAF4AAAAXAAABXgAAAF0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABeAAAAFwAAA14AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAF0AAABeAAAAXgAAAF4AAAAAAAAAXgAAABcAAABeAAAAAAAAAF4AAABeAAAAXgAAAF0AAAAAAAAAAAAAAAAAAABeAAAAXgAAABcAAABeAAAAXgAAAF4AAAAfAAAAXgAAAF4AAABeAAAAFwAAAF4AAABeAAAAAAAAAAAAAAAAAAAAXgAAABcAAAAXAAAAFwAAAF4AAAAfAAAAHwAAAB8AAAJeAAAAFwAAABcAAAEXAAACXgAAAAAAAAAAAAAAAAAAABcAAAMXAAACFwAAARcAAAMfAAAAHwAAAh8AAAEfAAABHwAAAhcAAAIXAAAAFwAAABcAAAEAAAAAAAAAAAAAAABeAAAAFwAAAxcAAAIXAAAAXgAAAB8AAAMfAAADHwAAAF4AAAAXAAAAFwAAABcAAABeAAAAAAAAAAAAAAAAAAAAXgAAAF4AAAAXAAAAFwAAAl4AAABeAAAAHwAAAF4AAABeAAAAFwAAARcAAAFeAAAAXgAAAA==
     type: MapGrid
   - type: Broadphase
   - angularDamping: 0.05
@@ -184,8 +90,7 @@ entities:
         0,0:
           0: 447
         0,-1:
-          0: 65456
-          2: 76
+          0: 65532
         -1,2:
           0: 65535
         -1,3:
@@ -197,28 +102,21 @@ entities:
         0,3:
           0: 17
         1,0:
-          0: 36863
-          2: 16384
+          0: 53247
         2,0:
           0: 65535
         1,-1:
-          0: 65528
-          2: 7
+          0: 65535
         1,-2:
-          0: 34944
-          2: 30568
+          0: 65512
         2,-2:
-          0: 65392
-          2: 15
+          0: 65407
         2,-1:
-          0: 65527
-          2: 8
+          0: 65535
         3,-1:
-          0: 65328
-          2: 207
+          0: 65535
         4,-1:
-          0: 65520
-          2: 1
+          0: 65521
         5,-1:
           0: 13104
         4,0:
@@ -226,21 +124,21 @@ entities:
         5,0:
           0: 51
         3,0:
-          0: 1007
-          1: 16
-          2: 4096
+          0: 5119
         2,1:
           0: 39
         0,-2:
-          3: 32768
+          0: 32768
+          1: 2048
         1,-3:
-          2: 57344
+          0: 57344
         2,-3:
-          2: 61440
+          0: 61440
         3,-3:
-          2: 12288
+          0: 12288
         3,-2:
-          2: 63280
+          0: 63280
+          1: 2048
       uniqueMixes:
       - volume: 2500
         temperature: 293.15
@@ -260,35 +158,6 @@ entities:
       - volume: 2500
         temperature: 293.15
         moles:
-        - 20.619795
-        - 77.56971
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-      - volume: 2500
-        temperature: 293.15
-        moles:
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-      - volume: 2500
-        moles:
         - 0
         - 0
         - 0
@@ -307,7 +176,7 @@ entities:
     type: BecomesStation
   - type: OccluderTree
   - type: Shuttle
-  - nextUpdate: 73.8210185
+  - nextUpdate: 750.2030936
     type: GridPathfinding
   - type: RadiationGridResistance
   - nextShake: 0
@@ -321,9 +190,9 @@ entities:
     parent: 3
     type: Transform
 - uid: 5
-  type: ReinforcedWindow
+  type: CableMV
   components:
-  - pos: 4.5,-4.5
+  - pos: 5.5,-3.5
     parent: 3
     type: Transform
 - uid: 6
@@ -347,7 +216,8 @@ entities:
 - uid: 9
   type: WallReinforced
   components:
-  - pos: 2.5,-2.5
+  - rot: 1.5707963267948966 rad
+    pos: 4.5,-4.5
     parent: 3
     type: Transform
 - uid: 10
@@ -408,9 +278,10 @@ entities:
     parent: 3
     type: Transform
 - uid: 19
-  type: Grille
+  type: AirlockCargoGlass
   components:
-  - pos: 14.5,-4.5
+  - rot: -1.5707963267948966 rad
+    pos: 7.5,-2.5
     parent: 3
     type: Transform
 - uid: 20
@@ -420,7 +291,7 @@ entities:
     pos: 8.5,0.5
     parent: 3
     type: Transform
-  - controlling: 76
+  - controlling: 166
     type: ControlStructure
 - uid: 21
   type: GasPipeBend
@@ -438,11 +309,14 @@ entities:
     parent: 3
     type: Transform
 - uid: 23
-  type: Grille
+  type: BaseControllerConsole
   components:
-  - pos: 9.5,5.5
+  - rot: -1.5707963267948966 rad
+    pos: 10.5,1.5
     parent: 3
     type: Transform
+  - controlling: 43
+    type: ControlStructure
 - uid: 24
   type: GasPressurePump
   components:
@@ -484,9 +358,9 @@ entities:
     parent: 3
     type: Transform
 - uid: 30
-  type: ResearchAndDevelopmentServer
+  type: CableMV
   components:
-  - pos: 15.5,-2.5
+  - pos: 5.5,-4.5
     parent: 3
     type: Transform
 - uid: 31
@@ -537,9 +411,9 @@ entities:
   - count: 10
     type: Stack
 - uid: 38
-  type: ReinforcedWindow
+  type: RedspaceVendor
   components:
-  - pos: 3.5,-3.5
+  - pos: 5.5,-0.5
     parent: 3
     type: Transform
 - uid: 39
@@ -552,9 +426,10 @@ entities:
   - bodyType: Static
     type: Physics
 - uid: 40
-  type: Airlock
+  type: Firelock
   components:
-  - pos: 7.5,-2.5
+  - rot: -1.5707963267948966 rad
+    pos: 7.5,-2.5
     parent: 3
     type: Transform
 - uid: 41
@@ -573,11 +448,41 @@ entities:
     parent: 3
     type: Transform
 - uid: 43
-  type: CircuitImprinterMachineCircuitboard
+  type: WeaponTurretManual
   components:
-  - pos: 8.615459,-3.4839025
+  - flags: SessionSpecific
+    type: MetaData
+  - rot: 1.5707963267948966 rad
+    pos: 13.5,2.5
     parent: 3
     type: Transform
+  - containers:
+      turret_mag: !type:ContainerSlot
+        showEnts: False
+        occludes: True
+        ent: 48
+      machine_board: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
+      machine_parts: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
+      turret_cartridge: !type:ContainerSlot
+        showEnts: False
+        occludes: True
+        ent: null
+    type: ContainerContainer
+  - currentRot: 1.5707963267948966 rad
+    type: ManualTurret
+  - bodyType: Static
+    type: Physics
+  - inputs:
+      AutoAmmoInserter:
+      - port: AutoAmmoOutput
+        uid: 68
+    type: SignalReceiver
 - uid: 44
   type: GeneratorUranium
   components:
@@ -603,35 +508,13 @@ entities:
     parent: 3
     type: Transform
 - uid: 48
-  type: WeaponTurretManual
+  type: MagazineBoxMinigun
   components:
-  - flags: SessionSpecific
+  - flags: InContainer
     type: MetaData
-  - rot: 3.141592653589793 rad
-    pos: 12.5,3.5
-    parent: 3
+  - parent: 43
     type: Transform
-  - containers:
-      turret_mag: !type:ContainerSlot
-        showEnts: False
-        occludes: True
-        ent: 2
-      machine_board: !type:Container
-        showEnts: False
-        occludes: True
-        ents: []
-      machine_parts: !type:Container
-        showEnts: False
-        occludes: True
-        ents: []
-      turret_cartridge: !type:ContainerSlot
-        showEnts: False
-        occludes: True
-        ent: null
-    type: ContainerContainer
-  - currentRot: 3.141592653589793 rad
-    type: ManualTurret
-  - bodyType: Static
+  - canCollide: False
     type: Physics
 - uid: 49
   type: AirlockEngineeringGlass
@@ -668,19 +551,21 @@ entities:
     parent: 3
     type: Transform
 - uid: 54
+  type: GasPipeStraight
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 10.5,-3.5
+    parent: 3
+    type: Transform
+  - bodyType: Static
+    type: Physics
+- uid: 55
   type: WallReinforced
   components:
-  - pos: 7.5,-7.5
+  - rot: 1.5707963267948966 rad
+    pos: 14.5,-4.5
     parent: 3
     type: Transform
-- uid: 55
-  type: CableMV
-  components:
-  - pos: 10.5,-0.5
-    parent: 3
-    type: Transform
-  - enabled: True
-    type: AmbientSound
 - uid: 56
   type: WallReinforced
   components:
@@ -712,60 +597,47 @@ entities:
     parent: 3
     type: Transform
 - uid: 61
-  type: WeaponTurretManual
+  type: SignalSwitch
   components:
-  - flags: SessionSpecific
-    type: MetaData
-  - rot: 3.141592653589793 rad
-    pos: 13.5,2.5
+  - pos: 4.5,-0.5
     parent: 3
     type: Transform
-  - containers:
-      turret_mag: !type:ContainerSlot
-        showEnts: False
-        occludes: True
-        ent: 70
-      machine_board: !type:Container
-        showEnts: False
-        occludes: True
-        ents: []
-      machine_parts: !type:Container
-        showEnts: False
-        occludes: True
-        ents: []
-      turret_cartridge: !type:ContainerSlot
-        showEnts: False
-        occludes: True
-        ent: null
-    type: ContainerContainer
-  - currentRot: 3.141592653589793 rad
-    type: ManualTurret
-  - bodyType: Static
-    type: Physics
+  - outputs:
+      On:
+      - port: Open
+        uid: 172
+      - port: Open
+        uid: 168
+      - port: Open
+        uid: 117
+      Off:
+      - port: Close
+        uid: 172
+      - port: Close
+        uid: 168
+      - port: Close
+        uid: 117
+    type: SignalTransmitter
 - uid: 62
-  type: WallSolid
+  type: Firelock
   components:
-  - pos: 7.5,0.5
+  - rot: -1.5707963267948966 rad
+    pos: 11.5,-2.5
     parent: 3
     type: Transform
 - uid: 63
-  type: GasVolumePump
+  type: OreProcessor
+  components:
+  - pos: 5.5,-4.5
+    parent: 3
+    type: Transform
+- uid: 64
+  type: WallSolid
   components:
   - rot: 1.5707963267948966 rad
-    pos: 10.5,-3.5
+    pos: 7.5,0.5
     parent: 3
     type: Transform
-  - bodyType: Static
-    type: Physics
-- uid: 64
-  type: MachineCryopod
-  components:
-  - pos: 6.5,-0.5
-    parent: 3
-    type: Transform
-  - containers:
-      body_container: !type:ContainerSlot {}
-    type: ContainerContainer
 - uid: 65
   type: WallReinforced
   components:
@@ -786,11 +658,22 @@ entities:
     parent: 3
     type: Transform
 - uid: 68
-  type: WallSolid
+  type: TurretSpeedloader
   components:
-  - pos: 11.5,0.5
+  - pos: 10.5,-1.5
     parent: 3
     type: Transform
+  - bodyType: Static
+    type: Physics
+  - outputs:
+      AutoAmmoOutput:
+      - port: AutoAmmoInserter
+        uid: 43
+    type: SignalTransmitter
+  - containers:
+      turret_mag: !type:ContainerSlot
+        ent: 70
+    type: ContainerContainer
 - uid: 69
   type: WallSolid
   components:
@@ -802,22 +685,36 @@ entities:
   components:
   - flags: InContainer
     type: MetaData
-  - parent: 61
+  - parent: 68
     type: Transform
   - canCollide: False
     type: Physics
 - uid: 71
-  type: AirCanister
+  type: TurretSpeedloader
   components:
-  - pos: 14.5,-1.5
+  - pos: 8.5,-1.5
     parent: 3
     type: Transform
+  - bodyType: Static
+    type: Physics
+  - outputs:
+      AutoAmmoOutput:
+      - port: AutoAmmoInserter
+        uid: 163
+    type: SignalTransmitter
+  - containers:
+      turret_mag: !type:ContainerSlot
+        ent: 72
+    type: ContainerContainer
 - uid: 72
-  type: Grille
+  type: MagazineBoxMinigun
   components:
-  - pos: 3.5,-4.5
-    parent: 3
+  - flags: InContainer
+    type: MetaData
+  - parent: 71
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 73
   type: WallReinforced
   components:
@@ -838,36 +735,11 @@ entities:
     parent: 3
     type: Transform
 - uid: 76
-  type: WeaponTurretManual
+  type: SubstationBasic
   components:
-  - flags: SessionSpecific
-    type: MetaData
-  - rot: 3.141592653589793 rad
-    pos: 5.5,2.5
+  - pos: 13.5,-4.5
     parent: 3
     type: Transform
-  - containers:
-      turret_mag: !type:ContainerSlot
-        showEnts: False
-        occludes: True
-        ent: 109
-      machine_board: !type:Container
-        showEnts: False
-        occludes: True
-        ents: []
-      machine_parts: !type:Container
-        showEnts: False
-        occludes: True
-        ents: []
-      turret_cartridge: !type:ContainerSlot
-        showEnts: False
-        occludes: True
-        ent: null
-    type: ContainerContainer
-  - currentRot: 3.141592653589793 rad
-    type: ManualTurret
-  - bodyType: Static
-    type: Physics
 - uid: 77
   type: CableHV
   components:
@@ -884,11 +756,13 @@ entities:
   - bodyType: Static
     type: Physics
 - uid: 79
-  type: Grille
+  type: CableMV
   components:
-  - pos: 15.5,-3.5
+  - pos: 5.5,-5.5
     parent: 3
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 80
   type: ReinforcedWindow
   components:
@@ -909,35 +783,50 @@ entities:
     parent: 3
     type: Transform
 - uid: 83
-  type: Grille
+  type: AtmosDeviceFanTiny
   components:
-  - pos: 15.5,-4.5
+  - pos: 3.5,-2.5
     parent: 3
     type: Transform
 - uid: 84
-  type: TableReinforced
+  type: WallReinforced
   components:
-  - pos: 8.5,-3.5
+  - rot: 1.5707963267948966 rad
+    pos: 3.5,-4.5
     parent: 3
     type: Transform
 - uid: 85
-  type: Grille
+  type: AtmosDeviceFanTiny
   components:
-  - pos: 4.5,-4.5
+  - pos: 3.5,-1.5
     parent: 3
     type: Transform
 - uid: 86
-  type: TableReinforced
+  type: TurretSpeedloader
   components:
   - pos: 10.5,-3.5
     parent: 3
     type: Transform
+  - bodyType: Static
+    type: Physics
+  - outputs:
+      AutoAmmoOutput:
+      - port: AutoAmmoInserter
+        uid: 170
+    type: SignalTransmitter
+  - containers:
+      turret_mag: !type:ContainerSlot
+        ent: 87
+    type: ContainerContainer
 - uid: 87
-  type: BlastDoorExterior1Open
+  type: MagazineBoxMinigun
   components:
-  - pos: 3.5,-4.5
-    parent: 3
+  - flags: InContainer
+    type: MetaData
+  - parent: 86
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 88
   type: WallReinforced
   components:
@@ -973,17 +862,21 @@ entities:
     parent: 3
     type: Transform
 - uid: 93
-  type: SubstationBasic
+  type: CableMV
   components:
-  - pos: 13.5,-4.5
+  - pos: 3.5,-5.5
     parent: 3
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 94
-  type: ReinforcedWindow
+  type: CableMV
   components:
-  - pos: 9.5,5.5
+  - pos: 13.5,2.5
     parent: 3
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 95
   type: WallSolid
   components:
@@ -991,15 +884,18 @@ entities:
     parent: 3
     type: Transform
 - uid: 96
-  type: Bed
+  type: CableMV
   components:
-  - pos: 6.5,-3.5
+  - pos: 10.5,-0.5
     parent: 3
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 97
-  type: BlastDoorExterior1Open
+  type: WallSolid
   components:
-  - pos: 4.5,-4.5
+  - rot: 1.5707963267948966 rad
+    pos: 7.5,1.5
     parent: 3
     type: Transform
 - uid: 98
@@ -1087,7 +983,8 @@ entities:
 - uid: 104
   type: WallReinforced
   components:
-  - pos: 6.5,-8.5
+  - rot: 1.5707963267948966 rad
+    pos: 15.5,-4.5
     parent: 3
     type: Transform
 - uid: 105
@@ -1115,14 +1012,11 @@ entities:
     parent: 3
     type: Transform
 - uid: 109
-  type: MagazineBoxMinigun
+  type: CableMV
   components:
-  - flags: InContainer
-    type: MetaData
-  - parent: 76
+  - pos: 10.5,-1.5
+    parent: 3
     type: Transform
-  - canCollide: False
-    type: Physics
 - uid: 110
   type: ReinforcedWindow
   components:
@@ -1150,11 +1044,13 @@ entities:
     parent: 3
     type: Transform
 - uid: 114
-  type: ReinforcedWindow
+  type: CableMV
   components:
-  - pos: 3.5,-4.5
+  - pos: 14.5,-5.5
     parent: 3
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 115
   type: GasPipeStraight
   components:
@@ -1165,23 +1061,38 @@ entities:
   - bodyType: Static
     type: Physics
 - uid: 116
-  type: BedsheetSpawner
+  type: CableMV
   components:
-  - pos: 6.5,-3.5
+  - pos: 15.5,-5.5
     parent: 3
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 117
-  type: BookRandom
+  type: ShuttersNormal
   components:
-  - pos: 4.4540887,-1.3875976
+  - rot: 1.5707963267948966 rad
+    pos: 3.5,-3.5
     parent: 3
     type: Transform
+  - inputs:
+      Open:
+      - port: On
+        uid: 61
+      Close:
+      - port: Off
+        uid: 61
+      Toggle: []
+    type: SignalReceiver
 - uid: 118
-  type: WallReinforced
+  type: BaseControllerConsole
   components:
-  - pos: 15.5,-1.5
+  - rot: 1.5707963267948966 rad
+    pos: 8.5,1.5
     parent: 3
     type: Transform
+  - controlling: 163
+    type: ControlStructure
 - uid: 119
   type: GasPipeStraight
   components:
@@ -1194,17 +1105,31 @@ entities:
   - enabled: True
     type: AmbientSound
 - uid: 120
-  type: Grille
+  type: TurretSpeedloader
   components:
-  - pos: 3.5,-3.5
+  - pos: 8.5,-3.5
     parent: 3
     type: Transform
+  - bodyType: Static
+    type: Physics
+  - outputs:
+      AutoAmmoOutput:
+      - port: AutoAmmoInserter
+        uid: 166
+    type: SignalTransmitter
+  - containers:
+      turret_mag: !type:ContainerSlot
+        ent: 121
+    type: ContainerContainer
 - uid: 121
-  type: BlastDoorExterior1Open
+  type: MagazineBoxMinigun
   components:
-  - pos: 3.5,-3.5
-    parent: 3
+  - flags: InContainer
+    type: MetaData
+  - parent: 120
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 122
   type: WallReinforced
   components:
@@ -1212,9 +1137,10 @@ entities:
     parent: 3
     type: Transform
 - uid: 123
-  type: CableMV
+  type: WallReinforced
   components:
-  - pos: 10.5,-1.5
+  - rot: 1.5707963267948966 rad
+    pos: 15.5,-2.5
     parent: 3
     type: Transform
 - uid: 124
@@ -1248,11 +1174,17 @@ entities:
     parent: 3
     type: Transform
 - uid: 129
-  type: AutolatheMachineCircuitboard
+  type: SignalButton
   components:
-  - pos: 8.596455,-3.6168141
+  - rot: 3.141592653589793 rad
+    pos: 6.5,-4.5
     parent: 3
     type: Transform
+  - outputs:
+      Pressed:
+      - port: Sell
+        uid: 150
+    type: SignalTransmitter
 - uid: 130
   type: WallReinforced
   components:
@@ -1284,15 +1216,18 @@ entities:
     parent: 3
     type: Transform
 - uid: 135
-  type: WallReinforced
+  type: CableMV
   components:
-  - pos: 2.5,-3.5
+  - pos: 13.5,-5.5
     parent: 3
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 136
-  type: WallReinforced
+  type: WallSolid
   components:
-  - pos: 2.5,-1.5
+  - rot: 1.5707963267948966 rad
+    pos: 11.5,0.5
     parent: 3
     type: Transform
 - uid: 137
@@ -1308,15 +1243,16 @@ entities:
     parent: 3
     type: Transform
 - uid: 139
-  type: WallReinforced
+  type: WallSolid
   components:
-  - pos: 12.5,-8.5
+  - rot: 1.5707963267948966 rad
+    pos: 11.5,1.5
     parent: 3
     type: Transform
 - uid: 140
-  type: WallReinforced
+  type: ResearchAndDevelopmentServer
   components:
-  - pos: 11.5,-7.5
+  - pos: 14.5,-3.5
     parent: 3
     type: Transform
 - uid: 141
@@ -1374,68 +1310,126 @@ entities:
     parent: 3
     type: Transform
 - uid: 150
-  type: ReinforcedWindow
+  type: RedspaceSellPad
   components:
-  - pos: 15.5,-3.5
+  - pos: 6.5,-0.5
     parent: 3
     type: Transform
+  - inputs:
+      Sell:
+      - port: Pressed
+        uid: 129
+    type: SignalReceiver
 - uid: 151
-  type: ReinforcedWindow
+  type: Thruster
   components:
-  - pos: 15.5,-4.5
+  - pos: 12.5,-8.5
     parent: 3
     type: Transform
+  - bodyType: Static
+    type: Physics
 - uid: 152
-  type: ReinforcedWindow
+  type: CableMV
   components:
-  - pos: 14.5,-4.5
+  - pos: 4.5,-5.5
     parent: 3
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 153
-  type: WallReinforced
+  type: Thruster
   components:
-  - pos: 16.5,-3.5
+  - rot: 3.141592653589793 rad
+    pos: 6.5,-8.5
     parent: 3
     type: Transform
+  - bodyType: Static
+    type: Physics
 - uid: 154
   type: WallReinforced
   components:
-  - pos: 16.5,-2.5
+  - rot: 1.5707963267948966 rad
+    pos: 15.5,-1.5
     parent: 3
     type: Transform
 - uid: 155
-  type: WallReinforced
-  components:
-  - pos: 16.5,-1.5
-    parent: 3
-    type: Transform
-- uid: 156
-  type: SignalButtonExt1
+  type: Thruster
   components:
   - rot: 1.5707963267948966 rad
-    pos: 2.5,-2.5
+    pos: 7.5,-7.5
     parent: 3
     type: Transform
-- uid: 157
-  type: TableReinforced
+  - bodyType: Static
+    type: Physics
+- uid: 156
+  type: Thruster
   components:
-  - pos: 4.5,-1.5
+  - rot: -1.5707963267948966 rad
+    pos: 11.5,-7.5
     parent: 3
     type: Transform
+  - bodyType: Static
+    type: Physics
+- uid: 157
+  type: CableApcExtension
+  components:
+  - pos: 11.5,-7.5
+    parent: 3
+    type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 158
+  type: AtmosDeviceFanTiny
+  components:
+  - pos: 3.5,-3.5
+    parent: 3
+    type: Transform
+- uid: 159
+  type: BaseControllerConsole
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 10.5,0.5
+    parent: 3
+    type: Transform
+  - controlling: 170
+    type: ControlStructure
+- uid: 160
+  type: ComputerResearchAndDevelopment
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 10.5,2.5
+    parent: 3
+    type: Transform
+- uid: 161
+  type: CableApcExtension
+  components:
+  - pos: 7.5,-7.5
+    parent: 3
+    type: Transform
+  - enabled: True
+    type: AmbientSound
+- uid: 162
+  type: CableMV
+  components:
+  - pos: 5.5,2.5
+    parent: 3
+    type: Transform
+  - enabled: True
+    type: AmbientSound
+- uid: 163
   type: WeaponTurretManual
   components:
   - flags: SessionSpecific
     type: MetaData
-  - rot: 3.141592653589793 rad
-    pos: 6.5,3.5
+  - rot: -1.5707963267948966 rad
+    pos: 5.5,2.5
     parent: 3
     type: Transform
   - containers:
       turret_mag: !type:ContainerSlot
         showEnts: False
         occludes: True
-        ent: 269
+        ent: 165
       machine_board: !type:Container
         showEnts: False
         occludes: True
@@ -1449,48 +1443,14 @@ entities:
         occludes: True
         ent: null
     type: ContainerContainer
-  - currentRot: 3.141592653589793 rad
+  - currentRot: -1.5707963267948966 rad
     type: ManualTurret
   - bodyType: Static
     type: Physics
-- uid: 159
-  type: BaseControllerConsole
-  components:
-  - rot: -1.5707963267948966 rad
-    pos: 10.5,0.5
-    parent: 3
-    type: Transform
-  - controlling: 61
-    type: ControlStructure
-- uid: 160
-  type: ComputerResearchAndDevelopment
-  components:
-  - rot: -1.5707963267948966 rad
-    pos: 10.5,2.5
-    parent: 3
-    type: Transform
-- uid: 161
-  type: GunbenchMachineCircuitboard
-  components:
-  - pos: 8.615459,-3.3130164
-    parent: 3
-    type: Transform
-- uid: 162
-  type: ProtolatheMachineCircuitboard
-  components:
-  - pos: 8.273378,-3.6547894
-    parent: 3
-    type: Transform
-- uid: 163
-  type: RedspaceSellPad
-  components:
-  - pos: 14.5,-3.5
-    parent: 3
-    type: Transform
   - inputs:
-      Sell:
-      - port: Pressed
-        uid: 164
+      AutoAmmoInserter:
+      - port: AutoAmmoOutput
+        uid: 71
     type: SignalReceiver
 - uid: 164
   type: SignalButton
@@ -1499,36 +1459,76 @@ entities:
     pos: 11.5,-1.5
     parent: 3
     type: Transform
-  - outputs:
-      Pressed:
-      - port: Sell
-        uid: 163
-    type: SignalTransmitter
 - uid: 165
-  type: RedspaceVendor
+  type: MagazineBoxMinigun
   components:
-  - rot: 3.141592653589793 rad
-    pos: 4.5,-3.5
-    parent: 3
+  - flags: InContainer
+    type: MetaData
+  - parent: 163
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 166
-  type: BaseControllerConsole
+  type: WeaponTurretManual
   components:
+  - flags: SessionSpecific
+    type: MetaData
   - rot: -1.5707963267948966 rad
-    pos: 11.5,1.5
+    pos: 3.5,-5.5
     parent: 3
     type: Transform
-  - controlling: 48
-    type: ControlStructure
+  - containers:
+      turret_mag: !type:ContainerSlot
+        showEnts: False
+        occludes: True
+        ent: 167
+      machine_board: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
+      machine_parts: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
+      turret_cartridge: !type:ContainerSlot
+        showEnts: False
+        occludes: True
+        ent: null
+    type: ContainerContainer
+  - currentRot: -1.5707963267948966 rad
+    type: ManualTurret
+  - bodyType: Static
+    type: Physics
+  - inputs:
+      AutoAmmoInserter:
+      - port: AutoAmmoOutput
+        uid: 120
+    type: SignalReceiver
 - uid: 167
-  type: BaseControllerConsole
+  type: MagazineBoxMinigun
+  components:
+  - flags: InContainer
+    type: MetaData
+  - parent: 166
+    type: Transform
+  - canCollide: False
+    type: Physics
+- uid: 168
+  type: ShuttersNormal
   components:
   - rot: 1.5707963267948966 rad
-    pos: 7.5,1.5
+    pos: 3.5,-2.5
     parent: 3
     type: Transform
-  - controlling: 158
-    type: ControlStructure
+  - inputs:
+      Open:
+      - port: On
+        uid: 61
+      Close:
+      - port: Off
+        uid: 61
+      Toggle: []
+    type: SignalReceiver
 - uid: 169
   type: ChairPilotSeat
   components:
@@ -1539,31 +1539,74 @@ entities:
   - bodyType: Static
     type: Physics
 - uid: 170
-  type: ChairOfficeDark
+  type: WeaponTurretManual
   components:
-  - rot: -1.5707963267948966 rad
-    pos: 8.5,1.5
+  - flags: SessionSpecific
+    type: MetaData
+  - rot: 1.5707963267948966 rad
+    pos: 15.5,-5.5
     parent: 3
     type: Transform
+  - containers:
+      turret_mag: !type:ContainerSlot
+        showEnts: False
+        occludes: True
+        ent: 171
+      machine_board: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
+      machine_parts: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
+      turret_cartridge: !type:ContainerSlot
+        showEnts: False
+        occludes: True
+        ent: null
+    type: ContainerContainer
+  - currentRot: 1.5707963267948966 rad
+    type: ManualTurret
+  - bodyType: Static
+    type: Physics
+  - inputs:
+      AutoAmmoInserter:
+      - port: AutoAmmoOutput
+        uid: 86
+    type: SignalReceiver
 - uid: 171
-  type: ChairOfficeDark
+  type: MagazineBoxMinigun
+  components:
+  - flags: InContainer
+    type: MetaData
+  - parent: 170
+    type: Transform
+  - canCollide: False
+    type: Physics
+- uid: 172
+  type: ShuttersNormal
   components:
   - rot: 1.5707963267948966 rad
-    pos: 10.5,1.5
+    pos: 3.5,-1.5
     parent: 3
     type: Transform
-- uid: 172
-  type: OreProcessor
-  components:
-  - pos: 8.5,-1.5
-    parent: 3
-    type: Transform
+  - inputs:
+      Open:
+      - port: On
+        uid: 61
+      Close:
+      - port: Off
+        uid: 61
+      Toggle: []
+    type: SignalReceiver
 - uid: 173
-  type: RandomPosterLegit
   components:
-  - pos: 5.5,0.5
-    parent: 3
-    type: Transform
+  - type: MetaData
+  - type: Transform
+  - type: Map
+  - type: PhysicsMap
+  - type: Broadphase
+  - type: OccluderTree
 - uid: 174
   type: CableApcExtension
   components:
@@ -1572,13 +1615,6 @@ entities:
     type: Transform
   - enabled: True
     type: AmbientSound
-- uid: 175
-  type: BlockGameArcade
-  components:
-  - rot: 3.141592653589793 rad
-    pos: 5.5,-4.5
-    parent: 3
-    type: Transform
 - uid: 176
   type: CableApcExtension
   components:
@@ -1683,14 +1719,6 @@ entities:
   - pos: 4.5,-2.5
     parent: 3
     type: Transform
-- uid: 193
-  type: VendingMachineSalvage
-  components:
-  - flags: SessionSpecific
-    type: MetaData
-  - pos: 10.5,-1.5
-    parent: 3
-    type: Transform
 - uid: 194
   type: CableApcExtension
   components:
@@ -1727,58 +1755,6 @@ entities:
   - pos: 9.5,2.5
     parent: 3
     type: Transform
-- uid: 200
-  type: Thruster
-  components:
-  - rot: 3.141592653589793 rad
-    pos: 7.5,-5.5
-    parent: 3
-    type: Transform
-  - bodyType: Static
-    type: Physics
-- uid: 201
-  type: Thruster
-  components:
-  - rot: 3.141592653589793 rad
-    pos: 11.5,-5.5
-    parent: 3
-    type: Transform
-  - bodyType: Static
-    type: Physics
-- uid: 202
-  type: Thruster
-  components:
-  - rot: 1.5707963267948966 rad
-    pos: 12.5,-6.5
-    parent: 3
-    type: Transform
-  - bodyType: Static
-    type: Physics
-- uid: 203
-  type: Thruster
-  components:
-  - rot: -1.5707963267948966 rad
-    pos: 6.5,-6.5
-    parent: 3
-    type: Transform
-  - bodyType: Static
-    type: Physics
-- uid: 204
-  type: Gyroscope
-  components:
-  - pos: 5.5,-6.5
-    parent: 3
-    type: Transform
-  - bodyType: Static
-    type: Physics
-- uid: 205
-  type: Gyroscope
-  components:
-  - pos: 13.5,-6.5
-    parent: 3
-    type: Transform
-  - bodyType: Static
-    type: Physics
 - uid: 206
   type: CableApcExtension
   components:
@@ -1789,14 +1765,6 @@ entities:
   type: CableApcExtension
   components:
   - pos: 5.5,-5.5
-    parent: 3
-    type: Transform
-  - enabled: True
-    type: AmbientSound
-- uid: 208
-  type: CableApcExtension
-  components:
-  - pos: 5.5,-6.5
     parent: 3
     type: Transform
   - enabled: True
@@ -1815,14 +1783,6 @@ entities:
     type: Transform
   - enabled: True
     type: AmbientSound
-- uid: 211
-  type: CableApcExtension
-  components:
-  - pos: 13.5,-6.5
-    parent: 3
-    type: Transform
-  - enabled: True
-    type: AmbientSound
 - uid: 212
   type: CableApcExtension
   components:
@@ -1831,26 +1791,10 @@ entities:
     type: Transform
   - enabled: True
     type: AmbientSound
-- uid: 213
-  type: CableApcExtension
-  components:
-  - pos: 11.5,-5.5
-    parent: 3
-    type: Transform
-  - enabled: True
-    type: AmbientSound
 - uid: 214
   type: CableApcExtension
   components:
   - pos: 6.5,-5.5
-    parent: 3
-    type: Transform
-  - enabled: True
-    type: AmbientSound
-- uid: 215
-  type: CableApcExtension
-  components:
-  - pos: 7.5,-5.5
     parent: 3
     type: Transform
   - enabled: True
@@ -1954,28 +1898,6 @@ entities:
     type: Transform
   - powerLoad: 0
     type: ApcPowerReceiver
-- uid: 236
-  type: GravityGeneratorMini
-  components:
-  - pos: 3.5,-2.5
-    parent: 3
-    type: Transform
-  - powerLoad: 50
-    type: ApcPowerReceiver
-- uid: 237
-  type: Table
-  components:
-  - pos: 5.5,-0.5
-    parent: 3
-    type: Transform
-- uid: 238
-  type: CableApcExtension
-  components:
-  - pos: 13.5,-8.5
-    parent: 3
-    type: Transform
-  - enabled: True
-    type: AmbientSound
 - uid: 239
   type: CableApcExtension
   components:
@@ -1996,14 +1918,6 @@ entities:
   type: CableApcExtension
   components:
   - pos: 10.5,-8.5
-    parent: 3
-    type: Transform
-  - enabled: True
-    type: AmbientSound
-- uid: 242
-  type: CableApcExtension
-  components:
-  - pos: 5.5,-8.5
     parent: 3
     type: Transform
   - enabled: True
@@ -2032,22 +1946,6 @@ entities:
     type: Transform
   - enabled: True
     type: AmbientSound
-- uid: 246
-  type: Thruster
-  components:
-  - pos: 13.5,-8.5
-    parent: 3
-    type: Transform
-  - bodyType: Static
-    type: Physics
-- uid: 247
-  type: Thruster
-  components:
-  - pos: 5.5,-8.5
-    parent: 3
-    type: Transform
-  - bodyType: Static
-    type: Physics
 - uid: 248
   type: CableMV
   components:
@@ -2072,30 +1970,6 @@ entities:
   type: CableMV
   components:
   - pos: 13.5,1.5
-    parent: 3
-    type: Transform
-  - enabled: True
-    type: AmbientSound
-- uid: 252
-  type: CableMV
-  components:
-  - pos: 13.5,2.5
-    parent: 3
-    type: Transform
-  - enabled: True
-    type: AmbientSound
-- uid: 253
-  type: CableMV
-  components:
-  - pos: 12.5,2.5
-    parent: 3
-    type: Transform
-  - enabled: True
-    type: AmbientSound
-- uid: 254
-  type: CableMV
-  components:
-  - pos: 12.5,3.5
     parent: 3
     type: Transform
   - enabled: True
@@ -2158,30 +2032,6 @@ entities:
     type: Transform
   - enabled: True
     type: AmbientSound
-- uid: 264
-  type: CableMV
-  components:
-  - pos: 5.5,2.5
-    parent: 3
-    type: Transform
-  - enabled: True
-    type: AmbientSound
-- uid: 265
-  type: CableMV
-  components:
-  - pos: 6.5,2.5
-    parent: 3
-    type: Transform
-  - enabled: True
-    type: AmbientSound
-- uid: 266
-  type: CableMV
-  components:
-  - pos: 6.5,3.5
-    parent: 3
-    type: Transform
-  - enabled: True
-    type: AmbientSound
 - uid: 267
   type: Poweredlight
   components:
@@ -2200,28 +2050,4 @@ entities:
     type: Transform
   - powerLoad: 0
     type: ApcPowerReceiver
-- uid: 269
-  type: MagazineBoxMinigun
-  components:
-  - flags: InContainer
-    type: MetaData
-  - parent: 158
-    type: Transform
-  - canCollide: False
-    type: Physics
-- uid: 270
-  components:
-  - type: MetaData
-  - type: Transform
-  - index: 22
-    type: Map
-  - type: PhysicsMap
-  - type: Broadphase
-  - type: OccluderTree
-- uid: 271
-  type: SpawnPointLatejoin
-  components:
-  - pos: 6.5,-0.5
-    parent: 3
-    type: Transform
 ...
