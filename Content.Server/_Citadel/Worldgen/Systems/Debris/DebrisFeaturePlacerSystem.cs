@@ -176,6 +176,9 @@ public sealed class DebrisFeaturePlacerSystem : BaseWorldSystem
         var failures = 0; // Avoid severe log spam.
         foreach (var point in points)
         {
+            if (component.OwnedDebris.ContainsKey(point)) // Otherwise it will cause an error that will crash the server
+                continue;
+
             var pointDensity = _noiseIndex.Evaluate(uid, densityChannel, WorldGen.WorldToChunkCoords(point));
             if (pointDensity == 0 && component.DensityClip || _random.Prob(component.RandomCancellationChance))
                 continue;
