@@ -1,0 +1,23 @@
+- type: entity
+  name: backup box
+  suffix: Combat Rim
+  parent: BoxCardboard
+  id: CRBoxSurvival
+  description: It's a box with basic backup items inside.
+  components:
+  - type: StorageFill
+    contents:
+      - id: ClothingMaskBreath
+      - id: EmergencyOxygenTankFilled
+      - id: CrowbarRed
+      - id: SheetPlasma10
+      - id: SheetUranium10
+  - type: Item
+    size: 35
+  - type: Storage
+    capacity: 35
+    size: 10
+  - type: Sprite
+    layers:
+      - state: internals
+      - state: emergencytank

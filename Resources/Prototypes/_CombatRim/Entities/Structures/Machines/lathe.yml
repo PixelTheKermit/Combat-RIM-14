@@ -26,9 +26,6 @@
           - Sheet
     - type: Lathe
       staticRecipes: # Change these later:tm:
-        - LatheRecipeLuger # Pistols
-        - LatheRecipeLugerMag
-        - LatheRecipeLugerCartridge
         - LatheRecipeViper
         - LatheRecipeMk58
         - LatheRecipePistolMag

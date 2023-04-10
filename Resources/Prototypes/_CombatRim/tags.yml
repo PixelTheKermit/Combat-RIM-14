@@ -8,12 +8,6 @@
   id: CartridgeMinigun
 
 - type: Tag
-  id: MagazinePistolLuger
-
-- type: Tag
-  id: CartridgePistolLuger
-
-- type: Tag
   id: GunBench
 
 - type: Tag
