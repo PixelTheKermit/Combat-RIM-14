@@ -73,7 +73,7 @@ namespace Content.Server._CombatRim.ManualTurret
             base.Update(frameTime);
             foreach (var (comp, actor, xform) in EntityQuery<ManualTurretComponent, ActorComponent, TransformComponent>())
             {
-                _transformSystem.SetWorldRotation(xform, comp.Rotation);
+                _transformSystem.SetLocalRotation(xform, comp.Rotation);
 
                 comp.Rotation += comp.CurRotSpeed*frameTime;
 
