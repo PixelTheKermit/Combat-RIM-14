@@ -38,7 +38,7 @@ namespace Content.Client.Preferences.UI
         {
             PanelOverride = new StyleBoxFlat()
             {
-                BackgroundColor = new Color(47, 47, 53),
+                BackgroundColor = new Color(48, 48, 49),
                 ContentMarginTopOverride = 10,
                 ContentMarginBottomOverride = 10,
                 ContentMarginLeftOverride = 10,
@@ -415,7 +415,7 @@ namespace Content.Client.Preferences.UI
 
                     category.AddChild(new PanelContainer
                     {
-                        PanelOverride = new StyleBoxFlat {BackgroundColor = Color.FromHex("#464946")},
+                        PanelOverride = new StyleBoxFlat {BackgroundColor = Color.FromHex("#454545")},
                         Children =
                         {
                             new Label
