@@ -18,7 +18,7 @@
     - Has 2 ballistic turrets, require reloading
     - Contains a simple atmos system
   stations:
-    IsvSpade:
+    ISVSpade:
       mapNameTemplate: '{0} Spade {1}'
       nameGenerator:
         !type:IndependentNameGenerator
