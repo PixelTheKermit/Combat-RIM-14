@@ -4,6 +4,6 @@ namespace Content.Server._CombatRim.Husk
     public sealed class HuskInfectorComponent : Component
     {
         [DataField("infChance")]
-        public float InfChance = 0.1f;
+        public float InfChance = 0.15f;
     }
 }

@@ -3,7 +3,7 @@ using Content.Server._CombatRim.SoulTrapping.Components;
 using Content.Server.DoAfter;
 using Content.Server.Mind.Components;
 using Content.Server.Popups;
-using Content.Shared._CombatRim.SoulTrapping.Components;
+using Content.Shared._CombatRim.SoulTrapping;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Damage;
 using Content.Shared.DoAfter;
@@ -33,12 +33,12 @@ public sealed class SoulTrapperSystem : EntitySystem
         SubscribeLocalEvent<SoulTrapperComponent, EntInsertedIntoContainerMessage>(OnInsert);
         SubscribeLocalEvent<SoulTrapperComponent, EntRemovedFromContainerMessage>(OnEject);
         SubscribeLocalEvent<SoulTrapperComponent, AfterInteractEvent>(GetInteraction);
-        SubscribeLocalEvent<SoulTrapperComponent, DoAfterEvent>(OnDoAfter);
+        SubscribeLocalEvent<SoulTrapperComponent, SoulTrapDoAfterEvent>(OnDoAfter);
     }
 
     private void GetInteraction(EntityUid uid, SoulTrapperComponent comp, AfterInteractEvent args)
     {
-        if (comp.CancelToken != null || args.Target == null || args.Target == args.User ||
+        if (args.Target == null || args.Target == args.User ||
             !TryComp<TrappableSoulComponent>(args.Target, out var soulComp))
             return;
 
@@ -58,17 +58,19 @@ public sealed class SoulTrapperSystem : EntitySystem
 
         comp.CancelToken = new CancellationTokenSource();
 
-        var eventArgs = new DoAfterEventArgs(args.User, delay, comp.CancelToken.Token, args.Target, uid)
+        var eventArgs = new DoAfterArgs(args.User, TimeSpan.FromSeconds(delay), new SoulTrapDoAfterEvent(itemSlot), uid, args.Target, uid)
         {
             BreakOnDamage = true,
             BreakOnTargetMove = true,
             BreakOnUserMove = true,
-            BreakOnStun = true,
+            BreakOnHandChange = true,
+            CancelDuplicate = true,
+            RequireCanInteract = true,
             NeedHand = true,
             ExtraCheck = () => DoAfterExtraChecks(args.Used),
         };
 
-        _doAfterSystem.DoAfter(eventArgs);
+        _doAfterSystem.TryStartDoAfter(eventArgs);
     }
 
     private bool DoAfterExtraChecks(EntityUid used)
@@ -99,8 +101,6 @@ public sealed class SoulTrapperSystem : EntitySystem
 
     private void OnDoAfter(EntityUid uid, SoulTrapperComponent component, DoAfterEvent args)
     {
-        component.CancelToken = null;
-
         if (args.Cancelled || args.Args.Target == null || !_slotsSystem.TryGetSlot(uid, "soul-container", out var itemSlot))
             return;
 
@@ -137,30 +137,4 @@ public sealed class SoulTrapperSystem : EntitySystem
         Dirty(uid);
         Dirty(contain);
     }
-
-    /// <summary>
-    /// Called when soul trapping doesn't fail
-    /// </summary>
-
-    private sealed class TrappingComplete : EntityEventArgs
-    {
-        public EntityUid Used { get; }
-        public EntityUid User { get; }
-        public EntityUid Target { get; }
-        public ItemSlot ItemSlot { get; }
-
-        public TrappingComplete(EntityUid used, EntityUid user, EntityUid target, ItemSlot itemSlot)
-        {
-            Used = used;
-            User = user;
-            Target = target;
-            ItemSlot = itemSlot;
-        }
-    }
-
-
-    /// <summary>
-    /// Called when soul trapping fails
-    /// </summary>
-    private sealed class TrappingCancelledEvent : EntityEventArgs { }
 }

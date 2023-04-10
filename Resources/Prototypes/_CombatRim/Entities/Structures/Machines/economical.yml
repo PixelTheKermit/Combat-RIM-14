@@ -25,6 +25,7 @@
       - Ghost # Ghosts are valuable! Unfortunately you can't sell them because... yeah...
       - Cable # Cables and anything atmos (not including canisters) for obvious reasons
       - AtmosDevice
+      - PoweredLight
       tags:
       - SpaceCash # This is obvious
       - Ore # For some reason, ores have more "resource" than their solid counterparts??? Anyways this is obviously very bad for the economy.

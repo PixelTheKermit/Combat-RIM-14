@@ -17,6 +17,7 @@ using Content.Shared.Damage;
 using Content.Shared.Mobs;
 using Content.Shared.Movement.Components;
 using Content.Shared.NPC;
+using Content.Shared.Nutrition.Components;
 using Content.Shared.Popups;
 using Content.Shared.Speech;
 using Content.Shared.Tag;
