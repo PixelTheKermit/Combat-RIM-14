@@ -94,7 +94,7 @@ public sealed class RadioSystem : EntitySystem
             if (!radio.Channels.Contains(channel.ID))
                 continue;
 
-            if (!channel.LongRange && transform.MapID != sourceMapId)
+            if (!channel.LongRange && transform.MapID != sourceMapId && !radio.GlobalReceive)
                 continue;
 
             // don't need telecom server for long range channels or handheld radios and intercoms

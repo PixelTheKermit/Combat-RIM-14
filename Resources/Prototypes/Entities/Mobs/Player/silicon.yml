@@ -28,7 +28,7 @@
     bloodlossHealDamage:
       types:
         Bloodloss:
-          -0.25
+          -1
   - type: InteractionOutline
   - type: Fixtures
     fixtures:
@@ -58,8 +58,6 @@
   - type: Pullable
   - type: Examiner
   - type: Puller
-  - type: Recyclable
-    safe: false
   - type: StandingState
   - type: Alerts
   - type: Tag

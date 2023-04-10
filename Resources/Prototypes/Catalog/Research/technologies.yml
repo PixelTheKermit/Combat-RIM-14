@@ -370,12 +370,13 @@
   icon: Objects/Materials/Sheets/researchicon.png
   requiredPoints: 625
   requiredTechnologies:
-    - IndustrialEngineering
+  - IndustrialEngineering
   unlockedRecipes:
-    - SheetSteel
-    - SheetPlastic
-    - SheetRGlass
-    - SheetGlass1
+  - SheetSteel
+  - SheetPlastic
+  - SheetRGlass
+  - SheetGlass1
+  - MaterialReclaimerMachineCircuitboard
 
 # Avionics Circuitry Technology Tree
 
@@ -388,11 +389,11 @@
     state: avionics-systems
   requiredPoints: 2500
   requiredTechnologies:
-    - IndustrialEngineering
-    - RoboticsTechnology
+  - IndustrialEngineering
+  - RoboticsTechnology
   unlockedRecipes:
-    - ShuttleConsoleCircuitboard
-    - RadarConsoleCircuitboard
+  - ShuttleConsoleCircuitboard
+  - RadarConsoleCircuitboard
 
 # Electromagnetic Theory Technology Tree
 

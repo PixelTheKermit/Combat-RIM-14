@@ -18,8 +18,6 @@
     tags:
     - Matchstick
     - Trash
-  - type: DoAfter
-  - type: Recyclable
   - type: SpaceGarbage
   - type: Sprite
     netsync: false
@@ -96,5 +94,4 @@
   - type: Tag
     tags:
     - Trash
-  - type: Recyclable
   - type: SpaceGarbage
