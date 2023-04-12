@@ -176,9 +176,6 @@ public sealed class DebrisFeaturePlacerSystem : BaseWorldSystem
         var failures = 0; // Avoid severe log spam.
         foreach (var point in points)
         {
-            if (component.OwnedDebris.ContainsKey(point)) // Otherwise it will cause an error that will crash the server
-                continue;
-
             var pointDensity = _noiseIndex.Evaluate(uid, densityChannel, WorldGen.WorldToChunkCoords(point));
             if (pointDensity == 0 && component.DensityClip || _random.Prob(component.RandomCancellationChance))
                 continue;
@@ -215,7 +212,7 @@ public sealed class DebrisFeaturePlacerSystem : BaseWorldSystem
             }
 
             var ent = Spawn(debrisFeatureEv.DebrisProto, coords);
-            component.OwnedDebris.Add(point, ent);
+            component.OwnedDebris[point] = ent;
 
             var owned = EnsureComp<OwnedDebrisComponent>(ent);
             owned.OwningController = uid;
