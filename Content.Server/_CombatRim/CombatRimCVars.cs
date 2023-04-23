@@ -11,6 +11,10 @@ public sealed class CombatRimCVars
     public static readonly CVarDef<string> MainCurrency =
         CVarDef.Create("combatrim.economy.main_currency", "SpaceCash", CVar.SERVERONLY);
 
+    /// <summary>
+    /// Restocks and inflation events
+    /// </summary>
+    /// <returns></returns>
     public static readonly CVarDef<bool> DoEcoEvents =
         CVarDef.Create("combatrim.economy.events.enabled", true, CVar.SERVERONLY);
 
@@ -31,6 +35,18 @@ public sealed class CombatRimCVars
     /// </summary>
     public static readonly CVarDef<int> EcoEventMaxInterval =
         CVarDef.Create("combatrim.economy.events.max_interval", 45, CVar.SERVERONLY);
+
+    /// <summary>
+    /// Min interval of the economic events.
+    /// </summary>
+    public static readonly CVarDef<int> NextRestockMinInterval =
+        CVarDef.Create("combatrim.economy.events.min_interval", 20, CVar.SERVERONLY);
+
+    /// <summary>
+    /// Max interval of the economic events.
+    /// </summary>
+    public static readonly CVarDef<int> NextRestockMaxInterval =
+        CVarDef.Create("combatrim.economy.events.max_interval", 30, CVar.SERVERONLY);
 
     /// <summary>
     /// The "border" of the sector, measured by tiles and value is multiplied by 128.

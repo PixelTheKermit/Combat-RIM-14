@@ -147,7 +147,7 @@
       soundGunshot: /Audio/Weapons/Guns/Gunshots/laser.ogg
       fireRate: 3
       isBatteryWeapon: true
-      machinePartFiringSpeed: Laser
+      fireRatePart: Laser
     - type: Sprite
       layers:
         - state: laser

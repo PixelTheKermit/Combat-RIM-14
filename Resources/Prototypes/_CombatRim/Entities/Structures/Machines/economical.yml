@@ -53,7 +53,7 @@
     mode: SnapgridCenter
   components:
   - type: Sprite
-    sprite: CombatRim/Structures/redspacevendor.rsi
+    sprite: CombatRim/Structures/vendor.rsi
     netsync: false
     layers:
       - state: icon

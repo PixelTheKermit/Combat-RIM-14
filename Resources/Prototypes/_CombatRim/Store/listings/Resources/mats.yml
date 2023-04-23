@@ -7,3 +7,23 @@
     SpaceCash: 100
   categories:
   - VendorResources
+
+- type: listing
+  id: VendorSteel
+  name: Steel
+  description: Useful steel for growth and repair... wait that's mitosis.
+  productEntity: SheetSteel
+  cost:
+    SpaceCash: 500
+  categories:
+  - VendorResources
+
+- type: listing
+  id: VendorPlastic
+  name: Plastic
+  description: It's plastic. Not sure what type but it's plastic.
+  productEntity: SheetPlastic
+  cost:
+    SpaceCash: 500
+  categories:
+  - VendorResources

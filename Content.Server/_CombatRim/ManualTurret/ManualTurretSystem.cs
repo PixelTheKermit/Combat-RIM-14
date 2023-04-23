@@ -20,10 +20,11 @@ using Robust.Shared.Containers;
 using Content.Server.MachineLinking.Components;
 using Robust.Shared.GameObjects;
 using Content.Shared._CombatRim.ManualTurret;
+using Content.Shared.CombatMode;
 
 namespace Content.Server._CombatRim.ManualTurret
 {
-    public sealed class ManualTurretSystem : EntitySystem
+    public sealed class ManualTurretSystem : SharedManualTurretSystem
     {
         // Dependencies
         [Dependency] private readonly IRobustRandom _random = default!;
@@ -37,30 +38,18 @@ namespace Content.Server._CombatRim.ManualTurret
         [Dependency] private readonly InputSystem _inputSystem = default!;
         [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
 
-        public override void Initialize() // VERY IMPORTANT!!!!!!
+        public override void Initialize()
         {
             base.Initialize();
+
             SubscribeLocalEvent<ManualTurretComponent, RefreshPartsEvent>(PartsRefresh);
             SubscribeLocalEvent<ManualTurretComponent, UpgradeExamineEvent>(OnUpgradeExamine);
-            SubscribeLocalEvent<ManualTurretComponent, ComponentInit>(OnComponentInit);
             SubscribeLocalEvent<ManualTurretComponent, UpdateCanMoveEvent>(CanMove);
-            SubscribeLocalEvent<ManualTurretComponent, InteractionAttemptEvent>(InteractAttempt);
             SubscribeNetworkEvent<TurretRotateEvent>(OnTurretRotate);
-        }
-
-        private void OnComponentInit(EntityUid uid, ManualTurretComponent comp, ComponentInit args)
-        {
-            comp.Rotation = Comp<TransformComponent>(uid).LocalRotation;
         }
 
         private void CanMove(EntityUid uid, ManualTurretComponent comp, UpdateCanMoveEvent args)
         {
-            args.Cancel();
-        }
-
-        private void InteractAttempt(EntityUid uid, ManualTurretComponent comp, InteractionAttemptEvent args)
-        {
-            Comp<TransformComponent>(uid).LocalRotation = comp.Rotation;
             args.Cancel();
         }
 
@@ -71,24 +60,23 @@ namespace Content.Server._CombatRim.ManualTurret
         public override void Update(float frameTime)
         {
             base.Update(frameTime);
+
             foreach (var (comp, actor, xform) in EntityQuery<ManualTurretComponent, ActorComponent, TransformComponent>())
             {
-                _transformSystem.SetLocalRotation(xform, comp.Rotation);
-
-                comp.Rotation += comp.CurRotSpeed*frameTime;
+                xform.LocalRotation += Math.Clamp(Angle.ShortestDistance(xform.LocalRotation, comp.NewRot), -comp.RotSpeed*frameTime, comp.RotSpeed*frameTime);
 
                 var session = actor.PlayerSession;
 
                 var input = _inputSystem.GetInputStates(session);
 
                 // Doing this on the server means no prediction, too bad!
-                if (input.GetState(EngineKeyFunctions.MoveUp) == BoundKeyState.Down)
+                if (input.GetState(EngineKeyFunctions.Use) == BoundKeyState.Down)
                     AttemptShoot(comp.Owner, comp);
                 else
                     comp.Firing = false;
 
                 if (TryComp<ControllableComponent>(comp.Owner, out var contMob) && contMob.CurrentEntityOwning != null
-                    && input.GetState(EngineKeyFunctions.MoveDown) == BoundKeyState.Down)
+                    && input.GetState(EngineKeyFunctions.UIRightClick) == BoundKeyState.Down)
                 {
                     Comp<CanControlComponent>(contMob.CurrentEntityOwning.Value).Controlling = null;
                     contMob.CurrentDeviceOwning = null;
@@ -103,16 +91,7 @@ namespace Content.Server._CombatRim.ManualTurret
             if (!TryComp<ManualTurretComponent>(args.Uid, out var comp))
                 return;
 
-            // TODO: Checks to ensure the inputs were legitimate.
-            if (args.Rotation == RotateType.anticlock)
-                comp.CurRotSpeed = comp.RotSpeed;
-            else if (args.Rotation == RotateType.clock)
-                comp.CurRotSpeed = -comp.RotSpeed;
-            else if (args.Rotation == RotateType.none)
-                comp.CurRotSpeed = 0;
-
-            if (args.ClientRot != comp.Rotation)
-                RaiseNetworkEvent(new ResetClientRotationEvent(args.Uid, comp.Rotation));
+            comp.NewRot = args.NewRot;
 
             Dirty(args.Uid);
         }
@@ -136,21 +115,21 @@ namespace Content.Server._CombatRim.ManualTurret
         private void PartsRefresh(EntityUid uid, ManualTurretComponent component, RefreshPartsEvent args)
         {
             // Obtain the ratings!
-            var firingTimeRating = args.PartRatings[component.MachinePartFiringSpeed];
-            var chargeNeededRating = args.PartRatings[component.MachinePartChargeNeeded];
-            var accuracyRating = args.PartRatings[component.MachinePartAccuracy];
+            var fireRateRating = args.PartRatings[component.PartFiringSpeed];
+            var chargeRating = args.PartRatings[component.ChargePart];
+            var accuracyRating = args.PartRatings[component.AccuracyPart];
 
             // Make the markipliers with some funky math
-            component.FireRateMultiplier = MathF.Pow(component.PartRatingFireRateMultiplier, firingTimeRating - 1);
-            component.ChargeNeededMultiplier = MathF.Pow(component.PartRatingChargeNeededMultiplier, chargeNeededRating - 1);
-            component.AccuracyMultiplier = MathF.Pow(component.PartRatingAccuracyMultiplier, accuracyRating - 1);
+            component.FireRateMultiplier = MathF.Pow(component.FireRatePartMultiplier, fireRateRating - 1);
+            component.ChargeMultiplier = MathF.Pow(component.ChargePartMultiplier, chargeRating - 1);
+            component.AccuracyMultiplier = MathF.Pow(component.AccuracyPartMultiplier, accuracyRating - 1);
             Dirty(component);
         }
 
         private void OnUpgradeExamine(EntityUid uid, ManualTurretComponent component, UpgradeExamineEvent args)
         {
             args.AddPercentageUpgrade("turret-component-upgrade-speed", 1 / component.FireRateMultiplier);
-            args.AddPercentageUpgrade("turret-component-upgrade-charge", 1 / component.ChargeNeededMultiplier);
+            args.AddPercentageUpgrade("turret-component-upgrade-charge", 1 / component.ChargeMultiplier);
             args.AddPercentageUpgrade("turret-component-upgrade-accuracy", 1 / component.AccuracyMultiplier);
         }
 
@@ -171,7 +150,7 @@ namespace Content.Server._CombatRim.ManualTurret
 
             if (TryComp<BatteryComponent>(uid, out var batteryComp))
             {
-                if (batteryComp!.CurrentCharge < comp.FireCost * comp.ChargeNeededMultiplier)
+                if (batteryComp!.CurrentCharge < comp.FireCost * comp.ChargeMultiplier)
                 {
                     _audioSystem.Play(comp.SoundEmpty, Filter.Pvs(uid), uid, true);
                     return;
@@ -188,7 +167,7 @@ namespace Content.Server._CombatRim.ManualTurret
                 var projComp = Comp<ProjectileBatteryAmmoProviderComponent>(uid);
 
                 if (batteryComp != null)
-                    batteryComp.CurrentCharge -= comp.FireCost * comp.ChargeNeededMultiplier;
+                    batteryComp.CurrentCharge -= comp.FireCost * comp.ChargeMultiplier;
 
                 var bullet = projComp.Prototype;
                 _audioSystem.Play(comp.SoundGunshot, Filter.Pvs(uid), uid, true);
@@ -358,7 +337,7 @@ namespace Content.Server._CombatRim.ManualTurret
             }
 
             if (batteryComp != null)
-                batteryComp.CurrentCharge -= comp.FireCost * comp.ChargeNeededMultiplier;
+                batteryComp.CurrentCharge -= comp.FireCost * comp.ChargeMultiplier;
         }
 
         /// <summary>

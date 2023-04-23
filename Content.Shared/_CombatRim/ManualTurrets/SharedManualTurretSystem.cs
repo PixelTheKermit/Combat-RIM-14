@@ -1,4 +1,5 @@
 
+using Content.Shared.Interaction.Events;
 using Robust.Shared.Enums;
 using Robust.Shared.Players;
 using Robust.Shared.Serialization;
@@ -7,43 +8,46 @@ namespace Content.Shared._CombatRim.ManualTurret
 {
     public abstract class SharedManualTurretSystem : EntitySystem
     {
+        public override void Initialize()
+        {
+            base.Initialize();
+
+            SubscribeLocalEvent<ManualTurretComponent, InteractionAttemptEvent>(OnInteractAttempt);
+            SubscribeLocalEvent<ManualTurretComponent, ChangeDirectionAttemptEvent>(OnChangeDirectionAttempt);
+        }
+
+        private void OnInteractAttempt(EntityUid uid, ManualTurretComponent component, InteractionAttemptEvent args)
+        {
+            args.Cancel();
+        }
+
+        private void OnChangeDirectionAttempt(EntityUid uid, ManualTurretComponent component, ChangeDirectionAttemptEvent args)
+        {
+            args.Cancel();
+        }
     }
 
     [Serializable, NetSerializable]
     public sealed class TurretRotateEvent : EntityEventArgs
     {
         public EntityUid Uid;
-        public RotateType Rotation;
-        public Angle ClientRot;
+        public Angle NewRot;
 
-        public TurretRotateEvent(EntityUid uid, RotateType rotation, Angle clientRot)
+        public TurretRotateEvent(EntityUid uid, Angle newRot)
         {
             Uid = uid;
-            Rotation = rotation;
-            ClientRot = clientRot;
+            NewRot = newRot;
         }
     }
 
     [Serializable, NetSerializable]
-    public sealed class ResetClientRotationEvent : EntityEventArgs
+    public sealed class TurretAttemptShootEvent : EntityEventArgs
     {
         public EntityUid Uid;
-        public Angle ServerRotation;
 
-        public ResetClientRotationEvent(EntityUid uid, Angle rotation)
+        public TurretAttemptShootEvent(EntityUid uid)
         {
             Uid = uid;
-            ServerRotation = rotation;
         }
     }
-
-    public enum RotateType : byte
-    {
-        clock = 0,
-        anticlock = 1,
-        none = 2
-    }
-
-    [Serializable, NetSerializable]
-    public sealed class TurretShootEvent : EntityEventArgs {}
 }

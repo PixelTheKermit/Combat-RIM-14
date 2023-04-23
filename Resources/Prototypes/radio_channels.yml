@@ -4,6 +4,7 @@
   keycode: ";"
   frequency: 1459
   color: "#32861A"
+  longRange: true
 
 - type: radioChannel
   id: CentCom

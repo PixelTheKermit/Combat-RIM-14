@@ -38,7 +38,7 @@ namespace Content.Server._CombatRim.Control
                 return;
             }
 
-            if (HasComp<MobThresholdsComponent>(uid) && _mobStateSystem.IsDead(uid))
+            if (_mobStateSystem.IsDead(uid))
             {
                 _popupSystem.PopupEntity(Loc.GetString("pairer-fail-damaged"), uid, args.User);
                 return;
@@ -69,7 +69,7 @@ namespace Content.Server._CombatRim.Control
                 return;
 
             comp.Entity = args.Args.Target;
-            _popupSystem.PopupEntity(Loc.GetString("device-control-paired"), uid, args.Args.User);
+            _popupSystem.PopupEntity(Loc.GetString("pairer-control-paired"), uid, args.Args.User);
         }
     }
 }

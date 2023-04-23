@@ -42,7 +42,7 @@ namespace Content.Server._CombatRim.Control
             }
 
             if (!TryComp<ControllableComponent>(pairComp.Entity, out var controllableComp)
-                || controllableComp.CurrentEntityOwning != null)
+                || TryComp<MindComponent>(uid, out var mind) && mind.HasMind)
             {
                 _popupSystem.PopupEntity(Loc.GetString("remote-already-controlled"), uid, args.User);
                 return;
@@ -55,8 +55,7 @@ namespace Content.Server._CombatRim.Control
                 return;
             }
 
-            if (!TryComp<CanControlComponent>(args.User, out var controllerComp)
-                || controllerComp.Controlling != null)
+            if (!TryComp<CanControlComponent>(args.User, out var controllerComp))
             {
                 _popupSystem.PopupEntity(Loc.GetString("control-device-unable-to-use"), uid, args.User);
                 return;

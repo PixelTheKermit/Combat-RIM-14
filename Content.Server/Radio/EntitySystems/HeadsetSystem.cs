@@ -1,4 +1,5 @@
 using Content.Server.Chat.Systems;
+using Content.Server.GameTicking;
 using Content.Server.Radio.Components;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Radio;
@@ -13,6 +14,7 @@ public sealed class HeadsetSystem : SharedHeadsetSystem
 {
     [Dependency] private readonly INetManager _netMan = default!;
     [Dependency] private readonly RadioSystem _radio = default!;
+    [Dependency] private readonly GameTicker _gameTicker = default!;
 
     public override void Initialize()
     {
@@ -98,7 +100,7 @@ public sealed class HeadsetSystem : SharedHeadsetSystem
         if (TryComp(Transform(uid).ParentUid, out ActorComponent? actor))
         {
             var calcDist = (Transform(uid).WorldPosition - Transform(args.MessageSource).WorldPosition).Length;
-            if (calcDist <= component.Range)
+            if (Transform(args.MessageSource).MapID != _gameTicker.DefaultMap || Transform(uid).MapID == Transform(args.MessageSource).MapID && calcDist <= component.Range)
                 _netMan.ServerSendMessage(args.ChatMsg, actor.PlayerSession.ConnectedClient);
         }
     }
