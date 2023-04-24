@@ -54,6 +54,7 @@ namespace Content.Client.Preferences.UI
         private readonly IEntityManager _entMan;
         private readonly IConfigurationManager _configurationManager;
         private readonly MarkingManager _markingManager;
+
         private LineEdit _ageEdit => CAgeEdit;
         private LineEdit _nameEdit => CNameEdit;
         private LineEdit _flavorTextEdit = null!;
@@ -112,7 +113,8 @@ namespace Content.Client.Preferences.UI
 
         public event Action<HumanoidCharacterProfile, int>? OnProfileChanged;
 
-        public HumanoidProfileEditor(IClientPreferencesManager preferencesManager, IPrototypeManager prototypeManager, IEntityManager entityManager, IConfigurationManager configurationManager)
+        public HumanoidProfileEditor(IClientPreferencesManager preferencesManager, IPrototypeManager prototypeManager,
+            IEntityManager entityManager, IConfigurationManager configurationManager)
         {
             RobustXamlLoader.Load(this);
             _random = IoCManager.Resolve<IRobustRandom>();
@@ -276,7 +278,7 @@ namespace Content.Client.Preferences.UI
                 IsDirty = true;
             };
 
-            _hairPicker.OnSlotAdd += delegate ()
+            _hairPicker.OnSlotAdd += delegate()
             {
                 if (Profile is null)
                     return;
@@ -296,7 +298,7 @@ namespace Content.Client.Preferences.UI
                 IsDirty = true;
             };
 
-            _facialHairPicker.OnSlotAdd += delegate ()
+            _facialHairPicker.OnSlotAdd += delegate()
             {
                 if (Profile is null)
                     return;
@@ -370,7 +372,7 @@ namespace Content.Client.Preferences.UI
                 (int) PreferenceUnavailableMode.StayInLobby);
             _preferenceUnavailableButton.AddItem(
                 Loc.GetString("humanoid-profile-editor-preference-unavailable-spawn-as-overflow-button",
-                                ("overflowJob", Loc.GetString(SharedGameTicker.FallbackOverflowJobName))),
+                              ("overflowJob", Loc.GetString(SharedGameTicker.FallbackOverflowJobName))),
                 (int) PreferenceUnavailableMode.SpawnAsOverflow);
 
             _preferenceUnavailableButton.OnItemSelected += args =>
@@ -415,7 +417,7 @@ namespace Content.Client.Preferences.UI
 
                     category.AddChild(new PanelContainer
                     {
-                        PanelOverride = new StyleBoxFlat {BackgroundColor = Color.FromHex("#454545")},
+                        PanelOverride = new StyleBoxFlat {BackgroundColor = Color.FromHex("#464646")},
                         Children =
                         {
                             new Label
@@ -823,6 +825,7 @@ namespace Content.Client.Preferences.UI
             IsDirty = true;
         }
 
+
         private void OnSkinColorOnValueChanged()
         {
             if (Profile is null) return;
@@ -832,45 +835,45 @@ namespace Content.Client.Preferences.UI
             switch (skin)
             {
                 case HumanoidSkinColor.HumanToned:
+                {
+                    if (!_skinColor.Visible)
                     {
-                        if (!_skinColor.Visible)
-                        {
-                            _skinColor.Visible = true;
-                            _rgbSkinColorContainer.Visible = false;
-                        }
-
-                        var color = SkinColor.HumanSkinTone((int) _skinColor.Value);
-
-                        CMarkings.CurrentSkinColor = color;
-                        Profile = Profile.WithCharacterAppearance(Profile.Appearance.WithSkinColor(color));
-                        break;
+                        _skinColor.Visible = true;
+                        _rgbSkinColorContainer.Visible = false;
                     }
+
+                    var color = SkinColor.HumanSkinTone((int) _skinColor.Value);
+
+                    CMarkings.CurrentSkinColor = color;
+                    Profile = Profile.WithCharacterAppearance(Profile.Appearance.WithSkinColor(color));//
+                    break;
+                }
                 case HumanoidSkinColor.Hues:
+                {
+                    if (!_rgbSkinColorContainer.Visible)
                     {
-                        if (!_rgbSkinColorContainer.Visible)
-                        {
-                            _skinColor.Visible = false;
-                            _rgbSkinColorContainer.Visible = true;
-                        }
-
-                        CMarkings.CurrentSkinColor = _rgbSkinColorSelector.Color;
-                        Profile = Profile.WithCharacterAppearance(Profile.Appearance.WithSkinColor(_rgbSkinColorSelector.Color));
-                        break;
+                        _skinColor.Visible = false;
+                        _rgbSkinColorContainer.Visible = true;
                     }
+
+                    CMarkings.CurrentSkinColor = _rgbSkinColorSelector.Color;
+                    Profile = Profile.WithCharacterAppearance(Profile.Appearance.WithSkinColor(_rgbSkinColorSelector.Color));
+                    break;
+                }
                 case HumanoidSkinColor.TintedHues:
+                {
+                    if (!_rgbSkinColorContainer.Visible)
                     {
-                        if (!_rgbSkinColorContainer.Visible)
-                        {
-                            _skinColor.Visible = false;
-                            _rgbSkinColorContainer.Visible = true;
-                        }
-
-                        var color = SkinColor.TintedHues(_rgbSkinColorSelector.Color);
-
-                        CMarkings.CurrentSkinColor = color;
-                        Profile = Profile.WithCharacterAppearance(Profile.Appearance.WithSkinColor(color));
-                        break;
+                        _skinColor.Visible = false;
+                        _rgbSkinColorContainer.Visible = true;
                     }
+
+                    var color = SkinColor.TintedHues(_rgbSkinColorSelector.Color);
+
+                    CMarkings.CurrentSkinColor = color;
+                    Profile = Profile.WithCharacterAppearance(Profile.Appearance.WithSkinColor(color));
+                    break;
+                }
             }
 
             IsDirty = true;
@@ -1037,7 +1040,7 @@ namespace Content.Client.Preferences.UI
 
         private void UpdateFlavorTextEdit()
         {
-            if (_flavorTextEdit != null)
+            if(_flavorTextEdit != null)
             {
                 _flavorTextEdit.Text = Profile?.FlavorText ?? "";
             }
@@ -1064,8 +1067,7 @@ namespace Content.Client.Preferences.UI
                 {
                     sexes.Add(sex);
                 }
-            }
-            else
+            } else
             {
                 sexes.Add(Sex.Unsexed);
             }
@@ -1084,48 +1086,49 @@ namespace Content.Client.Preferences.UI
 
         private void UpdateSkinColor()
         {
-            if (Profile == null) return;
+            if (Profile == null)
+                return;
 
             var skin = _prototypeManager.Index<SpeciesPrototype>(Profile.Species).SkinColoration;
 
             switch (skin)
             {
                 case HumanoidSkinColor.HumanToned:
+                {
+                    if (!_skinColor.Visible)
                     {
-                        if (!_skinColor.Visible)
-                        {
-                            _skinColor.Visible = true;
-                            _rgbSkinColorContainer.Visible = false;
-                        }
-
-                        _skinColor.Value = SkinColor.HumanSkinToneFromColor(Profile.Appearance.SkinColor);
-
-                        break;
+                        _skinColor.Visible = true;
+                        _rgbSkinColorContainer.Visible = false;
                     }
+
+                    _skinColor.Value = SkinColor.HumanSkinToneFromColor(Profile.Appearance.SkinColor);
+
+                    break;
+                }
                 case HumanoidSkinColor.Hues:
+                {
+                    if (!_rgbSkinColorContainer.Visible)
                     {
-                        if (!_rgbSkinColorContainer.Visible)
-                        {
-                            _skinColor.Visible = false;
-                            _rgbSkinColorContainer.Visible = true;
-                        }
-
-                        // set the RGB values to the direct values otherwise
-                        _rgbSkinColorSelector.Color = Profile.Appearance.SkinColor;
-                        break;
+                        _skinColor.Visible = false;
+                        _rgbSkinColorContainer.Visible = true;
                     }
+
+                    // set the RGB values to the direct values otherwise
+                    _rgbSkinColorSelector.Color = Profile.Appearance.SkinColor;
+                    break;
+                }
                 case HumanoidSkinColor.TintedHues:
+                {
+                    if (!_rgbSkinColorContainer.Visible)
                     {
-                        if (!_rgbSkinColorContainer.Visible)
-                        {
-                            _skinColor.Visible = false;
-                            _rgbSkinColorContainer.Visible = true;
-                        }
-
-                        // set the RGB values to the direct values otherwise
-                        _rgbSkinColorSelector.Color = Profile.Appearance.SkinColor;
-                        break;
+                        _skinColor.Visible = false;
+                        _rgbSkinColorContainer.Visible = true;
                     }
+
+                    // set the RGB values to the direct values otherwise
+                    _rgbSkinColorSelector.Color = Profile.Appearance.SkinColor;
+                    break;
+                }
             }
 
         }
@@ -1302,8 +1305,7 @@ namespace Content.Client.Preferences.UI
                 return;
 
             EntitySystem.Get<HumanoidAppearanceSystem>().LoadProfile(_previewDummy!.Value, Profile);
-            if (_tabContainer.CurrentTab == 5) LobbyCharacterPreviewPanel.GiveDummyJobClothes(_previewDummy!.Value, Profile);
-            else LobbyCharacterPreviewPanel.GiveDummyJobClothes(_previewDummy!.Value, Profile);
+            LobbyCharacterPreviewPanel.GiveDummyJobClothes(_previewDummy!.Value, Profile);
         }
 
         public void UpdateControls()
@@ -1406,7 +1408,7 @@ namespace Content.Client.Preferences.UI
 
                 if (job.Icon != null)
                 {
-                    var specifier = new SpriteSpecifier.Rsi(new ResourcePath("/Textures/Interface/Misc/job_icons.rsi"),
+                    var specifier = new SpriteSpecifier.Rsi(new ("/Textures/Interface/Misc/job_icons.rsi"),
                         job.Icon);
                     icon.Texture = specifier.Frame0();
                 }
@@ -1416,7 +1418,7 @@ namespace Content.Client.Preferences.UI
                     Text = Loc.GetString("role-timer-locked"),
                     Visible = true,
                     HorizontalAlignment = HAlignment.Center,
-                    StyleClasses = { StyleBase.StyleClassLabelSubText },
+                    StyleClasses = {StyleBase.StyleClassLabelSubText},
                 };
 
                 _lockStripe = new StripeBack()
@@ -1538,11 +1540,10 @@ namespace Content.Client.Preferences.UI
                 }
             }
         }
-
         private sealed class AntagPreferenceSelector : Control
         {
             public AntagPrototype Antag { get; }
-            private readonly Button _checkBox;
+            private readonly CheckBox _checkBox;
 
             public bool Preference
             {
@@ -1556,10 +1557,7 @@ namespace Content.Client.Preferences.UI
             {
                 Antag = antag;
 
-                _checkBox = new Button {
-                    Text = Loc.GetString(antag.Name),
-                    ToggleMode = true
-                };
+                _checkBox = new CheckBox {Text = Loc.GetString(antag.Name)};
                 _checkBox.OnToggled += OnCheckBoxToggled;
 
                 if (antag.Description != null)
@@ -1587,7 +1585,7 @@ namespace Content.Client.Preferences.UI
         private sealed class TraitPreferenceSelector : Control
         {
             public TraitPrototype Trait { get; }
-            private readonly Button _checkBox;
+            private readonly CheckBox _checkBox;
 
             public bool Preference
             {
@@ -1601,44 +1599,14 @@ namespace Content.Client.Preferences.UI
             {
                 Trait = trait;
 
-                _checkBox = new Button {
-                    Text = $"[{trait.Cost}] {Loc.GetString(trait.Name)}",
-                    ToggleMode = true
-                };
+                _checkBox = new CheckBox {Text = Loc.GetString(trait.Name)};
                 _checkBox.OnToggled += OnCheckBoxToggled;
 
-                var tooltip = "";
                 if (trait.Description is { } desc)
                 {
-                    tooltip += $"{Loc.GetString(desc)}";
-                    if (trait.Whitelist != null || trait.Blacklist != null) tooltip += "\n";
+                    _checkBox.ToolTip = Loc.GetString(desc);
+                    _checkBox.TooltipDelay = 0.2f;
                 }
-
-                if (Trait.Whitelist != null)
-                {
-                    tooltip += "\nWhitelist:";
-                    if (Trait.Whitelist.Components != null)
-                        foreach (var require in Trait.Whitelist.Components)
-                            tooltip += $"\n - {require} (Component)";
-                    if (Trait.Whitelist.Tags != null)
-                        foreach (var require in Trait.Whitelist.Tags)
-                            tooltip += $"\n - {require} (Tag)";
-                    tooltip += $"\n Require All: {Trait.Whitelist.RequireAll}";
-                }
-                if (Trait.Blacklist != null)
-                {
-                    tooltip += "\nBlacklist:";
-                    if (Trait.Blacklist.Components != null)
-                        foreach (var require in Trait.Blacklist.Components)
-                            tooltip += $"\n - {require} (Component)";
-                    if (Trait.Blacklist.Tags != null)
-                        foreach (var require in Trait.Blacklist.Tags)
-                            tooltip += $"\n - {require} (Tag)";
-                    tooltip += $"\n Require All: {Trait.Blacklist.RequireAll}";
-                }
-
-                _checkBox.ToolTip = tooltip;
-                _checkBox.TooltipDelay = 0.2f;
 
                 AddChild(new BoxContainer
                 {
