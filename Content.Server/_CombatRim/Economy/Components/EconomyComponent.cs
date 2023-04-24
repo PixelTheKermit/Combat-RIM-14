@@ -12,6 +12,6 @@ namespace Content.Server._CombatRim.Economy
         public TimeSpan? NextEconomicCrisis;
 
         public TimeSpan? NextStoreRefresh;
-        public HashSet<ListingData> Listings = new();
+        public List<string> Listings = new();
     }
 }

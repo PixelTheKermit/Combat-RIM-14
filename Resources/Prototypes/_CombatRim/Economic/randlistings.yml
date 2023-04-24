@@ -1,0 +1,4 @@
+- type: RandListings
+  id: test
+  listings:
+    - VendorBananaSeeds: 1

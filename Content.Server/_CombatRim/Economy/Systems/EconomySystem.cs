@@ -1,10 +1,10 @@
-
-using System.Diagnostics;
 using System.Linq;
 using Content.Server.Chat.Systems;
 using Content.Server.GameTicking.Events;
 using Content.Server.Store.Components;
 using Content.Server.Store.Systems;
+using Content.Server.UserInterface;
+using Content.Shared.Examine;
 using Content.Shared.FixedPoint;
 using Content.Shared.GameTicking;
 using Content.Shared.Store;
@@ -37,8 +37,41 @@ namespace Content.Server._CombatRim.Economy
             base.Initialize();
 
             SubscribeLocalEvent<RoundStartingEvent>(RoundStarted);
-            SubscribeLocalEvent<RestockableComponent, ComponentInit>(StoreCompStartup);
+            SubscribeLocalEvent<RestockableComponent, ComponentStartup>(RestockCompStartup);
+            SubscribeLocalEvent<RestockableComponent, ExaminedEvent>(OnRestockExamine);
+            SubscribeLocalEvent<RestockableComponent, BeforeActivatableUIOpenEvent>(FirstTimeUIOpen);
             SubscribeLocalEvent<EcoContributorComponent, StoreBuyListingMessage>(StoreBuyListing);
+        }
+
+        private void RestockCompStartup(EntityUid uid, RestockableComponent comp, ComponentStartup args)
+        {
+            ReloadStore(uid);
+        }
+
+        private void FirstTimeUIOpen(EntityUid uid, RestockableComponent comp, BeforeActivatableUIOpenEvent args)
+        {
+            if (comp.StoreRefreshed)
+                return;
+
+            comp.StoreRefreshed = true;
+            ReloadStore(uid);
+        }
+
+        private void OnRestockExamine(EntityUid uid, RestockableComponent comp, ExaminedEvent args)
+        {
+            if (!EntityQuery<EconomyComponent>().Any())
+                return;
+
+            var eco = EntityQuery<EconomyComponent>().First();
+
+            if (!eco.NextStoreRefresh.HasValue)
+                return;
+
+            var maxMinLeft = Math.Round(eco.NextStoreRefresh!.Value.TotalMinutes);
+
+            var text = "The next restock will be in around " + maxMinLeft + " minutes.";
+
+            args.PushText(text);
         }
 
         public override void Update(float frameTime)
@@ -58,15 +91,11 @@ namespace Content.Server._CombatRim.Economy
                 if (_cfg.GetCVar<bool>(CombatRimCVars.DoEcoEvents))
                     DoRandomEvent();
             }
+
             if (curTime > comp.NextStoreRefresh)
             {
                 comp.NextEconomicCrisis = _gameTiming.CurTime + TimeSpan.FromMinutes(_random.Next(_cfg.GetCVar<int>(CombatRimCVars.NextRestockMinInterval), _cfg.GetCVar<int>(CombatRimCVars.NextRestockMaxInterval)));
             }
-        }
-
-        private void StoreCompStartup(EntityUid uid, RestockableComponent comp, ComponentInit args)
-        {
-            ReloadStore(uid);
         }
 
         private void StoreBuyListing(EntityUid uid, EcoContributorComponent contribComp, StoreBuyListingMessage msg)
@@ -102,6 +131,7 @@ namespace Content.Server._CombatRim.Economy
             comp.Credits = _random.Next(1, 3)*10000;
             Logger.Info("Credits: " + comp.Credits);
             comp.NextEconomicCrisis = _gameTiming.CurTime + TimeSpan.FromMinutes(_random.Next(_cfg.GetCVar<int>(CombatRimCVars.EcoEventMinInterval), _cfg.GetCVar<int>(CombatRimCVars.EcoEventMaxInterval)));
+            comp.NextStoreRefresh = _gameTiming.CurTime + TimeSpan.FromMinutes(_random.Next(_cfg.GetCVar<int>(CombatRimCVars.NextRestockMinInterval), _cfg.GetCVar<int>(CombatRimCVars.NextRestockMaxInterval)));
             comp.InflationMultiplier = 1f;
             RefreshStores();
         }
@@ -145,19 +175,12 @@ namespace Content.Server._CombatRim.Economy
 
             eco.Listings.Clear();
 
-            foreach (var listing in _protoManager.EnumeratePrototypes<RandListingPrototype>())
+            foreach (var listings in _protoManager.EnumeratePrototypes<RandListingsPrototype>())
             {
-                var listingProto = _protoManager.EnumeratePrototypes<ListingPrototype>().FirstOrDefault(x => x.Name == listing.ListingID);
-
-                if (listingProto == null)
+                foreach (var (id, chance) in listings.Listings)
                 {
-                    Logger.Error(listing.ListingID + " does not exist as an actual listing!");
-                    continue;
-                }
-
-                if (_random.Prob(listing.ListingChance))
-                {
-                    eco.Listings.Add((ListingData) listingProto.Clone());
+                    if (_random.Prob(chance))
+                        eco.Listings.Add(id);
                 }
             }
 
@@ -192,7 +215,10 @@ namespace Content.Server._CombatRim.Economy
 
             comp.Listings.Clear();
 
-            comp.Listings = eco.Listings;
+            foreach (var listing in eco.Listings)
+            {
+                _storeSystem.TryAddListing(comp, listing);
+            }
 
             var mainCur = _cfg.GetCVar<string>(CombatRimCVars.MainCurrency);
 

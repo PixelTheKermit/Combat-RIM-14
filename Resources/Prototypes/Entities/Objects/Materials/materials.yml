@@ -92,9 +92,6 @@
         reagents:
         - ReagentId: Nutriment
           Quantity: 5
-  - type: EatWhitelist
-    stomachs:
-    - OrganMothStomach
 
 - type: entity
   parent: MaterialCloth

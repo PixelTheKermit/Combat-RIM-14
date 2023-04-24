@@ -8,19 +8,13 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototy
 
 namespace Content.Server._CombatRim.Economy
 {
-    [Serializable, Prototype("RandListing")]
-    public sealed class RandListingPrototype : IPrototype
+    [Serializable, Prototype("RandListings")]
+    public sealed class RandListingsPrototype : IPrototype
     {
         [IdDataField]
         public string ID { get; } = default!;
 
-        [DataField("name", required: true)]
-        public string Name = string.Empty;
-
-        [DataField("listingID", required: true)]
-        public string ListingID = string.Empty;
-
-        [DataField("listingChance")]
-        public float ListingChance = 1f;
+        [DataField("listings", required: true)]
+        public List<(string ID, float Chance)> Listings = new();
     }
 }

@@ -48,7 +48,7 @@
 - type: entity
   id: RedspaceVendor
   name: Redspace Vendor
-  description: A vendor utilizing redspace technology to get goods to you.
+  description: A machine utilizing redspace technology to get goods to you.
   placement:
     mode: SnapgridCenter
   components:
@@ -88,3 +88,13 @@
     preset: MerchantPresetAll
     balance:
       SpaceCash: 0
+    categories:
+    - VendorWeapons
+    - VendorTools
+    - VendorExplosives
+    - VendorArmor
+    - VendorAmmo
+    - VendorResources
+    - VendorElectronics
+    - VendorSeeds
+  - type: Restockable

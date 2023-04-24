@@ -10,7 +10,6 @@
         !type:ImageParallaxTextureSource
         path: "/Textures/Parallaxes/HellOverlay.png"
       slowness: 0.967046875
-      scale: "1, 1"
     - texture:
         !type:GeneratedParallaxTextureSource
         id: "hq_wizard_stars_dim"
