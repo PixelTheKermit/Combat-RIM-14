@@ -1599,7 +1599,7 @@ namespace Content.Client.Preferences.UI
             {
                 Trait = trait;
 
-                _checkBox = new CheckBox {Text = Loc.GetString(trait.Name)};
+                _checkBox = new CheckBox {Text = Loc.GetString(trait.Name) + " ("+trait.Cost+")"};
                 _checkBox.OnToggled += OnCheckBoxToggled;
 
                 if (trait.Description is { } desc)

@@ -1,3 +1,4 @@
+using System.Linq;
 using Content.Server.GameTicking;
 using Content.Shared.Traits;
 using Robust.Shared.Prototypes;
@@ -20,6 +21,10 @@ public sealed class TraitSystem : EntitySystem
     // When the player is spawned in, add all trait components selected during character creation
     private void OnPlayerSpawnComplete(PlayerSpawnCompleteEvent args)
     {
+
+        List<TraitPrototype> traitsToAdd = new();
+        var totalCosts = 0;
+
         foreach (var traitId in args.Profile.TraitPreferences)
         {
             if (!_prototypeManager.TryIndex<TraitPrototype>(traitId, out var traitPrototype))
@@ -34,6 +39,15 @@ public sealed class TraitSystem : EntitySystem
             if (traitPrototype.Blacklist != null && traitPrototype.Blacklist.IsValid(args.Mob))
                 continue;
 
+            totalCosts += traitPrototype.Cost;
+            traitsToAdd.Add(traitPrototype);
+        }
+
+        if (totalCosts < 0)
+            return;
+
+        foreach (var traitPrototype in traitsToAdd)
+        {
             // Add all components required by the prototype
             foreach (var entry in traitPrototype.Components.Values)
             {
