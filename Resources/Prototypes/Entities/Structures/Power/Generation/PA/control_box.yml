@@ -13,12 +13,10 @@
           map: [ "enum.ParticleAcceleratorVisualLayers.Unlit" ]
           shader: unshaded
           visible: false
-    - type: Appearance
-      visuals:
-        - type: ParticleAcceleratorPartVisualizer
-          baseState: unlit
     - type: Temperature
     - type: AtmosExposed
+    - type: ParticleAcceleratorPartVisuals
+      stateBase: unlit
     - type: ApcPowerReceiver
       powerLoad: 250
     - type: ExtensionCableReceiver
@@ -40,8 +38,8 @@
       LayoutId: ParticleAccelerator
     - type: GuideHelp
       guides: [ Singularity, Power ]
-      
-      
+
+
 # Unfinished
 
 - type: entity

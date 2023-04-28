@@ -81,7 +81,10 @@ namespace Content.Client.Stylesheets
         public const string StyleClassPopupMessageLarge = "PopupMessageLarge";
         public const string StyleClassPopupMessageLargeCaution = "PopupMessageLargeCaution";
 
+        public static readonly Color PanelDark = Color.FromHex("#1E1E1E");
+
         public static readonly Color NanoGold = Color.FromHex("#b01c37");
+
         public static readonly Color GoodGreenFore = Color.FromHex("#31843E");
         public static readonly Color ConcerningOrangeFore = Color.FromHex("#A5762F");
         public static readonly Color DangerousRedFore = Color.FromHex("#b01c37");
@@ -454,7 +457,7 @@ namespace Content.Client.Stylesheets
             var sliderBackBox = new StyleBoxTexture
             {
                 Texture = sliderFillTex,
-                Modulate = Color.FromHex("#1E1E22")
+                Modulate = PanelDark,
             };
 
             var sliderForeBox = new StyleBoxTexture

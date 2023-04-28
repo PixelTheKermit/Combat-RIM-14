@@ -3,12 +3,14 @@ using Robust.Shared.Serialization;
 
 namespace Content.Shared.Ghost
 {
-    [NetworkedComponent()]
-    public abstract class SharedGhostComponent : Component
+    [NetworkedComponent]
+    [AutoGenerateComponentState]
+    public abstract partial class SharedGhostComponent : Component
     {
         [ViewVariables]
         public TimeSpan TimeOfDeath { get; set; } = TimeSpan.Zero;
 
+        // TODO: instead of this funny stuff just give it access and update in system dirtying when needed
         [ViewVariables(VVAccess.ReadWrite)]
         public bool CanGhostInteract
         {
@@ -21,7 +23,7 @@ namespace Content.Shared.Ghost
             }
         }
 
-        [DataField("canInteract")]
+        [DataField("canInteract"), AutoNetworkedField]
         private bool _canGhostInteract;
 
         /// <summary>
@@ -40,7 +42,7 @@ namespace Content.Shared.Ghost
             }
         }
 
-        [DataField("canReturnToBody")]
+        [DataField("canReturnToBody"), AutoNetworkedField]
         private bool _canReturnToBody;
 
         public override ComponentState GetComponentState()
