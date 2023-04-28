@@ -11,6 +11,7 @@ using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Console;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
+using Robust.Shared.ContentPack;
 
 namespace Content.Client._Afterlight.Latejoin;
 
@@ -19,7 +20,7 @@ public sealed partial class NewVesselGui : FancyWindow
 {
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IConsoleHost _consoleHost = default!;
-    [Dependency] private readonly IResourceCache _resourceManager = default!;
+    [Dependency] private readonly IResourceManager _resourceManager = default!;
     [Dependency] private readonly IEntityManager _entity = default!;
 
     public NewVesselGui()

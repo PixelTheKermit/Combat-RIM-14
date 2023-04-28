@@ -11,8 +11,8 @@ namespace Content.Server._Afterlight.Worldgen.Components;
 [RegisterComponent]
 public sealed class BlueprintPlacerComponent : Component
 {
-    [DataField("blueprint", required: true, customTypeSerializer: typeof(ResourcePathSerializer))]
-    public ResourcePath Blueprint = default!;
+    [DataField("blueprint", required: true, customTypeSerializer: typeof(ResPathSerializer))]
+    public ResPath Blueprint = default!;
 
     /// <summary>
     /// The components that get added to the target grid.

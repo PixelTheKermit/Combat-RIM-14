@@ -48,7 +48,7 @@ public sealed partial class OuterRimLateJoinJobButton : Button
 
         if (prototype.Icon != null)
         {
-            var specifier = new SpriteSpecifier.Rsi(new ResourcePath("/Textures/Interface/Misc/job_icons.rsi"), prototype.Icon);
+            var specifier = new SpriteSpecifier.Rsi(new ResPath("/Textures/Interface/Misc/job_icons.rsi"), prototype.Icon);
             JobIcon.Texture = specifier.Frame0();
         }
 

@@ -1,5 +1,6 @@
-- type: gameRule
+- type: entity
   id: Escape
-  config:
-    !type:GenericGameRuleConfiguration
-    id: Escape
+  parent: BaseGameRule
+  noSpawn: true
+  components:
+  - type: EscapeRule
