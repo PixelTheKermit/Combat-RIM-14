@@ -94,8 +94,8 @@ public sealed class ShipSpawningSystem : BaseWorldSystem
 
         if (user != null && user.AttachedEntity.HasValue)
         {
-            Logger.Warning("You're not supposed to do that! This will be logged.");
-            _log.Add(LogType.ALSpawnVessel, LogImpact.Medium, $"User {user} tried buying a vessel ingame!");
+            Logger.Warning("You have an attached entity! This will be logged.");
+            _log.Add(LogType.ALSpawnVessel, LogImpact.Medium, $"User {user} tried buying a vessel outside the lobby!");
             return;
         }
 

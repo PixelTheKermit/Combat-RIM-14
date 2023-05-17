@@ -1,4 +1,75 @@
 - type: RandListings
-  id: test
+  id: CommonSeeds
   listings:
-    - VendorBananaSeeds: 1
+    - VendorWheatSeeds: 1
+    - VendorCornSeeds: 0.7
+    - VendorTowercapSeeds: 0.7
+    - VendorBananaSeeds: 0.5
+    - VendorNettleSeeds: 0.5
+    - VendorCarrotSeeds: 0.5
+    - VendorTomatoSeeds: 0.5
+
+- type: RandListings
+  id: CommonWeapons
+  listings:
+    - VendorCombatKnife: 0.9
+    - VendorPistolMk58: 0.5
+    - VendorCaptainSabre: 0.2
+
+- type: RandListings
+  id: CommonExplosives
+  listings:
+    - VendorGrenadeFlashBang: 0.7
+    - VendorExGrenade: 0.6
+    - VendorC4: 0.4
+    - VendorSyndieMiniBomb: 0.2
+
+- type: RandListings
+  id: CommonTools
+  listings:
+    - VendorToolClippers: 1
+    - VendorToolMiniHoe: 0.7
+
+- type: RandListings
+  id: CommonMaterials
+  listings:
+    - VendorGunParts: 0.7
+    - VendorSteel: 0.5
+    - VendorPlastic: 0.5
+
+- type: RandListings
+  id: CommonTurretBoards
+  listings:
+   - VendorTurretMachineCircuitboard: 0.7
+   - VendorLaserTurretMachineCircuitboard: 0.7
+   - VendorShotgunTurretMachineCircuitboard: 0.7
+#  - VendorRocketTurretMachineCircuitboard: 0.1
+
+- type: RandListings
+  id: CommonBoards
+  listings:
+   - OreProcessorMachineCircuitboard: 1
+   - ArtifactAnalyzerMachineCircuitboard: 0.7
+   - AutolatheMachineCircuitboard: 0.7
+   - CircuitImprinterMachineCircuitboard: 0.55
+   - HydroponicsTrayMachineCircuitboard: 0.5
+   - ProtolatheMachineCircuitboard: 0.5
+   - ThrusterMachineCircuitboard: 0.4
+   - GeneratorPlasmaMachineCircuitboard: 0.4
+
+- type: RandListings
+  id: CommonArmor
+  listings:
+   - VendorArmorArmorReflective: 0.7
+   - VendorArmorBulletproof: 0.7
+   - VendorArmorHeavy: 0.5
+   - VendorArmorScaf: 0.5
+   - VendorArmorRiot: 0.3
+   - VendorArmorCaptainCarapace: 0.3
+
+- type: RandListings
+  id: CommonAmmo
+  listings:
+   - VendorMagazinePistol: 0.7
+   - VendorMagazineBoxMinigun: 0.5
+   - VendorTurretBoxLethalshot: 0.5

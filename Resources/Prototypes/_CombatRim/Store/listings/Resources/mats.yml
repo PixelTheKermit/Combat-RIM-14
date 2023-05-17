@@ -1,7 +1,7 @@
 - type: listing
   id: VendorGunParts
   name: Gun Parts
-  description: Some gun parts. You could probably refine this into something more useable.
+  description: Some gun parts. Useless yet useful.
   productEntity: GunParts
   cost:
     SpaceCash: 100
