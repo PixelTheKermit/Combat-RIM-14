@@ -4,6 +4,7 @@
   description: trait-blindness-desc
   cost: 3
   category: Negative
+  traitGear: WhiteCane
   whitelist:
     components:
       - Blindable

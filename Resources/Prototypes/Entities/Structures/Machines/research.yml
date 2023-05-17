@@ -11,8 +11,11 @@
     state: server
   - type: ResearchServer
   - type: TechnologyDatabase
-  - type: Temperature
-  - type: AtmosExposed
+    supportedDisciplines:
+    - Industrial
+    - Biochemical
+    - Experimental
+    - CivilianServices
   - type: ApcPowerReceiver
     powerLoad: 20
     priority: Low
@@ -39,7 +42,6 @@
           SheetSteel1:
             min: 1
             max: 2
-  - type: DiseaseServer
   - type: AmbientSound
     volume: -9
     range: 5

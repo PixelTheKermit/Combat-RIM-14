@@ -16,8 +16,6 @@
           nodeGroupID: Pipe
           pipeDirection: South
     - type: CollideOnAnchor
-    - type: StaticPrice
-      price: 200
 
 - type: entity
   parent: GasUnaryBase
@@ -83,7 +81,7 @@
       node: ventpump
     - type: VentCritterSpawnLocation
     - type: AmbientSound
-      enabled: false
+      enabled: true
       volume: -12
       range: 5
       sound:
@@ -177,7 +175,7 @@
       graph: GasUnary
       node: ventscrubber
     - type: AmbientSound
-      enabled: false
+      enabled: true
       volume: -12
       range: 5
       sound:
@@ -234,7 +232,7 @@
     - type: Sprite
       netsync: false
       sprite: Structures/Piping/Atmospherics/thermomachine.rsi
-      noRot: true
+      snapCardinals: true
     - type: Appearance
     - type: PipeColorVisuals
     - type: Rotatable
@@ -258,8 +256,6 @@
           !type:PipeNode
           nodeGroupID: Pipe
           pipeDirection: South
-    - type: StaticPrice
-      price: 500
     - type: Transform
       noRot: false
 
@@ -272,6 +268,7 @@
     mode: SnapgridCenter
   components:
     - type: Sprite
+      granularLayersRendering: true
       layers:
         - state: freezerOff
           map: [ "enum.PowerDeviceVisualLayers.Powered" ]
@@ -279,6 +276,7 @@
           map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
         - state: pipe
           map: [ "enum.PipeVisualLayers.Pipe" ]
+          renderingStrategy: Default
     - type: GenericVisualizer
       visuals:
         enum.PowerDeviceVisuals.Powered:
@@ -311,6 +309,7 @@
     mode: SnapgridCenter
   components:
     - type: Sprite
+      granularLayersRendering : true
       layers:
         - state: heaterOff
           map: [ "enum.PowerDeviceVisualLayers.Powered" ]
@@ -318,6 +317,7 @@
           map: ["enum.WiresVisualLayers.MaintenancePanel"]
         - state: pipe
           map: [ "enum.PipeVisualLayers.Pipe" ]
+          renderingStrategy: Default
     - type: GenericVisualizer
       visuals:
         enum.PowerDeviceVisuals.Powered:

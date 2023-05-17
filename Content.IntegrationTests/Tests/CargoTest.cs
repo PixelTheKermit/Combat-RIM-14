@@ -73,8 +73,8 @@ public sealed class CargoTest
             var coord = new EntityCoordinates(grid.Owner, 0, 0);
 
             var protoIds = protoManager.EnumeratePrototypes<EntityPrototype>()
-                .Where(p => !p.Abstract)
-                .Where(p => !p.Components.ContainsKey("MapGrid")) // CITADEL EDIT (i love patching bugs in tests)
+                .Where(p=>!p.Abstract)
+                .Where(p => !p.Components.ContainsKey("MapGrid")) // Grids are not for sale.
                 .Select(p => p.ID)
                 .ToList();
 
