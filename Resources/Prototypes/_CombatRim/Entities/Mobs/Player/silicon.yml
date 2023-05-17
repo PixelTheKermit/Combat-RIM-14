@@ -61,16 +61,6 @@
       state: dronedark
       sprite: Mobs/Silicon/drone.rsi
   - type: MovementIgnoreGravity
-  - type: Fixtures
-    fixtures:
-    - shape:
-        !type:PhysShapeCircle
-        radius: 0.35
-      density: 50
-      mask:
-      - MobMask
-      layer:
-      - MobLayer
   - type: Appearance
     visuals:
       - type: GenericEnumVisualizer
@@ -152,16 +142,6 @@
       state: dronedark
       sprite: Mobs/Silicon/drone.rsi
   - type: MovementIgnoreGravity
-  - type: Fixtures
-    fixtures:
-    - shape:
-        !type:PhysShapeCircle
-        radius: 0.35
-      density: 50
-      mask:
-      - MobMask
-      layer:
-      - MobLayer
   - type: Appearance
     visuals:
       - type: GenericEnumVisualizer

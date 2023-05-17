@@ -1,12 +1,7 @@
-
-using Content.Server.Actions.Events;
-using Content.Server.Damage.Systems;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
-using Content.Shared.Damage.Events;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Damage.Systems;
-using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server._CombatRim.Traits.Pushover

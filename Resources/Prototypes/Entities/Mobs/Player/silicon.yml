@@ -141,7 +141,6 @@
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: drone
       sprite: Mobs/Silicon/drone.rsi
-      map: ["base"]
   - type: MovementIgnoreGravity
   - type: Fixtures
     fixtures:

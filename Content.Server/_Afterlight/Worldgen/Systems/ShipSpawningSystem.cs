@@ -1,8 +1,8 @@
 using System.Linq;
 using Content.Server._Afterlight.Worldgen.Components;
-using Content.Server._Citadel.Worldgen;
-using Content.Server._Citadel.Worldgen.Components.Debris;
-using Content.Server._Citadel.Worldgen.Systems;
+using Content.Server.Worldgen;
+using Content.Server.Worldgen.Components.Debris;
+using Content.Server.Worldgen.Systems;
 using Content.Server.Administration.Logs;
 using Content.Server.GameTicking;
 using Content.Server.Maps;

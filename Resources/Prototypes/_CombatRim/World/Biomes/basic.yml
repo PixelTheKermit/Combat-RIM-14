@@ -1,4 +1,4 @@
-- type: spacebiome
+- type: spaceBiome
   id: CombatRimAsteroidsStandard
   priority: 0
   noiseRanges: {}
@@ -27,7 +27,7 @@
         - 0.4, 0.6
       noiseChannel: Carver
 
-- type: spacebiome
+- type: spaceBiome
   id: CombatRimAsteroidsWastes
   priority: 1
   noiseRanges:
@@ -57,7 +57,7 @@
         - 0.3, 0.7
       noiseChannel: Carver
 
-- type: spacebiome
+- type: spaceBiome
   id: CombatRimAsteroidsEmptiness
   priority: 2
   noiseRanges:

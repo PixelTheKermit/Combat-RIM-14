@@ -21,8 +21,6 @@
     state: full
   - type: Body
     prototype: Moth
-  - type: DiseaseCarrier
-    diseaseResist: 0.1
   - type: Flammable
     damage:
       types:

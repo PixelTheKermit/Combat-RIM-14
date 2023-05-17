@@ -1,4 +1,4 @@
-﻿using Content.Server._Citadel.Worldgen.Tools;
+﻿using Content.Server.Worldgen.Tools;
 
 namespace Content.Server._Afterlight.Worldgen.Components;
 

@@ -38,12 +38,13 @@
     canCollide: true
   - type: Fixtures
     fixtures:
-    - shape:
-        !type:PhysShapeAabb
-        bounds: "-0.35,-0.35,0.35,0.35"
-      density: 190
-      mask:
-        - ItemMask
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.35,-0.35,0.35,0.35"
+        density: 190
+        mask:
+          - ItemMask
 
 - type: entity
   id: RedspaceVendor
@@ -70,14 +71,15 @@
     canCollide: true
   - type: Fixtures
     fixtures:
-    - shape:
-        !type:PhysShapeAabb
-        bounds: "-0.25,-0.35,0.25,0.35"
-      density: 190
-      mask:
-      - MachineMask
-      layer:
-      - MachineLayer
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25,-0.35,0.25,0.35"
+        density: 190
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
   - type: UserInterface
     interfaces:
     - key: enum.StoreUiKey.Key

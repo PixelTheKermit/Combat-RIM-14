@@ -74,10 +74,10 @@ public sealed class GeneratorSystem : SharedGeneratorSystem
         if (args.Handled)
             return;
 
-        if (!TryComp(args.Used, out MaterialComponent? mat) || !TryComp(args.Used, out StackComponent? stack) || !TryComp(uid, out SharedSolidFuelGeneratorComponent? generator))
+        if (!TryComp(args.Used, out PhysicalCompositionComponent? mat) || !TryComp(args.Used, out StackComponent? stack) || !TryComp(uid, out SharedSolidFuelGeneratorComponent? generator))
             return;
 
-        if (!mat.Materials.Keys.Contains<String>(component.FuelMaterial))
+        if (!mat.MaterialComposition.ContainsKey(component.FuelMaterial))
             return;
 
         generator.RemainingFuel += stack.Count * component.Multiplier;

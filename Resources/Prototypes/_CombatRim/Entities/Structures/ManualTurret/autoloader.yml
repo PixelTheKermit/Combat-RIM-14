@@ -1,7 +1,7 @@
 - type: entity
   parent: BaseMachine
   id: TurretSpeedloader
-  name: turret speedloader
+  name: turret speed loader
   description: Replaces your turret's mag once it's emptied so you don't have to go outside and touch space
   placement:
     mode: SnapgridCenter
@@ -19,14 +19,15 @@
     - type: Pullable
     - type: Fixtures
       fixtures:
-      - shape:
-          !type:PhysShapeAabb
-          bounds: "-0.25,-0.25,0.25,0.25"
-        density: 80
-        mask:
-        - MachineMask
-        layer:
-        - MachineLayer
+        fix1:
+          shape:
+            !type:PhysShapeAabb
+            bounds: "-0.25,-0.25,0.25,0.25"
+          density: 80
+          mask:
+          - MachineMask
+          layer:
+          - MachineLayer
     - type: Sprite
       netsync: false
       sprite: CombatRim/Structures/autoammorefill.rsi
