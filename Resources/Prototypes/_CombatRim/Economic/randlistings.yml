@@ -1,4 +1,4 @@
-- type: RandListings
+- type: randListings
   id: CommonSeeds
   listings:
     - VendorWheatSeeds: 1
@@ -9,14 +9,14 @@
     - VendorCarrotSeeds: 0.5
     - VendorTomatoSeeds: 0.5
 
-- type: RandListings
+- type: randListings
   id: CommonWeapons
   listings:
     - VendorCombatKnife: 0.9
     - VendorPistolMk58: 0.5
     - VendorCaptainSabre: 0.2
 
-- type: RandListings
+- type: randListings
   id: CommonExplosives
   listings:
     - VendorGrenadeFlashBang: 0.7
@@ -24,20 +24,20 @@
     - VendorC4: 0.4
     - VendorSyndieMiniBomb: 0.2
 
-- type: RandListings
+- type: randListings
   id: CommonTools
   listings:
     - VendorToolClippers: 1
     - VendorToolMiniHoe: 0.7
 
-- type: RandListings
+- type: randListings
   id: CommonMaterials
   listings:
     - VendorGunParts: 0.7
     - VendorSteel: 0.5
     - VendorPlastic: 0.5
 
-- type: RandListings
+- type: randListings
   id: CommonTurretBoards
   listings:
    - VendorTurretMachineCircuitboard: 0.7
@@ -45,7 +45,7 @@
    - VendorShotgunTurretMachineCircuitboard: 0.7
 #  - VendorRocketTurretMachineCircuitboard: 0.1
 
-- type: RandListings
+- type: randListings
   id: CommonBoards
   listings:
    - OreProcessorMachineCircuitboard: 1
@@ -57,7 +57,7 @@
    - ThrusterMachineCircuitboard: 0.4
    - GeneratorPlasmaMachineCircuitboard: 0.4
 
-- type: RandListings
+- type: randListings
   id: CommonArmor
   listings:
    - VendorArmorArmorReflective: 0.7
@@ -67,7 +67,7 @@
    - VendorArmorRiot: 0.3
    - VendorArmorCaptainCarapace: 0.3
 
-- type: RandListings
+- type: randListings
   id: CommonAmmo
   listings:
    - VendorMagazinePistol: 0.7

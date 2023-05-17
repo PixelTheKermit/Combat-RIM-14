@@ -1,8 +1,8 @@
 - type: entity
-  name: turret laser
   id: TurretLaser
-  parent: BaseBullet
+  name: turret laser
   noSpawn: true
+  parent: BaseBullet
   components:
   - type: Sprite
     color: "#ff3333"
@@ -22,11 +22,10 @@
         hard: false
         mask:
         - Opaque
-      fly-by: *flybyfixture
   - type: Projectile
     damage:
       types:
-        Heat: 28
+        Heat: 14
         Structural: 15
   - type: TimedDespawn
     lifetime: 3
@@ -43,5 +42,5 @@
   - type: Projectile
     damage:
       types:
-        Blunt: 15
+        Piercing: 15
         Structural: 5

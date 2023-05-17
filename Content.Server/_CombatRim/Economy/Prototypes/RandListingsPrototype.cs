@@ -8,7 +8,7 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototy
 
 namespace Content.Server._CombatRim.Economy
 {
-    [Serializable, Prototype("RandListings")]
+    [Serializable, Prototype("randListings")]
     public sealed class RandListingsPrototype : IPrototype
     {
         [IdDataField]

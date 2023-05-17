@@ -134,6 +134,7 @@ namespace Content.Client.Entry
 
             // ! BEGIN CR EDITS
             _prototypeManager.RegisterIgnore("economicEvent");
+            _prototypeManager.RegisterIgnore("randListings");
             // ! END CR EDITS
 
             _componentFactory.GenerateNetIds();
