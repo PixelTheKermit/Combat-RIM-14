@@ -7,7 +7,7 @@ namespace Content.Server._CombatRim.Economy
     public sealed class SellPlatformComponent : Component
     {
         [DataField("taxCut")]
-        public float TaxCut = .2f;
+        public float TaxCut = .5f;
 
         [DataField("blacklist")]
         public EntityWhitelist? Blacklist;

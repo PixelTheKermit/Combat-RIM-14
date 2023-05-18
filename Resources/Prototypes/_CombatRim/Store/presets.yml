@@ -1,14 +1,5 @@
 - type: storePreset
   id: MerchantPresetAll
   storeName: Redspace Vendor
-  categories:
-  - VendorTools
-  - VendorSeeds
-  - VendorWeapons
-  - VendorResources
-  - VendorArmor
-  - VendorExplosives
-  - VendorAmmo
-  - VendorElectronics
   currencyWhitelist:
   - SpaceCash

@@ -2,7 +2,6 @@
 using Content.Server.Atmos.Components;
 using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
-using Content.Server.Disease.Components;
 using Content.Server.GameTicking;
 using Content.Server.Ghost;
 using Content.Server.Mind;
@@ -17,6 +16,7 @@ using Content.Shared.Damage;
 using Content.Shared.Mobs;
 using Content.Shared.Movement.Components;
 using Content.Shared.NPC;
+using Content.Shared.Nutrition.Components;
 using Content.Shared.Popups;
 using Content.Shared.Speech;
 using Content.Shared.Tag;
@@ -72,7 +72,7 @@ namespace Content.Server._CombatRim.Husk
                 if (_tagSystem.HasTag(ent, "HuskImmune"))
                     continue;
 
-                if (HasComp<DiseaseCarrierComponent>(ent) && _random.Prob(comp.InfChance))
+                if (_random.Prob(comp.InfChance))
                 {
                     EnsureComp<HuskHostComponent>(ent);
                 }

@@ -50,6 +50,14 @@
   color: "#b05b3c"
   boilingPoint: 2595.0
   meltingPoint: 1083.0
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:ModifyBloodLevel
+        conditions:
+        - !type:OrganType
+          type: CopperBlood
+        amount: 4
 
 - type: reagent
   id: Fluorine
@@ -118,7 +126,10 @@
     Medicine:
       effects:
       - !type:ModifyBloodLevel
-        amount: 2
+        conditions:
+        - !type:OrganType
+          type: IronBlood
+        amount: 4
 
 - type: reagent
   id: Lithium

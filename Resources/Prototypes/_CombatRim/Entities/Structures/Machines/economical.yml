@@ -23,6 +23,9 @@
       components:
       - MobThresholds # REDSPACE LORE.
       - Ghost # Ghosts are valuable! Unfortunately you can't sell them because... yeah...
+      - Cable # Cables and anything atmos (not including canisters) for obvious reasons
+      - AtmosDevice
+      - PoweredLight
       tags:
       - SpaceCash # This is obvious
       - Ore # For some reason, ores have more "resource" than their solid counterparts??? Anyways this is obviously very bad for the economy.
@@ -35,22 +38,23 @@
     canCollide: true
   - type: Fixtures
     fixtures:
-    - shape:
-        !type:PhysShapeAabb
-        bounds: "-0.35,-0.35,0.35,0.35"
-      density: 190
-      mask:
-        - ItemMask
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.35,-0.35,0.35,0.35"
+        density: 190
+        mask:
+          - ItemMask
 
 - type: entity
   id: RedspaceVendor
   name: Redspace Vendor
-  description: A vendor utilizing redspace technology to get goods to you.
+  description: A machine utilizing redspace technology to get goods to you.
   placement:
     mode: SnapgridCenter
   components:
   - type: Sprite
-    sprite: CombatRim/Structures/redspacevendor.rsi
+    sprite: CombatRim/Structures/vendor.rsi
     netsync: false
     layers:
       - state: icon
@@ -67,14 +71,15 @@
     canCollide: true
   - type: Fixtures
     fixtures:
-    - shape:
-        !type:PhysShapeAabb
-        bounds: "-0.25,-0.35,0.25,0.35"
-      density: 190
-      mask:
-      - MachineMask
-      layer:
-      - MachineLayer
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25,-0.35,0.25,0.35"
+        density: 190
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
   - type: UserInterface
     interfaces:
     - key: enum.StoreUiKey.Key
@@ -85,3 +90,13 @@
     preset: MerchantPresetAll
     balance:
       SpaceCash: 0
+    categories:
+    - VendorWeapons
+    - VendorTools
+    - VendorExplosives
+    - VendorArmor
+    - VendorAmmo
+    - VendorResources
+    - VendorElectronics
+    - VendorSeeds
+  - type: Restockable

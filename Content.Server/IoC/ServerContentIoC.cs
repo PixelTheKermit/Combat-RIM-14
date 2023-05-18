@@ -1,4 +1,4 @@
-using Content.Server._Citadel.Worldgen.Tools;
+using Content.Server.Worldgen.Tools;
 using Content.Server.Administration;
 using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;
@@ -20,11 +20,11 @@ using Content.Server.Preferences.Managers;
 using Content.Server.ServerInfo;
 using Content.Server.ServerUpdates;
 using Content.Server.Voting.Managers;
+using Content.Server.Worldgen.Tools;
 using Content.Shared.Administration;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Administration.Managers;
 using Content.Shared.Kitchen;
-using Content.Shared.Module;
 
 namespace Content.Server.IoC
 {
@@ -60,8 +60,6 @@ namespace Content.Server.IoC
             IoCManager.Register<PlayTimeTrackingManager>();
             IoCManager.Register<UserDbDataManager>();
             IoCManager.Register<ServerInfoManager>();
-
-            // Citadel IoCs
             IoCManager.Register<PoissonDiskSampler>();
         }
     }

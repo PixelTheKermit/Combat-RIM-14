@@ -81,18 +81,22 @@ namespace Content.Client.Stylesheets
         public const string StyleClassPopupMessageLarge = "PopupMessageLarge";
         public const string StyleClassPopupMessageLargeCaution = "PopupMessageLargeCaution";
 
-        public static readonly Color NanoGold = Color.FromHex("#A88B5E");
+        public static readonly Color PanelDark = Color.FromHex("#1E1E1E");
+
+        public static readonly Color NanoGold = Color.FromHex("#b01c37");
+
         public static readonly Color GoodGreenFore = Color.FromHex("#31843E");
         public static readonly Color ConcerningOrangeFore = Color.FromHex("#A5762F");
-        public static readonly Color DangerousRedFore = Color.FromHex("#BB3232");
+        public static readonly Color DangerousRedFore = Color.FromHex("#b01c37");
+
         public static readonly Color DisabledFore = Color.FromHex("#5A5A5A");
 
-        public static readonly Color ButtonColorDefault = Color.FromHex("#464950");
-        public static readonly Color ButtonColorDefaultRed = Color.FromHex("#D43B3B");
-        public static readonly Color ButtonColorHovered = Color.FromHex("#575b61");
-        public static readonly Color ButtonColorHoveredRed = Color.FromHex("#DF6B6B");
+        public static readonly Color ButtonColorDefault = Color.FromHex("#454545");
+        public static readonly Color ButtonColorDefaultRed = Color.FromHex("#b01c37");
+        public static readonly Color ButtonColorHovered = Color.FromHex("#555555");
+        public static readonly Color ButtonColorHoveredRed = Color.FromHex("#cf3a55");
         public static readonly Color ButtonColorPressed = Color.FromHex("#3e6c45");
-        public static readonly Color ButtonColorDisabled = Color.FromHex("#303133");
+        public static readonly Color ButtonColorDisabled = Color.FromHex("#303030");
 
         public static readonly Color ButtonColorCautionDefault = Color.FromHex("#ab3232");
         public static readonly Color ButtonColorCautionHovered = Color.FromHex("#cf2f2f");
@@ -115,9 +119,9 @@ namespace Content.Client.Stylesheets
         public static readonly Color ExamineButtonColorContextDisabled = Color.FromHex("#5A5A5A");
 
         // Fancy Tree elements
-        public static readonly Color FancyTreeEvenRowColor = Color.FromHex("#25252A");
+        public static readonly Color FancyTreeEvenRowColor = Color.FromHex("#1e1e1e");
         public static readonly Color FancyTreeOddRowColor = FancyTreeEvenRowColor * new Color(0.8f, 0.8f, 0.8f);
-        public static readonly Color FancyTreeSelectedRowColor = new Color(55, 55, 68);
+        public static readonly Color FancyTreeSelectedRowColor = new Color(30, 30, 30);
 
         //Used by the APC and SMES menus
         public const string StyleClassPowerStateNone = "PowerStateNone";
@@ -453,7 +457,7 @@ namespace Content.Client.Stylesheets
             var sliderBackBox = new StyleBoxTexture
             {
                 Texture = sliderFillTex,
-                Modulate = Color.FromHex("#1E1E22")
+                Modulate = PanelDark,
             };
 
             var sliderForeBox = new StyleBoxTexture
@@ -1348,6 +1352,10 @@ namespace Content.Client.Stylesheets
                 Element<RichTextLabel>().Class("PaperWrittenText")
                     .Prop(Label.StylePropertyFont, notoSans12)
                     .Prop(Control.StylePropertyModulateSelf, Color.FromHex("#111111")),
+
+                Element<RichTextLabel>().Class("LabelSubText")
+                    .Prop(Label.StylePropertyFont, notoSans10)
+                    .Prop(Label.StylePropertyFontColor, Color.DarkGray),
 
                 Element<LineEdit>().Class("PaperLineEdit")
                     .Prop(LineEdit.StylePropertyStyleBox, new StyleBoxEmpty()),

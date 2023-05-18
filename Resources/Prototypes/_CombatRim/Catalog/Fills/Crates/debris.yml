@@ -1,0 +1,84 @@
+- type: entity
+  id: CombatRimCrateEngineeringCableBulk
+  parent: CrateElectrical
+  suffix: Filled, Combat Rim
+  noSpawn: true # You should use SalvageMaterialCrateSpawner instead
+  components:
+  - type: StorageFill
+    contents:
+      - id: CableApcStack10
+        amount: 1
+      - id: CableMVStack10
+        amount: 1
+      - id: CableHVStack10
+        amount: 1
+
+- type: entity
+  id: CombatRimCrateSalvageAssortedGoodies
+  suffix: Filled, Combat Rim
+  noSpawn: true # You should use SalvageMaterialCrateSpawner instead
+  parent: CrateGenericSteel
+  components:
+    - type: StorageFill
+      contents:
+        - id: ClothingMaskBreath
+          prob: 0.1
+        - id: ResearchDisk
+          prob: 0.1
+        - id: MedkitFilled
+          prob: 0.1
+        - id: GunbenchMachineCircuitboard
+          prob: 0.1
+        - id: GunParts
+          prob: 0.1
+        - id: ClothingHeadHelmetScaf
+          prob: 0.05
+        - id: ClothingOuterArmorScaf
+          prob: 0.05
+        - id: MagazineBoxMagnum
+          prob: 0.025
+        - id: WeaponRevolverDeckard
+          prob: 0.025
+        - id: WeaponRevolverInspector
+          prob: 0.025
+
+- type: entity
+  id: CombatRimCrateSalvageMachineGoodies
+  suffix: Filled, Combat Rim
+  noSpawn: true # You should use SalvageMaterialCrateSpawner instead
+  parent: CrateGenericSteel
+  components:
+    - type: StorageFill
+      contents:
+        - id: CapacitorStockPart
+          amount: 1
+          maxAmount: 3
+        - id: ScanningModuleStockPart
+          amount: 1
+          maxAmount: 3
+        - id: MicroManipulatorStockPart
+          amount: 1
+          maxAmount: 3
+        - id: MicroLaserStockPart
+          amount: 1
+          maxAmount: 3
+        - id: MatterBinStockPart
+          amount: 1
+          maxAmount: 3
+
+- type: entity
+  id: CombatRimCrateSalvageEquipment
+  name: "salvage equipment crate"
+  description: For the daring.
+  suffix: Filled, Combat Rim
+  noSpawn: true # You should use SalvageMaterialCrateSpawner instead
+  parent: CrateGenericSteel
+  components:
+  - type: StorageFill
+    contents:
+      - id: ClothingOuterHardsuitSalvage
+      - id: ClothingMaskBreath
+      - id: OxygenTankFilled
+      - id: FireExtinguisher
+      - id: Pickaxe
+      - id: OreBag

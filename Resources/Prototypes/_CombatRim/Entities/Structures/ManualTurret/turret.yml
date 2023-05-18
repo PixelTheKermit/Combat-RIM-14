@@ -36,14 +36,15 @@
     - type: Pullable
     - type: Fixtures
       fixtures:
-      - shape:
-          !type:PhysShapeAabb
-          bounds: "-0.15,-0.10,0.15,0.20"
-        density: 1800
-        mask:
-        - MachineMask
-        layer:
-        - MachineLayer
+        fix1:
+          shape:
+            !type:PhysShapeAabb
+            bounds: "-0.15,-0.10,0.15,0.20"
+          density: 1800
+          mask:
+          - MachineMask
+          layer:
+          - MachineLayer
     - type: Sprite
       netsync: false
       sprite: Objects/Weapons/Guns/Turrets/turrets.rsi
@@ -69,6 +70,10 @@
                 SheetSteel1:
                   min: 3
                   max: 5
+    - type: SignalReceiver
+      inputs:
+        AutoAmmoInserter: []
+
 - type: entity
   abstract: true
   parent: WeaponBaseTurretManual
@@ -143,7 +148,7 @@
       soundGunshot: /Audio/Weapons/Guns/Gunshots/laser.ogg
       fireRate: 3
       isBatteryWeapon: true
-      machinePartFiringSpeed: Laser
+      fireRatePart: Laser
     - type: Sprite
       layers:
         - state: laser

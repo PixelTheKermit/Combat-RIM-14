@@ -10,10 +10,6 @@
       - id: EmergencyOxygenTankFilled
       - id: SpaceMedipen
       - id: EmergencyMedipen
-      - id: WeaponPistolLuger
-      - id: MagazinePistolLuger
-      - id: MagazinePistolLuger
-      - id: MagazinePistolLuger
       - id: CrowbarRed
   - type: Item
     size: 41
@@ -75,6 +71,26 @@
   - type: Storage
     capacity: 40
     size: 10
+
+- type: entity
+  name: survival box
+  parent: BoxCardboard
+  id: BoxSurvivalBrigmedic
+  description: It's a box with basic internals inside.
+  suffix: Medical
+  components:
+  - type: StorageFill
+    contents:
+      - id: ClothingMaskBreathMedicalSecurity
+      - id: EmergencyOxygenTankFilled
+      - id: SpaceMedipen
+      - id: EmergencyMedipen
+      - id: EmergencyMedipen
+      - id: FoodTinMRE
+  - type: Sprite
+    layers:
+      - state: internals
+      - state: emergencytank
 
 - type: entity
   name: survival box

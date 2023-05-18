@@ -1,0 +1,68 @@
+- type: entity
+  parent: BaseMachine
+  id: TurretSpeedloader
+  name: turret speed loader
+  description: Replaces your turret's mag once it's emptied so you don't have to go outside and touch space
+  placement:
+    mode: SnapgridCenter
+  components:
+    - type: Controllable
+      delay: 30 # So people don't just start shooting your ship with your own turrets. Wack fix I know but shush.
+    - type: Clickable
+    - type: InteractionOutline
+    - type: Transform
+      anchored: true
+    - type: Anchorable
+      delay: 2
+    - type: Physics
+      bodyType: Dynamic
+    - type: Pullable
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape:
+            !type:PhysShapeAabb
+            bounds: "-0.25,-0.25,0.25,0.25"
+          density: 80
+          mask:
+          - MachineMask
+          layer:
+          - MachineLayer
+    - type: Sprite
+      netsync: false
+      sprite: CombatRim/Structures/autoammorefill.rsi
+      drawdepth: WallMountedItems
+      layers:
+        - state: icon
+    - type: Damageable
+      damageContainer: Inorganic
+    - type: Destructible
+      thresholds:
+        - trigger:
+            !type:DamageTrigger
+            damage: 300
+          # TODO: Construction graph
+          behaviors:
+            - !type:DoActsBehavior
+              acts: [ "Destruction" ]
+            - !type:PlaySoundBehavior
+              sound:
+                path: /Audio/Effects/metalbreak.ogg
+            - !type:SpawnEntitiesBehavior
+              spawn:
+                SheetSteel1:
+                  min: 3
+                  max: 5
+    - type: SignalTransmitter
+      outputs:
+        AutoAmmoOutput: []
+    - type: ItemSlots
+      slots:
+        turret_mag:
+          name: Magazine
+          insertSound: /Audio/Weapons/Guns/MagIn/pistol_magin.ogg
+          ejectSound: /Audio/Weapons/Guns/MagOut/pistol_magout.ogg
+          priority: 1
+          whitelist:
+            tags:
+              - TurretAmmoBox

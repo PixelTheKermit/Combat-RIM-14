@@ -1,32 +1,34 @@
 - type: entity
-  name: turret laser
   id: TurretLaser
-  parent: BaseBullet
+  name: turret laser
   noSpawn: true
+  parent: BaseBullet
   components:
   - type: Sprite
-    color: "#ffff33"
+    color: "#ff3333"
     sprite: Structures/Power/Generation/Singularity/emitter.rsi
     layers:
       - state: projectile
         shader: unshaded
   - type: Ammo
+    muzzleFlash: null
   - type: Physics
   - type: Fixtures
     fixtures:
-    - shape:
-        !type:PhysShapeAabb
-        bounds: "-0.2,-0.2,0.2,0.2"
-      hard: false
-      id: projectile
-      mask:
-      - Impassable
-      - Opaque
+      projectile:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.2,-0.2,0.2,0.2"
+        hard: false
+        mask:
+        - Opaque
   - type: Projectile
     damage:
       types:
-        Heat: 28
+        Heat: 14
         Structural: 15
+  - type: TimedDespawn
+    lifetime: 3
 
 - type: entity
   id: PelletShotgunTurret
@@ -40,5 +42,5 @@
   - type: Projectile
     damage:
       types:
-        Blunt: 15
+        Piercing: 15
         Structural: 5

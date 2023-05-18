@@ -12,9 +12,10 @@ using Content.IntegrationTests.Tests.Destructible;
 using Content.IntegrationTests.Tests.DeviceNetwork;
 using Content.IntegrationTests.Tests.Interaction.Click;
 using Content.IntegrationTests.Tests.Networking;
-using Content.Server._Citadel.Worldgen;
+using Content.Server.Worldgen;
 using Content.Server.GameTicking;
 using Content.Shared.CCVar;
+using Microsoft.Diagnostics.Tracing.Parsers.Kernel;
 using NUnit.Framework;
 using Robust.Client;
 using Robust.Server;
@@ -57,6 +58,7 @@ public static class PoolManager
         (CCVars.ArrivalsShuttles.Name,        "false"),
         (CCVars.EmergencyShuttleEnabled.Name, "false"),
         (CCVars.ProcgenPreload.Name,          "false"),
+        (CCVars.WorldgenEnabled.Name,         "false"),
         // @formatter:on
     };
 
@@ -101,6 +103,10 @@ public static class PoolManager
             }
         };
 
+        var logHandler = new PoolTestLogHandler("SERVER");
+        logHandler.ActivateContext(testOut);
+        options.OverrideLogHandler = () => logHandler;
+
         options.BeforeStart += () =>
         {
             IoCManager.Resolve<IEntitySystemManager>()
@@ -116,12 +122,9 @@ public static class PoolManager
             IoCManager.Resolve<IEntitySystemManager>().LoadExtraSystemType<DeviceNetworkTestSystem>();
             IoCManager.Resolve<IEntitySystemManager>().LoadExtraSystemType<TestDestructibleListenerSystem>();
             IoCManager.Resolve<ILogManager>().GetSawmill("loc").Level = LogLevel.Error;
+            IoCManager.Resolve<IConfigurationManager>()
+                .OnValueChanged(RTCVars.FailureLogLevel, value => logHandler.FailureLevel = value, true);
         };
-
-        var logHandler = new PoolTestLogHandler("SERVER");
-        logHandler.ActivateContext(testOut);
-
-        options.OverrideLogHandler = () => logHandler;
 
         SetupCVars(poolSettings, options);
 
@@ -199,6 +202,10 @@ public static class PoolManager
             // LoadContentResources = !poolSettings.NoLoadContent
         };
 
+        var logHandler = new PoolTestLogHandler("CLIENT");
+        logHandler.ActivateContext(testOut);
+        options.OverrideLogHandler = () => logHandler;
+
         options.BeforeStart += () =>
         {
             IoCManager.Resolve<IModLoader>().SetModuleBaseCallbacks(new ClientModuleTestingCallbacks
@@ -211,13 +218,11 @@ public static class PoolManager
                         .RegisterClass<SimplePredictReconcileTest.PredictionTestComponent>();
                     IoCManager.Register<IParallaxManager, DummyParallaxManager>(true);
                     IoCManager.Resolve<ILogManager>().GetSawmill("loc").Level = LogLevel.Error;
+                    IoCManager.Resolve<IConfigurationManager>()
+                        .OnValueChanged(RTCVars.FailureLogLevel, value => logHandler.FailureLevel = value, true);
                 }
             });
         };
-
-        var logHandler = new PoolTestLogHandler("CLIENT");
-        logHandler.ActivateContext(testOut);
-        options.OverrideLogHandler = () => logHandler;
 
         SetupCVars(poolSettings, options);
 
@@ -562,8 +567,10 @@ we are just going to end this here to save a lot of time. This is the exception 
         {
             var mapManager = IoCManager.Resolve<IMapManager>();
             mapData.MapId = mapManager.CreateMap();
+            mapData.MapUid = mapManager.GetMapEntityId(mapData.MapId);
             mapData.MapGrid = mapManager.CreateGrid(mapData.MapId);
-            mapData.GridCoords = new EntityCoordinates(mapData.MapGrid.Owner, 0, 0);
+            mapData.GridUid = mapData.MapGrid.Owner;
+            mapData.GridCoords = new EntityCoordinates(mapData.GridUid, 0, 0);
             var tileDefinitionManager = IoCManager.Resolve<ITileDefinitionManager>();
             var plating = tileDefinitionManager["Plating"];
             var platingTile = new Tile(plating.TileId);
@@ -664,6 +671,25 @@ we are just going to end this here to save a lot of time. This is the exception 
         }
 
         Assert.That(passed);
+    }
+
+    /// <summary>
+    ///     Helper method that retrieves all entity prototypes that have some component.
+    /// </summary>
+    public static List<EntityPrototype> GetEntityPrototypes<T>(RobustIntegrationTest.IntegrationInstance instance) where T : Component
+    {
+        var protoMan = instance.ResolveDependency<IPrototypeManager>();
+        var compFact = instance.ResolveDependency<IComponentFactory>();
+
+        var id = compFact.GetComponentName(typeof(T));
+        var list = new List<EntityPrototype>();
+        foreach (var ent in protoMan.EnumeratePrototypes<EntityPrototype>())
+        {
+            if (ent.Components.ContainsKey(id))
+                list.Add(ent);
+        }
+
+        return list;
     }
 }
 
@@ -791,6 +817,8 @@ public sealed class PoolSettings
 /// </summary>
 public sealed class TestMapData
 {
+    public EntityUid MapUid { get; set; }
+    public EntityUid GridUid { get; set; }
     public MapId MapId { get; set; }
     public MapGridComponent MapGrid { get; set; }
     public EntityCoordinates GridCoords { get; set; }

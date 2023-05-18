@@ -1,0 +1,15 @@
+﻿- type: entity
+  name: Combat Rim Salvage Material Crate Spawner
+  id: CombatRimSalvageMaterialCrateSpawner
+  parent: MarkerBase
+  components:
+    - type: Sprite
+      layers:
+        - state: red
+        - sprite: Structures/Storage/Crates/generic.rsi
+          state: icon
+    - type: RandomSpawner
+      prototypes:
+        - CombatRimCrateSalvageAssortedGoodies
+      chance: 0.9
+      offset: 0.0

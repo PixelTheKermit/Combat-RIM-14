@@ -34,14 +34,15 @@
     bodyType: Static
   - type: Fixtures
     fixtures:
-    - shape:
-        !type:PhysShapeAabb
-        bounds: "-1.5,-1.5,1.5,1.5"
-      density: 50
-      mask:
-      - LargeMobMask
-      layer:
-      - WallLayer
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-1.5,-1.5,1.5,1.5"
+        density: 50
+        mask:
+        - LargeMobMask
+        layer:
+        - WallLayer
   - type: Repairable
     fuelCost: 10
     doAfterDelay: 5
@@ -98,14 +99,15 @@
         offset: "0,0.2"
   - type: Fixtures
     fixtures:
-    - shape:
-        !type:PhysShapeAabb
-        bounds: "-0.4,-0.4,0.4,0.4"
-      density: 3125
-      mask:
-      - LargeMobMask
-      layer:
-      - WallLayer
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.4,-0.4,0.4,0.4"
+        density: 3125
+        mask:
+        - LargeMobMask
+        layer:
+        - WallLayer
   - type: ApcPowerReceiver
     powerLoad: 500
   - type: GravityGenerator

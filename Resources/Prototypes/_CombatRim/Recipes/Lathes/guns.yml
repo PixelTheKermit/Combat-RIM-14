@@ -1,28 +1,5 @@
 # <Pistols>
 - type: latheRecipe
-  id: LatheRecipeLuger
-  result: WeaponPistolLuger
-  completetime: 10
-  materials:
-    GunParts: 50
-    Steel: 300
-
-- type: latheRecipe
-  id: LatheRecipeLugerMag
-  result: MagazinePistolLuger
-  completetime: 5
-  materials:
-    GunParts: 10
-    Steel: 100
-
-- type: latheRecipe
-  id: LatheRecipeLugerCartridge
-  result: CartridgePistolLuger
-  completetime: 1
-  materials:
-    Steel: 8
-
-- type: latheRecipe
   id: LatheRecipeViper
   result: WeaponPistolViper
   completetime: 15
@@ -60,7 +37,7 @@
   completetime: 2
   materials:
     Steel: 10
-    
+
 - type: latheRecipe
   id: LatheRecipeCaselessPistolMag
   result: MagazinePistolCaselessRifle
@@ -108,7 +85,7 @@
   completetime: 2
   materials:
     Steel: 20
-    
+
 - type: latheRecipe
   id: LatheSpeedLoaderMagnum
   result: SpeedLoaderMagnum

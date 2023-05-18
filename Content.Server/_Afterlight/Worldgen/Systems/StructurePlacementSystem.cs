@@ -1,12 +1,13 @@
 ﻿using System.Linq;
 using Content.Server._Afterlight.Worldgen.Components;
-using Content.Server._Citadel.Worldgen.Components;
-using Content.Server._Citadel.Worldgen.Tools;
+using Content.Server.Worldgen.Components;
+using Content.Server.Worldgen.Tools;
 using Content.Server.Administration.Logs;
 using Content.Shared.Database;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Random;
+using Content.Server.Worldgen;
 
 namespace Content.Server._Afterlight.Worldgen.Systems;
 
@@ -62,7 +63,14 @@ public sealed class StructurePlacementSystem : EntitySystem
 
     private List<Vector2> GetRandomValidPoints(EntityUid uid, StructurePlacementComponent component, int amount)
     {
-        var points = _sampler.SampleCircle(Vector2.Zero, component.PlacementRadius, component.SafetyRadius);
+        var points = new List<Vector2>();
+
+        var sample = _sampler.SampleCircle(Vector2.Zero, component.PlacementRadius, component.SafetyRadius);
+
+        while (sample.MoveNext(out var point))
+        {
+            points.Add(point.Value);
+        }
 
         if (points.Count < amount)
         {

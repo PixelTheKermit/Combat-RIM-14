@@ -95,7 +95,7 @@ public sealed class ControllerStructureSystem : EntitySystem
         }
 
         if (!TryComp<ControllableComponent>(comp.Controlling, out var controllableComp)
-            || controllableComp.CurrentEntityOwning != null)
+            || TryComp<MindComponent>(uid, out var mind) && mind.HasMind)
         {
             _popupSystem.PopupEntity(Loc.GetString("control-device-already-controlled"), uid, args.User);
             return;
@@ -108,8 +108,7 @@ public sealed class ControllerStructureSystem : EntitySystem
             return;
         }
 
-        if (!TryComp<CanControlComponent>(args.User, out var controllerComp)
-            || controllerComp.Controlling != null)
+        if (!TryComp<CanControlComponent>(args.User, out var controllerComp))
         {
             _popupSystem.PopupEntity(Loc.GetString("control-device-unable-to-use"), uid, args.User);
             return;

@@ -20,7 +20,6 @@
         - CrateSalvageChemistry
         - CrateFoodMRE
         - CrateSalvagePlants
-        - CrateGunbenchBoard
       rareChance: 0.2
       prototypes:
         - CrateSalvageAssortedGoodies
@@ -64,9 +63,7 @@
     - type: RandomSpawner
       prototypes:
         - AdvancedCapacitorStockPart
-        - AdvancedScanningModuleStockPart
         - NanoManipulatorStockPart
-        - HighPowerMicroLaserStockPart
         - AdvancedMatterBinStockPart
       offset: 0.0
 
@@ -83,16 +80,12 @@
     - type: RandomSpawner
       rarePrototypes:
         - QuadraticCapacitorStockPart
-        - TriphasicScanningModuleStockPart
         - FemtoManipulatorStockPart
-        - QuadUltraMicroLaserStockPart
         - BluespaceMatterBinStockPart
       rareChance: 0.05
       prototypes:
         - SuperCapacitorStockPart
-        - PhasicScanningModuleStockPart
         - PicoManipulatorStockPart
-        - UltraHighPowerMicroLaserStockPart
         - SuperMatterBinStockPart
       chance: 0.95
       offset: 0.0
@@ -172,3 +165,28 @@
     chance: 0.75
     offset: 0.2
 
+- type: entity
+  name: Salvage Space Kangaroo Spawner
+  id: SpawnMobKangarooSalvage
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: kangaroo-space
+      sprite: Mobs/Animals/kangaroo.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - MobKangarooSpaceSalvage
+
+- type: entity
+  name: Salvage Space Spider Spawner
+  id: SpawnMobSpiderSalvage
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+  - type: ConditionalSpawner
+    prototypes:
+    - MobSpiderSpaceSalvage

@@ -1,0 +1,5 @@
+- type: transmitterPort
+  id: AutoAmmoOutput
+  name: Ammo Output
+  description: ammo output
+  defaultLinks: [ AutoAmmoInserter ]

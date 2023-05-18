@@ -1,8 +1,8 @@
 using System.Linq;
 using Content.Server._Afterlight.Worldgen.Components;
-using Content.Server._Citadel.Worldgen;
-using Content.Server._Citadel.Worldgen.Components.Debris;
-using Content.Server._Citadel.Worldgen.Systems;
+using Content.Server.Worldgen;
+using Content.Server.Worldgen.Components.Debris;
+using Content.Server.Worldgen.Systems;
 using Content.Server.Administration.Logs;
 using Content.Server.GameTicking;
 using Content.Server.Maps;
@@ -94,8 +94,8 @@ public sealed class ShipSpawningSystem : BaseWorldSystem
 
         if (user != null && user.AttachedEntity.HasValue)
         {
-            Logger.Warning("You're not supposed to do that! This will be logged.");
-            _log.Add(LogType.ALSpawnVessel, LogImpact.Medium, $"User {user} tried buying a vessel ingame!");
+            Logger.Warning("You have an attached entity! This will be logged.");
+            _log.Add(LogType.ALSpawnVessel, LogImpact.Medium, $"User {user} tried buying a vessel outside the lobby!");
             return;
         }
 

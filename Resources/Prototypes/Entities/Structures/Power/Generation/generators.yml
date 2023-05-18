@@ -18,14 +18,15 @@
     bodyType: Static
   - type: Fixtures
     fixtures:
-    - shape:
-        !type:PhysShapeAabb
-        bounds: "-0.4,-0.5,0.4,0.3"
-      density: 190
-      mask:
-      - MachineMask
-      layer:
-      - MachineLayer
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.4,-0.5,0.4,0.3"
+        density: 190
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
   - type: Transform
     anchored: true
     noRot: true
@@ -51,6 +52,12 @@
     damageModifierSet: Metallic
   - type: Destructible
     thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
         damage: 100
@@ -107,9 +114,6 @@
     - state: panel
     - state: on
       shader: unshaded
-#  - type: Appearance
-#    visuals:
-#    - type: ApcVisualizer
   - type: NodeContainer
     examinable: true
     nodes:
@@ -155,10 +159,10 @@
 - type: entity
   parent: BaseGenerator
   id: GeneratorBasic
-  suffix: Basic, 3kW
+  suffix: Basic, 30kW
   components:
   - type: PowerSupplier
-    supplyRate: 300
+    supplyRate: 3000
 
 - type: entity
   parent: [ BaseGenerator, ConstructibleMachine ]
@@ -315,6 +319,12 @@
     thresholds:
       - trigger:
           !type:DamageTrigger
+          damage: 600
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+      - trigger:
+          !type:DamageTrigger
           damage: 300
         behaviors:
           - !type:PlaySoundBehavior
@@ -349,6 +359,12 @@
     intensity: 2
   - type: Destructible
     thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
         damage: 50

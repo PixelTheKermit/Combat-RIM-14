@@ -11,12 +11,12 @@ namespace Content.Client.Stylesheets
 {
     public sealed class StyleSpace : StyleBase
     {
-        public static readonly Color SpaceRed = Color.FromHex("#9b2236");
+        public static readonly Color SpaceRed = Color.FromHex("#b01c37");
 
-        public static readonly Color ButtonColorDefault = Color.FromHex("#464946");
-        public static readonly Color ButtonColorHovered = Color.FromHex("#575b61");
+        public static readonly Color ButtonColorDefault = Color.FromHex("#454545");
+        public static readonly Color ButtonColorHovered = Color.FromHex("#555555");
         public static readonly Color ButtonColorPressed = Color.FromHex("#3e6c45");
-        public static readonly Color ButtonColorDisabled = Color.FromHex("#303133");
+        public static readonly Color ButtonColorDisabled = Color.FromHex("#303030");
 
         public static readonly Color ButtonColorCautionDefault = Color.FromHex("#ab3232");
         public static readonly Color ButtonColorCautionHovered = Color.FromHex("#cf2f2f");
@@ -146,7 +146,7 @@ namespace Content.Client.Stylesheets
 
                 Element<PanelContainer>().Class(ClassAngleRect)
                     .Prop(PanelContainer.StylePropertyPanel, BaseAngleRect)
-                    .Prop(Control.StylePropertyModulateSelf, Color.FromHex("#202030")),
+                    .Prop(Control.StylePropertyModulateSelf, Color.FromHex("#2b2c2b")),
 
                 Child()
                     .Parent(Element<Button>().Class(ContainerButton.StylePseudoClassDisabled))

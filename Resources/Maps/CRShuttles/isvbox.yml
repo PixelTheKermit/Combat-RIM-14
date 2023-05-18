@@ -5,98 +5,13 @@ meta:
   postmapinit: false
 tilemap:
   0: Space
-  1: FloorArcadeBlue
-  2: FloorArcadeBlue2
-  3: FloorArcadeRed
-  4: FloorAsteroidCoarseSand0
-  5: FloorAsteroidCoarseSandDug
-  6: FloorAsteroidIronsand1
-  7: FloorAsteroidIronsand2
-  8: FloorAsteroidIronsand3
-  9: FloorAsteroidIronsand4
-  10: FloorAsteroidSand
-  11: FloorAsteroidTile
-  12: FloorBar
-  13: FloorBasalt
-  14: FloorBlue
-  15: FloorBlueCircuit
-  16: FloorBoxing
-  17: FloorCarpetClown
-  18: FloorCarpetOffice
-  19: FloorCave
-  20: FloorCaveDrought
-  21: FloorClown
-  22: FloorDark
   23: FloorDarkDiagonal
-  24: FloorDarkDiagonalMini
-  25: FloorDarkHerringbone
-  26: FloorDarkMini
-  27: FloorDarkMono
-  28: FloorDarkOffset
   29: FloorDarkPavement
-  30: FloorDarkPavementVertical
-  31: FloorDarkPlastic
-  32: FloorDesert
-  33: FloorDirt
-  34: FloorEighties
-  35: FloorElevatorShaft
-  36: FloorFlesh
-  37: FloorFreezer
-  38: FloorGlass
-  39: FloorGold
-  40: FloorGrass
-  41: FloorGrassDark
-  42: FloorGrassJungle
-  43: FloorGrassLight
-  44: FloorGreenCircuit
-  45: FloorGym
-  46: FloorHydro
-  47: FloorKitchen
-  48: FloorLaundry
-  49: FloorLino
-  50: FloorLowDesert
-  51: FloorMetalDiamond
-  52: FloorMime
-  53: FloorMono
-  54: FloorPlanetDirt
-  55: FloorPlanetGrass
-  56: FloorPlastic
-  57: FloorRGlass
-  58: FloorReinforced
-  59: FloorRockVault
-  60: FloorShowroom
-  61: FloorShuttleBlue
-  62: FloorShuttleOrange
-  63: FloorShuttlePurple
-  64: FloorShuttleRed
-  65: FloorShuttleWhite
-  66: FloorSilver
-  67: FloorSnow
   68: FloorSteel
   69: FloorSteelDiagonal
-  70: FloorSteelDiagonalMini
-  71: FloorSteelDirty
-  72: FloorSteelHerringbone
-  73: FloorSteelMini
-  74: FloorSteelMono
-  75: FloorSteelOffset
-  76: FloorSteelPavement
-  77: FloorSteelPavementVertical
-  78: FloorTechMaint
-  79: FloorTechMaint2
-  80: FloorTechMaint3
-  81: FloorWhite
   82: FloorWhiteDiagonal
-  83: FloorWhiteDiagonalMini
   84: FloorWhiteHerringbone
-  85: FloorWhiteMini
-  86: FloorWhiteMono
-  87: FloorWhiteOffset
-  88: FloorWhitePavement
-  89: FloorWhitePavementVertical
-  90: FloorWhitePlastic
   91: FloorWood
-  92: FloorWoodTile
   93: Lattice
   94: Plating
 entities:
@@ -116,8 +31,7 @@ entities:
   components:
   - type: MetaData
   - type: Transform
-  - index: 15
-    type: Map
+  - type: Map
   - type: PhysicsMap
   - type: Broadphase
   - type: OccluderTree
@@ -1579,17 +1493,31 @@ entities:
     parent: 3
     type: Transform
 - uid: 177
-  type: MedicalBed
-  components:
-  - pos: 10.5,-8.5
-    parent: 3
-    type: Transform
-- uid: 178
-  type: BedsheetSpawner
+  type: TurretSpeedloader
   components:
   - pos: 7.5,-8.5
     parent: 3
     type: Transform
+  - bodyType: Static
+    type: Physics
+  - outputs:
+      AutoAmmoOutput:
+      - port: AutoAmmoInserter
+        uid: 382
+    type: SignalTransmitter
+  - containers:
+      turret_mag: !type:ContainerSlot
+        ent: 178
+    type: ContainerContainer
+- uid: 178
+  type: MagazineBoxMinigun
+  components:
+  - flags: InContainer
+    type: MetaData
+  - parent: 177
+    type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 179
   type: CableMV
   components:
@@ -1603,11 +1531,22 @@ entities:
     parent: 3
     type: Transform
 - uid: 181
-  type: BedsheetSpawner
+  type: TurretSpeedloader
   components:
   - pos: 10.5,-8.5
     parent: 3
     type: Transform
+  - bodyType: Static
+    type: Physics
+  - outputs:
+      AutoAmmoOutput:
+      - port: AutoAmmoInserter
+        uid: 380
+    type: SignalTransmitter
+  - containers:
+      turret_mag: !type:ContainerSlot
+        ent: 328
+    type: ContainerContainer
 - uid: 182
   type: MachineCryopodNoSpawns
   components:
@@ -2647,11 +2586,14 @@ entities:
   - enabled: True
     type: AmbientSound
 - uid: 328
-  type: MedicalBed
+  type: MagazineBoxMinigun
   components:
-  - pos: 7.5,-8.5
-    parent: 3
+  - flags: InContainer
+    type: MetaData
+  - parent: 181
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 329
   type: Grille
   components:
@@ -3015,6 +2957,108 @@ entities:
   - pos: 5.5,4.5
     parent: 3
     type: Transform
+- uid: 380
+  type: WeaponTurretManual
+  components:
+  - flags: SessionSpecific
+    type: MetaData
+  - pos: 10.5,-10.5
+    parent: 3
+    type: Transform
+  - containers:
+      turret_mag: !type:ContainerSlot
+        showEnts: False
+        occludes: True
+        ent: 381
+      machine_board: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
+      machine_parts: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
+      turret_cartridge: !type:ContainerSlot
+        showEnts: False
+        occludes: True
+        ent: null
+    type: ContainerContainer
+  - bodyType: Static
+    type: Physics
+  - inputs:
+      AutoAmmoInserter:
+      - port: AutoAmmoOutput
+        uid: 181
+    type: SignalReceiver
+- uid: 381
+  type: MagazineBoxMinigun
+  components:
+  - flags: InContainer
+    type: MetaData
+  - parent: 380
+    type: Transform
+  - canCollide: False
+    type: Physics
+- uid: 382
+  type: WeaponTurretManual
+  components:
+  - flags: SessionSpecific
+    type: MetaData
+  - pos: 7.5,-10.5
+    parent: 3
+    type: Transform
+  - containers:
+      turret_mag: !type:ContainerSlot
+        showEnts: False
+        occludes: True
+        ent: 383
+      machine_board: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
+      machine_parts: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
+      turret_cartridge: !type:ContainerSlot
+        showEnts: False
+        occludes: True
+        ent: null
+    type: ContainerContainer
+  - bodyType: Static
+    type: Physics
+  - inputs:
+      AutoAmmoInserter:
+      - port: AutoAmmoOutput
+        uid: 177
+    type: SignalReceiver
+- uid: 383
+  type: MagazineBoxMinigun
+  components:
+  - flags: InContainer
+    type: MetaData
+  - parent: 382
+    type: Transform
+  - canCollide: False
+    type: Physics
+- uid: 384
+  type: BaseControllerConsole
+  components:
+  - rot: 3.141592653589793 rad
+    pos: 8.5,-8.5
+    parent: 3
+    type: Transform
+  - controlling: 382
+    type: ControlStructure
+- uid: 385
+  type: BaseControllerConsole
+  components:
+  - rot: 3.141592653589793 rad
+    pos: 9.5,-8.5
+    parent: 3
+    type: Transform
+  - controlling: 380
+    type: ControlStructure
 - uid: 388
   type: ComputerFrame
   components:
@@ -3230,12 +3274,6 @@ entities:
   - pos: 5.459077,-0.5851547
     parent: 3
     type: Transform
-- uid: 447
-  type: ChemDispenserMachineCircuitboard
-  components:
-  - pos: 5.440072,-0.5851547
-    parent: 3
-    type: Transform
 - uid: 448
   type: CircuitImprinterMachineCircuitboard
   components:
@@ -3355,42 +3393,4 @@ entities:
     type: Transform
   - enabled: True
     type: AmbientSound
-- uid: 466
-  type: WeaponLaserTurretManual
-  components:
-  - flags: SessionSpecific
-    type: MetaData
-  - pos: 7.5,-10.5
-    parent: 3
-    type: Transform
-  - bodyType: Static
-    type: Physics
-- uid: 467
-  type: WeaponLaserTurretManual
-  components:
-  - flags: SessionSpecific
-    type: MetaData
-  - pos: 10.5,-10.5
-    parent: 3
-    type: Transform
-  - bodyType: Static
-    type: Physics
-- uid: 468
-  type: BaseControllerConsole
-  components:
-  - rot: 3.141592653589793 rad
-    pos: 8.5,-8.5
-    parent: 3
-    type: Transform
-  - controlling: 466
-    type: ControlStructure
-- uid: 469
-  type: BaseControllerConsole
-  components:
-  - rot: 3.141592653589793 rad
-    pos: 9.5,-8.5
-    parent: 3
-    type: Transform
-  - controlling: 467
-    type: ControlStructure
 ...
