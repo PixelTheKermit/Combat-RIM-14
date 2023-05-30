@@ -119,7 +119,7 @@ public sealed class ManualTurretComponent : Component
     public float ChargeMultiplier = 1;
 
     [DataField("accuracyPart", customTypeSerializer: typeof(PrototypeIdSerializer<MachinePartPrototype>))]
-    public string AccuracyPart = "Laser";
+    public string AccuracyPart = "Manipulator";
 
     [DataField("partAccuracyMultiplier")]
     public float AccuracyPartMultiplier = 0.5f;

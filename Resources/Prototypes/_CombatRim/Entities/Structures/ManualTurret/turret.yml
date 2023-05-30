@@ -70,8 +70,8 @@
                 SheetSteel1:
                   min: 3
                   max: 5
-    - type: SignalReceiver
-      inputs:
+    - type: DeviceLinkSink
+      ports:
         AutoAmmoInserter: []
 
 - type: entity
@@ -148,10 +148,6 @@
       soundGunshot: /Audio/Weapons/Guns/Gunshots/laser.ogg
       fireRate: 3
       isBatteryWeapon: true
-      fireRatePart: Laser
-    - type: Sprite
-      layers:
-        - state: laser
     - type: ProjectileBatteryAmmoProvider
       proto: EmitterBolt
 

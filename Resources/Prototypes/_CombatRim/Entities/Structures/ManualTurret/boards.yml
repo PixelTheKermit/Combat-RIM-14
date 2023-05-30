@@ -16,7 +16,6 @@
           DefaultPrototype: GasPipeStraight
           ExamineName: pipe
       requirements:
-        Laser: 1
         Manipulator: 4
         Capacitor: 4
       materialRequirements:
@@ -67,9 +66,8 @@
           DefaultPrototype: GasPipeStraight
           ExamineName: pipe
       requirements:
-        Laser: 2
         Capacitor: 6
-        Manipulator: 1
+        Manipulator: 2
       materialRequirements:
         CableMV: 15
         Steel: 30
@@ -84,8 +82,8 @@
     - type: MachineBoard
       prototype: WeaponLaserTurretManual
       requirements:
-        Laser: 4
-        Capacitor: 4
+        Manipulator: 2
+        Capacitor: 6
       materialRequirements:
         CableMV: 15
         Steel: 20

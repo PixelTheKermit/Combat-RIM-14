@@ -55,8 +55,8 @@ entities:
     fixedRotation: False
     bodyType: Dynamic
     type: Physics
-  - fixtures: []
-    type: Fixtures
+
+
   - type: PhysicsMap
   - gravityShakeSound: !type:SoundPathSpecifier
       path: /Audio/Effects/alert.ogg
@@ -816,42 +816,7 @@ entities:
   - pos: -0.5,-8.5
     parent: 3
     type: Transform
-  - fixtures:
-    - shape: !type:PolygonShape
-        radius: 0.01
-        vertices:
-        - 0.49,-0.49
-        - 0.49,0.49
-        - -0.49,0.49
-        - -0.49,-0.49
-      mask:
-      - Impassable
-      - MidImpassable
-      - HighImpassable
-      - LowImpassable
-      - InteractImpassable
-      layer:
-      - MidImpassable
-      - HighImpassable
-      - BulletImpassable
-      - InteractImpassable
-      - Opaque
-      density: 100
-      hard: True
-      restitution: 0
-      friction: 0.4
-      id: null
-    - shape: !type:PhysShapeCircle
-        radius: 0.2
-        position: 0,-0.5
-      mask: []
-      layer: []
-      density: 1
-      hard: False
-      restitution: 0
-      friction: 0.4
-      id: docking
-    type: Fixtures
+
 - uid: 89
   type: FirelockGlass
   components:
@@ -1078,10 +1043,6 @@ entities:
         showEnts: False
         occludes: True
         ents: []
-      machine_parts: !type:Container
-        showEnts: False
-        occludes: True
-        ents: []
       turret_cartridge: !type:ContainerSlot
         showEnts: False
         occludes: True
@@ -1120,10 +1081,6 @@ entities:
         occludes: True
         ent: 112
       machine_board: !type:Container
-        showEnts: False
-        occludes: True
-        ents: []
-      machine_parts: !type:Container
         showEnts: False
         occludes: True
         ents: []
@@ -1167,10 +1124,6 @@ entities:
         showEnts: False
         occludes: True
         ents: []
-      machine_parts: !type:Container
-        showEnts: False
-        occludes: True
-        ents: []
       turret_cartridge: !type:ContainerSlot
         showEnts: False
         occludes: True
@@ -1206,10 +1159,6 @@ entities:
         occludes: True
         ent: 116
       machine_board: !type:Container
-        showEnts: False
-        occludes: True
-        ents: []
-      machine_parts: !type:Container
         showEnts: False
         occludes: True
         ents: []

@@ -53,8 +53,8 @@
                 SheetSteel1:
                   min: 3
                   max: 5
-    - type: SignalTransmitter
-      outputs:
+    - type: DeviceLinkSource
+      port:
         AutoAmmoOutput: []
     - type: ItemSlots
       slots:

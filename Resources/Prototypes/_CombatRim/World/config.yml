@@ -4,8 +4,8 @@
     - type: WorldController
     - type: BiomeSelection
       biomes:
-        - CitadelAsteroidsFallback
-        - CitadelFailsafe
+        - AsteroidsFallback
+        - Failsafe
         - CombatRimAsteroidsStandard
         - CombatRimAsteroidsWastes
         - CombatRimAsteroidsEmptiness
