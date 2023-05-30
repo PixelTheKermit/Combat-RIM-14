@@ -51,6 +51,7 @@
         - Sheet
         - RawMaterial
         - Ingot
+  - type: WiresPanel
   - type: Wires
     BoardName: "Autolathe"
     LayoutId: Autolathe
@@ -102,6 +103,7 @@
       - FirelockElectronics
       - DoorElectronics
       - AirAlarmElectronics
+      - StationMapElectronics
       - FireAlarmElectronics
       - MailingUnitElectronics
       - APCElectronics
@@ -158,6 +160,7 @@
         acts: ["Destruction"]
   - type: Machine
     board: ProtolatheMachineCircuitboard
+  - type: WiresPanel
   - type: Wires
     BoardName: "Protolathe"
     LayoutId: Protolathe
@@ -250,9 +253,14 @@
       - NodeScanner
       - HolofanProjector
       - ClothingShoesDashing
+      - WeaponForceGun
+      - WeaponTetherGun
+      - WeaponGrapplingGun
       - ClothingBackpackHolding
       - ClothingBackpackSatchelHolding
       - ClothingBackpackDuffelHolding
+      - WelderIndustrialAdvanced
+      - JawsOfLife
 
 - type: entity
   parent: Protolathe
@@ -316,6 +324,7 @@
       - StasisBedMachineCircuitboard
       - MaterialReclaimerMachineCircuitboard
       - OreProcessorMachineCircuitboard
+      - CargoTelepadMachineCircuitboard
       - RipleyCentralElectronics
       - RipleyPeripheralsElectronics
       - HonkerCentralElectronics

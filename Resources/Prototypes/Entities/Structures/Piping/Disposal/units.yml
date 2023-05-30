@@ -137,6 +137,8 @@
     transmitFrequencyId: MailingUnit
   - type: WiredNetworkConnection
   - type: Configuration
+    config:
+      tag:
   - type: Appearance
   - type: UserInterface
     interfaces:

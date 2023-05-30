@@ -76,6 +76,7 @@
   - type: Electrified
     enabled: false
     usesApcPower: true
+  - type: WiresPanel
   - type: Wires
     BoardName: "Airlock Control"
     LayoutId: Airlock
@@ -95,6 +96,8 @@
   - type: DeviceLinkSource
     ports:
       - DoorStatus
+  - type: SoundOnOverload
+  - type: SpawnOnOverload
   - type: UserInterface
     interfaces:
     - key: enum.WiresUiKey.Key

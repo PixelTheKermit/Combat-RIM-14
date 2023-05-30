@@ -293,7 +293,7 @@ public sealed partial class StationJobsSystem
                 assignedJobs.Add(player, (null, EntityUid.Invalid));
                 continue;
             }
-            
+
             _random.Shuffle(givenStations);
 
             foreach (var station in givenStations)
@@ -319,9 +319,8 @@ public sealed partial class StationJobsSystem
         foreach (var (station, count) in jobsCount)
         {
             var jobs = Comp<StationJobsComponent>(station);
-            var data = Comp<StationDataComponent>(station);
 
-            var thresh = data.StationConfig?.ExtendedAccessThreshold ?? -1;
+            var thresh = jobs.ExtendedAccessThreshold;
 
             jobs.ExtendedAccess = count <= thresh;
 

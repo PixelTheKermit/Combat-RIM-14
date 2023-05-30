@@ -86,6 +86,7 @@
     - type: Firelock
     - type: Appearance
     - type: WiresVisuals
+    - type: WiresPanel
     - type: Wires
       BoardName: "Firelock Control"
       LayoutId: Firelock

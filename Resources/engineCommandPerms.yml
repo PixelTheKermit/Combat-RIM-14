@@ -125,3 +125,6 @@
 - Flags: QUERY
   Commands:
   - forall
+  - uploadfile
+  - loadprototype
+  - uploadfolder
