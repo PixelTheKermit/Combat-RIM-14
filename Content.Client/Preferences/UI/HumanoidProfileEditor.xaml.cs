@@ -386,97 +386,9 @@ namespace Content.Client.Preferences.UI
 
             _jobPriorities = new List<JobPrioritySelector>();
             _jobCategories = new Dictionary<string, BoxContainer>();
-
             _requirements = IoCManager.Resolve<JobRequirementsManager>();
             _requirements.Updated += UpdateRoleRequirements;
             UpdateRoleRequirements();
-
-            foreach (var department in _prototypeManager.EnumeratePrototypes<DepartmentPrototype>())
-            {
-                var departmentName = Loc.GetString($"department-{department.ID}");
-
-                if (!_jobCategories.TryGetValue(department.ID, out var category))
-                {
-                    category = new BoxContainer
-                    {
-                        Orientation = LayoutOrientation.Vertical,
-                        Name = department.ID,
-                        ToolTip = Loc.GetString("humanoid-profile-editor-jobs-amount-in-department-tooltip",
-                            ("departmentName", departmentName))
-                    };
-
-                    if (firstCategory)
-                    {
-                        firstCategory = false;
-                    }
-                    else
-                    {
-                        category.AddChild(new Control
-                        {
-                            MinSize = new Vector2(0, 23),
-                        });
-                    }
-
-                    category.AddChild(new PanelContainer
-                    {
-                        PanelOverride = new StyleBoxFlat {BackgroundColor = Color.FromHex("#464646")},
-                        Children =
-                        {
-                            new Label
-                            {
-                                Text = Loc.GetString("humanoid-profile-editor-department-jobs-label",
-                                    ("departmentName", departmentName)),
-                                Margin = new Thickness(5f, 0, 0, 0)
-                            }
-                        }
-                    });
-
-                    _jobCategories[department.ID] = category;
-                    _jobList.AddChild(category);
-                }
-
-                var jobs = department.Roles.Select(o => _prototypeManager.Index<JobPrototype>(o)).Where(o => o.SetPreference).ToList();
-                jobs.Sort((x, y) => -string.Compare(x.LocalizedName, y.LocalizedName, StringComparison.CurrentCultureIgnoreCase));
-
-                foreach (var job in jobs)
-                {
-                    var selector = new JobPrioritySelector(job);
-
-                    if (!playTime.IsAllowed(job, out var reason))
-                    {
-                        selector.LockRequirements(reason);
-                    }
-
-                    category.AddChild(selector);
-                    _jobPriorities.Add(selector);
-
-                    selector.PriorityChanged += priority =>
-                    {
-                        Profile = Profile?.WithJobPriority(job.ID, priority);
-                        IsDirty = true;
-
-                        foreach (var jobSelector in _jobPriorities)
-                        {
-                            // Sync other selectors with the same job in case of multiple department jobs
-                            if (jobSelector.Job == selector.Job)
-                            {
-                                jobSelector.Priority = priority;
-                            }
-
-                            // Lower any other high priorities to medium.
-                            if (priority == JobPriority.High)
-                            {
-                                if (jobSelector.Job != selector.Job && jobSelector.Priority == JobPriority.High)
-                                {
-                                    jobSelector.Priority = JobPriority.Medium;
-                                    Profile = Profile?.WithJobPriority(jobSelector.Job.ID, JobPriority.Medium);
-                                }
-                            }
-                        }
-                    };
-
-                }
-            }
 
             #endregion Jobs
 

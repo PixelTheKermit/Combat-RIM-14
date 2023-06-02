@@ -73,7 +73,16 @@ public sealed class ShipSpawningSystem : BaseWorldSystem
         while (slotsLeft > 0)
         {
             var map = _random.Pick(valid);
-            var slotsToRemove = Math.Min(map.Stations.Sum(x => x.Value.AvailableJobs.Sum(x => x.Value[0] ?? 0)) / 2, 1);
+
+            List<StationJobsComponent> jobs = new();
+            foreach (var x in map.Stations)
+            {
+                var comp = x.Value.StationComponentOverrides.GetValueOrDefault("StationJobsComponent");
+                if (comp != null)
+                    jobs.Add((StationJobsComponent) comp.Component);
+            }
+
+            var slotsToRemove = Math.Min(jobs.Sum(x => x.SetupAvailableJobs.Sum(x => x.Value[0] ?? 0)) / 2, 1);
             slotsLeft -= slotsToRemove;
 
             ev.Maps.Add(map);
