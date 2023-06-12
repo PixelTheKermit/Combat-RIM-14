@@ -2911,3 +2911,421 @@ Entries:
     type: Tweak}
   id: 3899
   time: '2023-05-30T02:51:32.0000000+00:00'
+- author: HerCoyote23
+  changes:
+  - {message: limited Northstar battlecry to 12 characters, type: Fix}
+  id: 3900
+  time: '2023-05-30T17:57:53.0000000+00:00'
+- author: PJB3005
+  changes:
+  - {message: You can't see grilles in the power monitoring console anymore, type: Tweak}
+  id: 3901
+  time: '2023-05-30T22:34:45.0000000+00:00'
+- author: 612git
+  changes:
+  - {message: Fixed Poppy potency scaling, type: Fix}
+  id: 3902
+  time: '2023-05-30T23:07:15.0000000+00:00'
+- author: HerCoyote23
+  changes:
+  - {message: Fix northstar gloves sending radio messages., type: Fix}
+  id: 3903
+  time: '2023-05-31T01:11:36.0000000+00:00'
+- author: metalgearsloth
+  changes:
+  - {message: Mining shuttle will spawn roundstart., type: Add}
+  id: 3904
+  time: '2023-05-31T01:13:03.0000000+00:00'
+- author: metalgearsloth
+  changes:
+  - {message: 'All ore veins are guaranteed on expeditions, tripled the vein count,
+      but made it so veins only drop 1 ore each.', type: Tweak}
+  id: 3905
+  time: '2023-05-31T03:40:37.0000000+00:00'
+- author: Flareguy
+  changes:
+  - {message: 'Shivs have been rebalanced. The regular glass shiv now does 5.5 damage,
+      but the damage gain from the better tiers of glass is much lower.', type: Tweak}
+  - {message: Glass shards now weigh a more appropriate size, type: Tweak}
+  - {message: Plasma glass shards are no longer orange, type: Fix}
+  id: 3906
+  time: '2023-05-31T03:42:14.0000000+00:00'
+- author: lzk228
+  changes:
+  - {message: Added brown bandana to cargodrobe, type: Add}
+  id: 3907
+  time: '2023-05-31T04:32:15.0000000+00:00'
+- author: Cripes
+  changes:
+  - {message: Forensic scanner prints receipts now, type: Add}
+  id: 3908
+  time: '2023-05-31T09:09:05.0000000+00:00'
+- author: Segonist
+  changes:
+  - {message: Now you can print cell recharger and recharger circuits on autolathe
+      and construct them like other machines., type: Add}
+  id: 3909
+  time: '2023-05-31T13:48:55.0000000+00:00'
+- author: lzk
+  changes:
+  - {message: added some tools to belts whitelist, type: Tweak}
+  - {message: swab is trash now, type: Tweak}
+  id: 3910
+  time: '2023-05-31T13:51:52.0000000+00:00'
+- author: metalgearsloth
+  changes:
+  - {message: Fix some docking configs not being considered valid., type: Fix}
+  id: 3911
+  time: '2023-05-31T14:09:14.0000000+00:00'
+- author: OctoRocket
+  changes:
+  - {message: Added the uncloneable trait!, type: Add}
+  id: 3912
+  time: '2023-05-31T17:34:30.0000000+00:00'
+- author: Flareguy
+  changes:
+  - {message: 'Added the NTSRA voidsuit, you may be able to find it in derelicts.',
+    type: Add}
+  - {message: Removed the IHS voidsuit and gloves., type: Remove}
+  id: 3913
+  time: '2023-05-31T22:03:15.0000000+00:00'
+- author: PJB3005
+  changes:
+  - {message: Replaced some lethal mines in Barratry maintenance., type: Tweak}
+  id: 3914
+  time: '2023-05-31T22:25:13.0000000+00:00'
+- author: metalgearsloth
+  changes:
+  - {message: Fix some docking configs (e.g. saltern)., type: Fix}
+  id: 3915
+  time: '2023-06-01T00:48:45.0000000+00:00'
+- author: metalgearsloth
+  changes:
+  - {message: PKA requires wielding now., type: Tweak}
+  id: 3916
+  time: '2023-06-01T02:27:19.0000000+00:00'
+- author: metalgearsloth
+  changes:
+  - {message: L6 firerate is 6 again. It requires wielding to have decent accuracy.,
+    type: Tweak}
+  - {message: SMG accuracy reduced to 3-tiles width at full screen away., type: Tweak}
+  id: 3917
+  time: '2023-06-01T02:40:11.0000000+00:00'
+- author: liltenhead
+  changes:
+  - {message: Autolathe board economy crashed, type: Tweak}
+  id: 3918
+  time: '2023-06-01T06:49:50.0000000+00:00'
+- author: metalgearsloth
+  changes:
+  - {message: Fix NPCs getting stuck on corners., type: Fix}
+  id: 3919
+  time: '2023-06-01T13:11:41.0000000+00:00'
+- author: EmoGarbage404
+  changes:
+  - {message: Less severe anomalies now have higher baseline point output., type: Tweak}
+  - {message: Random anomaly stability fluctuation is less extreme., type: Tweak}
+  id: 3920
+  time: '2023-06-01T23:07:20.0000000+00:00'
+- author: PJB3005
+  changes:
+  - {message: 'Handcuffs don''t eat all interaction events anymore, so you can put
+      them in disposal bins, backpacks, etc.', type: Fix}
+  id: 3921
+  time: '2023-06-02T00:48:43.0000000+00:00'
+- author: Chief-Engineer
+  changes:
+  - {message: 'Ghosts can perform interactions, like fully examining things, at any
+      range', type: Tweak}
+  id: 3922
+  time: '2023-06-02T00:50:17.0000000+00:00'
+- author: icesickleone
+  changes:
+  - {message: Cowelding tool no longer heals blunt damage when lit, type: Fix}
+  id: 3923
+  time: '2023-06-02T00:53:25.0000000+00:00'
+- author: PJB3005
+  changes:
+  - {message: Avoid doing actions like placing wires if you fail to insert something
+      into a backpack., type: Tweak}
+  - {message: Improved error messages for storage items., type: Tweak}
+  - {message: Stacks don't get dropped on the ground anymore if they can't fit in
+      a storage item., type: Fix}
+  id: 3924
+  time: '2023-06-02T01:13:56.0000000+00:00'
+- author: EmoGarbage404
+  changes:
+  - {message: Added bruise packs and ointment to medical techfab., type: Add}
+  id: 3925
+  time: '2023-06-02T01:36:33.0000000+00:00'
+- author: brainfood1183
+  changes:
+  - {message: 'Toy Box has been added, it is filled with new toys.', type: Add}
+  id: 3926
+  time: '2023-06-03T03:31:48.0000000+00:00'
+- author: HerCoyote23
+  changes:
+  - {message: Swords no longer clank, type: Tweak}
+  id: 3927
+  time: '2023-06-03T10:17:15.0000000+00:00'
+- author: Renlou
+  changes:
+  - {message: Added hampter plushie based on discord emoji/sticker, type: Add}
+  id: 3928
+  time: '2023-06-03T18:50:53.0000000+00:00'
+- author: Owai-Seek
+  changes:
+  - {message: Added GuideHelp tags to some Janitorial items., type: Add}
+  id: 3929
+  time: '2023-06-03T19:07:06.0000000+00:00'
+- author: lzk228
+  changes:
+  - {message: Uranium window now can block radiation, type: Tweak}
+  id: 3930
+  time: '2023-06-03T19:12:27.0000000+00:00'
+- author: PJB3005
+  changes:
+  - {message: Players being electrocuted now shows up nicer on the power monitoring
+      console., type: Tweak}
+  id: 3931
+  time: '2023-06-03T19:13:31.0000000+00:00'
+- author: Vordenburg
+  changes:
+  - {message: Joints and blunts will get you high again., type: Fix}
+  id: 3932
+  time: '2023-06-03T19:29:46.0000000+00:00'
+- author: tom-leys
+  changes:
+  - {message: 'Latest scientific research shows small boxes around Flesh Anomalies
+      are no longer best practice. Asked to comment on this, our scientific advisor
+      had this to say: "The Tendons! Tendons everywhere! Arrrghhh!"', type: Tweak}
+  id: 3933
+  time: '2023-06-03T19:31:11.0000000+00:00'
+- author: EmoGarbage404
+  changes:
+  - {message: Fixed being able to override the amount of the amount of liquid shot
+      out of a spray bottle., type: Fix}
+  - {message: Fixed vapor sprites being rotated in the wrong direction., type: Fix}
+  - {message: Slightly buffed mega spray bottle., type: Tweak}
+  id: 3934
+  time: '2023-06-03T19:31:50.0000000+00:00'
+- author: deltanedas
+  changes:
+  - {message: 'DoAfters (green bar above your head) now work when moving without gravity
+      so you can cuff, strip and use meds in spess.', type: Tweak}
+  id: 3935
+  time: '2023-06-03T19:33:41.0000000+00:00'
+- author: Slava0135
+  changes:
+  - {message: puddle stickiness now updates when solution changes, type: Fix}
+  id: 3936
+  time: '2023-06-03T19:34:44.0000000+00:00'
+- author: deltanedas
+  changes:
+  - {message: 'Due to budget cuts in atmos, large gas tanks had their volume reduced
+      by 78%.', type: Tweak}
+  id: 3937
+  time: '2023-06-04T00:09:37.0000000+00:00'
+- author: deltanedas
+  changes:
+  - {message: 'Due to carp budget cuts, the Chief Space Carp can no longer send the
+      strongest carp and dragons to expedition dungeons.', type: Tweak}
+  id: 3938
+  time: '2023-06-04T11:06:13.0000000+00:00'
+- author: Equivocateur
+  changes:
+  - {message: Nanotrasen has remembered that they had built a therapy room for a reason
+      and is now allowing psychologists to board Origin Station., type: Fix}
+  id: 3939
+  time: '2023-06-04T20:11:15.0000000+00:00'
+- author: Owai-Seek
+  changes:
+  - {message: 'Adds Medical Doctor, Cryo, and Cloning Guidebooks', type: Add}
+  id: 3940
+  time: '2023-06-04T21:06:43.0000000+00:00'
+- author: Owai-Seek
+  changes:
+  - {message: Added Chef Guidebook, type: Add}
+  id: 3941
+  time: '2023-06-04T21:34:29.0000000+00:00'
+- author: EmoGarbage404
+  changes:
+  - {message: Advanced tools now has the recipe for the Experimental welding tool
+      instead of the Industrial welding tool, type: Fix}
+  id: 3942
+  time: '2023-06-04T22:23:27.0000000+00:00'
+- author: HerCoyote23
+  changes:
+  - {message: Spears and Bats are bigger now, type: Tweak}
+  id: 3943
+  time: '2023-06-05T00:49:18.0000000+00:00'
+- author: Slava0135
+  changes:
+  - {message: shields by default now block 50% of damage when not blocking and 100%
+      of damage when blocking., type: Tweak}
+  - {message: fixed shields affected by owner damage modifiers, type: Fix}
+  - {message: fixed shields taking damage from pressure if owner taking damage from
+      pressure (and etc.), type: Fix}
+  - {message: fixed shields making owner less resistant to damage, type: Fix}
+  id: 3944
+  time: '2023-06-05T02:23:55.0000000+00:00'
+- author: Ubaser
+  changes:
+  - {message: Added a new evacuation shuttle for Cluster, type: Add}
+  id: 3945
+  time: '2023-06-05T02:52:58.0000000+00:00'
+- author: lzk228
+  changes:
+  - {message: Captain fax now captain's on Fland and Saltern, type: Tweak}
+  id: 3946
+  time: '2023-06-05T09:20:19.0000000+00:00'
+- author: EmoGarbage404
+  changes:
+  - {message: Fixed several reagents showing up in the "other" section of the chem
+      guidebook when they shouldn't have been., type: Fix}
+  id: 3947
+  time: '2023-06-05T21:08:31.0000000+00:00'
+- author: EmoGarbage404
+  changes:
+  - {message: 'Added a guide for the bartender, including all the drinks and their
+      recipes.', type: Add}
+  id: 3948
+  time: '2023-06-05T22:44:43.0000000+00:00'
+- author: Owai-Seek
+  changes:
+  - {message: Added a Chemist Guidebook with a medical subsection., type: Add}
+  - {message: Guidebook Helpers have been added to the Chem Dispenser and Chem Master.,
+    type: Tweak}
+  id: 3949
+  time: '2023-06-05T22:45:46.0000000+00:00'
+- author: Owai-Seek
+  changes:
+  - {message: Added GuideHelp tags to some Medical and Kitchen objects., type: Add}
+  id: 3950
+  time: '2023-06-05T22:47:15.0000000+00:00'
+- author: ElectroJr
+  changes:
+  - {message: Fixed the lobby's "Observe" button not working., type: Fix}
+  id: 3951
+  time: '2023-06-06T01:01:39.0000000+00:00'
+- author: EmoGarbage404
+  changes:
+  - {message: Defibrillators no longer heal airloss damage on live targets., type: Tweak}
+  - {message: 'Rotting no longer outright blocks defibrillators, however, the attempt
+      to revive will still fail.', type: Tweak}
+  id: 3952
+  time: '2023-06-06T21:08:35.0000000+00:00'
+- author: HerCoyote23
+  changes:
+  - {message: You can clobber people with the seclite now., type: Tweak}
+  id: 3953
+  time: '2023-06-06T21:21:19.0000000+00:00'
+- author: Stealth16
+  changes:
+  - {message: Reduced the yield and growth rates of almost every plant., type: Tweak}
+  id: 3954
+  time: '2023-06-07T03:48:08.0000000+00:00'
+- author: ElectroJr
+  changes:
+  - {message: Fixed a bug that allowed traitors to duplicate TCs., type: Fix}
+  id: 3955
+  time: '2023-06-07T03:53:11.0000000+00:00'
+- author: Velcroboy
+  changes:
+  - {message: Added Bingus and Space Cat spawners!, type: Add}
+  id: 3956
+  time: '2023-06-07T03:53:27.0000000+00:00'
+- author: Owai-Seek
+  changes:
+  - {message: Mice are no longer blood based juice boxes., type: Tweak}
+  id: 3957
+  time: '2023-06-07T03:53:41.0000000+00:00'
+- author: Rincew1nd
+  changes:
+  - {message: All the antag roles have briefing sounds now., type: Add}
+  id: 3958
+  time: '2023-06-07T07:15:23.0000000+00:00'
+- author: lzk
+  changes:
+  - {message: Fixed slime and diona brute damage color., type: Fix}
+  id: 3959
+  time: '2023-06-07T08:57:49.0000000+00:00'
+- author: EmoGarbage404
+  changes:
+  - {message: Fixed missing text for the cogchamp effect in the bar guide., type: Fix}
+  id: 3960
+  time: '2023-06-07T09:52:24.0000000+00:00'
+- author: Kit0vras
+  changes:
+  - {message: 'Added new reagent: Fat.', type: Add}
+  - {message: Added reactions for creating soap and meat., type: Add}
+  - {message: 'Added the ability to get fat from raw meat, cutlets, body parts, mice
+      and hamster using a grinder.', type: Add}
+  id: 3961
+  time: '2023-06-07T13:04:37.0000000+00:00'
+- author: TemporalOroboros
+  changes:
+  - {message: The PDA ringtone now permits deleting/rewriting notes instead of requiring
+      copypasting., type: Tweak}
+  id: 3962
+  time: '2023-06-07T14:22:19.0000000+00:00'
+- author: EmoGarbage404
+  changes:
+  - {message: Defibrillators now revive people again., type: Fix}
+  id: 3963
+  time: '2023-06-07T19:12:49.0000000+00:00'
+- author: metalgearsloth
+  changes:
+  - {message: Added cargo pallets to the cargo product console., type: Add}
+  id: 3964
+  time: '2023-06-07T19:40:30.0000000+00:00'
+- author: deltanedas
+  changes:
+  - {message: 'APCs are now limited to 24kW of power, their breakers will pop if they
+      provide more than that.', type: Tweak}
+  id: 3965
+  time: '2023-06-07T19:43:55.0000000+00:00'
+- author: deltanedas
+  changes:
+  - {message: Fixed microwaves defaulting to 5 seconds when the ui said instant.,
+    type: Fix}
+  id: 3966
+  time: '2023-06-07T19:44:42.0000000+00:00'
+- author: lzk
+  changes:
+  - {message: Changed sprites for some medipens., type: Tweak}
+  id: 3967
+  time: '2023-06-07T22:18:18.0000000+00:00'
+- author: deltanedas
+  changes:
+  - {message: 'You can now build logic gates and link them to some things, currently
+      doors and other logic gates.', type: Add}
+  id: 3968
+  time: '2023-06-07T23:48:43.0000000+00:00'
+- author: Sanchez_
+  changes:
+  - {message: Added new emotion sound, type: Add}
+  id: 3969
+  time: '2023-06-08T06:22:02.0000000+00:00'
+- author: TemporalOroboros
+  changes:
+  - {message: 'Central has distributed a new subversion of the standard particle accelerators.
+      Nothing exciting, but they have brought back the old wiring layout. Apparently
+      some of the newer versions were having firmware issues and it was more reliable.
+      Keep on eye on it while it''s running will you? We don''t want an intern disabling
+      the safeties and frying their face off.', type: Add}
+  - {message: Some components of the particle accelerator have been relabeled to make
+      their orientation more obvious., type: Tweak}
+  id: 3970
+  time: '2023-06-08T06:25:59.0000000+00:00'
+- author: brainfood1183
+  changes:
+  - {message: HAMTR mech has been added., type: Add}
+  id: 3971
+  time: '2023-06-08T06:33:36.0000000+00:00'
+- author: OctoRocket
+  changes:
+  - {message: The game will now fall back to Traitor if there are more than 5 people
+      in the game., type: Tweak}
+  id: 3972
+  time: '2023-06-08T07:16:18.0000000+00:00'
