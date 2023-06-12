@@ -89,3 +89,7 @@
   - type: SolutionContainerManager
     solutions:
       buffer: {}
+  - type: GuideHelp
+    guides:
+    - Chemicals
+    - Chemist
