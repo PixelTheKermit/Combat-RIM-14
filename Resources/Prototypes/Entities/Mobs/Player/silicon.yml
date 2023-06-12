@@ -48,7 +48,6 @@
   - type: Sprite
     noRot: true
     drawdepth: Mobs
-    netsync: false
   - type: Physics
     bodyType: KinematicController
   - type: Hands
@@ -136,7 +135,7 @@
       types:
         Heat : 1 #per second, scales with temperature & other constants
   - type: Sprite
-    netsync: false
+    drawdepth: SmallMobs
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: drone
@@ -218,7 +217,6 @@
       1000: Dead
   - type: Sprite
     drawdepth: Mobs
-    netsync: false
     layers:
     - state: onestar_boss
       sprite: Mobs/Silicon/onestar.rsi

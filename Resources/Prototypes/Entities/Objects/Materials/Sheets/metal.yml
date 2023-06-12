@@ -7,7 +7,6 @@
   - type: PersistenceControl
     mode: Delete
   - type: Sprite
-    netsync: false
     sprite: Objects/Materials/Sheets/metal.rsi
   - type: Item
     sprite: Objects/Materials/Sheets/metal.rsi
