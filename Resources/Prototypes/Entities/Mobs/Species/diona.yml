@@ -56,13 +56,6 @@
       Unsexed: UnisexDiona
   - type: BodyEmotes
     soundsId: DionaBodyEmotes
-  - type: DamageVisuals
-    damageOverlayGroups:
-      Brute:
-        sprite: Mobs/Effects/brute_damage.rsi
-        color: "#75b1f0"
-      Burn:
-        sprite: Mobs/Effects/burn_damage.rsi
 
 - type: entity
   save: false

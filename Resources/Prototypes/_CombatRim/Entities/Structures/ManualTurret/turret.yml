@@ -8,7 +8,7 @@
     mode: SnapgridCenter
   components:
     - type: Controllable
-      delay: 45 # So people don't just start shooting your ship with your own turrets. Wack fix I know but shush.
+      delay: 20 # So people don't just start shooting your ship with your own turrets. Wack fix I know but shush.
     - type: Actions
     - type: Input
     - type: DoAfter
@@ -46,7 +46,6 @@
           layer:
           - MachineLayer
     - type: Sprite
-      netsync: false
       sprite: Objects/Weapons/Guns/Turrets/turrets.rsi
       drawdepth: WallMountedItems
       layers:
@@ -72,7 +71,7 @@
                   max: 5
     - type: DeviceLinkSink
       ports:
-        AutoAmmoInserter: []
+       - AutoAmmoInserter
 
 - type: entity
   abstract: true

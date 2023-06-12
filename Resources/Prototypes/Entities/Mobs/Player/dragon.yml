@@ -1,7 +1,7 @@
 - type: entity
   name: space dragon
   parent: SimpleSpaceMobBase
-  id: MobDragon
+  id: BaseMobDragon
   suffix: ""
   description: A flying leviathan, loosely related to space carps.
   abstract: true

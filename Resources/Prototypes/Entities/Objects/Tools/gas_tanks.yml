@@ -52,11 +52,7 @@
   - type: GasTank
     outputPressure: 21.27825
     air:
-<<<<<<< HEAD
-      volume: 16
-=======
       volume: 15
->>>>>>> 9ddba694f2a3ec68016ed05b8a22f8211a5ce7a8
       temperature: 293.15
     tankLowPressure: 30.0
   - type: Clothing

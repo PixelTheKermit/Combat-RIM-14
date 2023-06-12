@@ -171,7 +171,7 @@ namespace Content.Server._CombatRim.ManualTurret
 
                 var bullet = projComp.Prototype;
                 _audioSystem.Play(comp.SoundGunshot, Filter.Pvs(uid), uid, true);
-                _gunSystem.ShootProjectile(Spawn(bullet, xform.MapPosition), angle.ToWorldVec(), angle.ToWorldVec() * 10, uid);
+                _gunSystem.ShootProjectile(Spawn(bullet, xform.MapPosition), angle.ToWorldVec(), angle.ToWorldVec() * 10, uid, uid);
             }
             else
             {
@@ -322,10 +322,10 @@ namespace Content.Server._CombatRim.ManualTurret
                         rot + cartridgeComp.Spread / 2, cartridgeComp.Count);
 
                     for (var i = 0; i < cartridgeComp.Count; i++)
-                        _gunSystem.ShootProjectile(Spawn(bullet, xform.MapPosition), angles[i].ToWorldVec(), angles[i].ToWorldVec() * 10, uid);
+                        _gunSystem.ShootProjectile(Spawn(bullet, xform.MapPosition), angles[i].ToWorldVec(), angles[i].ToWorldVec() * 10, uid, uid);
                 }
                 else // You're no fun!
-                    _gunSystem.ShootProjectile(Spawn(bullet, xform.MapPosition), angle.ToWorldVec(), angle.ToWorldVec() * 10, uid);
+                    _gunSystem.ShootProjectile(Spawn(bullet, xform.MapPosition), angle.ToWorldVec(), angle.ToWorldVec() * 10, uid, uid);
 
                 _entityManager.DeleteEntity(cartridge); // This is better for performance, for both the client and the server.
             }
@@ -333,7 +333,7 @@ namespace Content.Server._CombatRim.ManualTurret
             {
                 _audioSystem.Play(comp.SoundGunshot, Filter.Pvs(uid), uid, true);
                 var bullet = cartridge;
-                _gunSystem.ShootProjectile(bullet, angle.ToWorldVec(), angle.ToWorldVec() * 10, uid);
+                _gunSystem.ShootProjectile(bullet, angle.ToWorldVec(), angle.ToWorldVec() * 10, uid, uid);
             }
 
             if (batteryComp != null)
