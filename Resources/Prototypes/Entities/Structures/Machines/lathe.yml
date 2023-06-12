@@ -501,6 +501,8 @@
     idleState: icon
     runningState: icon
     staticRecipes:
+      - Brutepack
+      - Ointment
       - HandLabeler
       - Defibrillator
       - HandheldHealthAnalyzer
