@@ -46,3 +46,6 @@
     baseSprintSpeed: 8
     baseWalkSpeed: 5
   - type: MovementIgnoreGravity
+  - type: Tag
+    tags:
+      - BypassInteractionRangeChecks
