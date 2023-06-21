@@ -120,119 +120,34 @@
         prob: 0.0001
 
 - type: entity
-  id: CrateSalvageChemistry
-  suffix: Filled, Salvage Random Chemistry
   parent: CrateGenericSteel
+  id: CratePartsT3
+  name: tier 3 parts crate
+  description: Contains 5 random tier 3 parts for upgrading machines.
   components:
-    - type: StorageFill
-      contents:
-        - id: CarbonChemistryBottle
-          prob: 0.5
-        - id: OxygenChemistryBottle
-          prob: 0.5
-        - id: WaterChemistryBottle
-          prob: 0.5
-        - id: PhosphorusChemistryBottle
-          prob: 0.5
-        - id: HydrogenChemistryBottle
-          prob: 0.5
-        - id: NitrogenChemistryBottle
-          prob: 0.5
-        - id: SulfurChemistryBottle
-          prob: 0.5
-        - id: PotassiumChemistryBottle
-          prob: 0.5
-        - id: LithiumChemistryBottle
-          prob: 0.3
-        - id: IronChemistryBottle
-          prob: 0.5
-        - id: ChlorineChemistryBottle
-          prob: 0.3
-        - id: FluorineChemistryBottle
-          prob: 0.2
-        - id: IodineChemistryBottle
-          prob: 0.5
-        - id: MercuryChemistryBottle
-          prob: 0.5
-        - id: RadiumChemistryBottle
-          prob: 0.5
-        - id: SugarChemistryBottle
-          prob: 0.5
+  - type: StorageFill
+    contents:
+    - id: SalvagePartsT3Spawner
+      amount: 5
 
 - type: entity
-  id: CrateSalvageRDParts
-  suffix: Filled, Salvage Random Parts
   parent: CrateGenericSteel
+  id: CratePartsT3T4
+  name: tier 3/4 parts crate
+  description: Contains 5 random tier 3 or 4 parts for upgrading machines.
   components:
-    - type: StorageFill
-      contents:
-        - id: MatterBinStockPart
-          prob: 0.5
-          amount: 1
-          maxAmount: 2
-        - id: CapacitorStockPart
-          prob: 0.5
-          amount: 1
-          maxAmount: 2
-        - id: ScanningModuleStockPart
-          prob: 0.5
-          amount: 1
-          maxAmount: 2
-        - id: MicroManipulatorStockPart
-          prob: 0.5
-          amount: 1
-          maxAmount: 2
-        - id: MicroLaserStockPart
-          prob: 0.5
-          amount: 1
-          maxAmount: 2
-        - id: CableHVStack10
-          prob: 0.5
-          amount: 1
-          maxAmount: 2
-        - id: CableMVStack10
-          prob: 0.5
-          amount: 1
-          maxAmount: 2
-        - id: CableApcStack10
-          prob: 0.5
-          amount: 1
-          maxAmount: 2
+  - type: StorageFill
+    contents:
+    - id: SalvagePartsT3T4Spawner
+      amount: 5
 
 - type: entity
-  id: CrateSalvagePlants
-  suffix: Filled, Salvage Random Plants
   parent: CrateGenericSteel
+  id: CratePartsT4
+  name: tier 4 parts crate
+  description: Contains 5 random tier 4 parts for upgrading machines.
   components:
-    - type: StorageFill
-      contents:
-        - id: ChiliSeeds
-          amount: 1
-          prob: 0.25
-        - id: CornSeeds
-          amount: 1
-          prob: 0.25
-        - id: EggplantSeeds
-          amount: 1
-          prob: 0.25
-        - id: TomatoSeeds
-          amount: 1
-          prob: 0.25
-        - id: WheatSeeds
-          amount: 1
-          prob: 0.25
-        - id: CarrotSeeds
-          amount: 1
-          prob: 0.25
-        - id: ChanterelleSeeds
-          amount: 1
-          prob: 0.25
-        - id: PotatoSeeds
-          amount: 1
-          prob: 0.25
-        - id: SugarcaneSeeds
-          amount: 1
-          prob: 0.25
-        - id: OnionSeeds
-          amount: 1
-          prob: 0.25
+  - type: StorageFill
+    contents:
+    - id: SalvagePartsT4Spawner
+      amount: 5
