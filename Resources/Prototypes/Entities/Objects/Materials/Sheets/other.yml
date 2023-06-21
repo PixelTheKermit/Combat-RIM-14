@@ -180,6 +180,7 @@
   - type: Material
   - type: Food
     transferAmount: 10
+  - type: BadFood
   - type: PhysicalComposition
     materialComposition:
       Uranium: 100
