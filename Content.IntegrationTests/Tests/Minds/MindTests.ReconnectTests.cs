@@ -9,7 +9,6 @@ using Robust.Shared.Map;
 
 namespace Content.IntegrationTests.Tests.Minds;
 
-[TestFixture]
 public sealed partial class MindTests
 {
     // This test will do the following:
@@ -99,7 +98,6 @@ public sealed partial class MindTests
     {
         await using var pairTracker = await PoolManager.GetServerClient();
         var pair = pairTracker.Pair;
-
         var entMan = pair.Server.ResolveDependency<IEntityManager>();
         await PoolManager.RunTicksSync(pair, 5);
         var mind = GetMind(pair);
@@ -127,10 +125,8 @@ public sealed partial class MindTests
     {
         await using var pairTracker = await PoolManager.GetServerClient(new PoolSettings{ ExtraPrototypes = Prototypes });
         var pair = pairTracker.Pair;
-
         var entMan = pair.Server.ResolveDependency<IEntityManager>();
         var mindSys = entMan.System<MindSystem>();
-        await PoolManager.RunTicksSync(pair, 5);
         var mind = GetMind(pair);
 
         // Make player visit a new mob
@@ -138,7 +134,7 @@ public sealed partial class MindTests
         EntityUid visiting = default;
         await pair.Server.WaitAssertion(() =>
         {
-            visiting = entMan.SpawnEntity("MindTestEntity", MapCoordinates.Nullspace);
+            visiting = entMan.SpawnEntity(null, MapCoordinates.Nullspace);
             mindSys.Visit(mind, visiting);
         });
         await PoolManager.RunTicksSync(pair, 5);
