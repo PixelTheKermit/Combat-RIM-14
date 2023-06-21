@@ -46,6 +46,7 @@ research-technology-super-parts = Super Parts
 research-technology-janitorial-equipment = Janitorial Equipment
 research-technology-laundry-tech = Laundry Tech
 research-technology-basic-hydroponics = Basic Hydroponics
+research-technology-hamtr = HAMTR Mech
 research-technology-food-service = Food Service
 research-technology-advanced-entertainment = Advanced Entertainment
 research-technology-audio-visual-communication = A/V Communication
