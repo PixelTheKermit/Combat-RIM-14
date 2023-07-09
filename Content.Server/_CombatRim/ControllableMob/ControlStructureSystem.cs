@@ -95,7 +95,7 @@ public sealed class ControllerStructureSystem : EntitySystem
         }
 
         if (!TryComp<ControllableComponent>(comp.Controlling, out var controllableComp)
-            || TryComp<MindComponent>(uid, out var mind) && mind.HasMind)
+            || TryComp<MindContainerComponent>(uid, out var mind) && mind.HasMind)
         {
             _popupSystem.PopupEntity(Loc.GetString("control-device-already-controlled"), uid, args.User);
             return;

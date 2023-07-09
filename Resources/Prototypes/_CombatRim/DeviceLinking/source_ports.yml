@@ -1,4 +1,4 @@
-- type: transmitterPort
+- type: sourcePort
   id: AutoAmmoOutput
   name: Ammo Output
   description: ammo output

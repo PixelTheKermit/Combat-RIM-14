@@ -1,9 +1,9 @@
-- type: receiverPort
+- type: sinkPort
   id: Sell
   name: Sell
   description: sell
 
-- type: receiverPort
+- type: sinkPort
   id: AutoAmmoInserter
   name: Ammo Input
   description: auto ammo input

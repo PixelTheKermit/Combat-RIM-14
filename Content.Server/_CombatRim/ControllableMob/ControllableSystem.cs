@@ -1,5 +1,6 @@
 using Content.Server._CombatRim.Control.Components;
 using Content.Server.DoAfter;
+using Content.Server.Mind;
 using Content.Server.Mind.Components;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Interaction;
@@ -18,6 +19,7 @@ public sealed class ControllableSystem : EntitySystem
     [Dependency] private readonly EntityManager _entityManager = default!;
     [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
+    [Dependency] private readonly MindSystem _mindSystem = default!;
     [Dependency] private readonly DoAfterSystem _doAfterSystem = default!;
 
     [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
@@ -60,7 +62,7 @@ public sealed class ControllableSystem : EntitySystem
     /// <param name="latter">The entity that you want to temporarily control.</param>
     public void GiveControl(EntityUid former, EntityUid latter)
     {
-        if (!_entityManager.TryGetComponent<MindComponent>(former, out var mindComp))
+        if (!_entityManager.TryGetComponent<MindContainerComponent>(former, out var mindComp))
             return;
 
         var mind = mindComp.Mind;
@@ -70,7 +72,7 @@ public sealed class ControllableSystem : EntitySystem
 
         _entityManager.RemoveComponent<VisitingMindComponent>(latter); // ! This is nessessary to prevent crashes
 
-        mind.Visit(latter);
+        _mindSystem.Visit(mind, latter);
     }
 
     /// <summary>
@@ -79,7 +81,7 @@ public sealed class ControllableSystem : EntitySystem
     /// <param name="uid">The entity that is controlling.</param>
     public void RevokeControl(EntityUid uid)
     {
-        if (!_entityManager.TryGetComponent<MindComponent>(uid, out var mindComp))
+        if (!_entityManager.TryGetComponent<MindContainerComponent>(uid, out var mindComp))
             return;
 
         var mind = mindComp.Mind;
@@ -87,8 +89,7 @@ public sealed class ControllableSystem : EntitySystem
         if (mind == null)
             return;
 
-        mind.UnVisit();
-
+        _mindSystem.UnVisit(mind);
     }
 
     private void OnDeleted(EntityUid uid, ControllableComponent comp, ComponentShutdown args)

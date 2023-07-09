@@ -42,7 +42,7 @@ namespace Content.Server._CombatRim.Control
             }
 
             if (!TryComp<ControllableComponent>(pairComp.Entity, out var controllableComp)
-                || TryComp<MindComponent>(uid, out var mind) && mind.HasMind)
+                || TryComp<MindContainerComponent>(uid, out var mind) && mind.HasMind)
             {
                 _popupSystem.PopupEntity(Loc.GetString("remote-already-controlled"), uid, args.User);
                 return;

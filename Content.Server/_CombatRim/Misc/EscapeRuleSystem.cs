@@ -5,6 +5,7 @@ using Content.Server.GameTicking.Rules;
 using Content.Server.GameTicking.Rules.Components;
 using Content.Server.Ghost.Components;
 using Content.Server.Mind;
+using Content.Server.Mind.Components;
 using Content.Server.Stack;
 using Content.Server.Store.Components;
 using Content.Shared.Containers;
@@ -26,6 +27,7 @@ namespace Content.Server._CombatRim.Rules
         [Dependency] private readonly ContainerSystem _containerSystem = default!;
         [Dependency] private readonly StackSystem _stackSystem = default!;
         [Dependency] private readonly EntityManager _entityManager = default!;
+        [Dependency] private readonly MindSystem _mindSystem = default!;
 
         public override void Initialize()
         {
@@ -53,7 +55,7 @@ namespace Content.Server._CombatRim.Rules
                         continue;
 
                     if (!_mobStateSys.IsDead(uid.Value) && xform.MapID != _gameTicker.DefaultMap && // This means you've escaped! good job!
-                        mind.TryGetSession(out var session) && mind.CharacterName != null) // Gotta have a session though!
+                        _mindSystem.TryGetSession(mind, out var session) && mind.CharacterName != null) // Gotta have a session though!
                     {
                         List<EntityUid> storedUids = new();
 
@@ -66,7 +68,7 @@ namespace Content.Server._CombatRim.Rules
                             if (TryComp<CurrencyComponent>(ent, out var curComp) && curComp.Price.TryGetValue(_cfg.GetCVar<string>(CombatRimCVars.MainCurrency), out var cash))
                             {
                                 if (TryComp<StackComponent>(ent, out var stackComp))
-                                    totalCash += (int) cash*stackComp.Count;
+                                    totalCash += (int) cash * stackComp.Count;
                                 else
                                     totalCash += (int) cash;
                             }

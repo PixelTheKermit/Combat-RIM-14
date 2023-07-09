@@ -19,10 +19,11 @@
     - Contains a simple atmos system
   stations:
     ISVSpade:
-      mapNameTemplate: '{0} Spade {1}'
-      nameGenerator:
-        !type:IndependentNameGenerator
-        prefixCreator: ''
-      overflowJobs: []
-      availableJobs:
-        ShuttleCaptain: [ 0, 1 ]
+      stationProto: StandardNanotrasenStation
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: "ISV Spade"
+        - type: StationJobs
+          overflowJobs: []
+          availableJobs:
+            ShuttleCaptain: [ 0, 1 ]

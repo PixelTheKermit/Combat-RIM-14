@@ -6,8 +6,6 @@
   placement:
     mode: SnapgridCenter
   components:
-    - type: Controllable
-      delay: 30 # So people don't just start shooting your ship with your own turrets. Wack fix I know but shush.
     - type: Clickable
     - type: InteractionOutline
     - type: Transform
@@ -54,8 +52,8 @@
                   min: 3
                   max: 5
     - type: DeviceLinkSource
-      port:
-        AutoAmmoOutput: []
+      ports:
+        - AutoAmmoOutput
     - type: ItemSlots
       slots:
         turret_mag:

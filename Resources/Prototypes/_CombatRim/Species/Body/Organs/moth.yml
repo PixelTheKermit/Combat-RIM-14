@@ -35,7 +35,7 @@
     maxVolume: 20
   - type: Metabolizer
     maxReagents: 2
-    metabolizerTypes: [Human, Moth]
+    metabolizerTypes: [Human]
     groups:
     - id: Food
     - id: Drink

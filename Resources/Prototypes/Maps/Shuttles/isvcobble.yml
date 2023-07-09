@@ -18,10 +18,11 @@
     - Your situation may be bad, but it can get worse
   stations:
     ISVCobble:
-      mapNameTemplate: '{0} Cobble {1}'
-      nameGenerator:
-        !type:IndependentNameGenerator
-        prefixCreator: ''
-      overflowJobs: []
-      availableJobs:
-        SalvageSpecialist: [ 3, 3 ]
+      stationProto: StandardNanotrasenStation
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: "ISV Cobble"
+        - type: StationJobs
+          overflowJobs: []
+          availableJobs:
+            SalvageSpecialist: [ 3, 3 ]

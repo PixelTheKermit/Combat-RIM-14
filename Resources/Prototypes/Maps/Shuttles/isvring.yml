@@ -18,12 +18,13 @@
     - Nerd.
   stations:
     IsvRing:
-      mapNameTemplate: '{0} Ring {1}'
-      nameGenerator:
-        !type:IndependentNameGenerator
-        prefixCreator: ''
-      overflowJobs: []
-      availableJobs:
-        ShuttleCaptain: [ 0, 1 ]
-        Scientist: [ 2, 2 ]
-        SalvageSpecialist: [ 2, 2 ]
+      stationProto: StandardNanotrasenStation
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: "ISV Ring"
+        - type: StationJobs
+          overflowJobs: []
+          availableJobs:
+            ShuttleCaptain: [ 0, 1 ]
+            Scientist: [ 2, 2 ]
+            SalvageSpecialist: [ 2, 2 ]

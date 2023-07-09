@@ -1,15 +1,14 @@
 using System.Threading;
 using Content.Server._CombatRim.SoulTrapping.Components;
 using Content.Server.DoAfter;
+using Content.Server.Mind;
 using Content.Server.Mind.Components;
 using Content.Server.Popups;
 using Content.Shared._CombatRim.SoulTrapping;
 using Content.Shared.Containers.ItemSlots;
-using Content.Shared.Damage;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
 using Content.Shared.Mobs.Systems;
-using Internal.TypeSystem;
 using Robust.Server.Containers;
 using Robust.Shared.Containers;
 
@@ -20,6 +19,7 @@ public sealed class SoulTrapperSystem : EntitySystem
     // Dependencies
     [Dependency] private readonly EntityManager _entityManager = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearanceSystem = default!;
+    [Dependency] private readonly MindSystem _mindSystem = default!;
     [Dependency] private readonly ContainerSystem _containerSystem = default!;
     [Dependency] private readonly DoAfterSystem _doAfterSystem = default!;
     [Dependency] private readonly ItemSlotsSystem _slotsSystem = default!;
@@ -85,7 +85,7 @@ public sealed class SoulTrapperSystem : EntitySystem
     {
         _appearanceSystem.SetData(uid, SoulTrapperVisuals.Inserted, 1);
 
-        if (Comp<MindComponent>(args.Entity).Mind != null)
+        if (Comp<MindContainerComponent>(args.Entity).Mind != null)
         {
             _appearanceSystem.SetData(uid, SoulTrapperVisuals.Inserted, 2);
         }
@@ -104,15 +104,15 @@ public sealed class SoulTrapperSystem : EntitySystem
         if (args.Cancelled || args.Args.Target == null || !_slotsSystem.TryGetSlot(uid, "soul-container", out var itemSlot))
             return;
 
-        var mind = Comp<MindComponent>(args.Args.Target.Value).Mind;
+        var mind = Comp<MindContainerComponent>(args.Args.Target.Value).Mind;
 
-        var mind2 = Comp<MindComponent>(itemSlot.Item!.Value).Mind;
+        var mind2 = Comp<MindContainerComponent>(itemSlot.Item!.Value).Mind;
 
         if (mind != null)
-            mind.TransferTo(itemSlot.Item);
+            _mindSystem.TransferTo(mind, itemSlot.Item);
 
         if (mind2 != null)
-            mind2.TransferTo(args.Args.Target);
+            _mindSystem.TransferTo(mind2, args.Args.Target);
 
         UpdateTrapperVisuals(uid, itemSlot.Item.Value, mind);
 

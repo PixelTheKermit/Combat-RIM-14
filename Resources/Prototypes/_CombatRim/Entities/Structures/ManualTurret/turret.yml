@@ -15,8 +15,8 @@
     - type: Examiner
     - type: Eye
     - type: LagCompensation
-    - type: Mind
-    - type: ManualTurret # BRAND NEW COMPONENT FROM PIXEL CO. MADE FROM THE BLOOD AND SWEAT OF ONE POOR CODER!
+    - type: MindContainer
+    - type: ManualTurret
       fullAuto: true
       minAngle: 2
       maxAngle: 4

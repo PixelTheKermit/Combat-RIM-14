@@ -54,7 +54,7 @@
     layers:
     - state: icon
   - type: Appearance
-  - type: Mind
+  - type: MindContainer
   - type: GenericVisualizer
     visuals:
         enum.SoulTrapperVisuals.Inserted:

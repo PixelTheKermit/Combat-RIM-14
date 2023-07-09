@@ -20,12 +20,13 @@
     - Runs off plasma
   stations:
     IsvBox:
-      mapNameTemplate: '{0} Box {1}'
-      nameGenerator:
-        !type:IndependentNameGenerator
-        prefixCreator: ''
-      overflowJobs: []
-      availableJobs:
-        SalvageSpecialist: [ 2, 2 ]
-        MedicalDoctor: [ 1, 1 ]
-        ChiefShuttleMedic: [ 0, 1 ]
+      stationProto: StandardNanotrasenStation
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: "ISV Box"
+        - type: StationJobs
+          overflowJobs: []
+          availableJobs:
+            SalvageSpecialist: [ 2, 2 ]
+            MedicalDoctor: [ 1, 1 ]
+            ChiefShuttleMedic: [ 0, 1 ]

@@ -15,9 +15,9 @@
   - type: Clickable
   - type: InteractionOutline
   - type: Pullable
-  - type: SignalReceiver
-    inputs:
-      Sell: []
+  - type: DeviceLinkSink
+    ports:
+      - Sell
   - type: SellPlatform
     blacklist:
       components:

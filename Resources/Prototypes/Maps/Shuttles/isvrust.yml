@@ -23,10 +23,11 @@
 
   stations:
     IsvRust:
-      mapNameTemplate: '{0} Rust {1}'
-      nameGenerator:
-        !type:IndependentNameGenerator
-        prefixCreator: ''
-      overflowJobs: []
-      availableJobs:
-        ShuttleCaptain: [ 0, 1 ]
+      stationProto: StandardNanotrasenStation
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: "ISV Rust"
+        - type: StationJobs
+          overflowJobs: []
+          availableJobs:
+            ShuttleCaptain: [ 0, 1 ]

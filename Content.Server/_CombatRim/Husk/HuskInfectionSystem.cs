@@ -158,7 +158,7 @@ namespace Content.Server._CombatRim.Husk
             // Don't think husks should be player controlled... however this makes them unclonable aswell... too bad!
             // TODO: Allow the original host to return to a cloned body, shouldn't be hard to do... right?
             // ! In CR this doesn't really matter much does it?
-            if (TryComp<MindComponent>(uid, out var mindComp) && mindComp.Mind != null)
+            if (TryComp<MindContainerComponent>(uid, out var mindComp) && mindComp.Mind != null)
                 _gameTicker.OnGhostAttempt(mindComp.Mind, false);
 
             _bloodstream.SetBloodLossThreshold(uid, 0f);
